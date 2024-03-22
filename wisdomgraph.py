@@ -10,13 +10,17 @@
 """
 
 # TODO: dado um wisdomgraph sem enredo, que enredo pode ser criado?
+# TODO: webinterface para mostrar um problema ao user e ele verificar se concorda ou propoe melhor resolucao
+# TODO: Joaquim e Cadeia de Markov - será que há algo?
+# TODO: explorar a remoção de relações, num cenário, simulando o que se passa se o estudante não se recordar de uma relação.
+
 
 
 import itertools
 import networkx as nx
 import matplotlib.pyplot as plt
 import datetime
-from sympy import Eq
+from sympy import Eq,latex 
 
 #from sage.all import *
 
@@ -53,19 +57,54 @@ def join_varnames(varlist):
     return "".join( sorted( [str(v) for v in varlist] ) )   
 
 
+class SympyRelation:
+    """
+
+    >> x1 = Symbol('x_1')
+    >> x2 = Symbol('x_2')
+    >> x3 = Symbol('x_3')
+    >> media = Symbol('\\bar{x}')
+    >> SympyRelation( Eq(media, Rational(1,3)*(x1+x2+x3)) )
+
+    """
+    
+    def __init__(self,sympyrelation,free_symbols={},latex_str=""):
+        
+        self.sympyrelation = sympyrelation
+
+        if free_symbols:
+            self.free_symbols = free_symbols
+        else:
+            self.free_symbols = sympyrelation.free_symbols
+
+        if latex_str:
+            self.latex_str = latex_str
+        else:
+            self.latex_str = latex(sympyrelation)
+
+    def __str__(self):
+        return self.latex_str
+    
+    def __repr__(self):
+        return f"SympyRelation({self.sympyrelation},{self.free_symbols},{self.latex_str})"
+
+SR = SympyRelation        
+
+
+
 class SolverCandidate:
     """
     A solver candidate is described by:
     
     1. input variables
-    2. a list of equation(s)
+    2. a set of expressions(s)
     3. output variables
 
     Notation:
     
     - a "solver candidate" has an signature: input variables to outputs variables;
-    - it is described also by the equations that can do that
-    - at the moment it is not testing if it really solves the equations in order to the output variables
+    - it is described also by the relations that can do that
+    - at the moment it is not testing if it really solves the relations in order to the output variables
     - "candidate" in the sense that this routine proposes a set of solvers
     - only, later, the "exercise finder" will confirm that it is really possible to solve 
 
@@ -73,26 +112,27 @@ class SolverCandidate:
 
     - input_set
     - output_set
-    - equations_set
+    - relations_set
 
     """
 
 
-    def __init__(self,input_set,output_set,equations_set):
+    def __init__(self,input_set,output_set,relations_set):
 
         #like: 'a+b==2\nc+d==e+g'
-        eqstr = '\n'.join( [str(e) for e in equations_set] )
+        rel_str = '\n'.join( [e.latex_str for e in relations_set] )
 
-        self.solvername ='{iv}->{ov}\n{eqstr})'.format(
+        
+        self.solvername ='{iv}->{ov}\n{rel_str})'.format(
             iv    = set2orderedstr(input_set),
             ov    = set2orderedstr(output_set),
-            eqstr = eqstr
+            rel_str = rel_str
         )
 
         self.signature = {
             'input_set':     input_set, 
             'output_set':    output_set, 
-            'equations_set': equations_set
+            'relations_set': relations_set
         }
 
 
@@ -110,7 +150,7 @@ class Scenario:
         - scenario: a dictionary like
         - r: list; [1], [2], [1,2], etc
 
-        Combines 1 by 1 equation, and/or 2 by 2, etc.
+        Combines 1 by 1 relation, and/or 2 by 2, etc.
 
         .. code:: python
 
@@ -157,8 +197,8 @@ class Scenario:
 
         #special node name (see node_name())
         self.allvars_set = set()
-        for eq in scenario.keys():
-            self.allvars_set = self.allvars_set.union( scenario[eq] ).copy()
+        for rel in scenario:
+            self.allvars_set = self.allvars_set.union( rel.free_symbols ).copy()
 
         #TODO: ordenar sympy symbols: não pode ser
         #    direto pois a<b não funciona no sympy
@@ -171,19 +211,28 @@ class Scenario:
         #that has a name like 'a,b,c,d,e,f' (all vars)
         self.node_knowledge_name = join_varnames(self.allvars_set)
     
-        #solver candidates like: (a,b) -> (c,d) using equations
-        #populates self.solvercandidates
+        #build all solver candidates like: (a,b) -> (c,d) from relations
+        #Populates:
+        # self.rel_number_list = a number 1, 2, or more relations at same time
+        # self.solver_candidates = a list of edges; below a graph with this edges is formed
         self.build_solvercandidates(r)
 
-        #self.wisdomgraph = WisdomGraph()
+
+        #Makes a MuliDiGraph where nodes represent "known vars at the moment"
+        #and edges are "operators" that moves from one node to another.
+        #Populates: 
+        # self.wisdomgraph - nx.MuliDiGraph
+        # self.nodes_dict - a dictionary where each key is made by a label formed by a set of variables
+        #                   each key points to the respective set of variables; it is understood to be the node
+        #                   of the graph; each node means those variables are known at that time.
         self.build_wisdomgraph()
 
 
 
 
-    def mk_solvercandidates(self,eqlist):
+    def mk_solvercandidates(self,rellist):
         """
-        From one equation, or system of equations, produce functions
+        From one relation, or system of relations, produce functions
         based on combinations of variables.
 
         For example, from `2x + 4y = 10` it produces 2 functions with signatures:
@@ -191,10 +240,10 @@ class Scenario:
         - x --> y using `2x + 4y = 10` (input variable is `x` and output variable is `y`)
         - y --> x using `2x + 4y = 10` (input variable is `y` and output variable is `x`)
 
-        and likewise with a system of two equations.
+        and likewise with a system of two relations.
 
         The word "solver" is used because from a set of known variables it produces values for more
-        variables. The word "candidate" is used because not always is possible to "solve" the equation(s)
+        variables. The word "candidate" is used because not always is possible to "solve" the relations(s)
         and produce values for output variables. For example:
 
         - x --> y using `2x + 4y = 10` (easy to find `y` knowing `x`)
@@ -203,33 +252,33 @@ class Scenario:
 
         See:
 
-        - "Can you give a linear system example of two linear equations and two variables without solution?")
+        - "Can you give a linear system example of two linear relations and two variables without solution?")
         - https://gemini.google.com/app/cdcb3a9da3f7b97a
 
         
         A solver candidate is described by:
         
         1. input variables
-        2. a list of equation(s)
+        2. a list of relations
         3. output variables
 
         Notation:
         
         - a "solver candidate" has an signature: input variables to outputs variables;
-        - it is described also by the equations that can do that
-        - at the moment it is not testing if it really solves the equations in order to the output variables
+        - it is described also by the relations that can do that
+        - at the moment it is not testing if it really solves the relations in order to the output variables
         - "candidate" in the sense that this routine proposes a set of solvers
         - only, later, the "exercise finder" will confirm that it is really possible to solve 
         
         Input:
         
-        - eqlist: a list of equations
+        - rellist: a list of relations
         
         Output:
         
         - list of solver candidates: [ 
                  {'solvername': solvername,  #an id for graph pourposes
-                  'signature': (set of input variables, set of output variables, list of equations) } ]
+                  'signature': (set of input variables, set of output variables, list of relations) } ]
         
         LINKS:
         
@@ -238,28 +287,31 @@ class Scenario:
         
         TODO:
         
-        - proteger contra duplicados nas equacoes
+        - proteger contra duplicados nas relações
         
         """
         
         #This function returns a list of solvers
         solver_candidates = []
 
-        #Number of equations
-        neq = len(eqlist)
+        #Number of relations
+        nrel= len(rellist)
 
-        if neq == 1:
+        if nrel == 1:
             
-            eq = eqlist[0]
+            rel = rellist[0]
             
-            #lista de variaveis da unica equacao
-            listofvars = list( self.scenario[eq] )
+            #lista de variaveis da unica relação
+            #OLDlistofvars = list( self.scenario[rel] )
+            listofvars = list( rel.free_symbols )
+
 
             #All solvers will be formed by: 1 var of output and the rest as input
             for outputvar in listofvars:
                 
                 #duplica o conjunto (python set -- ver 00FirstCase)
-                setofvars =  self.scenario[eq].copy()
+                #OLD setofvars =  self.scenario[rel].copy()
+                setofvars =  rel.free_symbols.copy()
                 #debug:
                 #print("setofvars=",setofvars)
                 #print("setofvars type",type(setofvars))
@@ -268,24 +320,27 @@ class Scenario:
                 setofvars.remove(outputvar)
 
                 #produz o "solver candidate"
-                sc = SolverCandidate(setofvars,{outputvar},{eq})
+                #print(f"classe de rel: {type(rel)}")
+                sc = SolverCandidate(setofvars,{outputvar},{rel})
 
                 solver_candidates.append( sc )
                 
             #ver abaixo o return solver_candidates
             
             
-        elif neq == 2: #two equations
+        elif nrel == 2: #two relations
 
-            #sets of vars from each eq
-            listofvarsets = [self.scenario[eq] for eq in eqlist]
+            #sets of vars from each rel
+            #OLDlistofvarsets = [self.scenario[rel] for rel in rellist]
+            listofvarsets = [rel.free_symbols for rel in rellist]
+
 
             #all vars
             all_vars = set.union( *listofvarsets )
 
             #TODO: 
             #1. Justificar porque o output só pode ser feito
-            #   com a intersecção das vars das equações
+            #   com a intersecção das vars das relações
             #2. Porque só se considera len(output_vars) == 2 OU len(output_vars) > 2
             #   E se en(output_vars) == 1 ?
 
@@ -296,17 +351,17 @@ class Scenario:
             input_vars = all_vars - output_vars
 
             if len(output_vars) == 2:
-                #case: 2 unknowns in 2 equations
+                #case: 2 unknowns in 2 relations
 
                 #produz o "solver candidate"
-                sc = SolverCandidate(input_vars,output_vars,set(eqlist))
+                sc = SolverCandidate(input_vars,output_vars,set(rellist))
 
                 solver_candidates.append( sc )
 
 
             elif len(output_vars) > 2:
 
-                #Caso semelhante ao caso de uma equacao: e' preciso rodar as variaveis.
+                #Caso semelhante ao caso de uma relação: e' preciso rodar as variaveis.
 
                 #TODO: Este caso deve englobar o caso de cima.
 
@@ -326,21 +381,14 @@ class Scenario:
                     all_inputs = set.union(input_vars, output_vars - set_output_pair)
 
                     #produz o "solver candidate"
-                    sc = SolverCandidate(all_inputs,set_output_pair,set(eqlist))
+                    sc = SolverCandidate(all_inputs,set_output_pair,set(rellist))
 
                     solver_candidates.append( sc )
 
-        else: # neq > 2:
+        else: # nrel > 2:
             
-            raise NotImplementedError("3 or more equations is not yet implemented.")
+            raise NotImplementedError("3 or more relations is not yet implemented.")
         
-
-
-        #testar uma equacao
-        #me_mixed_start([sima2])     
-        #testar duas equacoes
-        #me_mixed_start([eq1,sima2])    
-
 
         return solver_candidates
 
@@ -349,7 +397,7 @@ class Scenario:
     def build_solvercandidates(self,r=[1]):
         """
         From scenario, the "self.mk_solvercandidates()" is called 
-        to form "solver candidates" from combinations of equations:
+        to form "solver candidates" from combinations of relations:
 
         - combinations of all 1 by 1
         - combinations of all 2 by 2
@@ -358,7 +406,7 @@ class Scenario:
         
         Input:
 
-        - r: a list ([1],[2], or [1,2]). TODO: complete cases 1, ..., total_number_of_equations
+        - r: a list ([1],[2], or [1,2]). TODO: complete cases 1, ..., total_number_of_relations
 
         Output:
 
@@ -366,7 +414,7 @@ class Scenario:
 
         """
 
-        self.eqnumber_list = r
+        self.relnumber_list = r
         self.solver_candidates = []
 
         if type(r)==list:
@@ -382,20 +430,20 @@ class Scenario:
         #Note: it can do_one AND do_two
         #      or only one of them.
         if do_one:
-            #solver candidates based on 1 equation
-            for eq in self.scenario:
+            #solver candidates based on 1 relation
+            for rel in self.scenario:
                 #solver candidates formed from
-                #a single equation
-                scandidates_1eq = self.mk_solvercandidates([eq])
-                self.solver_candidates += scandidates_1eq
+                #a single reluation
+                scandidates_1rel = self.mk_solvercandidates([rel])
+                self.solver_candidates += scandidates_1rel
 
         if do_two:
-            #solver candidates based on 2 equations
-            for eqpair in itertools.combinations(self.scenario, 2):
+            #solver candidates based on 2 relations
+            for relpair in itertools.combinations(self.scenario, 2):
                 #solver candidates formed from
-                #two equations
-                scandidates_2eq = self.mk_solvercandidates(eqpair)
-                self.solver_candidates += scandidates_2eq
+                #two relation
+                scandidates_2rel = self.mk_solvercandidates(relpair)
+                self.solver_candidates += scandidates_2rel
 
         #TODO: considerar mais casos além de "do_one" e "do_two".
 
@@ -420,7 +468,7 @@ class Scenario:
         """
 
         # populate self.nodes_dict
-        self.mk_node_dict()
+        self.mk_nodes_dict()
 
         self.wisdomgraph = nx.MultiDiGraph()
 
@@ -471,7 +519,7 @@ class Scenario:
 
 
 
-    def mk_node_dict(self):
+    def mk_nodes_dict(self):
         """
         Each node represents a set of "already known variables".
 
@@ -535,11 +583,6 @@ class Scenario:
                     self.wisdomgraph.add_edge(Inode_name,Onode_name,key=solver_candidate.solvername)
 
 
-        #solver1 = {'signature': ({e, c, a}, {d}, a*c == d*e),
-        #  'solvername': '[e, c, a]->{d}\na*c == d*e)'}
-        #add_edge_from_solver(solver1)  
-
-        #solver_candidates = [solver for solver in me_mixed_start([eq]) for eq in  enredo ]
 
     def remove_edge_from_solver(self,solver_candidate):
         """
@@ -549,9 +592,6 @@ class Scenario:
 
         - https://networkx.org/documentation/stable/reference/classes/multidigraph.html
 
-        TODO:
-
-        - explorar a remoção de equações simulando o que se passa se o estudante não se recordar de uma equação.
 
         """
 
@@ -826,7 +866,7 @@ class Scenario:
                     SolverCandidate(
                         set({}),  #input set that is Scenario._IGNORANCE_NODE_NAME_
                         set({var}), #output set like {a} (single var)
-                        set({Eq(var,10)}) #10 is not used
+                        set({SympyRelation(Eq(var,10))}) #10 is not used
                     )
                 )
 
@@ -887,6 +927,6 @@ class Scenario:
                     SolverCandidate(
                         set({}),  #input set that is Scenario._IGNORANCE_NODE_NAME_
                         set({var}), #output set like {a} (single var)
-                        set({Eq(var,10)}) #10 is not used
+                        set({SympyRelation(Eq(var,10))}) #10 is not used
                     )
                 )

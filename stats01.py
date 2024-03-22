@@ -1,11 +1,18 @@
 # stats01.py
 
 
+# %%
 
-#TODO: Joaquim e Cadeia de Markov - será que há algo?
 
+#Production
+#import  wisdomgraph as ws
 
-# %% 
+#Development
+import importlib
+wisdomgraph = importlib.import_module('wisdomgraph')
+importlib.reload(wisdomgraph)
+ws = wisdomgraph
+
 
 
 """
@@ -29,7 +36,6 @@ Determine:
 var = ?
 x3?
 """
-
 
 scenary_tex = r"""
 # essay
@@ -80,16 +86,24 @@ eq_var     = Eq(variancia, Rational(1,3)*( (x1-media)**2 + (x2-media)**2 + (x3-m
 
 
 
-#scenary = { 
-#      eq_media: {x1,x2,x3,media},  
-#      eq_var: {x1,x2,x3,media,variancia},
+#print( ws.SE(Eq(media, Rational(1,3)*(x1+x2+x3))).__repr__() )
+
+
+#scenary = {
+#    eq_media: {'symbols': eq_media.free_symbols, 'latex': ''},
+#    eq_var: eq_var.free_symbols,
 #}
 
 scenary = {
-      eq_media: eq_media.free_symbols,
-      eq_var: eq_var.free_symbols,
+    ws.SR(eq_media),
+    ws.SR(eq_var),
 }
 
+
+
+
+
+'''
 
 def mk_output_vars_str(outputvars):
     """
@@ -108,17 +122,12 @@ def mk_output_vars_str(outputvars):
     return vstr
 
 print(mk_output_vars_str({x1,x2,media}))
+'''
 
 
 
 
-# %% ====================================================
 
-
-#import  wisdomgraph as ws
-import importlib
-wisdomgraph = importlib.import_module('wisdomgraph')
-importlib.reload(wisdomgraph)
 
 
 world = wisdomgraph.Scenario(scenary,r=[1,2],scenary_tex=scenary_tex)
@@ -132,6 +141,9 @@ world = wisdomgraph.Scenario(scenary,r=[1,2],scenary_tex=scenary_tex)
 
 print(world.combine_and_mk_exercises(3))
 
+
+# ONDE VOU:
+# Usar SympyRelation para ajudar a preencher `scenary_tex` acima.
 
 
 
