@@ -37,6 +37,7 @@ var = ?
 x3?
 """
 
+
 scenary_tex = r"""
 # essay
 
@@ -95,8 +96,8 @@ eq_var     = Eq(variancia, Rational(1,3)*( (x1-media)**2 + (x2-media)**2 + (x3-m
 #}
 
 scenary = {
-    ws.SR(eq_media),
-    ws.SR(eq_var),
+    ws.SR(eq_media,latex_str="média = (1/3)(x1+x2+x3)"),
+    ws.SR(eq_var,  latex_str="variância=(1/3)(x1-média)^2+(x2-média)^2+(x3-média)^2)"),
 }
 
 
@@ -146,4 +147,8 @@ print(world.combine_and_mk_exercises(3))
 # Usar SympyRelation para ajudar a preencher `scenary_tex` acima.
 
 
+# %%
 
+world.wisdomgraph.nodes['x_1x_2']
+
+# %%

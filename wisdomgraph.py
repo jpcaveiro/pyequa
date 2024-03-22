@@ -6,6 +6,9 @@
 # 2019 @ Joao Pedro Cruz and Minho Group
 # SageMath
 # Using python standard libs as much as possible
+#
+# MultiDIGraph from networkx:
+# https://networkx.org/documentation/stable/reference/classes/multidigraph.html
 # -----------------------------------------------
 """
 
@@ -134,6 +137,9 @@ class SolverCandidate:
             'output_set':    output_set, 
             'relations_set': relations_set
         }
+
+    def relations_latex(self):
+        return '\n\n'.join([r.latex_str for r in self.signature['relations_set']])
 
 
 class Scenario:
@@ -467,14 +473,17 @@ class Scenario:
 
         """
 
-        # populate self.nodes_dict
-        self.mk_nodes_dict()
-
         self.wisdomgraph = nx.MultiDiGraph()
 
+        # populate self.wisdomgraph.nodes
+        # a node is: (node name str, vars=set of vars)
+        # nodes are state (variables known until now)
+        self.add_nodes()
+
+        #Remover
         #DiGraph().add_nodes_from() 
         #a node is an element from a dict
-        self.wisdomgraph.add_nodes_from(self.nodes_dict)
+        #self.wisdomgraph.add_nodes_from(self.nodes_dict)
 
         #para obter o label de um no: "T.get_vertex(1)"
 
@@ -519,15 +528,16 @@ class Scenario:
 
 
 
-    def mk_nodes_dict(self):
+    def add_nodes(self):
         """
         Each node represents a set of "already known variables".
 
-        A node is a one element dictionary: `{'nodename': set_of_vars}`.
+        A node is (nodename, vars=set_of_vars}
 
         """
 
-        self.nodes_dict = {} #dictionary: node with labels that are the set of (known) variables
+        #nodes are now stores in wisdomgraph
+        #self.nodes_dict = {} #dictionary: node with labels that are the set of (known) variables
 
         #Combinations like:
         # C = [ [], [a], [b], .., [a,b], ...,[a,b,c,d,e,f] ]
@@ -535,7 +545,8 @@ class Scenario:
 
         for varlist in C:  #sagemath is C.list():
             nname = self.node_name(varlist) #makes a str
-            self.nodes_dict[nname] = set(varlist)
+            #OLDself.nodes_dict[nname] = set(varlist)
+            self.wisdomgraph.add_node(nname,vars=set(varlist))
             #Test
             #print( "{nname} is the set {varlist}.".format(nname=nname,varlist=set(varlist)))
 
@@ -556,13 +567,16 @@ class Scenario:
         # I is Input
         # O is Output        
         
-        for Inode_name in self.nodes_dict.keys():
+        #https://networkx.org/documentation/stable/reference/classes/generated/networkx.MultiDiGraph.nodes.html#networkx.MultiDiGraph.nodes
+        for Inode in self.wisdomgraph.nodes(data=True):
+            #for Inode_name in self.nodes_dict.keys():
 
             #Inode_name is a str
 
             #set of known variables (a node accessed by str (see node_name()) )
+            #Inode = Inode[0], Inode[1] = (name, datadict)
 
-            Ivars = set( self.nodes_dict[Inode_name] )  
+            Ivars = Inode[1]['vars'] #set( self.nodes_dict[Inode_name] )  
             
             if solver_inputs.issubset( Ivars ):
 
@@ -579,8 +593,8 @@ class Scenario:
                     #the solver is not adding new information.
                     #otherwise, add an edge to graph.
 
-                    #add_edge is from nx.DiGraph()
-                    self.wisdomgraph.add_edge(Inode_name,Onode_name,key=solver_candidate.solvername)
+                    #add_edge is from nx.MultiDiGraph()
+                    self.wisdomgraph.add_edge(Inode_name,Onode_name,key=solver_candidate.solvername,sc=solver_candidate)
 
 
 
@@ -895,6 +909,8 @@ class Scenario:
 
                 print(f"Solution in {len(node_path_list)-l-1} steps.")
 
+                solution_steps = []
+
                 for nodepair in zip(node_path_list[l:-1], node_path_list[(l+1):]):
 
                     #find edge
@@ -902,11 +918,24 @@ class Scenario:
                     print(f'=>from {nodepair[0]}')
                     print(f'=>to   {nodepair[1]}')
                     print('-'*3)
-                    edges = list(self.wisdomgraph.edges(nodepair[0], nodepair[1], keys=True))
+                    edges = [e for e in self.wisdomgraph.edges(nodepair[0], data="sc", keys=True) if e[1]==nodepair[1]]
+                    #edges = list(self.wisdomgraph.edges[nodepair[0]][nodepair[1]]) #, keys=True,))
+                    
+                    #There shoulbe be only one
+                    edge = edges[0]
 
-                    print(edges[0])
+                    #Fourth element is a SolverCandidate 
+                    solver_candidate = edge[3]
+                    print("*"*10)
+                    print(self.wisdomgraph.nodes[nodepair[0]]['vars'])
+                    print(self.wisdomgraph.nodes[nodepair[1]]['vars'])
+                    print(solver_candidate.relations_latex())
+                    print("*"*10)
 
+                    #Construção de um exercício
+                    #solution_steps += ()
 
+                    
 
 
             except nx.NetworkXNoPath:
