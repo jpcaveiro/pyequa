@@ -1,15 +1,13 @@
-
-
 """
-# -----------------------------------------------
-# wisdomgraph: exercises based on environments 
-# 2019 @ Joao Pedro Cruz and Minho Group
-# SageMath
-# Using python standard libs as much as possible
-#
-# MultiDIGraph from networkx:
-# https://networkx.org/documentation/stable/reference/classes/multidigraph.html
-# -----------------------------------------------
+ -----------------------------------------------
+ wisdomgraph: exercises based on environments 
+ 2019 @ Joao Pedro Cruz and Minho Group
+ SageMath
+ Using python standard libs as much as possible
+
+ MultiDIGraph from networkx:
+ https://networkx.org/documentation/stable/reference/classes/multidigraph.html
+ -----------------------------------------------
 """
 
 # TODO: dado um wisdomgraph sem enredo, que enredo pode ser criado?
@@ -26,6 +24,9 @@ import datetime
 from sympy import Eq,latex 
 
 #from sage.all import *
+
+
+
 
 
 def Combinations(someset):
@@ -58,6 +59,28 @@ def set2orderedstr(someset):
 def join_varnames(varlist):
 
     return "".join( sorted( [str(v) for v in varlist] ) )   
+
+
+
+class ScenaryText:
+
+
+    def __init__(self, scenary, md_tempate):
+
+        self.md_tempate = md_tempate
+        self.scenary = scenary
+
+
+
+    def replace(self,knownvars_set,solver_candidates_sequence):
+
+        uknownvars_set = self.scenary.all_vars_set
+
+
+    
+
+
+        
 
 
 class SympyRelation:

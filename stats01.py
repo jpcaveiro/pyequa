@@ -44,7 +44,7 @@ scenary_tex = r"""
 Considere a amostra: 
 
 \[
-      {x1}, {x2}, {x3}
+      x_1={x_1pos}, x_s={x_2pos}, x_3={x_3pos}
 \]
 
 e a sua média amostral \(media\) e variância \(variancia\).
