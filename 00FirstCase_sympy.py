@@ -134,7 +134,7 @@ world.draw_wisdom_graph(figsize=[80,80])
 
 # %%
 
-print(world.combine_and_mk_exercises())
+print(world.buildall_exercises())
 
 
 # %%

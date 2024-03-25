@@ -3,7 +3,6 @@
 
 # %%
 
-
 #Production
 #import  wisdomgraph as ws
 
@@ -38,31 +37,9 @@ x3?
 """
 
 
-scenary_tex = r"""
-# essay
 
-Considere a amostra: 
-
-\[
-      x_1={x_1pos}, x_s={x_2pos}, x_3={x_3pos}
-\]
-
-e a sua média amostral \(media\) e variância \(variancia\).
-
-
-# question
-
-Determine {{outputvars}}.
-
-## answer
-
-{{answer}}
-
-"""
-
-
-
-# Symbol
+# %% 
+# Symbols
 
 from sympy import symbols, Eq, Symbol, Rational, latex
 
@@ -76,14 +53,15 @@ media     = Symbol(r'\bar{x}')
 variancia = Symbol(r's_c^2')
 
 
-
+# %%
 # Equações
+
 #TODO: apesar do sympy desenhar o latex das equações, essa pode não ser a melhor forma.
 #Assim, para cada equação deve haver associada uma string latex que melhor a representa para
 #um humano.
 
 eq_media   = Eq(media, Rational(1,3)*(x1+x2+x3))
-eq_var     = Eq(variancia, Rational(1,3)*( (x1-media)**2 + (x2-media)**2 + (x3-media)**3 ))
+eq_var     = Eq(variancia, Rational(1,3)*( (x1-media)**2 + (x2-media)**2 + (x3-media)**2 ))
 
 
 
@@ -104,34 +82,10 @@ scenary = {
 
 
 
-'''
+# %%
+# wisdomgraph.Scenario(...)
 
-def mk_output_vars_str(outputvars):
-    """
-    input:
-
-    - outputvars: sympy symbols
-
-    output:
-
-    - a str
-
-    """
-
-    vlist = [latex(s) for s in outputvars]
-    vstr = ', '.join(sorted(vlist))
-    return vstr
-
-print(mk_output_vars_str({x1,x2,media}))
-'''
-
-
-
-
-
-
-
-world = wisdomgraph.Scenario(scenary,r=[1,2],scenary_tex=scenary_tex)
+world = wisdomgraph.Scenario(scenary,r=[1,2])
 #old: sc.build_solvercandidates(r=[1,2])
 #old: sc.build_wisdomgraph()
 
@@ -139,16 +93,69 @@ world = wisdomgraph.Scenario(scenary,r=[1,2],scenary_tex=scenary_tex)
 #world.draw_wisdom_graph(figsize=[80,80])
 
 
-
-print(world.combine_and_mk_exercises(3))
-
-
-# ONDE VOU:
-# Usar SympyRelation para ajudar a preencher `scenary_tex` acima.
-
-
 # %%
+# Pequeno teste
 
 world.wisdomgraph.nodes['x_1x_2']
+
+# %%
+#Buildall_exercises(...)
+
+
+def author_scenary_text(inputvars_set,outputvars_set,solverslist_text):
+    """
+    - inputvars_set
+    - outputvars_set
+    - solvers_list
+    """
+    
+    
+    text = r"""
+# essay
+
+Considere a amostra: 
+
+\[
+      x_1={x1value}, x_2={x2value}, x_3={x3value}
+\]
+
+e a sua média amostral \(\bar x={mediavalue}\) e variância \(s_c^2={varianciavalue}\).
+
+
+# question
+
+Determine as incógnitas.
+
+## answer
+
+{answer_steps}
+
+    """
+
+    VALOR = "um valor"
+    UNKNOWN = "incónita"
+
+    x1value = VALOR if x1 in inputvars_set else UNKNOWN
+    x2value = VALOR if x2 in inputvars_set else UNKNOWN
+    x3value = VALOR if x3 in inputvars_set else UNKNOWN
+
+    mediavalue = VALOR if media in inputvars_set else UNKNOWN
+    varianciavalue = VALOR if variancia in inputvars_set else UNKNOWN
+
+
+
+
+    print(text.format(
+        x1value = x1value,
+        x2value = x2value,
+        x3value = x3value,
+        mediavalue = mediavalue,
+        varianciavalue = varianciavalue,
+        answer_steps = solverslist_text,
+    ))
+
+
+
+world.buildall_exercises(author_scenary_text,maxvars=3)
 
 # %%

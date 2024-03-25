@@ -21,11 +21,24 @@ import itertools
 import networkx as nx
 import matplotlib.pyplot as plt
 import datetime
-from sympy import Eq,latex 
+from sympy import Eq,latex,Symbol
+from slugify import slugify
+
 
 #from sage.all import *
 
 
+def sortedsymbols(symbols_iterable):
+    """
+    Implementação com `key=Symbol._repr_latex_` coloca um \displaystyle
+    antes do latex.
+    Assim usa-se str()
+    """
+    return sorted(symbols_iterable,key=Symbol.__str__)
+
+
+def symbolslug(s):
+    return slugify(s.__str__())
 
 
 
@@ -171,7 +184,7 @@ class Scenario:
     _KNOWLEDGE_NODE_NAME_= 'knowledge'
 
 
-    def __init__(self,scenario,r=[1,2],scenary_tex=""):
+    def __init__(self,scenario,r=[1,2]):
         """
 
         Inputs:
@@ -222,7 +235,6 @@ class Scenario:
 
         #scenario
         self.scenario = scenario
-        self.scenary_tex = scenary_tex
 
         #special node name (see node_name())
         self.allvars_set = set()
@@ -244,7 +256,7 @@ class Scenario:
         #Populates:
         # self.rel_number_list = a number 1, 2, or more relations at same time
         # self.solver_candidates = a list of edges; below a graph with this edges is formed
-        self.build_solvercandidates(r)
+        self.buildall_solvercandidates(r)
 
 
         #Makes a MuliDiGraph where nodes represent "known vars at the moment"
@@ -259,7 +271,7 @@ class Scenario:
 
 
 
-    def mk_solvercandidates(self,rellist):
+    def buildsome_solvercandidates(self,rellist):
         """
         From one relation, or system of relations, produce functions
         based on combinations of variables.
@@ -423,9 +435,9 @@ class Scenario:
 
 
 
-    def build_solvercandidates(self,r=[1]):
+    def buildall_solvercandidates(self,r=[1]):
         """
-        From scenario, the "self.mk_solvercandidates()" is called 
+        From scenario, the "self.buildall_solvercandidates()" is called 
         to form "solver candidates" from combinations of relations:
 
         - combinations of all 1 by 1
@@ -463,7 +475,7 @@ class Scenario:
             for rel in self.scenario:
                 #solver candidates formed from
                 #a single reluation
-                scandidates_1rel = self.mk_solvercandidates([rel])
+                scandidates_1rel = self.buildsome_solvercandidates([rel])
                 self.solver_candidates += scandidates_1rel
 
         if do_two:
@@ -471,7 +483,7 @@ class Scenario:
             for relpair in itertools.combinations(self.scenario, 2):
                 #solver candidates formed from
                 #two relation
-                scandidates_2rel = self.mk_solvercandidates(relpair)
+                scandidates_2rel = self.buildsome_solvercandidates(relpair)
                 self.solver_candidates += scandidates_2rel
 
         #TODO: considerar mais casos além de "do_one" e "do_two".
@@ -638,106 +650,6 @@ class Scenario:
 
 
 
-    def combine_and_check_path(self):
-        """
-        From ignorance to single variables: this method
-
-        
-        - existence of a path from ignorance to knowledge
-        - what is the shortest path from ignorance to knowledge
-
-        Discussion:
-
-        - https://gemini.google.com/app/10274bc0969fab6a
-
-        Naive notes:
-
-        - "sequential" bipartite graph
-        - idea: "a set of nodes is a wall if there is no connection" (see graph)
-        - there can be edges "jumping walls of nodes"
-
-        Algorithm:
-
-        1. Combine [1 by 1, 2 by 2, ... , n by n] variables
-        2. Make edges between "ignorance" and each of those variables.
-        3. Count shortest paths between ignorance and knowledge.
-        4. Store as txt file.
-
-        
-        Example: 
-        
-        Combining variables into nodes, as before:
-
-        [ (a), (b), .., (ab), (ac), ..., (abc), ..., (abcdef)]
-
-        Note: known at start, for example, (a) and (ef). But this is (aef) and is not enough because
-        from (a) one can know other nodes.
-           
-        [ (a), (b), .., (a,b), (a,c), ..., (abc), ..., (abcdef)]
-
-        New functionality:
-
-        - add and remove edges. 
-
-        Injetar no "scenary" ou só no "wisdom graph"?
-
-        scenary: { Eq(a, 20): {a} }
-        wg: self.add_edge_from_solver(SolverCandidate({},{a},{Eq(a,'a')})) 
-
-        """
-
-        C = Combinations(self.allvars_list)
-
-        for somevars in C:
-
-            #Creates edges from ignorance
-            #to each var
-            for var in somevars:
-
-                #Não funciona porque não adicionar todos os edges
-                #Inode_name = Scenario._IGNORANCE_NODE_NAME_
-                #Onode_name = self.node_name(set({var}))
-                ##add_edge is from nx.DiGraph()
-                #self.wisdomgraph.add_edge(Inode_name, Onode_name, name="init.cond.")
-
-                self.add_edge_from_solver(
-                    SolverCandidate(
-                        set({}),  #input set that is Scenario._IGNORANCE_NODE_NAME_
-                        set({var}), #output set like {a} (single var)
-                        set({Eq(var,10)}) #10 is not used
-                    )
-                )
-
-            #TODO: configurar 50,50 de forma automatica
-            #self.draw_wisdom_graph(figsize=(50,50))
-
-            #Check if has_path
-            has_a_path = nx.has_path(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_)
-
-            #Print/Store result
-            print("="*10)
-            if has_a_path:
-                print(f'Há caminho: {somevars}')
-            else:
-                print(f'Não há caminho: {somevars}')
-            print('\n')
-
-            #continue
-
-            #Remove edges 
-            for var in somevars:
-
-                self.remove_edge_from_solver(
-                    SolverCandidate(
-                        set({}),  #input set that is Scenario._IGNORANCE_NODE_NAME_
-                        set({var}), #output set like {a} (single var)
-                        set({Eq(var,10)}) #10 is not used
-                    )
-                )
-
-
-
-        
 
     def draw_wisdom_graph(self,figsize=[10,10],plot_fn=f'output_{datetime.datetime.now().strftime(r"%y%m%d-%H%M")}.png'):
         """
@@ -840,32 +752,112 @@ class Scenario:
         plt.savefig(plot_fn)
 
 
-    def combine_and_mk_exercises(self,maxvars=1):
+    def combine_and_check_path(self):
+        """
+        From ignorance to single variables: this method
+
+        
+        - existence of a path from ignorance to knowledge
+        - what is the shortest path from ignorance to knowledge
+
+        Discussion:
+
+        - https://gemini.google.com/app/10274bc0969fab6a
+
+        Naive notes:
+
+        - "sequential" bipartite graph
+        - idea: "a set of nodes is a wall if there is no connection" (see graph)
+        - there can be edges "jumping walls of nodes"
+
+        Algorithm:
+
+        1. Combine [1 by 1, 2 by 2, ... , n by n] variables
+        2. Make edges between "ignorance" and each of those variables.
+        3. Count shortest paths between ignorance and knowledge.
+        4. Store as txt file.
+
+        
+        Example: 
+        
+        Combining variables into nodes, as before:
+
+        [ (a), (b), .., (ab), (ac), ..., (abc), ..., (abcdef)]
+
+        Note: known at start, for example, (a) and (ef). But this is (aef) and is not enough because
+        from (a) one can know other nodes.
+           
+        [ (a), (b), .., (a,b), (a,c), ..., (abc), ..., (abcdef)]
+
+        New functionality:
+
+        - add and remove edges. 
+
+        Injetar no "scenary" ou só no "wisdom graph"?
+
+        scenary: { Eq(a, 20): {a} }
+        wg: self.add_edge_from_solver(SolverCandidate({},{a},{Eq(a,'a')})) 
+
         """
 
-        Preencher este tipo de strings template:
+        C = Combinations(self.allvars_list)
 
-        ```
-            # essay
+        for inputvars_set in C:
 
-            Considere a figura
+            #Creates edges from ignorance
+            #to each var
+            for var in inputvars_set:
 
-            <figura>
+                #Não funciona porque não adicionar todos os edges
+                #Inode_name = Scenario._IGNORANCE_NODE_NAME_
+                #Onode_name = self.node_name(set({var}))
+                ##add_edge is from nx.DiGraph()
+                #self.wisdomgraph.add_edge(Inode_name, Onode_name, name="init.cond.")
 
-            # question
+                self.add_edge_from_solver(
+                    SolverCandidate(
+                        set({}),  #input set that is Scenario._IGNORANCE_NODE_NAME_
+                        set({var}), #output set like {a} (single var)
+                        set({Eq(var,10)}) #10 is not used
+                    )
+                )
 
-            Sabe-se que:
+            #TODO: configurar 50,50 de forma automatica
+            #self.draw_wisdom_graph(figsize=(50,50))
 
-            {{inputvars}}
+            #Check if has_path
+            has_a_path = nx.has_path(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_)
 
-            Determine: 
+            #Print/Store result
+            print("="*10)
+            if has_a_path:
+                print(f'Há caminho: {inputvars_set}')
+            else:
+                print(f'Não há caminho: {inputvars_set}')
+            print('\n')
 
-            {{outputvars}}
+            #continue
 
-            ## answer
+            #Remove edges 
+            for var in inputvars_set:
 
-            {{answer}}
-        ```
+                self.remove_edge_from_solver(
+                    SolverCandidate(
+                        set({}),  #input set that is Scenario._IGNORANCE_NODE_NAME_
+                        set({var}), #output set like {a} (single var)
+                        set({Eq(var,10)}) #10 is not used
+                    )
+                )
+
+
+    def buildall_exercises(self,author_scenary_text,maxvars=1):
+        """
+
+        input:
+
+        - author_scenary_text - a callback function `author_scenary_text(inputvars_set,outputvars_set,solvers_list)`
+        - maxvars - number of known variables (search exercises with this restriction)
+
 
         ```python
         mg = nx.MultiGraph()
@@ -887,11 +879,11 @@ class Scenario:
 
         gen = (sv for sv in C if len(sv) <= maxvars)
 
-        for somevars in gen:
+        for inputvars_set in gen:
 
             #Creates edges from ignorance
             #to each var
-            for var in somevars:
+            for var in inputvars_set:
 
                 #Não funciona porque não adicionar todos os edges
                 #Inode_name = Scenario._IGNORANCE_NODE_NAME_
@@ -915,53 +907,27 @@ class Scenario:
                 
             #AGORA: write all paths (each path is an exercise)
             print("="*10)
-            print(f"Caminhos sabendo: {somevars}")
+            print(f"Caminhos sabendo: {inputvars_set}")
             print("="*10)
 
             #Shortest
             try:
                 node_path_list = list(nx.shortest_path(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_))
 
+                #DEBUG
                 #for node in node_path_list:
                 #    print(node)
-
-                #Os primeiros nós são apenas formados por arestas das
-                #condições iniciais:
-
-                l = len(somevars) #len_first_nodes
-
-                print(f"Solution in {len(node_path_list)-l-1} steps.")
-
-                solution_steps = []
-
-                for nodepair in zip(node_path_list[l:-1], node_path_list[(l+1):]):
-
-                    #find edge
-                    print('-'*3)
-                    print(f'=>from {nodepair[0]}')
-                    print(f'=>to   {nodepair[1]}')
-                    print('-'*3)
-                    edges = [e for e in self.wisdomgraph.edges(nodepair[0], data="sc", keys=True) if e[1]==nodepair[1]]
-                    #edges = list(self.wisdomgraph.edges[nodepair[0]][nodepair[1]]) #, keys=True,))
-                    
-                    #There shoulbe be only one
-                    edge = edges[0]
-
-                    #Fourth element is a SolverCandidate 
-                    solver_candidate = edge[3]
-                    print("*"*10)
-                    print(self.wisdomgraph.nodes[nodepair[0]]['vars'])
-                    print(self.wisdomgraph.nodes[nodepair[1]]['vars'])
-                    print(solver_candidate.relations_latex())
-                    print("*"*10)
-
-                    #Construção de um exercício
-                    #solution_steps += ()
-
-                    
+                #Os primeiros nós são apenas formados por arestas das condições iniciais.
+                # self.debug_exercise(inputvars,node_path_list)
 
 
+                #Call back function: author_scenary_text()
+                outputvars_set = set(self.allvars_list) - set(inputvars_set)
+                self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
+                author_scenary_text(inputvars_set,outputvars_set,self.solverslist_text)
+                
             except nx.NetworkXNoPath:
+                #Debug
                 print("    Não há caminho!")
 
             
@@ -969,11 +935,8 @@ class Scenario:
             #for path in sorted(nx.all_simple_edge_paths(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_)):
             #    print(path)
 
-
-            #continue
-
-            #Remove edges 
-            for var in somevars:
+            #Remove (artificial) edges 
+            for var in inputvars_set:
 
                 self.remove_edge_from_solver(
                     SolverCandidate(
@@ -982,3 +945,89 @@ class Scenario:
                         set({SympyRelation(Eq(var,10))}) #10 is not used
                     )
                 )
+
+        return 
+        #end of buildall_exercises()
+
+
+    def solverslist_buildtext(self,inputvars_set,node_path_list):
+
+        answer_template = """Sabendo
+
+{localinputvars}
+
+e usando
+
+{solvers}
+
+determina-se
+
+{localoutputvars}
+
+"""
+
+        answer_text = ""
+
+        l = len(inputvars_set) #len_first_nodes
+
+
+        for nodepair in zip(node_path_list[l:-1], node_path_list[(l+1):]):
+
+            #find edge
+            print('-'*3)
+            print(f'=>from {nodepair[0]}')
+            print(f'=>to   {nodepair[1]}')
+            edges = [e for e in self.wisdomgraph.edges(nodepair[0], data="sc", keys=True) if e[1]==nodepair[1]]
+            #edges = list(self.wisdomgraph.edges[nodepair[0]][nodepair[1]]) #, keys=True,))
+            
+            #There shoulbe be only one element in the above list
+            edge = edges[0]
+
+            #Fourth element is a SolverCandidate 
+            solver_candidate = edge[3]
+
+            localinputvars = self.wisdomgraph.nodes[nodepair[0]]['vars']
+            localoutputvars = self.wisdomgraph.nodes[nodepair[1]]['vars']
+            solvers = solver_candidate.relations_latex()
+
+            answer_text += answer_template.format(
+                localinputvars = localinputvars,
+                localoutputvars = set(localoutputvars)-set(localinputvars),
+                solvers = solvers,
+            )
+
+        return answer_text
+
+
+    def debug_exercise(inputvars_set,node_path_list):
+
+        l = len(inputvars_set) #len_first_nodes
+
+        print(f"Solution in {len(node_path_list)-l-1} steps.")
+
+        solution_steps = []
+
+        for nodepair in zip(node_path_list[l:-1], node_path_list[(l+1):]):
+
+            #find edge
+            print('-'*3)
+            print(f'=>from {nodepair[0]}')
+            print(f'=>to   {nodepair[1]}')
+            print('-'*3)
+            edges = [e for e in self.wisdomgraph.edges(nodepair[0], data="sc", keys=True) if e[1]==nodepair[1]]
+            #edges = list(self.wisdomgraph.edges[nodepair[0]][nodepair[1]]) #, keys=True,))
+            
+            #There shoulbe be only one
+            edge = edges[0]
+
+            #Fourth element is a SolverCandidate 
+            solver_candidate = edge[3]
+            print("*"*10)
+            print(self.wisdomgraph.nodes[nodepair[0]]['vars'])
+            print(self.wisdomgraph.nodes[nodepair[1]]['vars'])
+            print(solver_candidate.relations_latex())
+            print("*"*10)
+
+            #Construção de um exercício
+            #solution_steps += ()
+
