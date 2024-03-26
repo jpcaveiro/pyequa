@@ -29,7 +29,7 @@ from slugify import slugify
 
 
 def sortedsymbols(symbols_iterable):
-    """
+    r"""
     Implementação com `key=Symbol._repr_latex_` coloca um \displaystyle
     antes do latex.
     Assim usa-se str()
@@ -72,6 +72,9 @@ def set2orderedstr(someset):
 def join_varnames(varlist):
 
     return "".join( sorted( [str(v) for v in varlist] ) )   
+
+
+
 
 
 
@@ -184,7 +187,7 @@ class Scenario:
     _KNOWLEDGE_NODE_NAME_= 'knowledge'
 
 
-    def __init__(self,scenario,r=[1,2]):
+    def __init__(self,scenario,scenary_text,answer_template,r=[1,2]):
         """
 
         Inputs:
@@ -235,6 +238,9 @@ class Scenario:
 
         #scenario
         self.scenario = scenario
+        self.scenary_text = scenary_text
+        self.answer_template = answer_template
+
 
         #special node name (see node_name())
         self.allvars_set = set()
@@ -850,12 +856,67 @@ class Scenario:
                 )
 
 
-    def buildall_exercises(self,author_scenary_text,maxvars=1):
+
+    def buildone_scenary_text(self,inputvars_set):
+        """
+        - inputvars_set
+        - solvers_list
+
+        Originalmente foi assim, feito à mão:
+
+            '''
+            def author_scenary_text(inputvars_set,outputvars_set,solverslist_text):
+                
+                #text ver acima
+
+                VALOR = "um valor"
+                UNKNOWN = "incónita"
+
+                x1value = VALOR if x1 in inputvars_set else UNKNOWN
+                x2value = VALOR if x2 in inputvars_set else UNKNOWN
+                x3value = VALOR if x3 in inputvars_set else UNKNOWN
+
+                mediavalue = VALOR if media in inputvars_set else UNKNOWN
+                varianciavalue = VALOR if variancia in inputvars_set else UNKNOWN
+
+
+
+
+                print(text.format(
+                    x1value = x1value,
+                    x2value = x2value,
+                    x3value = x3value,
+                    mediavalue = mediavalue,
+                    varianciavalue = varianciavalue,
+                    answer_steps = solverslist_text,
+                ))
+
+            '''        
+        """
+        
+        #text ver acima
+
+        VALOR_STR = "um valor"
+        UNKNOWN_STR = "incónita"
+
+        args_dict = dict()
+        for v in self.allvars_list:
+            args_dict[str(v)+'value'] = VALOR_STR if v in inputvars_set else UNKNOWN_STR
+
+        args_dict['answer_steps'] = self.solverslist_text
+
+        print(args_dict)
+        exercise_text = self.scenary_text.format(**args_dict)
+        print(exercise_text)
+
+        #return text.format(**args_dict)
+
+
+    def buildall_exercises(self,maxvars=1):
         """
 
         input:
 
-        - author_scenary_text - a callback function `author_scenary_text(inputvars_set,outputvars_set,solvers_list)`
         - maxvars - number of known variables (search exercises with this restriction)
 
 
@@ -924,7 +985,7 @@ class Scenario:
                 #Call back function: author_scenary_text()
                 outputvars_set = set(self.allvars_list) - set(inputvars_set)
                 self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
-                author_scenary_text(inputvars_set,outputvars_set,self.solverslist_text)
+                self.buildone_scenary_text(inputvars_set)
                 
             except nx.NetworkXNoPath:
                 #Debug
@@ -952,19 +1013,8 @@ class Scenario:
 
     def solverslist_buildtext(self,inputvars_set,node_path_list):
 
-        answer_template = """Sabendo
-
-{localinputvars}
-
-e usando
-
-{solvers}
-
-determina-se
-
-{localoutputvars}
-
-"""
+        #see class Scenary above
+        #self.answer_template
 
         answer_text = ""
 
@@ -990,7 +1040,7 @@ determina-se
             localoutputvars = self.wisdomgraph.nodes[nodepair[1]]['vars']
             solvers = solver_candidate.relations_latex()
 
-            answer_text += answer_template.format(
+            answer_text += self.answer_template.format(
                 localinputvars = localinputvars,
                 localoutputvars = set(localoutputvars)-set(localinputvars),
                 solvers = solvers,

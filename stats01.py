@@ -2,17 +2,21 @@
 
 
 # %%
+#Load wisdomgraph library
 
-#Production
+
+#In production use
 #import  wisdomgraph as ws
 
-#Development
+#In development use
 import importlib
 wisdomgraph = importlib.import_module('wisdomgraph')
 importlib.reload(wisdomgraph)
 ws = wisdomgraph
 
 
+# %%
+#Ideia
 
 """
 
@@ -36,6 +40,44 @@ var = ?
 x3?
 """
 
+# %%
+#Texto do cenário
+
+scenary_text = r"""
+# essay
+
+Considere a amostra: 
+
+\[
+      x_1={x1value}, x_2={x2value}, x_3={x3value}
+\]
+
+e a sua média amostral \(\bar x={mediavalue}\) e variância \(s_c^2={varvalue}\).
+
+
+# question
+
+Determine as incógnitas.
+
+## answer
+
+{answer_steps}
+"""
+
+
+answer_template = """Sabendo
+
+{localinputvars}
+
+e usando
+
+{solvers}
+
+determina-se
+
+{localoutputvars}
+
+"""
 
 
 # %% 
@@ -45,12 +87,12 @@ from sympy import symbols, Eq, Symbol, Rational, latex
 
 #x1,x2,x3,media,variancia = symbols('x1,x2,x3,media,variancia')
 
-x1 = Symbol('x_1')
-x2 = Symbol('x_2')
-x3 = Symbol('x_3')
+x1 = Symbol('x1')
+x2 = Symbol('x2')
+x3 = Symbol('x3')
 
-media     = Symbol(r'\bar{x}')
-variancia = Symbol(r's_c^2')
+media  = Symbol('media')
+var    = Symbol('var')
 
 
 # %%
@@ -61,19 +103,23 @@ variancia = Symbol(r's_c^2')
 #um humano.
 
 eq_media   = Eq(media, Rational(1,3)*(x1+x2+x3))
-eq_var     = Eq(variancia, Rational(1,3)*( (x1-media)**2 + (x2-media)**2 + (x3-media)**2 ))
+eq_var     = Eq(var,   Rational(1,3)*( (x1-media)**2 + (x2-media)**2 + (x3-media)**2 ))
 
 
 
 #print( ws.SE(Eq(media, Rational(1,3)*(x1+x2+x3))).__repr__() )
 
 
+#Outra ideia
 #scenary = {
 #    eq_media: {'symbols': eq_media.free_symbols, 'latex': ''},
 #    eq_var: eq_var.free_symbols,
 #}
 
-scenary = {
+
+
+scenary_equations = {
+    #ws.SR is class Scenary.SympyRelation (ako "equality")
     ws.SR(eq_media,latex_str="média = (1/3)(x1+x2+x3)"),
     ws.SR(eq_var,  latex_str="variância=(1/3)(x1-média)^2+(x2-média)^2+(x3-média)^2)"),
 }
@@ -85,7 +131,7 @@ scenary = {
 # %%
 # wisdomgraph.Scenario(...)
 
-world = wisdomgraph.Scenario(scenary,r=[1,2])
+world = wisdomgraph.Scenario(scenary_equations,scenary_text,answer_template,r=[1,2])
 #old: sc.build_solvercandidates(r=[1,2])
 #old: sc.build_wisdomgraph()
 
@@ -96,66 +142,13 @@ world = wisdomgraph.Scenario(scenary,r=[1,2])
 # %%
 # Pequeno teste
 
-world.wisdomgraph.nodes['x_1x_2']
+world.wisdomgraph.nodes['x1x2']
 
 # %%
 #Buildall_exercises(...)
 
 
-def author_scenary_text(inputvars_set,outputvars_set,solverslist_text):
-    """
-    - inputvars_set
-    - outputvars_set
-    - solvers_list
-    """
-    
-    
-    text = r"""
-# essay
-
-Considere a amostra: 
-
-\[
-      x_1={x1value}, x_2={x2value}, x_3={x3value}
-\]
-
-e a sua média amostral \(\bar x={mediavalue}\) e variância \(s_c^2={varianciavalue}\).
-
-
-# question
-
-Determine as incógnitas.
-
-## answer
-
-{answer_steps}
-
-    """
-
-    VALOR = "um valor"
-    UNKNOWN = "incónita"
-
-    x1value = VALOR if x1 in inputvars_set else UNKNOWN
-    x2value = VALOR if x2 in inputvars_set else UNKNOWN
-    x3value = VALOR if x3 in inputvars_set else UNKNOWN
-
-    mediavalue = VALOR if media in inputvars_set else UNKNOWN
-    varianciavalue = VALOR if variancia in inputvars_set else UNKNOWN
+world.buildall_exercises(maxvars=3) #dar ao user 3 variáveis conhecidas
 
 
 
-
-    print(text.format(
-        x1value = x1value,
-        x2value = x2value,
-        x3value = x3value,
-        mediavalue = mediavalue,
-        varianciavalue = varianciavalue,
-        answer_steps = solverslist_text,
-    ))
-
-
-
-world.buildall_exercises(author_scenary_text,maxvars=3)
-
-# %%
