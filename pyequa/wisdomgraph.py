@@ -16,8 +16,6 @@ import datetime
 from sympy import Eq,Symbol,latex
 
 #from slugify import slugify
-
-
 #from sage.all import *
 
 
@@ -36,8 +34,6 @@ def sortedsymbols(symbols_iterable):
 
 
 def Combinations(someset):
-
-    from itertools import combinations
 
     list_of_sets = []
 
@@ -71,29 +67,12 @@ def join_varnames(varlist):
 
 
 
-class ScenaryText:
-
-
-    def __init__(self, scenary, md_tempate):
-
-        self.md_tempate = md_tempate
-        self.scenary = scenary
-
-
-
-    def replace(self,knownvars_set,solver_candidates_sequence):
-
-        uknownvars_set = self.scenary.all_vars_set
-
-
-    
-
-
-        
-
 
 class SympyRelation:
     """
+    A ideia é associar a uma expressão sympy:
+    * uma forma latex
+    * os símbolos na relação
 
     >> x1 = Symbol('x_1')
     >> x2 = Symbol('x_2')
@@ -175,17 +154,17 @@ class SolverCandidate:
 
 
 
-class Scenary:
+class Scenario:
 
     _IGNORANCE_NODE_NAME_ = 'ignorance'
     _KNOWLEDGE_NODE_NAME_ = 'knowledge'
 
-    def __init__(self,scenary,scenary_text,answer_template,r=[1,2]):
+    def __init__(self, scenario_relations, text_service, r=[1,2]):
         """
 
         Inputs:
 
-        - scenary: a dictionary like
+        - scenario: a dictionary like
         - r: list; [1], [2], [1,2], etc
 
         Combines 1 by 1 relation, and/or 2 by 2, etc.
@@ -213,7 +192,7 @@ class Scenary:
             b10   = b==10
 
 
-            scenary = { 
+            scenario_equations = { 
                 eq1: {a,b,f}, 
                 pyt1: {c,d,f},
                 pyt2: {b,e,c},
@@ -229,15 +208,16 @@ class Scenary:
 
         """
 
-        #scenary
-        self.scenary = scenary
-        self.scenary_text = scenary_text
-        self.answer_template = answer_template
+        #scenario
+        self.scenario_relations = scenario_relations
+        self.text_service = text_service
+        self.text_service.scenario = self
+        #self.answer_template = answer_template
 
 
         #special node name (see node_name())
         self.allvars_set = set()
-        for rel in scenary:
+        for rel in self.scenario_relations:
             self.allvars_set = self.allvars_set.union( rel.free_symbols ).copy()
 
         #TODO: ordenar sympy symbols: não pode ser
@@ -342,7 +322,6 @@ class Scenary:
             rel = rellist[0]
             
             #lista de variaveis da unica relação
-            #OLDlistofvars = list( self.scenary[rel] )
             listofvars = list( rel.free_symbols )
 
 
@@ -350,8 +329,8 @@ class Scenary:
             for outputvar in listofvars:
                 
                 #duplica o conjunto (python set -- ver 00FirstCase)
-                #OLD setofvars =  self.scenary[rel].copy()
                 setofvars =  rel.free_symbols.copy()
+
                 #debug:
                 #print("setofvars=",setofvars)
                 #print("setofvars type",type(setofvars))
@@ -371,7 +350,6 @@ class Scenary:
         elif nrel == 2: #two relations
 
             #sets of vars from each rel
-            #OLDlistofvarsets = [self.scenary[rel] for rel in rellist]
             listofvarsets = [rel.free_symbols for rel in rellist]
 
 
@@ -436,7 +414,7 @@ class Scenary:
 
     def buildall_solvercandidates(self,r=[1]):
         """
-        From scenary, the "self.buildall_solvercandidates()" is called 
+        From scenario, the "self.buildall_solvercandidates()" is called 
         to form "solver candidates" from combinations of relations:
 
         - combinations of all 1 by 1
@@ -471,7 +449,7 @@ class Scenary:
         #      or only one of them.
         if do_one:
             #solver candidates based on 1 relation
-            for rel in self.scenary:
+            for rel in self.scenario_relations:
                 #solver candidates formed from
                 #a single reluation
                 scandidates_1rel = self.buildsome_solvercandidates([rel])
@@ -479,7 +457,7 @@ class Scenary:
 
         if do_two:
             #solver candidates based on 2 relations
-            for relpair in itertools.combinations(self.scenary, 2):
+            for relpair in itertools.combinations(self.scenario_relations, 2):
                 #solver candidates formed from
                 #two relation
                 scandidates_2rel = self.buildsome_solvercandidates(relpair)
@@ -551,9 +529,9 @@ class Scenary:
         #nomes especiais
 
         if nname=='':
-            nname = Scenary._IGNORANCE_NODE_NAME_ #'ignorancia'
+            nname = Scenario._IGNORANCE_NODE_NAME_ #'ignorancia'
         elif nname == self.node_knowledge_name:
-            nname = Scenary._KNOWLEDGE_NODE_NAME_ #'conhecimento'
+            nname = Scenario._KNOWLEDGE_NODE_NAME_ #'conhecimento'
 
         #Debug:
         #print( "node_name=", node_name([f,a]) )
@@ -795,9 +773,9 @@ class Scenary:
 
         - add and remove edges. 
 
-        Injetar no "scenary" ou só no "wisdom graph"?
+        Injetar no "scenario" ou só no "wisdom graph"?
 
-        scenary: { Eq(a, 20): {a} }
+        scenario: { Eq(a, 20): {a} }
         wg: self.add_edge_from_solver(SolverCandidate({},{a},{Eq(a,'a')})) 
 
         """
@@ -811,7 +789,7 @@ class Scenary:
             for var in inputvars_set:
 
                 #Não funciona porque não adicionar todos os edges
-                #Inode_name = Scenary._IGNORANCE_NODE_NAME_
+                #Inode_name = Scenario._IGNORANCE_NODE_NAME_
                 #Onode_name = self.node_name(set({var}))
                 ##add_edge is from nx.DiGraph()
                 #self.wisdomgraph.add_edge(Inode_name, Onode_name, name="init.cond.")
@@ -823,7 +801,7 @@ class Scenary:
                 # e remove esta aresta
                 self.add_edge_from_solver(
                     SolverCandidate(
-                        set({}),  #input set that is Scenary._IGNORANCE_NODE_NAME_
+                        set({}),  #input set that is Scenario._IGNORANCE_NODE_NAME_
                         set({var}), #output set like {a} (single var)
                         set({Eq(var,10)}) #10 is not used
                     )
@@ -833,7 +811,7 @@ class Scenary:
             #self.draw_wisdom_graph(figsize=(50,50))
 
             #Check if has_path
-            has_a_path = nx.has_path(self.wisdomgraph, Scenary._IGNORANCE_NODE_NAME_, Scenary._KNOWLEDGE_NODE_NAME_)
+            has_a_path = nx.has_path(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_)
 
             #Print/Store result
             print("="*10)
@@ -850,67 +828,12 @@ class Scenary:
 
                 self.remove_edge_from_solver(
                     SolverCandidate(
-                        set({}),  #input set that is Scenary._IGNORANCE_NODE_NAME_
+                        set({}),  #input set that is Scenario._IGNORANCE_NODE_NAME_
                         set({var}), #output set like {a} (single var)
                         set({Eq(var,10)}) #10 is not used
                     )
                 )
 
-
-
-    def buildone_scenary_text(self, inputvars_set):
-        """
-        - inputvars_set
-        - solvers_list
-
-        Originalmente foi assim, feito à mão:
-
-            '''
-            def author_scenary_text(inputvars_set,outputvars_set,solverslist_text):
-                
-                #text ver acima
-
-                VALOR = "um valor"
-                UNKNOWN = "incónita"
-
-                x1value = VALOR if x1 in inputvars_set else UNKNOWN
-                x2value = VALOR if x2 in inputvars_set else UNKNOWN
-                x3value = VALOR if x3 in inputvars_set else UNKNOWN
-
-                mediavalue = VALOR if media in inputvars_set else UNKNOWN
-                varianciavalue = VALOR if variancia in inputvars_set else UNKNOWN
-
-
-
-
-                print(text.format(
-                    x1value = x1value,
-                    x2value = x2value,
-                    x3value = x3value,
-                    mediavalue = mediavalue,
-                    varianciavalue = varianciavalue,
-                    answer_steps = solverslist_text,
-                ))
-
-            '''        
-        """
-        
-        #text ver acima
-
-        VALOR_STR = "um valor"
-        UNKNOWN_STR = "incónita"
-
-        args_dict = dict()
-        for v in self.allvars_list:
-            args_dict[str(v)+'value'] = VALOR_STR if v in inputvars_set else UNKNOWN_STR
-
-        args_dict['answer_steps'] = self.solverslist_text
-
-        print(args_dict)
-        exercise_text = self.scenary_text.format(**args_dict)
-        print(exercise_text)
-
-        #return text.format(**args_dict)
 
 
     def buildall_exercises(self,maxvars=1):
@@ -941,13 +864,15 @@ class Scenary:
 
         gen = (sv for sv in C if len(sv) <= maxvars)
 
+        dataframe_iloc = -1
+
         for inputvars_set in gen:
 
             #Creates edges from ignorance
             #to each var
             for var in inputvars_set:
                 #Não funciona porque não adicionar todos os edges
-                #Inode_name = Scenary._IGNORANCE_NODE_NAME_
+                #Inode_name = Scenario._IGNORANCE_NODE_NAME_
                 #Onode_name = self.node_name(set({var}))
                 ##add_edge is from nx.DiGraph()
                 #self.wisdomgraph.add_edge(Inode_name, Onode_name, name="init.cond.")
@@ -959,7 +884,7 @@ class Scenary:
                 # e remove esta aresta
                 self.add_edge_from_solver(
                     SolverCandidate(
-                        set({}),  #input set that is Scenary._IGNORANCE_NODE_NAME_
+                        set({}),  #input set that is Scenario._IGNORANCE_NODE_NAME_
                         set({var}), #output set like {a} (single var)
                         set({SympyRelation(Eq(var,10))}) #10 is not used
                     )
@@ -969,7 +894,7 @@ class Scenary:
             #self.draw_wisdom_graph(figsize=(50,50))
 
             #ANTES: Check if has_path
-            #has_a_path = nx.has_path(self.wisdomgraph, Scenary._IGNORANCE_NODE_NAME_, Scenary._KNOWLEDGE_NODE_NAME_)
+            #has_a_path = nx.has_path(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_)
                 
             #AGORA: write all paths (each path is an exercise)
             print("="*10)
@@ -978,7 +903,7 @@ class Scenary:
 
             #Shortest
             try:
-                node_path_list = list(nx.shortest_path(self.wisdomgraph, Scenary._IGNORANCE_NODE_NAME_, Scenary._KNOWLEDGE_NODE_NAME_))
+                node_path_list = list(nx.shortest_path(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_))
 
                 #DEBUG
                 #for node in node_path_list:
@@ -987,10 +912,15 @@ class Scenary:
                 # self.debug_exercise(inputvars,node_path_list)
 
 
-                #Call back function: author_scenary_text()
-                outputvars_set = set(self.allvars_list) - set(inputvars_set)
+                #outputvars_set = set(self.allvars_list) - set(inputvars_set)
+
+                dataframe_iloc += 1
                 self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
-                self.buildone_scenary_text(inputvars_set)
+                teacher_text = self.text_service.build_one(self,inputvars_set,dataframe_iloc)
+
+                #For user to imediatly see but
+                #check self.text_service.buildone() for more.
+                print(teacher_text)
                 
             except nx.NetworkXNoPath:
                 #Debug
@@ -998,15 +928,15 @@ class Scenary:
 
             
             #ALL paths
-            #for path in sorted(nx.all_simple_edge_paths(self.wisdomgraph, Scenary._IGNORANCE_NODE_NAME_, Scenary._KNOWLEDGE_NODE_NAME_)):
+            #for path in sorted(nx.all_simple_edge_paths(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_)):
             #    print(path)
 
-            #Remove (artificial) edges 
+            #Remove (artificial) edges
             for var in inputvars_set:
 
                 self.remove_edge_from_solver(
                     SolverCandidate(
-                        set({}),  #input set that is Scenary._IGNORANCE_NODE_NAME_
+                        set({}),  #input set that is Scenario._IGNORANCE_NODE_NAME_
                         set({var}), #output set like {a} (single var)
                         set({SympyRelation(Eq(var,10))}) #10 is not used
                     )
@@ -1018,15 +948,17 @@ class Scenary:
 
     def solverslist_buildtext(self,inputvars_set,node_path_list):
 
-        #see class Scenary above
+        #see class Scenario above
         #self.answer_template
 
         answer_text = ""
 
-        l = len(inputvars_set) #len_first_nodes
+        len_first_nodes = len(inputvars_set) #len_first_nodes
 
-
-        for nodepair in zip(node_path_list[l:-1], node_path_list[(l+1):]):
+        # node_path_list 
+        # node_path_list[len_first_nodes:-1] : 
+        # node_path_list[(len_first_nodes+1):]
+        for nodepair in zip(node_path_list[len_first_nodes:-1], node_path_list[(len_first_nodes+1):]):
 
             #find edge
             print('-'*3)
@@ -1045,7 +977,7 @@ class Scenary:
             localoutputvars = self.wisdomgraph.nodes[nodepair[1]]['vars']
             solvers = solver_candidate.relations_latex()
 
-            answer_text += self.answer_template.format(
+            answer_text += self.text_service.answer_template.format(
                 localinputvars = localinputvars,
                 localoutputvars = set(localoutputvars)-set(localinputvars),
                 solvers = solvers,
