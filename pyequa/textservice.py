@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import datetime
 
 # Ver:
 # self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
@@ -33,12 +34,23 @@ class TextService:
             try:
                 # Delete the file
                 file_path = f"{self.basename}.{self.extension}"
-                os.remove(file_path)
-                print(f"File '{file_path}' deleted successfully.")
-                file_path = f"{self.basename}_t.{self.extension}"
-                os.remove(file_path)
+                new_filename = add_timestamp(file_path)
+                os.rename(file_path, new_filename)
+                #os.remove(file_path)
+                print(f"File '{file_path}' if now {new_filename}.")
             except FileNotFoundError:
-                print(f"Error: File '{file_path}' not found.")
+                #print(f"Error: File '{file_path}' not found.")
+                pass
+
+            try:
+                file_path_solutions = f"{self.basename}_t.{self.extension}"
+                new_filename_solutions = add_timestamp(file_path_solutions)
+                os.rename(file_path_solutions, new_filename_solutions)
+                #os.remove(file_path)
+                print(f"File '{file_path_solutions}' if now {new_filename_solutions}.")
+            except FileNotFoundError:
+                #print(f"Error: File '{file_path_solutions}' not found.")
+                pass
 
         if self.excel_pathname:
             self.dataframe = pd.read_excel(self.excel_pathname)
@@ -46,12 +58,13 @@ class TextService:
             self.dataframe = None
 
 
-    def build_one(self, scenario, inputvars_set, dataframe_iloc):
+    def build_one(self, scenario, inputvars_set, dataframe_iloc,node_path_list):
         """
         - inputvars_set
         - outputvars_set
         - solvers_list
         - dataframe_pos
+        - node_path_list: indicar ao "teacher" que nós fazem parte da solução
 
         Originalmente foi assim, feito à mão:
 
@@ -110,10 +123,14 @@ class TextService:
             for v in scenario.allvars_list:
                 args_dict[str(v)+'value'] = VALOR_STR if v in inputvars_set else UNKNOWN_STR
 
-        args_dict['answer_steps'] = scenario.solverslist_text
+        args_dict['answer_steps'] = scenario.solverslist_answer_text
+
+
+        # Nós que fazem parte da solução
+        args_dict['nodesequence'] = ', '.join(node_path_list) #node_path_list to text
 
         #debug
-        print(args_dict)
+        #print(args_dict)
 
         student_text = self.student_template.format(**args_dict)
         teacher_text = self.teacher_template.format(**args_dict)
@@ -138,4 +155,28 @@ class TextService:
 
 
         return teacher_text
+
+
+
+def add_timestamp(filename):
+  """
+  Adds a timestamp to the filename in format YYYY-MM-DD_HH-MM-SS.
+
+  Args:
+      filename: The original filename (without extension).
+
+  Returns:
+      The filename with timestamp appended (including extension).
+  """
+  timestamp = datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S")
+  # Get the filename extension (if any)
+  extension = filename.split(".")[-1] if "." in filename else ""
+  # Combine filename, timestamp, and extension
+  return f"{filename[:-4]}_{timestamp}.{extension}"
+
+# Example usage
+#original_filename = "my_file"
+#new_filename = add_timestamp(original_filename)
+#print(f"Original: {original_filename}")
+#print(f"With Timestamp: {new_filename}")
 
