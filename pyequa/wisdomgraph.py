@@ -734,10 +734,11 @@ class Scenario:
         plt.savefig(plot_fn)
 
 
-
-
-
     def buildall_exercises(self,no_of_given_vars=1,silence=True):
+        self.text_service.buildall_exercises(no_of_given_vars,silence)
+
+
+    def yield_inputvarsset_nodepathlist(self,no_of_given_vars=1,silence=True):
         """
         Builds exercises from a given set of variables.
 
@@ -747,6 +748,11 @@ class Scenario:
         4. This method `buildall_exercises()` generates combinations and produces one file (samefile=True) or several files (samefile=False).
 
         
+        An exercise is defined by:
+        - inputvars_set : the known variables
+        - nodepath_list : path from "ignorance" to the "knowledge" (or node of known variables?)
+
+                
         parameters
         ==========
 
@@ -776,14 +782,17 @@ class Scenario:
         # Generate all combinations of specified size
         # requested in arguments.
         C = Combinations(self.allvars_list,empty=False)
-        gen = (sv for sv in C if len(sv) <= no_of_given_vars)
+        original_list_of_inputvars_set = [sv for sv in C if len(sv) <= no_of_given_vars]
 
-        dataframe_iloc = -1
+
+        #Novo
+        list_of_inputvars_set  = []
+        list_of_node_path_list = []
 
         # -----------------------------------------
-        # Each tuple in "gen" produce an exercise
+        # Each tuple in "all_vars_sets" produce an exercise
         # -----------------------------------------
-        for inputvars_set in gen:
+        for inputvars_set in original_list_of_inputvars_set:
 
             #
             # Discussion: when is this combination necessary?
@@ -829,12 +838,18 @@ class Scenario:
                 #DEBUG
                 #self.debug_exercise(inputvars_set,node_path_list)
 
-
+                #muito antigo
                 #outputvars_set = set(self.allvars_list) - set(inputvars_set)
 
-                dataframe_iloc += 1
-                self.solverslist_answer_text = self.solverslist_build_answer_text(inputvars_set,node_path_list,silence)
-                teacher_text = self.text_service.build_one(self,inputvars_set,dataframe_iloc,node_path_list)
+                #ANTES: o que estava a funcionar
+                #dataframe_iloc += 1
+                #self.solverslist_answer_text = self.solverslist_build_answer_text(inputvars_set,node_path_list,silence)
+                #teacher_text = self.text_service.build_one(self,inputvars_set,dataframe_iloc,node_path_list)
+
+                #NOVO: keep for later use with yield
+                list_of_inputvars_set.append(inputvars_set)
+                list_of_node_path_list.append(node_path_list)
+
 
                 if not silence:
                     #For user to imediatly see but
@@ -863,62 +878,15 @@ class Scenario:
                     )
                 )
 
-        return 
+
+        #-----------------
+        # Yield mechanism
+        #-----------------
+        list_of_pairs = zip(list_of_inputvars_set,list_of_node_path_list)
+        for pair in list_of_pairs:
+            yield pair #(inputvars_set, node_path_list)
+
         #end of buildall_exercises()
-
-
-    def solverslist_build_answer_text(self,inputvars_set,node_path_list,silence):
-
-        #see class Scenario above
-        #self.answer_template
-
-        answer_text = ""
-
-        given_vars_node = set2orderedstr(inputvars_set)
-
-        if given_vars_node in node_path_list:
-            # If given_vars_node is in the solution path then it is not necessary explain
-            # the path from ignorance to given_vars_node.
-            nodepair_list = zip(node_path_list[len_inputvars_set:-1], node_path_list[(len_inputvars_set+1):])
-        else:
-            # If given_vars_node is NOT in the solution path then it is NECESSARY to explain
-            # the path from ignorance to knowledge.
-            nodepair_list = zip(node_path_list[1:-1], node_path_list[2:])
-
-
-        len_inputvars_set = len(inputvars_set)
-
-        # node_path_list 
-        # node_path_list[len_first_nodes:-1] : 
-        # node_path_list[(len_first_nodes+1):]
-        for nodepair in nodepair_list:
-
-            if not silence:
-                #find edge
-                print('-'*3)
-                print(f'=>from {nodepair[0]}')
-                print(f'=>to   {nodepair[1]}')
-
-            edges = [e for e in self.wisdomgraph.edges(nodepair[0], data="sc", keys=True) if e[1]==nodepair[1]]
-            #edges = list(self.wisdomgraph.edges[nodepair[0]][nodepair[1]]) #, keys=True,))
-            
-            #There shoulbe be only one element in the above list
-            edge = edges[0]
-
-            #Fourth element is a SolverCandidate 
-            solver_candidate = edge[3]
-
-            localinputvars = self.wisdomgraph.nodes[nodepair[0]]['vars']
-            localoutputvars = self.wisdomgraph.nodes[nodepair[1]]['vars']
-            solvers = solver_candidate.relations_latex()
-
-            answer_text += self.text_service.answer_template.format(
-                localinputvars = "{}" if localinputvars==set() else  localinputvars,
-                localoutputvars = set(localoutputvars)-set(localinputvars),
-                solvers = solvers,
-            )
-
-        return answer_text
 
 
     def debug_exercise(inputvars_set,node_path_list,silence=True):

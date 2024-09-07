@@ -2,6 +2,8 @@ import pandas as pd
 import os
 import datetime
 
+
+from .wisdomgraph import set2orderedstr
 # Ver:
 # self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
 # self.buildone_scenary_text(inputvars_set)
@@ -15,8 +17,9 @@ class TextService:
                  excel_pathname=None,
                  basename=None,
                  extension="txt",
-                 samefile=True, #keep previous generated files by renaming them
-                 varcount=1):
+                 all_ex_in_samefile=True, 
+                 ex_source_path = "(ex_source_path unknonw)",
+                 varcount=None): #varcount as in rmdmoodle
 
         self.scenario = None #atribuído quando este TextService é passado para o Scenario
         self.student_template = student_template
@@ -25,23 +28,28 @@ class TextService:
         self.excel_pathname = excel_pathname
         self.basename = basename
         self.extension = extension
-        self.samefile = samefile
+        self.all_ex_in_samefile = all_ex_in_samefile
+        self.ex_source_path = ex_source_path
         self.varcount = varcount
         
         # rename previous text files with a timestamp
-        if self.basename and self.samefile:
+        if self.basename and self.all_ex_in_samefile:
+
+            #Student problems file
             try:
-                # Delete the file
-                file_path = f"{self.basename}.{self.extension}"
-                new_filename = add_timestamp(file_path)
-                os.rename(file_path, new_filename)
+                # Rename the file saving previously
+                student_file_path = f"{self.basename}.{self.extension}"
+                new_filename = add_timestamp(student_file_path)
+                os.rename(student_file_path, new_filename)
                 #os.remove(file_path)
-                print(f"File '{file_path}' if now {new_filename}.")
+                print(f"File '{student_file_path}' if now {new_filename}.")                
             except FileNotFoundError:
                 #print(f"Error: File '{file_path}' not found.")
                 pass
 
+            #Teacher problems file
             try:
+                # Rename the file saving previously
                 file_path_solutions = f"{self.basename}_t.{self.extension}"
                 new_filename_solutions = add_timestamp(file_path_solutions)
                 os.rename(file_path_solutions, new_filename_solutions)
@@ -51,69 +59,97 @@ class TextService:
                 #print(f"Error: File '{file_path_solutions}' not found.")
                 pass
 
+
+            student_model_header = f"""# Model {ex_source_path}\n\n{datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S")}\n\n"""
+            teacher_model_header = f"""# Solution to model {ex_source_path}\n\n{datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S")}\n\n"""
+
+            # Student file
+            with open(f"{self.basename}.{self.extension}", "w", encoding="utf-8") as file_object:
+                # Write the text to the file
+                file_object.write(student_model_header)
+
+            # Teacher file
+            with open(f"{self.basename}_t.{self.extension}", "w", encoding="utf-8") as file_object:
+                # Write the text to the file
+                file_object.write(teacher_model_header)
+
+        # Excel 
         if self.excel_pathname:
             self.dataframe = pd.read_excel(self.excel_pathname)
         else:
             self.dataframe = None
 
 
-    def build_one(self, scenario, inputvars_set, dataframe_iloc, node_path_list):
+    def buildall_exercises(self,no_of_given_vars,silence):
+
+        #self.scenario is given when Scenary is instantiated
+        Y = self.scenario.yield_inputvarsset_nodepathlist(no_of_given_vars,silence)
+
+        self.dataframe_iloc = -1 # each row of excel "excel/pandas"
+
+        for (problem_no, problem_pair) in enumerate(Y):
+
+            inputvars_set  = problem_pair[0]
+            node_path_list = problem_pair[1]
+
+            #General steps for the solution
+            self.solverslist_answer_text = self.solverslist_build_answer_text(inputvars_set,node_path_list,silence)
+
+            if self.varcount and self.basename and self.all_ex_in_samefile:
+                #"rmdmoodle" style with sections and subsections
+                self.add_problem_with_variants(problem_no,inputvars_set,node_path_list)
+            else:
+                #each excel row, if exists, in a problem
+                self.add_problem_linearly(problem_no,inputvars_set,node_path_list)
+
+
+
+    def add_problem_with_variants(self,problem_no,inputvars_set,node_path_list):
         """
-        Produces the text of an exercise to be concatenated to others.
+        Produces problems like "rmdmoodle":
 
-        Input:
+        # Problem n
 
-        - inputvars_set
-        - outputvars_set
-        - solvers_list
-        - dataframe_pos
-        - node_path_list: indicar ao "teacher" que nós fazem parte da solução
+        ## Variant <excelrow_no>
+        ....
 
-        
-        Originalmente foi assim, feito à mão:
-
-            '''
-            def author_scenary_text(inputvars_set,outputvars_set,solverslist_text):
-                
-                #text ver acima
-
-                VALOR = "um valor"
-                UNKNOWN = "incónita"
-
-                x1value = VALOR if x1 in inputvars_set else UNKNOWN
-                x2value = VALOR if x2 in inputvars_set else UNKNOWN
-                x3value = VALOR if x3 in inputvars_set else UNKNOWN
-
-                mediavalue = VALOR if media in inputvars_set else UNKNOWN
-                varianciavalue = VALOR if variancia in inputvars_set else UNKNOWN
+        ## Variant <excelrow_no>
+        ....
 
 
+        Input
+        =====
 
+        - problem_no : problem number as is generated
+        - inputvars_set : what variables the student knows
+        - node_path_list: what nodes, in graph, are part of solution
 
-                print(text.format(
-                    x1value = x1value,
-                    x2value = x2value,
-                    x3value = x3value,
-                    mediavalue = mediavalue,
-                    varianciavalue = varianciavalue,
-                    answer_steps = solverslist_text,
-                ))
-
-            '''        
         """
 
+        #debug
+        print("="*10)
+        print("add_problem_with_variants(self,problem_no,inputvars_set,node_path_list)")
 
 
-        args_dict = dict()
-        if not self.dataframe is None:
-            #TODO: programar o varcount!
-            #https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.iloc.html#pandas.DataFrame.iloc
+        # Add # Problem {problem_no}
+        problem_header = f"# Problem {problem_no+1:02d}\n"
+        with open(f"{self.basename}.{self.extension}", "a", encoding="utf-8") as file_object:
+            # Write the text to the file
+            file_object.write(problem_header)
+        with open(f"{self.basename}_t.{self.extension}", "a", encoding="utf-8") as file_object:
+            # Write the text to the file
+            file_object.write(problem_header)
+
+        # Add variants
+        for _ in range(self.varcount):
 
             # "%" is modulo
-            iloc_modulo = dataframe_iloc % self.dataframe.index.size
+            self.dataframe_iloc = (self.dataframe_iloc + 1) % self.dataframe.index.size
 
-            pandas_series = self.dataframe.iloc[iloc_modulo]
-            for v in scenario.allvars_list:
+            args_dict = dict()
+
+            pandas_series = self.dataframe.iloc[self.dataframe_iloc]
+            for v in self.scenario.allvars_list:
                 value = pandas_series[str(v)]
                 if v in inputvars_set:
                     args_dict[str(v)+'input'] = value
@@ -121,13 +157,79 @@ class TextService:
                 else:
                     args_dict[str(v)+'input'] = "(incógnita)"
                     args_dict[str(v)+'output'] = value
-        else:
-            VALOR_STR = "um valor"
-            UNKNOWN_STR = "incónita"
-            for v in scenario.allvars_list:
-                args_dict[str(v)+'value'] = VALOR_STR if v in inputvars_set else UNKNOWN_STR
 
-        args_dict['answer_steps'] = scenario.solverslist_answer_text
+
+            args_dict['answer_steps'] = self.solverslist_answer_text
+            args_dict['variation_number'] = self.dataframe_iloc + 1 # nr. linha pandas + 1 = nr. da linha do excel
+
+
+            # Nós que fazem parte da solução
+            args_dict['nodesequence'] = ', '.join(node_path_list) #node_path_list to text
+
+            #debug
+            #print(args_dict)
+            # https://docs.python.org/3/library/string.html#string.Formatter.vformat
+            # "check_unused_args() is assumed to raise an exception if the check fails.""
+            student_text = self.student_template.format(**args_dict) #raise an exception if the check fails
+            teacher_text = self.teacher_template.format(**args_dict) #raise an exception if the check fails
+
+            with open(f"{self.basename}.{self.extension}", "a", encoding="utf-8") as file_object:
+                # Write the text to the file
+                file_object.write(student_text)
+            with open(f"{self.basename}_t.{self.extension}", "a", encoding="utf-8") as file_object:
+                # Write the text to the file
+                file_object.write(teacher_text)
+
+
+
+    def add_problem_linearly(self,problem_no,inputvars_set,node_path_list):
+        """
+        Produces the text of an exercise to be concatenated to others.
+
+        Input
+        =====
+
+        - problem_no : problem number as is generated
+        - inputvars_set : what variables the student knows
+        - node_path_list: what nodes, in graph, are part of solution
+
+        """
+
+        args_dict = dict()
+
+        if self.dataframe:
+            # if there is a dataframe
+
+            # "%" is modulo
+            self.dataframe_iloc = (self.dataframe_iloc+1) % self.dataframe.index.size
+
+            pandas_series = self.dataframe.iloc[self.dataframe_iloc]
+            for v in self.scenario.allvars_list:
+                value = pandas_series[str(v)]
+                if v in inputvars_set:
+                    args_dict[str(v)+'input'] = value
+                    args_dict[str(v)+'output'] = ""
+                else:
+                    args_dict[str(v)+'input'] = "(incógnita)"
+                    args_dict[str(v)+'output'] = value
+
+        else:
+            # there is no data.frame so use "words".
+            
+            # generic "values"
+            VALOR_STR = "some value"
+            UNKNOWN_STR = "(unknown value)"
+            for v in self.scenario.allvars_list:
+                value = pandas_series[str(v)]
+                if v in inputvars_set:
+                    args_dict[str(v)+'input'] = VALOR_STR
+                    args_dict[str(v)+'output'] = ""
+                else:
+                    args_dict[str(v)+'input'] = UNKNOWN_STR
+                    args_dict[str(v)+'output'] = VALOR_STR
+
+        args_dict['answer_steps'] = self.solverslist_answer_text
+        args_dict['variation_number'] = self.dataframe_iloc + 1 # nr. linha pandas + 1 = nr. da linha do excel
 
 
         # Nós que fazem parte da solução
@@ -141,7 +243,7 @@ class TextService:
         teacher_text = self.teacher_template.format(**args_dict) #raise an exception if the check fails
 
 
-        if self.basename and self.samefile:
+        if self.basename and self.all_ex_in_samefile:
             #--------------
             # "a" = "append" by renaming with timestamp
             #--------------
@@ -151,22 +253,77 @@ class TextService:
             with open(f"{self.basename}_t.{self.extension}", "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(teacher_text)
-        elif self.basename and not self.samefile: #not samefile
+        elif self.basename and not self.all_ex_in_samefile: #not all_ex_in_samefile
             #----------------------------
             # "w" = "write (overwrite)" (delete previous generated file)
             #----------------------------
-            with open(f"{self.basename}_{dataframe_iloc+1:02d}.{self.extension}", "w", encoding="utf-8") as file_object:
+            # dataframe_iloc is contiguous from 0 to #excelrows - 1.
+            with open(f"{self.basename}_{self.dataframe_iloc+1:002d}.{self.extension}", "w", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(student_text)
-            with open(f"{self.basename}_{self.dataframe_iloc+1:02d}_t.{self.extension}", "w", encoding="utf-8") as file_object:
+            with open(f"{self.basename}_{self.dataframe_iloc+1:002d}_t.{self.extension}", "w", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(teacher_text)
         else:
             print(teacher_text)
 
 
-        return teacher_text
 
+
+
+
+    def solverslist_build_answer_text(self,inputvars_set,node_path_list,silence):
+
+        #see class Scenario above
+        #self.answer_template
+
+        answer_text = ""
+
+        given_vars_node = set2orderedstr(inputvars_set)
+
+        if given_vars_node in node_path_list:
+            # If given_vars_node is in the solution path then it is not necessary explain
+            # the path from ignorance to given_vars_node.
+            nodepair_list = zip(node_path_list[len_inputvars_set:-1], node_path_list[(len_inputvars_set+1):])
+        else:
+            # If given_vars_node is NOT in the solution path then it is NECESSARY to explain
+            # the path from ignorance to knowledge.
+            nodepair_list = zip(node_path_list[1:-1], node_path_list[2:])
+
+
+        len_inputvars_set = len(inputvars_set)
+
+        # node_path_list 
+        # node_path_list[len_first_nodes:-1] : 
+        # node_path_list[(len_first_nodes+1):]
+        for nodepair in nodepair_list:
+
+            if not silence:
+                #find edge
+                print('-'*3)
+                print(f'=>from {nodepair[0]}')
+                print(f'=>to   {nodepair[1]}')
+
+            edges = [e for e in self.scenario.wisdomgraph.edges(nodepair[0], data="sc", keys=True) if e[1]==nodepair[1]]
+            #edges = list(self.wisdomgraph.edges[nodepair[0]][nodepair[1]]) #, keys=True,))
+            
+            #There shoulbe be only one element in the above list
+            edge = edges[0]
+
+            #Fourth element is a SolverCandidate 
+            solver_candidate = edge[3]
+
+            localinputvars = self.scenario.wisdomgraph.nodes[nodepair[0]]['vars']
+            localoutputvars = self.scenario.wisdomgraph.nodes[nodepair[1]]['vars']
+            solvers = solver_candidate.relations_latex()
+
+            answer_text += self.answer_template.format(
+                localinputvars = "{}" if localinputvars==set() else  localinputvars,
+                localoutputvars = set(localoutputvars)-set(localinputvars),
+                solvers = solvers,
+            )
+
+        return answer_text
 
 
 def add_timestamp(filename):
@@ -190,4 +347,3 @@ def add_timestamp(filename):
 #new_filename = add_timestamp(original_filename)
 #print(f"Original: {original_filename}")
 #print(f"With Timestamp: {new_filename}")
-
