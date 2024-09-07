@@ -8,7 +8,6 @@ import datetime
 
 class TextService:
 
-
     def __init__(self, 
                  student_template, 
                  teacher_template, 
@@ -16,7 +15,7 @@ class TextService:
                  excel_pathname=None,
                  basename=None,
                  extension="txt",
-                 samefile=True,
+                 samefile=True, #keep previous generated files by renaming them
                  varcount=1):
 
         self.scenario = None #atribuído quando este TextService é passado para o Scenario
@@ -28,8 +27,8 @@ class TextService:
         self.extension = extension
         self.samefile = samefile
         self.varcount = varcount
-
-        #delete previous answer files
+        
+        # rename previous text files with a timestamp
         if self.basename and self.samefile:
             try:
                 # Delete the file
@@ -58,14 +57,19 @@ class TextService:
             self.dataframe = None
 
 
-    def build_one(self, scenario, inputvars_set, dataframe_iloc,node_path_list):
+    def build_one(self, scenario, inputvars_set, dataframe_iloc, node_path_list):
         """
+        Produces the text of an exercise to be concatenated to others.
+
+        Input:
+
         - inputvars_set
         - outputvars_set
         - solvers_list
         - dataframe_pos
         - node_path_list: indicar ao "teacher" que nós fazem parte da solução
 
+        
         Originalmente foi assim, feito à mão:
 
             '''
@@ -131,19 +135,26 @@ class TextService:
 
         #debug
         #print(args_dict)
-
-        student_text = self.student_template.format(**args_dict)
-        teacher_text = self.teacher_template.format(**args_dict)
+        # https://docs.python.org/3/library/string.html#string.Formatter.vformat
+        # "check_unused_args() is assumed to raise an exception if the check fails.""
+        student_text = self.student_template.format(**args_dict) #raise an exception if the check fails
+        teacher_text = self.teacher_template.format(**args_dict) #raise an exception if the check fails
 
 
         if self.basename and self.samefile:
+            #--------------
+            # "a" = "append" by renaming with timestamp
+            #--------------
             with open(f"{self.basename}.{self.extension}", "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(student_text)
             with open(f"{self.basename}_t.{self.extension}", "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(teacher_text)
-        elif self.basename and not self.samefile:
+        elif self.basename and not self.samefile: #not samefile
+            #----------------------------
+            # "w" = "write (overwrite)" (delete previous generated file)
+            #----------------------------
             with open(f"{self.basename}_{dataframe_iloc+1:02d}.{self.extension}", "w", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(student_text)

@@ -739,11 +739,21 @@ class Scenario:
 
     def buildall_exercises(self,no_of_given_vars=1,silence=True):
         """
-        input:
+        Builds exercises from a given set of variables.
 
-        - no_of_given_vars - number of known variables (search exercises with this restriction)
+        1. An objet of type TextService is created by an author (inside a *.py file)
+        2. etc
+        3. A Scenario is created with all previous elements
+        4. This method `buildall_exercises()` generates combinations and produces one file (samefile=True) or several files (samefile=False).
+
         
-        Recall: data is in an excel file. Each column a variable. Each row an exercise.
+        parameters
+        ==========
+
+        - no_of_given_vars : number of known variables (search exercises with this restriction).
+        
+
+        Recall: data is in an excel file inside a TextService object. Each column a variable. Each row an exercise.
 
 
         ```python
