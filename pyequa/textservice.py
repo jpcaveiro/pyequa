@@ -3,6 +3,7 @@ import os
 import datetime
 
 
+
 from .wisdomgraph import set2orderedstr
 # Ver:
 # self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
@@ -18,8 +19,8 @@ class TextService:
                  basename=None,
                  extension="txt",
                  all_ex_in_samefile=True, 
-                 ex_source_path = "(ex_source_path unknonw)",
-                 varcount=None): #varcount as in rmdmoodle
+                 varcount=None,
+                 cloze_type = False): #varcount as in rmdmoodle
 
         self.scenario = None #atribuído quando este TextService é passado para o Scenario
         self.student_template = student_template
@@ -29,9 +30,15 @@ class TextService:
         self.basename = basename
         self.extension = extension
         self.all_ex_in_samefile = all_ex_in_samefile
-        self.ex_source_path = ex_source_path
         self.varcount = varcount
-        
+        self.cloze_type = cloze_type
+
+        # Excel 
+        if self.excel_pathname:
+            self.dataframe = pd.read_excel(self.excel_pathname)
+        else:
+            self.dataframe = None
+
         # rename previous text files with a timestamp
         if self.basename and self.all_ex_in_samefile:
 
@@ -59,9 +66,10 @@ class TextService:
                 #print(f"Error: File '{file_path_solutions}' not found.")
                 pass
 
+            ex_source_path = os.getcwd()
 
-            student_model_header = f"""# Model {ex_source_path}\n\n{datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S")}\n\n"""
-            teacher_model_header = f"""# Solution to model {ex_source_path}\n\n{datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S")}\n\n"""
+            student_model_header = f"""# Model {ex_source_path}\n\nProduced in {datetime.datetime.now().strftime(r"%Y-%m-%d %H:%M:%S")}\n\n"""
+            teacher_model_header = f"""# Solution to model {ex_source_path}\n\nProduced in {datetime.datetime.now().strftime(r"%Y-%m-%d %H:%M:%S")}\n\n"""
 
             # Student file
             with open(f"{self.basename}.{self.extension}", "w", encoding="utf-8") as file_object:
@@ -73,17 +81,13 @@ class TextService:
                 # Write the text to the file
                 file_object.write(teacher_model_header)
 
-        # Excel 
-        if self.excel_pathname:
-            self.dataframe = pd.read_excel(self.excel_pathname)
-        else:
-            self.dataframe = None
 
 
     def buildall_exercises(self,no_of_given_vars,silence):
+        self.build_in_silence = silence
 
         #self.scenario is given when Scenary is instantiated
-        Y = self.scenario.yield_inputvarsset_nodepathlist(no_of_given_vars,silence)
+        Y = self.scenario.yield_inputvarsset_nodepathlist(no_of_given_vars)
 
         self.dataframe_iloc = -1 # each row of excel "excel/pandas"
 
@@ -93,7 +97,7 @@ class TextService:
             node_path_list = problem_pair[1]
 
             #General steps for the solution
-            self.solverslist_answer_text = self.solverslist_build_answer_text(inputvars_set,node_path_list,silence)
+            self.solverslist_answer_text = self.solverslist_build_answer_text(inputvars_set,node_path_list)
 
             if self.varcount and self.basename and self.all_ex_in_samefile:
                 #"rmdmoodle" style with sections and subsections
@@ -127,12 +131,15 @@ class TextService:
         """
 
         #debug
-        print("="*10)
-        print("add_problem_with_variants(self,problem_no,inputvars_set,node_path_list)")
+        #print("="*10)
+        #print("add_problem_with_variants(self,problem_no,inputvars_set,node_path_list)")
 
 
         # Add # Problem {problem_no}
-        problem_header = f"# Problem {problem_no+1:02d}\n"
+        if self.cloze_type:
+            problem_header = f"# Problem {problem_no+1:02d} - CLOZE\n"
+        else:
+            problem_header = f"# Problem {problem_no+1:02d}\n"
         with open(f"{self.basename}.{self.extension}", "a", encoding="utf-8") as file_object:
             # Write the text to the file
             file_object.write(problem_header)
@@ -141,26 +148,32 @@ class TextService:
             file_object.write(problem_header)
 
         # Add variants
-        for _ in range(self.varcount):
+        for var_no in range(self.varcount):
 
             # "%" is modulo
             self.dataframe_iloc = (self.dataframe_iloc + 1) % self.dataframe.index.size
 
+            # problem and technical keywords
             args_dict = dict()
 
+            # problem keywords
             pandas_series = self.dataframe.iloc[self.dataframe_iloc]
             for v in self.scenario.allvars_list:
                 value = pandas_series[str(v)]
                 if v in inputvars_set:
-                    args_dict[str(v)+'input'] = value
-                    args_dict[str(v)+'output'] = ""
+                    args_dict[str(v)+'input'] = value #complicated: f"{value:.4f}"
+                    args_dict[str(v)+'output'] = "" #no need to show
                 else:
-                    args_dict[str(v)+'input'] = "(incógnita)"
+                    if self.cloze_type:
+                        args_dict[str(v)+'input'] = f"{{:NUMERICAL:={value}:0.01}}"
+                    else:
+                        args_dict[str(v)+'input'] = "(incógnita)"
                     args_dict[str(v)+'output'] = value
 
-
+            # technical keywords
             args_dict['answer_steps'] = self.solverslist_answer_text
-            args_dict['variation_number'] = self.dataframe_iloc + 1 # nr. linha pandas + 1 = nr. da linha do excel
+            args_dict['variation_number'] = \
+                f"{(var_no+1):02d} (excel row is {(self.dataframe_iloc + 1):03d})" # nr. linha pandas + 1 = nr. da linha do excel
 
 
             # Nós que fazem parte da solução
@@ -179,6 +192,21 @@ class TextService:
             with open(f"{self.basename}_t.{self.extension}", "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(teacher_text)
+                if not self.build_in_silence:
+                    #For user to imediatly see but
+                    #check self.text_service.buildone() for more.
+                    print(teacher_text)
+
+        # Add "How did you do it?"
+        #HOW =  "# Diz-me como foi? - ESSAY\n\n"
+        #HOW += "## Variante Única\n\n"
+        #HOW += "Indique a dificuldade (fácil, preciso pensar um pouco, exigente, não consegui ainda):\n\n\n"
+        #HOW += "Explique, sucintamente e nas linhas em baixo, que equações foram usadas e ideia das instruções (de software ou calculadora) usados.\n\n\n"
+        #HOW += "Obrigado (Equipa docente de MNE).\n"
+        #with open(f"{self.basename}.{self.extension}", "a", encoding="utf-8") as file_object:
+        #    # Write the text to the file
+        #    file_object.write(HOW)
+                
 
 
 
@@ -272,7 +300,7 @@ class TextService:
 
 
 
-    def solverslist_build_answer_text(self,inputvars_set,node_path_list,silence):
+    def solverslist_build_answer_text(self,inputvars_set,node_path_list):
 
         #see class Scenario above
         #self.answer_template
@@ -298,7 +326,7 @@ class TextService:
         # node_path_list[(len_first_nodes+1):]
         for nodepair in nodepair_list:
 
-            if not silence:
+            if not self.build_in_silence:
                 #find edge
                 print('-'*3)
                 print(f'=>from {nodepair[0]}')

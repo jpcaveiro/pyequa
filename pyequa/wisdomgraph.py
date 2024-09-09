@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import datetime
 from sympy import Eq,Symbol,latex
 
+
 #from slugify import slugify
 #from sage.all import *
 
@@ -735,10 +736,11 @@ class Scenario:
 
 
     def buildall_exercises(self,no_of_given_vars=1,silence=True):
+        self.build_in_silence = silence
         self.text_service.buildall_exercises(no_of_given_vars,silence)
 
 
-    def yield_inputvarsset_nodepathlist(self,no_of_given_vars=1,silence=True):
+    def yield_inputvarsset_nodepathlist(self,no_of_given_vars=1):
         """
         Builds exercises from a given set of variables.
 
@@ -822,7 +824,7 @@ class Scenario:
             #has_a_path = nx.has_path(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_)
                 
             #AGORA: write all paths (each path is an exercise)
-            if not silence:
+            if not self.build_in_silence:
                 print("="*10)
                 print(f"Caminhos sabendo: {inputvars_set}")
                 print("="*10)
@@ -831,7 +833,7 @@ class Scenario:
             try:
                 node_path_list = list(nx.shortest_path(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_))
 
-                if not silence:
+                if not self.build_in_silence:
                     for node in node_path_list:
                         print(node)
 
@@ -851,14 +853,8 @@ class Scenario:
                 list_of_node_path_list.append(node_path_list)
 
 
-                if not silence:
-                    #For user to imediatly see but
-                    #check self.text_service.buildone() for more.
-                    print(teacher_text)
-
-                
             except nx.NetworkXNoPath:
-                if not silence:
+                if not self.build_in_silence:
                     #Debug
                     print("    Não há caminho!")
 
