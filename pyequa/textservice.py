@@ -39,17 +39,27 @@ class TextService:
         else:
             self.dataframe = None
 
+
+        # Create "_output_"
+        DEFAULT_OUTPUT_FOLDER = "_output_"
+        if not os.path.exists(DEFAULT_OUTPUT_FOLDER):
+            os.makedirs(DEFAULT_OUTPUT_FOLDER)
+            print(F"Folder '{DEFAULT_OUTPUT_FOLDER}' created.")
+
+        os.chdir(DEFAULT_OUTPUT_FOLDER)
+
         # rename previous text files with a timestamp
         if self.basename and self.all_ex_in_samefile:
 
             #Student problems file
             try:
+                #TODO: parece existir repetição da construção destes file_path !
                 # Rename the file saving previously
-                student_file_path = f"{self.basename}.{self.extension}"
-                new_filename = add_timestamp(student_file_path)
-                os.rename(student_file_path, new_filename)
+                original_file_path_student = f"{self.basename}.{self.extension}"
+                self.file_path_student = add_timestamp(original_file_path_student)
+                os.rename(original_file_path_student, self.file_path_student)
                 #os.remove(file_path)
-                print(f"File '{student_file_path}' if now {new_filename}.")                
+                print(f"File '{original_file_path_student}' if now {self.file_path_student}.")                
             except FileNotFoundError:
                 #print(f"Error: File '{file_path}' not found.")
                 pass
@@ -57,11 +67,11 @@ class TextService:
             #Teacher problems file
             try:
                 # Rename the file saving previously
-                file_path_solutions = f"{self.basename}_t.{self.extension}"
-                new_filename_solutions = add_timestamp(file_path_solutions)
-                os.rename(file_path_solutions, new_filename_solutions)
+                original_file_path_solutions = f"{self.basename}_sol.{self.extension}"
+                self.file_path_solutions = add_timestamp(original_file_path_solutions)
+                os.rename(original_file_path_solutions, self.file_path_solutions)
                 #os.remove(file_path)
-                print(f"File '{file_path_solutions}' if now {new_filename_solutions}.")
+                print(f"File '{original_file_path_solutions}' if now {self.file_path_solutions}.")
             except FileNotFoundError:
                 #print(f"Error: File '{file_path_solutions}' not found.")
                 pass
@@ -72,12 +82,12 @@ class TextService:
             teacher_model_header = f"""# Solution to model {ex_source_path}\n\nProduced in {datetime.datetime.now().strftime(r"%Y-%m-%d %H:%M:%S")}\n\n"""
 
             # Student file
-            with open(f"{self.basename}.{self.extension}", "w", encoding="utf-8") as file_object:
+            with open(self.file_path_student, "w", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(student_model_header)
 
             # Teacher file
-            with open(f"{self.basename}_t.{self.extension}", "w", encoding="utf-8") as file_object:
+            with open(self.file_path_solutions, "w", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(teacher_model_header)
 
@@ -140,10 +150,10 @@ class TextService:
             problem_header = f"# Problem {problem_no+1:02d} - CLOZE\n"
         else:
             problem_header = f"# Problem {problem_no+1:02d}\n"
-        with open(f"{self.basename}.{self.extension}", "a", encoding="utf-8") as file_object:
+        with open(self.file_path_student, "a", encoding="utf-8") as file_object:
             # Write the text to the file
             file_object.write(problem_header)
-        with open(f"{self.basename}_t.{self.extension}", "a", encoding="utf-8") as file_object:
+        with open(self.file_path_solutions, "a", encoding="utf-8") as file_object:
             # Write the text to the file
             file_object.write(problem_header)
 
