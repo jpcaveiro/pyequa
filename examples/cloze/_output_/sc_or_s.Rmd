@@ -1,0 +1,144 @@
+
+## variante 01 (excel row is 001)
+
+
+Com uma amostra de tamanho {:MULTICHOICE:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'}, {:MULTICHOICE:%100%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não} pois o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000', "%100%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não" pois "o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido".
+
+
+## variante 02 (excel row is 002)
+
+
+Com uma amostra de tamanho {:MULTICHOICE:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'}, {:MULTICHOICE:%100%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não} pois o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000', "%100%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não" pois "o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido".
+
+
+## variante 01 (excel row is 003)
+
+
+Com uma amostra de tamanho '10', {:MULTICHOICE:%0%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não} pois {:MULTICHOICE:%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%0%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido}.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho '10', "%0%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não" pois "%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%0%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido".
+
+
+## variante 02 (excel row is 004)
+
+
+Com uma amostra de tamanho '20', {:MULTICHOICE:%0%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não} pois {:MULTICHOICE:%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%0%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido}.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho '20', "%0%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não" pois "%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%0%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido".
+
+
+## variante 01 (excel row is 005)
+
+
+Com uma amostra de tamanho {:MULTICHOICE:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'}, pode ser usado o desvio padrão corrigido ou não pois {:MULTICHOICE:%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%100%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido}.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', "pode ser usado o desvio padrão corrigido ou não" pois "%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%100%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido".
+
+
+## variante 02 (excel row is 006)
+
+
+Com uma amostra de tamanho {:MULTICHOICE:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'}, pode ser usado o desvio padrão corrigido ou não pois {:MULTICHOICE:%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%100%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido}.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', "pode ser usado o desvio padrão corrigido ou não" pois "%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%100%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido".
+
+
+## variante 01 (excel row is 001)
+
+
+Com uma amostra de tamanho '2', {:MULTICHOICE:%0%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não} pois o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho '2', "%0%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não" pois "o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido".
+
+
+## variante 02 (excel row is 002)
+
+
+Com uma amostra de tamanho '4', {:MULTICHOICE:%0%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não} pois o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho '4', "%0%deve ser usado o desvio padrão corrigido\~%0%pode ser usado o desvio padrão corrigido ou não" pois "o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido".
+
+
+## variante 01 (excel row is 003)
+
+
+Com uma amostra de tamanho {:MULTICHOICE:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'}, deve ser usado o desvio padrão corrigido pois o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000', "deve ser usado o desvio padrão corrigido" pois "o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido".
+
+
+## variante 02 (excel row is 004)
+
+
+Com uma amostra de tamanho {:MULTICHOICE:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'}, deve ser usado o desvio padrão corrigido pois o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000', "deve ser usado o desvio padrão corrigido" pois "o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido".
+
+
+## variante 01 (excel row is 005)
+
+
+Com uma amostra de tamanho '100', pode ser usado o desvio padrão corrigido ou não pois {:MULTICHOICE:%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%0%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido}.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho '100', "pode ser usado o desvio padrão corrigido ou não" pois "%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%0%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido".
+
+
+## variante 02 (excel row is 006)
+
+
+Com uma amostra de tamanho '1000', pode ser usado o desvio padrão corrigido ou não pois {:MULTICHOICE:%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%0%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido}.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho '1000', "pode ser usado o desvio padrão corrigido ou não" pois "%0%o desvio padrão corrigido é maior, ou bastante maior, que o desvio padrão não corrigido\~%0%o desvio padrão corrigido é aproximado ao desvio padrão não corrigido".
+

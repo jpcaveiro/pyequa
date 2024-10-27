@@ -18,15 +18,23 @@ from sympy import symbols, Eq, Symbol #, Rational, latex
 
 
 student_template = r"""
-# essay
+## variante {variation_number}
+
 
 Com uma amostra de tamanho {tamanhoinput}, {s_or_scinput} pois {justificaçãoinput}.
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+Com uma amostra de tamanho {tamanhooutput}, "{s_or_scoutput}" pois "{justificaçãooutput}".
 
 """
 
 
 teacher_template = r"""
-# essay
+## variante {variation_number}
+
 
 Com uma amostra de tamanho {tamanhoinput}, {s_or_scinput} pois {justificaçãoinput}.
 

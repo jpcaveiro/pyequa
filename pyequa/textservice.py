@@ -168,20 +168,21 @@ class TextService:
 
             # problem keywords
             pandas_series = self.dataframe.iloc[self.dataframe_iloc]
-            for v in self.scenario.allvars_list:
-                value = pandas_series[str(v)]
-                if v in inputvars_set:
-                    args_dict[str(v)+'input'] = value #complicated: f"{value:.4f}"
-                    args_dict[str(v)+'output'] = "" #no need to show
-                else:
-                    if self.cloze_type:
-                        cloze = Cloze(self.dataframe, pandas_series, args_dict, self.scenario.allvars_list, inputvars_set)
-                        args_dict = cloze.mk_input_fields()
-                        # Antes:
-                        #args_dict[str(v)+'input'] = f"{{:NUMERICAL:={value}:0.01}}"
+
+            if self.cloze_type:
+                cloze = Cloze(self.dataframe, pandas_series, args_dict, self.scenario.allvars_list, inputvars_set)
+                args_dict = cloze.mk_input_fields()
+                # Antes:
+                #args_dict[str(v)+'input'] = f"{{:NUMERICAL:={value}:0.01}}"
+            else:
+                for v in self.scenario.allvars_list:
+                    value = pandas_series[str(v)]
+                    if v in inputvars_set:
+                        args_dict[str(v)+'input'] = value #complicated: f"{value:.4f}"
+                        args_dict[str(v)+'output'] = "" #no need to show
                     else:
                         args_dict[str(v)+'input'] = "(incógnita)"
-                    args_dict[str(v)+'output'] = value
+                        args_dict[str(v)+'output'] = value
 
             # technical keywords
             args_dict['answer_steps'] = self.solverslist_answer_text
