@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 import datetime
-
+from .moodleservice import Cloze
 
 
 from .wisdomgraph import set2orderedstr
@@ -175,7 +175,10 @@ class TextService:
                     args_dict[str(v)+'output'] = "" #no need to show
                 else:
                     if self.cloze_type:
-                        args_dict[str(v)+'input'] = f"{{:NUMERICAL:={value}:0.01}}"
+                        cloze = Cloze(self.dataframe, pandas_series, args_dict, self.scenario.allvars_list, inputvars_set)
+                        args_dict = cloze.mk_input_fields()
+                        # Antes:
+                        #args_dict[str(v)+'input'] = f"{{:NUMERICAL:={value}:0.01}}"
                     else:
                         args_dict[str(v)+'input'] = "(incógnita)"
                     args_dict[str(v)+'output'] = value
@@ -362,6 +365,7 @@ class TextService:
             )
 
         return answer_text
+
 
 
 def add_timestamp(filename):
