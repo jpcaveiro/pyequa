@@ -23,11 +23,14 @@ class Cloze:
 
     def mk_input_fields(self):
 
+
+
         # ---------------
         # Query dataframe
         # ---------------
         we_know_this = []
-        print(self.inputvars_set)
+        #Debug
+        #print(self.inputvars_set)
         for var in self.inputvars_set:
             value = self.pandas_series[var.name]
             #Debug
@@ -35,15 +38,21 @@ class Cloze:
             #Testar isto:
             if type(value) == str:
                 if value[0] == "'":
-                    know_this = f"{var} == {value}"
+                    know_this = f"{var} == " + f'''"{value}"'''
                 else:
                     know_this = f"{var} == '''{value}'''"
             else:
                 know_this = f"{var} == {value}" 
             we_know_this.append(know_this)
 
-            self.args_dict[str(var)+'input'] = value
-            self.args_dict[str(var)+'output'] = value
+            # var+input: student see the value if var is in inputvars_set
+            # var+output: student see nothing if var is in inputvars_set
+
+            # var+input: student see {:NUMERICAL/MULTICHOICE: if var is NOT in inputvars_set
+            # var+output: student see value if var is NOT in inputvars_set
+
+            self.args_dict[str(var)+'input'] = "**" + str(value) + "**"
+            self.args_dict[str(var)+'output'] = ""
 
 
         #Debug
@@ -63,7 +72,7 @@ class Cloze:
         #Create cloze inputs for non given variables
         outputvars_set = set(self.allvars_list) - set(self.inputvars_set)
         #Debug
-        print(outputvars_set)
+        #print(outputvars_set)
 
 
 
@@ -81,10 +90,12 @@ class Cloze:
             all_correct_values = d[var.name].unique() #can be just one
             all_unique_values = self.dataframe[var.name].unique()
 
+            more_than_on_correct = len(all_correct_values) > 1
+
             options_list = []
             for option in all_unique_values:
                 if option in all_correct_values:
-                    if var_is_stringtype:
+                    if var_is_stringtype: 
                         options_list.append(f"%100%{option}")
                     else:
                         options_list.append(f"%100%{option}:0.01") #Global tolerance
@@ -93,20 +104,22 @@ class Cloze:
                         options_list.append(f"%0%{option}")
             
             options_str = '\\~'.join(options_list)
+            
+
+            if more_than_on_correct:
+                more_str = " (indique uma de várias soluções)"
+            else:
+                more_str = ""
+
             if var_is_stringtype:
-                self.args_dict[var.name+'input'] = "{:MULTICHOICE:" + options_str + "}"
+                self.args_dict[var.name+'input'] = "{:MULTICHOICE_S:" + options_str + "}" + more_str
                 self.args_dict[var.name+'output'] = options_str
             else:
-                self.args_dict[var.name+'input'] = "{:NUMERICAL:" + options_str + "}"
+                self.args_dict[var.name+'input'] = "{:NUMERICAL:" + options_str + "}" + more_str
                 self.args_dict[var.name+'output'] = options_str
 
-        print(self.args_dict)
+        #Debug
+        #print(self.args_dict)
 
         return self.args_dict
-
-
-
-        args_dict = self.make_cloze(args_dict, inputvars_set)
-        # Antes:
-        #args_dict[str(v)+'input'] = f"{{:NUMERICAL:={value}:0.01}}"
 

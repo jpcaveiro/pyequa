@@ -1,5 +1,0 @@
-# Solution to model C:\Users\pedrocruz\Documents\GitHub\pyequa\examples\cloze\_output_
-
-Produced in 2024-10-27 12:01:49
-
-# Problem 01 - CLOZE

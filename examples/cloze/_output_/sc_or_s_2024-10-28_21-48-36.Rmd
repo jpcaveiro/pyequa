@@ -1,6 +1,6 @@
 # Model C:\Users\pedrocruz\Documents\GitHub\pyequa\examples\cloze\_output_
 
-Produced in 2024-10-28 21:48:36
+Produced in 2024-10-28 21:47:37
 
 # Problem 01 - CLOZE
 
@@ -8,7 +8,7 @@ Produced in 2024-10-28 21:48:36
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho **'2'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+Com uma amostra de tamanho =>'2'<=, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -20,7 +20,7 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho **'4'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+Com uma amostra de tamanho =>'4'<=, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -33,7 +33,7 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão =>corrigido<= 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -45,7 +45,7 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão =>corrigido<= 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -58,7 +58,7 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão **corrigido ou não** 
+Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), =>pode<= ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que o\~%100%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -70,7 +70,7 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, 
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão **corrigido ou não** 
+Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), =>pode<= ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que o\~%100%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -84,7 +84,7 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
 Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
-pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+pois o desvio padrão corrigido é =>maior, ou bastante maior, que o<= desvio padrão não corrigido.
 
 ### feedback
 
@@ -96,7 +96,7 @@ pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio pa
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
 Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
-pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+pois o desvio padrão corrigido é =>maior, ou bastante maior, que o<= desvio padrão não corrigido.
 
 ### feedback
 
@@ -108,7 +108,7 @@ pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio pa
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho **'10'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+Com uma amostra de tamanho =>'10'<=, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão =>corrigido<= 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -120,7 +120,7 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho **'20'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+Com uma amostra de tamanho =>'20'<=, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão =>corrigido<= 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -133,7 +133,7 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho **'100'**, {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão **corrigido ou não** 
+Com uma amostra de tamanho =>'100'<=, =>pode<= ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que o\~%100%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -145,7 +145,7 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, 
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho **'1000'**, {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão **corrigido ou não** 
+Com uma amostra de tamanho =>'1000'<=, =>pode<= ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que o\~%100%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -158,8 +158,8 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, 
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho **'2'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
-pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+Com uma amostra de tamanho =>'2'<=, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é =>maior, ou bastante maior, que o<= desvio padrão não corrigido.
 
 ### feedback
 
@@ -170,8 +170,8 @@ pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio pa
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho **'4'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
-pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+Com uma amostra de tamanho =>'4'<=, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é =>maior, ou bastante maior, que o<= desvio padrão não corrigido.
 
 ### feedback
 
@@ -183,7 +183,7 @@ pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio pa
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), **deve** ser usado o desvio padrão **corrigido** 
+Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), =>deve<= ser usado o desvio padrão =>corrigido<= 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -195,7 +195,7 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), **deve** ser usado o desvio padrão **corrigido** 
+Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), =>deve<= ser usado o desvio padrão =>corrigido<= 
 pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
 
 ### feedback
@@ -208,8 +208,8 @@ pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), **pode** ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
-pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão =>corrigido ou não<= 
+pois o desvio padrão corrigido é =>aproximado ao<= desvio padrão não corrigido.
 
 ### feedback
 
@@ -220,8 +220,8 @@ pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigi
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), **pode** ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
-pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão =>corrigido ou não<= 
+pois o desvio padrão corrigido é =>aproximado ao<= desvio padrão não corrigido.
 
 ### feedback
 
@@ -233,8 +233,8 @@ pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigi
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
-pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), =>deve<= ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é =>maior, ou bastante maior, que o<= desvio padrão não corrigido.
 
 ### feedback
 
@@ -245,8 +245,8 @@ pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio pa
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
-pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), =>deve<= ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é =>maior, ou bastante maior, que o<= desvio padrão não corrigido.
 
 ### feedback
 

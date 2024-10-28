@@ -2,6 +2,14 @@
 
 """
 Testing moodle cloze quiz construction.
+
+# COMO FAZER ESTAS QUESTÕES com texto
+
+Exemplo:
+
+# Com uma amostra de tamanho [2|4|10|20|100|1000], [pode|deve] ser usado o desvio padrão [corrigido|corrigido ou não]
+# pois o desvio padrão corrigido é [maior, ou bastante maior, que o|aproximado ao] desvio padrão não corrigido.
+
 """
 
 from os import getcwd, chdir
@@ -20,27 +28,36 @@ from sympy import symbols, Eq, Symbol #, Rational, latex
 student_template = r"""
 ## variante {variation_number}
 
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {tamanhoinput}, {s_or_scinput} pois {justificaçãoinput}.
+Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} 
+pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não corrigido.
 
 ### feedback
 
 (Consulte o docente das suas turmas ou uma OT.)
 
-Com uma amostra de tamanho {tamanhooutput}, "{s_or_scoutput}" pois "{justificaçãooutput}".
-
 """
+
+# COMO FAZER ESTAS QUESTÕES:
+
+# Com uma amostra de tamanho {tamanhoinput}, [pode|deve] ser usado o desvio padrão [corrigido|corrigido ou não]
+# pois o desvio padrão corrigido é [maior, ou bastante maior, que o|aproximado ao] desvio padrão não corrigido.
 
 
 teacher_template = r"""
 ## variante {variation_number}
 
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {tamanhoinput}, {s_or_scinput} pois {justificaçãoinput}.
-
-Com uma amostra de tamanho {tamanhooutput}, "{s_or_scoutput}" pois "{justificaçãooutput}".
+Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} 
+pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não corrigido.
 
 ## answer
+
+Com uma amostra de tamanho {tamanhooutput}, {podedeveoutput} ser usado o desvio padrão {corrigidooutput} 
+pois o desvio padrão corrigido é {justificaçãooutput} desvio padrão não corrigido.
+
 
 {answer_steps}
 """
@@ -66,7 +83,8 @@ determina-se
 
 
 tamanho = Symbol('tamanho')
-s_or_sc = Symbol('s_or_sc')
+podedeve = Symbol('podedeve')
+corrigido = Symbol('corrigido')
 justificação = Symbol('justificação')
 
 
@@ -82,16 +100,17 @@ justificação = Symbol('justificação')
 # no ficheiro Excel.
 #
 # Bizarro mas é para desenrascar.
-def_1  = Eq(tamanho, s_or_sc)
-def_2  = Eq(s_or_sc, justificação) #estas são proposições "equivalentes"
+def_1  = Eq(tamanho, podedeve)
+def_2  = Eq(podedeve, corrigido) #estas são proposições "equivalentes"
+def_3  = Eq(corrigido, justificação) #estas são proposições "equivalentes"
 
 
 scenary_relations = {
     #ws.SR is class Scenary.SympyRelation (ako "equality")
     ws.SR(def_1, latex_str=str(def_1)),
     ws.SR(def_2, latex_str=str(def_2)),
+    ws.SR(def_3, latex_str=str(def_3)),
 }
-
 
 
 
@@ -115,7 +134,7 @@ world = ws.Scenario(scenary_relations,
 
 
 #plot
-world.draw_wisdom_graph(figsize=[80,80])
+#world.draw_wisdom_graph(figsize=[80,80])
 
 
 # %%
