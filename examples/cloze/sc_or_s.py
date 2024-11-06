@@ -28,9 +28,11 @@ from sympy import symbols, Eq, Symbol #, Rational, latex
 student_template = r"""
 ## variante {variation_number}
 
-O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
 
-Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} 
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} 
 pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não corrigido.
 
 ### feedback
@@ -50,7 +52,9 @@ teacher_template = r"""
 
 O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
 
-Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} 
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} 
 pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não corrigido.
 
 ## answer
@@ -100,9 +104,9 @@ justificação = Symbol('justificação')
 # no ficheiro Excel.
 #
 # Bizarro mas é para desenrascar.
-def_1  = Eq(tamanho, podedeve)
-def_2  = Eq(podedeve, corrigido) #estas são proposições "equivalentes"
-def_3  = Eq(corrigido, justificação) #estas são proposições "equivalentes"
+def_1  = Eq(tamanho, podedeve+corrigido)
+def_2  = Eq(tamanho, corrigido+justificação) #estas são proposições "equivalentes"
+def_3  = Eq(tamanho, justificação) #estas são proposições "equivalentes"
 
 
 scenary_relations = {
@@ -130,11 +134,11 @@ text_service = TextService(
 
 world = ws.Scenario(scenary_relations,
                     text_service,
-                    r=[1,2])
+                    r=[2])
 
 
 #plot
-#world.draw_wisdom_graph(figsize=[80,80])
+world.draw_wisdom_graph(figsize=[80,80])
 
 
 # %%
