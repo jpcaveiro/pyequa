@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 import datetime
-
+from .moodleservice import Cloze
 
 
 from .wisdomgraph import set2orderedstr
@@ -55,11 +55,11 @@ class TextService:
             try:
                 #TODO: parece existir repetição da construção destes file_path !
                 # Rename the file saving previously
-                original_file_path_student = f"{self.basename}.{self.extension}"
-                self.file_path_student = add_timestamp(original_file_path_student)
-                os.rename(original_file_path_student, self.file_path_student)
+                self.file_path_student = f"{self.basename}.{self.extension}"
+                timed_file_path_student= add_timestamp(self.file_path_student)
+                os.rename(self.file_path_student,timed_file_path_student, )
                 #os.remove(file_path)
-                print(f"File '{original_file_path_student}' if now {self.file_path_student}.")                
+                print(f"File '{self.file_path_student}' is now {timed_file_path_student}.")                
             except FileNotFoundError:
                 #print(f"Error: File '{file_path}' not found.")
                 pass
@@ -67,11 +67,11 @@ class TextService:
             #Teacher problems file
             try:
                 # Rename the file saving previously
-                original_file_path_solutions = f"{self.basename}_sol.{self.extension}"
-                self.file_path_solutions = add_timestamp(original_file_path_solutions)
-                os.rename(original_file_path_solutions, self.file_path_solutions)
+                self.file_path_solutions = f"{self.basename}_sol.{self.extension}"
+                timed_file_path_solutions = add_timestamp(self.file_path_solutions)
+                os.rename(self.file_path_solutions, timed_file_path_solutions)
                 #os.remove(file_path)
-                print(f"File '{original_file_path_solutions}' if now {self.file_path_solutions}.")
+                print(f"File '{self.file_path_solutions}' is now {timed_file_path_solutions}.")
             except FileNotFoundError:
                 #print(f"Error: File '{file_path_solutions}' not found.")
                 pass
@@ -150,6 +150,10 @@ class TextService:
             problem_header = f"# Problem {problem_no+1:02d} - CLOZE\n"
         else:
             problem_header = f"# Problem {problem_no+1:02d}\n"
+
+        # ----------------
+        # Write header on student and solutions file
+        # ----------------
         with open(self.file_path_student, "a", encoding="utf-8") as file_object:
             # Write the text to the file
             file_object.write(problem_header)
@@ -168,17 +172,27 @@ class TextService:
 
             # problem keywords
             pandas_series = self.dataframe.iloc[self.dataframe_iloc]
-            for v in self.scenario.allvars_list:
-                value = pandas_series[str(v)]
-                if v in inputvars_set:
-                    args_dict[str(v)+'input'] = value #complicated: f"{value:.4f}"
-                    args_dict[str(v)+'output'] = "" #no need to show
-                else:
-                    if self.cloze_type:
-                        args_dict[str(v)+'input'] = f"{{:NUMERICAL:={value}:0.01}}"
+
+            # var+input: student see the value if var is in inputvars_set
+            # var+input: student see (incógnita) if var is NOT in inputvars_set
+            # var+output: student see nothing if var is in inputvars_set
+            # var+output: student see value if var is NOT in inputvars_set
+
+
+            if self.cloze_type:
+                cloze = Cloze(self.dataframe, pandas_series, args_dict, self.scenario.allvars_list, inputvars_set)
+                args_dict = cloze.mk_input_fields()
+                # Antes:
+                #args_dict[str(v)+'input'] = f"{{:NUMERICAL:={value}:0.01}}"
+            else:
+                for v in self.scenario.allvars_list:
+                    value = pandas_series[str(v)]
+                    if v in inputvars_set:
+                        args_dict[str(v)+'input'] = value #complicated: f"{value:.4f}"
+                        args_dict[str(v)+'output'] = "" #no need to show
                     else:
                         args_dict[str(v)+'input'] = "(incógnita)"
-                    args_dict[str(v)+'output'] = value
+                        args_dict[str(v)+'output'] = value
 
             # technical keywords
             args_dict['answer_steps'] = self.solverslist_answer_text
@@ -196,10 +210,13 @@ class TextService:
             student_text = self.student_template.format(**args_dict) #raise an exception if the check fails
             teacher_text = self.teacher_template.format(**args_dict) #raise an exception if the check fails
 
-            with open(f"{self.basename}.{self.extension}", "a", encoding="utf-8") as file_object:
+            # ----------------
+            # Write problem or solution on student and solutions file
+            # ----------------
+            with open(self.file_path_student, "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(student_text)
-            with open(f"{self.basename}_t.{self.extension}", "a", encoding="utf-8") as file_object:
+            with open(self.file_path_solutions, "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(teacher_text)
                 if not self.build_in_silence:
@@ -362,6 +379,7 @@ class TextService:
             )
 
         return answer_text
+
 
 
 def add_timestamp(filename):
