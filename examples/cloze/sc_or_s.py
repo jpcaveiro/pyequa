@@ -35,6 +35,8 @@ O desvio padrão corrigido é um estimador centrado para o desvio padrão do mod
 **(b)** Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} 
 pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não corrigido.
 
+Qualidade deste exercício para o estudo: {{:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}}.
+
 ### feedback
 
 (Consulte o docente das suas turmas ou uma OT.)
@@ -132,9 +134,11 @@ text_service = TextService(
 
 
 
-world = ws.Scenario(scenary_relations,
-                    text_service,
-                    r=[2])
+#world = ws.Scenario(scenary_relations,
+#                    text_service,
+#                    r=[2])
+world = ws.Scenario(scenary_relations, text_service)
+
 
 
 #plot
@@ -154,6 +158,7 @@ world.draw_wisdom_graph(figsize=[80,80])
 
 
 #dar ao user 3 variáveis conhecidas
-all_paths = world.buildall_exercises(no_of_given_vars=2) 
+#all_paths = world.buildall_exercises(no_of_given_vars=2) 
+all_paths = world.buildall_exercises(no_of_given_vars=None) #incrased difficult ?
 
 

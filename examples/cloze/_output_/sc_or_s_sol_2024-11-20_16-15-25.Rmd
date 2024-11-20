@@ -1,0 +1,2059 @@
+# Solution to model C:\Users\pedrocruz\Documents\GitHub\pyequa\examples\cloze\_output_
+
+Produced in 2024-11-20 16:14:33
+
+# Problem 01 - CLOZE
+
+## variante 01 (excel row is 001)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000', %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido}
+
+e usando
+
+Eq(tamanho, justificação)
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{tamanho, justificação}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 002)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000', %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido}
+
+e usando
+
+Eq(tamanho, justificação)
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{tamanho, justificação}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 02 - CLOZE
+
+## variante 01 (excel row is 003)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'10'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 004)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'20'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 03 - CLOZE
+
+## variante 01 (excel row is 005)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', %0%deve\~%100%pode ser usado o desvio padrão %0%corrigido\~%100%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 006)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', %0%deve\~%100%pode ser usado o desvio padrão %0%corrigido\~%100%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 04 - CLOZE
+
+## variante 01 (excel row is 001)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'2'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+Sabendo
+
+{podedeve, corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+
+
+## variante 02 (excel row is 002)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'4'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+Sabendo
+
+{podedeve, corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+
+# Problem 05 - CLOZE
+
+## variante 01 (excel row is 003)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), **deve** ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000',  ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, podedeve}
+
+e usando
+
+Eq(tamanho, justificação)
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{tamanho, justificação}
+
+
+
+## variante 02 (excel row is 004)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), **deve** ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000',  ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, podedeve}
+
+e usando
+
+Eq(tamanho, justificação)
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{tamanho, justificação}
+
+
+# Problem 06 - CLOZE
+
+## variante 01 (excel row is 005)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão **corrigido ou não** 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', %0%deve\~%100%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 006)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão **corrigido ou não** 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', %0%deve\~%100%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 07 - CLOZE
+
+## variante 01 (excel row is 001)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'2'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho ,  ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, tamanho}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{podedeve, corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+
+
+## variante 02 (excel row is 002)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'4'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho ,  ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, tamanho}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{podedeve, corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+
+# Problem 08 - CLOZE
+
+## variante 01 (excel row is 003)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'10'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 004)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'20'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 09 - CLOZE
+
+## variante 01 (excel row is 005)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), **pode** ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000',  ser usado o desvio padrão %0%corrigido\~%100%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{corrigido, tamanho}
+
+
+
+## variante 02 (excel row is 006)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), **pode** ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000',  ser usado o desvio padrão %0%corrigido\~%100%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{corrigido, tamanho}
+
+
+# Problem 10 - CLOZE
+
+## variante 01 (excel row is 001)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'2'**, **deve** ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho ,  ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+
+
+## variante 02 (excel row is 002)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'4'**, **deve** ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho ,  ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+
+# Problem 11 - CLOZE
+
+## variante 01 (excel row is 003)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'10'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 004)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'20'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 12 - CLOZE
+
+## variante 01 (excel row is 005)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), **pode** ser usado o desvio padrão **corrigido ou não** 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000',  ser usado o desvio padrão  
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, podedeve, justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+
+
+## variante 02 (excel row is 006)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), **pode** ser usado o desvio padrão **corrigido ou não** 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000',  ser usado o desvio padrão  
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, podedeve, justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+
+# Problem 13 - CLOZE
+
+## variante 01 (excel row is 001)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'2'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho ,  ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+
+
+## variante 02 (excel row is 002)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'4'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho ,  ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+
+# Problem 01 - CLOZE
+
+## variante 01 (excel row is 001)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000', %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido}
+
+e usando
+
+Eq(tamanho, justificação)
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{tamanho, justificação}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 002)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000', %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido}
+
+e usando
+
+Eq(tamanho, justificação)
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{tamanho, justificação}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 02 - CLOZE
+
+## variante 01 (excel row is 003)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'10'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 004)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'20'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 03 - CLOZE
+
+## variante 01 (excel row is 005)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', %0%deve\~%100%pode ser usado o desvio padrão %0%corrigido\~%100%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 006)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', %0%deve\~%100%pode ser usado o desvio padrão %0%corrigido\~%100%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 04 - CLOZE
+
+## variante 01 (excel row is 001)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'2'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+Sabendo
+
+{podedeve, corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+
+
+## variante 02 (excel row is 002)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'4'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+Sabendo
+
+{podedeve, corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+
+# Problem 05 - CLOZE
+
+## variante 01 (excel row is 003)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), **deve** ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000',  ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, podedeve}
+
+e usando
+
+Eq(tamanho, justificação)
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{tamanho, justificação}
+
+
+
+## variante 02 (excel row is 004)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), **deve** ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000',  ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, podedeve}
+
+e usando
+
+Eq(tamanho, justificação)
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{tamanho, justificação}
+
+
+# Problem 06 - CLOZE
+
+## variante 01 (excel row is 005)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão **corrigido ou não** 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', %0%deve\~%100%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 006)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão **corrigido ou não** 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', %0%deve\~%100%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido, justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 07 - CLOZE
+
+## variante 01 (excel row is 001)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'2'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho ,  ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, tamanho}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{podedeve, corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+
+
+## variante 02 (excel row is 002)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'4'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho ,  ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, tamanho}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{podedeve, corrigido, tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+
+# Problem 08 - CLOZE
+
+## variante 01 (excel row is 003)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'10'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 004)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'20'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 09 - CLOZE
+
+## variante 01 (excel row is 005)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), **pode** ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000',  ser usado o desvio padrão %0%corrigido\~%100%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{corrigido, tamanho}
+
+
+
+## variante 02 (excel row is 006)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), **pode** ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000',  ser usado o desvio padrão %0%corrigido\~%100%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{podedeve, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{corrigido, tamanho}
+
+
+# Problem 01 - CLOZE
+
+## variante 01 (excel row is 001)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000', %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido}
+
+e usando
+
+Eq(tamanho, justificação)
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{tamanho, justificação}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 002)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000', %100%deve\~%0%pode ser usado o desvio padrão  
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{corrigido}
+
+e usando
+
+Eq(tamanho, justificação)
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{tamanho, justificação}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 02 - CLOZE
+
+## variante 01 (excel row is 003)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'10'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 004)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho **'20'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho , %100%deve\~%0%pode ser usado o desvio padrão %100%corrigido\~%0%corrigido ou não 
+pois o desvio padrão corrigido é %100%maior, ou bastante maior, que o\~%0%aproximado ao desvio padrão não corrigido.
+
+
+Sabendo
+
+{tamanho}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{justificação}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+# Problem 03 - CLOZE
+
+## variante 01 (excel row is 005)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', %0%deve\~%100%pode ser usado o desvio padrão %0%corrigido\~%100%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+
+
+## variante 02 (excel row is 006)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
+
+**(a)** Verifique que \(s_c^2 > s^2\).
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%0%deve\~%100%pode} ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+## answer
+
+Com uma amostra de tamanho %0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000', %0%deve\~%100%pode ser usado o desvio padrão %0%corrigido\~%100%corrigido ou não 
+pois o desvio padrão corrigido é  desvio padrão não corrigido.
+
+
+Sabendo
+
+{justificação}
+
+e usando
+
+Eq(tamanho, justificação)
+
+determina-se
+
+{tamanho}
+
+Sabendo
+
+{tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + justificação)
+
+determina-se
+
+{corrigido}
+
+Sabendo
+
+{corrigido, tamanho, justificação}
+
+e usando
+
+Eq(tamanho, corrigido + podedeve)
+
+determina-se
+
+{podedeve}
+
+

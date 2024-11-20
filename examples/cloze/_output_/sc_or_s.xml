@@ -4,7 +4,7 @@
 
   <question type="category">
     <category>
-      <text>$course$/top/importados/Model C--output-/Problem 01 - CLOZE</text>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
     </category>
     <info format="html">
       <text></text>
@@ -13,16 +13,19 @@
   </question>
   <question type="cloze">
     <name>
-      <text>variante 01 (excel row is 001) de Problem 01 - CLOZE</text>
+      <text>variante 01 (excel row is 001) de Problems for study - CLOZE</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho <strong>‘2’</strong>,
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho <strong>‘2’</strong>,
 {:MULTICHOICE_S:%100%deve~%0%pode} ser usado o desvio padrão
-{:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o desvio padrão
-corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que
-o~%0%aproximado ao} desvio padrão não corrigido.</p>]]></text>
+<strong>corrigido</strong> pois o desvio padrão corrigido é
+<strong>maior, ou bastante maior, que o</strong> desvio padrão não
+corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
@@ -35,7 +38,7 @@ o~%0%aproximado ao} desvio padrão não corrigido.</p>]]></text>
 
   <question type="category">
     <category>
-      <text>$course$/top/importados/Model C--output-/Problem 01 - CLOZE</text>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
     </category>
     <info format="html">
       <text></text>
@@ -44,16 +47,19 @@ o~%0%aproximado ao} desvio padrão não corrigido.</p>]]></text>
   </question>
   <question type="cloze">
     <name>
-      <text>variante 02 (excel row is 002) de Problem 01 - CLOZE</text>
+      <text>variante 02 (excel row is 002) de Problems for study - CLOZE</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho <strong>‘4’</strong>,
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho <strong>‘4’</strong>,
 {:MULTICHOICE_S:%100%deve~%0%pode} ser usado o desvio padrão
-{:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o desvio padrão
-corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que
-o~%0%aproximado ao} desvio padrão não corrigido.</p>]]></text>
+<strong>corrigido</strong> pois o desvio padrão corrigido é
+<strong>maior, ou bastante maior, que o</strong> desvio padrão não
+corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
@@ -66,7 +72,7 @@ o~%0%aproximado ao} desvio padrão não corrigido.</p>]]></text>
 
   <question type="category">
     <category>
-      <text>$course$/top/importados/Model C--output-/Problem 02 - CLOZE</text>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
     </category>
     <info format="html">
       <text></text>
@@ -75,395 +81,20 @@ o~%0%aproximado ao} desvio padrão não corrigido.</p>]]></text>
   </question>
   <question type="cloze">
     <name>
-      <text>variante 01 (excel row is 003) de Problem 02 - CLOZE</text>
+      <text>variante 01 (excel row is 003) de Problems for study - CLOZE</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
-{:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
-(indique uma de várias soluções), <strong>deve</strong> ser usado o
-desvio padrão {:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o
-desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior,
-que o~%0%aproximado ao} desvio padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 02 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 02 (excel row is 004) de Problem 02 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
-{:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
-(indique uma de várias soluções), <strong>deve</strong> ser usado o
-desvio padrão {:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o
-desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior,
-que o~%0%aproximado ao} desvio padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 03 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 01 (excel row is 005) de Problem 03 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
-{:MULTICHOICE_S:%0%‘2’~%0%‘4’~%0%‘10’~%0%‘20’~%100%‘100’~%100%‘1000’}
-(indique uma de várias soluções), {:MULTICHOICE_S:%0%deve~%100%pode} ser
-usado o desvio padrão <strong>corrigido ou não</strong> pois o desvio
-padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que
-o~%100%aproximado ao} desvio padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 03 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 02 (excel row is 006) de Problem 03 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
-{:MULTICHOICE_S:%0%‘2’~%0%‘4’~%0%‘10’~%0%‘20’~%100%‘100’~%100%‘1000’}
-(indique uma de várias soluções), {:MULTICHOICE_S:%0%deve~%100%pode} ser
-usado o desvio padrão <strong>corrigido ou não</strong> pois o desvio
-padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que
-o~%100%aproximado ao} desvio padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 04 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 01 (excel row is 001) de Problem 04 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
-{:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
-(indique uma de várias soluções), {:MULTICHOICE_S:%100%deve~%0%pode} ser
-usado o desvio padrão {:MULTICHOICE_S:%100%corrigido~%0%corrigido ou
-não} pois o desvio padrão corrigido é <strong>maior, ou bastante maior,
-que o</strong> desvio padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 04 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 02 (excel row is 002) de Problem 04 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
-{:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
-(indique uma de várias soluções), {:MULTICHOICE_S:%100%deve~%0%pode} ser
-usado o desvio padrão {:MULTICHOICE_S:%100%corrigido~%0%corrigido ou
-não} pois o desvio padrão corrigido é <strong>maior, ou bastante maior,
-que o</strong> desvio padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 05 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 01 (excel row is 003) de Problem 05 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho <strong>‘10’</strong>,
-<strong>deve</strong> ser usado o desvio padrão
-{:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o desvio padrão
-corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que
-o~%0%aproximado ao} desvio padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 05 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 02 (excel row is 004) de Problem 05 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho <strong>‘20’</strong>,
-<strong>deve</strong> ser usado o desvio padrão
-{:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o desvio padrão
-corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que
-o~%0%aproximado ao} desvio padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 06 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 01 (excel row is 005) de Problem 06 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho <strong>‘100’</strong>,
-{:MULTICHOICE_S:%0%deve~%100%pode} ser usado o desvio padrão
-<strong>corrigido ou não</strong> pois o desvio padrão corrigido é
-{:MULTICHOICE_S:%0%maior, ou bastante maior, que o~%100%aproximado ao}
-desvio padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 06 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 02 (excel row is 006) de Problem 06 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho <strong>‘1000’</strong>,
-{:MULTICHOICE_S:%0%deve~%100%pode} ser usado o desvio padrão
-<strong>corrigido ou não</strong> pois o desvio padrão corrigido é
-{:MULTICHOICE_S:%0%maior, ou bastante maior, que o~%100%aproximado ao}
-desvio padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 07 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 01 (excel row is 001) de Problem 07 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho <strong>‘2’</strong>,
-{:MULTICHOICE_S:%100%deve~%0%pode} ser usado o desvio padrão
-{:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o desvio padrão
-corrigido é <strong>maior, ou bastante maior, que o</strong> desvio
-padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 07 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 02 (excel row is 002) de Problem 07 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho <strong>‘4’</strong>,
-{:MULTICHOICE_S:%100%deve~%0%pode} ser usado o desvio padrão
-{:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o desvio padrão
-corrigido é <strong>maior, ou bastante maior, que o</strong> desvio
-padrão não corrigido.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-  </question>
-
-
-  <question type="category">
-    <category>
-      <text>$course$/top/importados/Model C--output-/Problem 08 - CLOZE</text>
-    </category>
-    <info format="html">
-      <text></text>
-    </info>
-    <idnumber></idnumber>
-  </question>
-  <question type="cloze">
-    <name>
-      <text>variante 01 (excel row is 003) de Problem 08 - CLOZE</text>
-    </name>
-    <questiontext format="html">
-      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
 {:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
 (indique uma de várias soluções), <strong>deve</strong> ser usado o
 desvio padrão <strong>corrigido</strong> pois o desvio padrão corrigido
-é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o~%0%aproximado ao}
-desvio padrão não corrigido.</p>]]></text>
+é <strong>maior, ou bastante maior, que o</strong> desvio padrão não
+corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
@@ -476,7 +107,7 @@ desvio padrão não corrigido.</p>]]></text>
 
   <question type="category">
     <category>
-      <text>$course$/top/importados/Model C--output-/Problem 08 - CLOZE</text>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
     </category>
     <info format="html">
       <text></text>
@@ -485,17 +116,20 @@ desvio padrão não corrigido.</p>]]></text>
   </question>
   <question type="cloze">
     <name>
-      <text>variante 02 (excel row is 004) de Problem 08 - CLOZE</text>
+      <text>variante 02 (excel row is 004) de Problems for study - CLOZE</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
 {:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
 (indique uma de várias soluções), <strong>deve</strong> ser usado o
 desvio padrão <strong>corrigido</strong> pois o desvio padrão corrigido
-é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o~%0%aproximado ao}
-desvio padrão não corrigido.</p>]]></text>
+é <strong>maior, ou bastante maior, que o</strong> desvio padrão não
+corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
@@ -508,7 +142,7 @@ desvio padrão não corrigido.</p>]]></text>
 
   <question type="category">
     <category>
-      <text>$course$/top/importados/Model C--output-/Problem 09 - CLOZE</text>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
     </category>
     <info format="html">
       <text></text>
@@ -517,17 +151,19 @@ desvio padrão não corrigido.</p>]]></text>
   </question>
   <question type="cloze">
     <name>
-      <text>variante 01 (excel row is 005) de Problem 09 - CLOZE</text>
+      <text>variante 01 (excel row is 005) de Problems for study - CLOZE</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
-{:MULTICHOICE_S:%0%‘2’~%0%‘4’~%0%‘10’~%0%‘20’~%100%‘100’~%100%‘1000’}
-(indique uma de várias soluções), <strong>pode</strong> ser usado o
-desvio padrão {:MULTICHOICE_S:%0%corrigido~%100%corrigido ou não} pois o
-desvio padrão corrigido é <strong>aproximado ao</strong> desvio padrão
-não corrigido.</p>]]></text>
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+<strong>‘100’</strong>, <strong>pode</strong> ser usado o desvio padrão
+<strong>corrigido ou não</strong> pois o desvio padrão corrigido é
+{:MULTICHOICE_S:%0%maior, ou bastante maior, que o~%100%aproximado ao}
+desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
@@ -540,7 +176,7 @@ não corrigido.</p>]]></text>
 
   <question type="category">
     <category>
-      <text>$course$/top/importados/Model C--output-/Problem 09 - CLOZE</text>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
     </category>
     <info format="html">
       <text></text>
@@ -549,17 +185,19 @@ não corrigido.</p>]]></text>
   </question>
   <question type="cloze">
     <name>
-      <text>variante 02 (excel row is 006) de Problem 09 - CLOZE</text>
+      <text>variante 02 (excel row is 006) de Problems for study - CLOZE</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
-{:MULTICHOICE_S:%0%‘2’~%0%‘4’~%0%‘10’~%0%‘20’~%100%‘100’~%100%‘1000’}
-(indique uma de várias soluções), <strong>pode</strong> ser usado o
-desvio padrão {:MULTICHOICE_S:%0%corrigido~%100%corrigido ou não} pois o
-desvio padrão corrigido é <strong>aproximado ao</strong> desvio padrão
-não corrigido.</p>]]></text>
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+<strong>‘1000’</strong>, <strong>pode</strong> ser usado o desvio padrão
+<strong>corrigido ou não</strong> pois o desvio padrão corrigido é
+{:MULTICHOICE_S:%0%maior, ou bastante maior, que o~%100%aproximado ao}
+desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
@@ -572,7 +210,7 @@ não corrigido.</p>]]></text>
 
   <question type="category">
     <category>
-      <text>$course$/top/importados/Model C--output-/Problem 10 - CLOZE</text>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
     </category>
     <info format="html">
       <text></text>
@@ -581,17 +219,88 @@ não corrigido.</p>]]></text>
   </question>
   <question type="cloze">
     <name>
-      <text>variante 01 (excel row is 001) de Problem 10 - CLOZE</text>
+      <text>variante 01 (excel row is 001) de Problems for study - CLOZE</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho <strong>‘2’</strong>,
+<strong>deve</strong> ser usado o desvio padrão
+{:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o desvio padrão
+corrigido é <strong>maior, ou bastante maior, que o</strong> desvio
+padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 02 (excel row is 002) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho <strong>‘4’</strong>,
+<strong>deve</strong> ser usado o desvio padrão
+{:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o desvio padrão
+corrigido é <strong>maior, ou bastante maior, que o</strong> desvio
+padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 01 (excel row is 001) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
 {:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
 (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve~%0%pode} ser
 usado o desvio padrão <strong>corrigido</strong> pois o desvio padrão
 corrigido é <strong>maior, ou bastante maior, que o</strong> desvio
-padrão não corrigido.</p>]]></text>
+padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
@@ -604,7 +313,7 @@ padrão não corrigido.</p>]]></text>
 
   <question type="category">
     <category>
-      <text>$course$/top/importados/Model C--output-/Problem 10 - CLOZE</text>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
     </category>
     <info format="html">
       <text></text>
@@ -613,17 +322,572 @@ padrão não corrigido.</p>]]></text>
   </question>
   <question type="cloze">
     <name>
-      <text>variante 02 (excel row is 002) de Problem 10 - CLOZE</text>
+      <text>variante 02 (excel row is 002) de Problems for study - CLOZE</text>
     </name>
     <questiontext format="html">
       <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
-padrão do modelo populacional.</p>
-<p>Com uma amostra de tamanho
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
 {:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
 (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve~%0%pode} ser
 usado o desvio padrão <strong>corrigido</strong> pois o desvio padrão
 corrigido é <strong>maior, ou bastante maior, que o</strong> desvio
-padrão não corrigido.</p>]]></text>
+padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 01 (excel row is 003) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+<strong>‘10’</strong>, {:MULTICHOICE_S:%100%deve~%0%pode} ser usado o
+desvio padrão <strong>corrigido</strong> pois o desvio padrão corrigido
+é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o~%0%aproximado ao}
+desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 02 (excel row is 004) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+<strong>‘20’</strong>, {:MULTICHOICE_S:%100%deve~%0%pode} ser usado o
+desvio padrão <strong>corrigido</strong> pois o desvio padrão corrigido
+é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o~%0%aproximado ao}
+desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 01 (excel row is 005) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+{:MULTICHOICE_S:%0%‘2’~%0%‘4’~%0%‘10’~%0%‘20’~%100%‘100’~%100%‘1000’}
+(indique uma de várias soluções), <strong>pode</strong> ser usado o
+desvio padrão <strong>corrigido ou não</strong> pois o desvio padrão
+corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que
+o~%100%aproximado ao} desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 02 (excel row is 006) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+{:MULTICHOICE_S:%0%‘2’~%0%‘4’~%0%‘10’~%0%‘20’~%100%‘100’~%100%‘1000’}
+(indique uma de várias soluções), <strong>pode</strong> ser usado o
+desvio padrão <strong>corrigido ou não</strong> pois o desvio padrão
+corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que
+o~%100%aproximado ao} desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 01 (excel row is 001) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho <strong>‘2’</strong>,
+{:MULTICHOICE_S:%100%deve~%0%pode} ser usado o desvio padrão
+{:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o desvio padrão
+corrigido é <strong>maior, ou bastante maior, que o</strong> desvio
+padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 02 (excel row is 002) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho <strong>‘4’</strong>,
+{:MULTICHOICE_S:%100%deve~%0%pode} ser usado o desvio padrão
+{:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o desvio padrão
+corrigido é <strong>maior, ou bastante maior, que o</strong> desvio
+padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 01 (excel row is 003) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+{:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
+(indique uma de várias soluções), <strong>deve</strong> ser usado o
+desvio padrão {:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o
+desvio padrão corrigido é <strong>maior, ou bastante maior, que
+o</strong> desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 02 (excel row is 004) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+{:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
+(indique uma de várias soluções), <strong>deve</strong> ser usado o
+desvio padrão {:MULTICHOICE_S:%100%corrigido~%0%corrigido ou não} pois o
+desvio padrão corrigido é <strong>maior, ou bastante maior, que
+o</strong> desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 01 (excel row is 005) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+<strong>‘100’</strong>, <strong>pode</strong> ser usado o desvio padrão
+{:MULTICHOICE_S:%0%corrigido~%100%corrigido ou não} pois o desvio padrão
+corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que
+o~%100%aproximado ao} desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 02 (excel row is 006) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+<strong>‘1000’</strong>, <strong>pode</strong> ser usado o desvio padrão
+{:MULTICHOICE_S:%0%corrigido~%100%corrigido ou não} pois o desvio padrão
+corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que
+o~%100%aproximado ao} desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 01 (excel row is 001) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+{:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
+(indique uma de várias soluções), {:MULTICHOICE_S:%100%deve~%0%pode} ser
+usado o desvio padrão <strong>corrigido</strong> pois o desvio padrão
+corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que
+o~%0%aproximado ao} desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 02 (excel row is 002) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+{:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
+(indique uma de várias soluções), {:MULTICHOICE_S:%100%deve~%0%pode} ser
+usado o desvio padrão <strong>corrigido</strong> pois o desvio padrão
+corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que
+o~%0%aproximado ao} desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 01 (excel row is 003) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+{:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
+(indique uma de várias soluções), {:MULTICHOICE_S:%100%deve~%0%pode} ser
+usado o desvio padrão {:MULTICHOICE_S:%100%corrigido~%0%corrigido ou
+não} pois o desvio padrão corrigido é <strong>maior, ou bastante maior,
+que o</strong> desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 02 (excel row is 004) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+{:MULTICHOICE_S:%100%‘2’~%100%‘4’~%100%‘10’~%100%‘20’~%0%‘100’~%0%‘1000’}
+(indique uma de várias soluções), {:MULTICHOICE_S:%100%deve~%0%pode} ser
+usado o desvio padrão {:MULTICHOICE_S:%100%corrigido~%0%corrigido ou
+não} pois o desvio padrão corrigido é <strong>maior, ou bastante maior,
+que o</strong> desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 01 (excel row is 005) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+<strong>‘100’</strong>, {:MULTICHOICE_S:%0%deve~%100%pode} ser usado o
+desvio padrão {:MULTICHOICE_S:%0%corrigido~%100%corrigido ou não} pois o
+desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior,
+que o~%100%aproximado ao} desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+
+  <question type="category">
+    <category>
+      <text>$course$/top/importados/Model C--output-/Problems for study - CLOZE</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+  <question type="cloze">
+    <name>
+      <text>variante 02 (excel row is 006) de Problems for study - CLOZE</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p>O desvio padrão corrigido é um estimador centrado para o desvio
+padrão do modelo populacional <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><strong>(a)</strong> Justifique que <span class="math inline">\(s_c^2\)</span> é estritamente maior que <span class="math inline">\(s^2\)</span> mas nem sempre “muito maior”.</p>
+<p><strong>(b)</strong> Com uma amostra de tamanho
+<strong>‘1000’</strong>, {:MULTICHOICE_S:%0%deve~%100%pode} ser usado o
+desvio padrão {:MULTICHOICE_S:%0%corrigido~%100%corrigido ou não} pois o
+desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior,
+que o~%100%aproximado ao} desvio padrão não corrigido.</p>
+<p>Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil~%100%não
+útil~%100%não compreendo~%100%acho que não tem solução}.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
       <text><![CDATA[<p>(Consulte o docente das suas turmas ou uma OT.)</p>]]></text>
