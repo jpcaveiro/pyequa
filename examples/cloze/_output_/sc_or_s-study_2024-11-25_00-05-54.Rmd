@@ -1,0 +1,182 @@
+
+---
+title: "sc_or_s-study.Rmd"
+author: "Pedro Cruz"
+date: "2024-11-24_22-56-53"
+output:
+  html_document: default
+---
+
+
+# Model sc_or_s-study.Rmd - CLOZE
+
+
+## variante 01 (excel row is 01)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho **'2'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}.
+
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+
+## variante 02 (excel row is 02)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho **'4'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}.
+
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+
+## variante 03 (excel row is 03)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho **'10'**, **deve** ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}.
+
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+
+## variante 04 (excel row is 04)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), **deve** ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}.
+
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+
+## variante 01 (excel row is 01)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho **'2'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}.
+
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+
+## variante 02 (excel row is 02)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho **'4'**, {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}.
+
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+
+## variante 03 (excel row is 03)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho **'10'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+
+Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}.
+
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+
+## variante 04 (excel row is 04)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%100%'2'\~%100%'4'\~%100%'10'\~%100%'20'\~%0%'100'\~%0%'1000'} (indique uma de várias soluções), {:MULTICHOICE_S:%100%deve\~%0%pode} ser usado o desvio padrão **corrigido** 
+pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+
+Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}.
+
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+
+## variante 05 (excel row is 05)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), **pode** ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} 
+pois o desvio padrão corrigido é **aproximado ao** desvio padrão não corrigido.
+
+Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}.
+
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+
+
+## variante 06 (excel row is 06)
+
+O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+
+**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+
+**(b)** Com uma amostra de tamanho {:MULTICHOICE_S:%0%'2'\~%0%'4'\~%0%'10'\~%0%'20'\~%100%'100'\~%100%'1000'} (indique uma de várias soluções), **pode** ser usado o desvio padrão **corrigido ou não** 
+pois o desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que o\~%100%aproximado ao} desvio padrão não corrigido.
+
+Qualidade deste exercício para o estudo: {:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}.
+
+
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
+

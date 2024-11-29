@@ -7,7 +7,7 @@ Trigonometrical relations.
 
 
 from pyequa import wisdomgraph as ws
-from pyequa.textservice import TextService
+from pyequa.serviceabstract import TextService
 
 from sympy import symbols, Eq, Symbol, Rational, latex
 from sympy import sin, cos, csc, cot
