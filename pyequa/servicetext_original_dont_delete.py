@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 import datetime
-from .moodleservice import Cloze
+from .moodleroutines import Cloze
 
 
 from .wisdomgraph import set2orderedstr
@@ -10,6 +10,9 @@ from .wisdomgraph import set2orderedstr
 # self.buildone_scenary_text(inputvars_set)
 
 class TextService:
+    """
+    
+    """
 
     def __init__(self, 
                  student_template, 

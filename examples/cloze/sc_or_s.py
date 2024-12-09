@@ -12,28 +12,22 @@ Exemplo:
 
 """
 
-from os import getcwd, chdir
-print(f"Current: {getcwd()}")
-chdir(r"examples/cloze")
-print(f"Current: {getcwd()}")
-
-
-
-from pyequa import wisdomgraph as ws
-from pyequa.textservice import TextService
-
-from sympy import symbols, Eq, Symbol #, Rational, latex
-
-
 student_template = r"""
 ## variante {variation_number}
 
-O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+O desvio padrão corrigido, \(s_c\), é um estimador centrado para o desvio padrão do modelo populacional \(\sigma\), 
+\(E[s_c] = \sigma\).
 
-**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+**(a)** Verifique que para uma amostra de tamanho {tamanhoinput} a relação entre \(s_c\) e \(s\) é dada por:
 
-**(b)** Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} 
-pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não corrigido.
+* \(s_c\) = {racioinput} \(s\)
+
+Apenas para efeitos da próxima alínea, considere, agora, que um racio \(s_c/s\) inferior a 1.01 é negligenciável.
+
+**(b)** Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não corrigido.
+
+Avalie a qualidade deste exercício para o estudo: {{:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}}.
+
 
 ### feedback
 
@@ -47,46 +41,17 @@ pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não cor
 # pois o desvio padrão corrigido é [maior, ou bastante maior, que o|aproximado ao] desvio padrão não corrigido.
 
 
-teacher_template = r"""
-## variante {variation_number}
-
-O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional.
-
-**(a)** Verifique que \(s_c^2 > s^2\).
-
-**(b)** Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} 
-pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não corrigido.
-
-## answer
-
-Com uma amostra de tamanho {tamanhooutput}, {podedeveoutput} ser usado o desvio padrão {corrigidooutput} 
-pois o desvio padrão corrigido é {justificaçãooutput} desvio padrão não corrigido.
-
-
-{answer_steps}
-"""
-
-
-answer_template = """Sabendo
-
-{localinputvars}
-
-e usando
-
-{solvers}
-
-determina-se
-
-{localoutputvars}
-
-"""
 
 #import os
 #os.chdir(r"C:\Users\pedrocruz\Documents\+Outros\WorkPackages\2024-pyequa\2-trig-c1")
 
 
+from sympy import symbols, Eq, Symbol #, Rational, latex
+
+
 
 tamanho = Symbol('tamanho')
+racio = Symbol('racio')
 podedeve = Symbol('podedeve')
 corrigido = Symbol('corrigido')
 justificação = Symbol('justificação')
@@ -95,65 +60,78 @@ justificação = Symbol('justificação')
 # %%
 # Equações
 
+#from sympy import FiniteSet, Eq
+#s = FiniteSet(1, 2, 3, 4)
+#print(s)  # Output: {1, 2, 3, 4}
 
 # Relações:
 #
-#     tamanho <-n:1-> s_or_sc <-1:1-> justificação
+#     tamanho   <1:1> racio
+#     tamanho   <n:1> justificação
+#     podedeve  <1:1> justificação
+#     corrigido <1:1> justificação
 #
 # Como representar estas relações? A relação está imposta
 # no ficheiro Excel.
 #
 # Bizarro mas é para desenrascar.
-def_1  = Eq(tamanho, podedeve+corrigido)
-def_2  = Eq(tamanho, corrigido+justificação) #estas são proposições "equivalentes"
-def_3  = Eq(tamanho, justificação) #estas são proposições "equivalentes"
+def_1  = Eq(tamanho/(tamanho-1), racio)
+def_2  = Eq(tamanho+racio, podedeve+corrigido+justificação)
+def_3  = Eq(tamanho+racio, corrigido+justificação) #estas são proposições "equivalentes"
+def_4  = Eq(tamanho+racio, justificação) #estas são proposições "equivalentes"
+#Ver em baixo também vvvvv
 
+
+
+# ----------------------
+# Call pyequa API
+# ----------------------
+
+from pyequa import wisdomgraph as ws
+from pyequa.servicecloze import ClozeService
 
 scenary_relations = {
     #ws.SR is class Scenary.SympyRelation (ako "equality")
     ws.SR(def_1, latex_str=str(def_1)),
     ws.SR(def_2, latex_str=str(def_2)),
     ws.SR(def_3, latex_str=str(def_3)),
+    ws.SR(def_4, latex_str=str(def_4)),
 }
 
 
+# Choose where to store this exercise
+from os import getcwd, chdir
+print(f"Current: {getcwd()}")
+chdir(r"examples/cloze")
+print(f"Current: {getcwd()}")
 
-text_service = TextService(
-                 student_template, 
-                 teacher_template, 
-                 answer_template, 
+
+text_service = ClozeService(
+                 student_template=student_template, 
                  excel_pathname="sc_or_s.xlsx",
-                 basename="sc_or_s",
-                 extension="Rmd",
-                 all_ex_in_samefile=True,
-                 varcount=2,  #TODO: como garantir que cada estudante ao aprender vê um caso diferente?
-                 cloze_type=True) #moodle style (type="Rmd")
+                 author="Pedro Cruz",
+                 sequencial=True,
+                 varcount=1)
 
 
-
-
-world = ws.Scenario(scenary_relations,
-                    text_service,
-                    r=[2])
+#world = ws.Scenario(scenary_relations, text_service,r=[2])
+world = ws.Scenario(scenary_relations, text_service) #implícito que r=[1,2]
 
 
 #plot
-world.draw_wisdom_graph(figsize=[80,80])
+#world.draw_wisdom_graph(figsize=[80,80])
 
 
 # %%
 # Pequeno teste
 
 #world.wisdomgraph.nodes['ab']
-
 #world.wisdomgraph.nodes['abdx']
-
 
 # %%
 #Buildall_exercises(...)
 
-
-#dar ao user 3 variáveis conhecidas
-all_paths = world.buildall_exercises(no_of_given_vars=2) 
+#all_paths = world.buildall_exercises(no_of_given_vars=2) 
+all_paths = world.buildall_exercises(no_of_given_vars=None) #increased difficult ?
 
 

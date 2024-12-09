@@ -735,9 +735,30 @@ class Scenario:
         plt.savefig(plot_fn)
 
 
-    def buildall_exercises(self,no_of_given_vars=1,silence=True):
+    def buildall_exercises(self,no_of_given_vars=None,silence=True):
+        """
+        Add exercises to a file.
+
+        Input:
+        - no_of_given_vars: None or positive integer.
+
+        If no_of_given_vars is None it does like:
+
+        - `buildall_exercises(no_of_given_vars= len(allvars_list) - 1) # probably the easiest`
+        - `buildall_exercises(no_of_given_vars= len(allvars_list) - 2) # maybe a little more difficult`
+        - etc
+        - `` buildall_exercises(no_of_given_vars= 1) # probably the most difficult`
+
+        """
+
         self.build_in_silence = silence
-        self.text_service.buildall_exercises(no_of_given_vars,silence)
+        if no_of_given_vars==None:
+            total_vars = len(self.allvars_list)
+            for nvars in range(total_vars-1, 0, -1):
+                self.text_service.buildall_exercises(no_of_given_vars=nvars,silence=silence)
+        else:
+            self.text_service.buildall_exercises(no_of_given_vars=no_of_given_vars,silence=silence)
+
 
 
     def yield_inputvarsset_nodepathlist(self,no_of_given_vars=1):
@@ -784,7 +805,7 @@ class Scenario:
         # Generate all combinations of specified size
         # requested in arguments.
         C = Combinations(self.allvars_list,empty=False)
-        original_list_of_inputvars_set = [sv for sv in C if len(sv) <= no_of_given_vars]
+        original_list_of_inputvars_set = [sv for sv in C if len(sv) == no_of_given_vars]
 
 
         #Novo
