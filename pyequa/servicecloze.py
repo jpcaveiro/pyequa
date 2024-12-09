@@ -159,7 +159,7 @@ class ClozeService(AbstractService):
 
 
             args_dict['variation_number'] = \
-                f"{(vno):02d} (excel row is {(self.dataframe_iloc + 1):02d})" # nr. linha pandas + 1 = nr. da linha do excel
+                f"{(vno):03d} (excel row is {(self.dataframe_iloc + 1):02d})" # nr. linha pandas + 1 = nr. da linha do excel
 
 
 

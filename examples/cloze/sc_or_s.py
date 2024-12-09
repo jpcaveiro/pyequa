@@ -15,14 +15,18 @@ Exemplo:
 student_template = r"""
 ## variante {variation_number}
 
-O desvio padrão corrigido é um estimador centrado para o desvio padrão do modelo populacional \(\sigma^2\).
+O desvio padrão corrigido, \(s_c\), é um estimador centrado para o desvio padrão do modelo populacional \(\sigma\), 
+\(E[s_c] = \sigma\).
 
-**(a)** Justifique que \(s_c^2\) é estritamente maior que \(s^2\) mas nem sempre "muito maior".
+**(a)** Verifique que para uma amostra de tamanho {tamanhoinput} a relação entre \(s_c\) e \(s\) é dada por:
 
-**(b)** Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} 
-pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não corrigido.
+* \(s_c\) = {racioinput} \(s\)
 
-Qualidade deste exercício para o estudo: {{:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}}.
+Apenas para efeitos da próxima alínea, considere, agora, que um racio \(s_c/s\) inferior a 1.01 é negligenciável.
+
+**(b)** Com uma amostra de tamanho {tamanhoinput}, {podedeveinput} ser usado o desvio padrão {corrigidoinput} pois o desvio padrão corrigido é {justificaçãoinput} desvio padrão não corrigido.
+
+Avalie a qualidade deste exercício para o estudo: {{:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}}.
 
 
 ### feedback
@@ -47,6 +51,7 @@ from sympy import symbols, Eq, Symbol #, Rational, latex
 
 
 tamanho = Symbol('tamanho')
+racio = Symbol('racio')
 podedeve = Symbol('podedeve')
 corrigido = Symbol('corrigido')
 justificação = Symbol('justificação')
@@ -55,19 +60,27 @@ justificação = Symbol('justificação')
 # %%
 # Equações
 
+#from sympy import FiniteSet, Eq
+#s = FiniteSet(1, 2, 3, 4)
+#print(s)  # Output: {1, 2, 3, 4}
 
 # Relações:
 #
-#     tamanho <-n:1-> s_or_sc <-1:1-> justificação
+#     tamanho   <1:1> racio
+#     tamanho   <n:1> justificação
+#     podedeve  <1:1> justificação
+#     corrigido <1:1> justificação
 #
 # Como representar estas relações? A relação está imposta
 # no ficheiro Excel.
 #
 # Bizarro mas é para desenrascar.
-def_1  = Eq(tamanho, podedeve+corrigido)
-def_2  = Eq(tamanho, corrigido+justificação) #estas são proposições "equivalentes"
-def_3  = Eq(tamanho, justificação) #estas são proposições "equivalentes"
+def_1  = Eq(tamanho/(tamanho-1), racio)
+def_2  = Eq(tamanho+racio, podedeve+corrigido+justificação)
+def_3  = Eq(tamanho+racio, corrigido+justificação) #estas são proposições "equivalentes"
+def_4  = Eq(tamanho+racio, justificação) #estas são proposições "equivalentes"
 #Ver em baixo também vvvvv
+
 
 
 # ----------------------
@@ -82,6 +95,7 @@ scenary_relations = {
     ws.SR(def_1, latex_str=str(def_1)),
     ws.SR(def_2, latex_str=str(def_2)),
     ws.SR(def_3, latex_str=str(def_3)),
+    ws.SR(def_4, latex_str=str(def_4)),
 }
 
 
