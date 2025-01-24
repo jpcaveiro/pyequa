@@ -735,19 +735,20 @@ class Scenario:
         plt.savefig(plot_fn)
 
 
-    def buildall_exercises(self,no_of_given_vars=None,silence=True):
+    def buildall(self,no_of_given_vars=None,max_ex_per_comb=None,silence=True):
         """
         Add exercises to a file.
 
         Input:
         - no_of_given_vars: None or positive integer.
+        - max_ex_per_comb: combinations of variables could make a lot of cases, this max cuts them out.
 
         If no_of_given_vars is None it does like:
 
-        - `buildall_exercises(no_of_given_vars= len(allvars_list) - 1) # probably the easiest`
-        - `buildall_exercises(no_of_given_vars= len(allvars_list) - 2) # maybe a little more difficult`
+        - `buildall(no_of_given_vars= len(allvars_list) - 1) # probably the easiest`
+        - `buildall(no_of_given_vars= len(allvars_list) - 2) # maybe a little more difficult`
         - etc
-        - `` buildall_exercises(no_of_given_vars= 1) # probably the most difficult`
+        - `` buildall(no_of_given_vars= 1) # probably the most difficult`
 
         """
 
@@ -755,9 +756,10 @@ class Scenario:
         if no_of_given_vars==None:
             total_vars = len(self.allvars_list)
             for nvars in range(total_vars-1, 0, -1):
-                self.text_service.buildall_exercises(no_of_given_vars=nvars,silence=silence)
+                print(f"Generate exercises with {nvars} given variables.")
+                self.text_service.buildall_exercises(no_of_given_vars=nvars,max_ex_per_comb=max_ex_per_comb,silence=silence)
         else:
-            self.text_service.buildall_exercises(no_of_given_vars=no_of_given_vars,silence=silence)
+            self.text_service.buildall_exercises(no_of_given_vars=no_of_given_vars,max_ex_per_comb=max_ex_per_comb,silence=silence)
 
 
 
@@ -768,7 +770,7 @@ class Scenario:
         1. An objet of type TextService is created by an author (inside a *.py file)
         2. etc
         3. A Scenario is created with all previous elements
-        4. This method `buildall_exercises()` generates combinations and produces one file (samefile=True) or several files (samefile=False).
+        4. This method `buildall()` generates combinations and produces one file (samefile=True) or several files (samefile=False).
 
         
         An exercise is defined by:
@@ -903,7 +905,7 @@ class Scenario:
         for pair in list_of_pairs:
             yield pair #(inputvars_set, node_path_list)
 
-        #end of buildall_exercises()
+        #end of buildall()
 
 
     def debug_exercise(inputvars_set,node_path_list,silence=True):

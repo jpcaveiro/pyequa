@@ -12,8 +12,11 @@ Exemplo:
 
 """
 
-student_template = r"""
 ## variante {variation_number}
+### feedback
+
+
+student_template = r"""
 
 O desvio padrão corrigido, \(s_c\), é um estimador centrado para o desvio padrão do modelo populacional \(\sigma\), 
 \(E[s_c] = \sigma\).
@@ -28,12 +31,14 @@ Apenas para efeitos da próxima alínea, considere, agora, que um racio \(s_c/s\
 
 Avalie a qualidade deste exercício para o estudo: {{:MULTICHOICE:=útil\~%100%não útil\~%100%não compreendo\~%100%acho que não tem solução}}.
 
+"""
 
-### feedback
+student_feedback = r"""
 
-(Consulte o docente das suas turmas ou uma OT.)
+#(Consulte o docente das suas turmas ou uma OT.)
 
 """
+
 
 # COMO FAZER ESTAS QUESTÕES:
 
@@ -50,6 +55,7 @@ from sympy import symbols, Eq, Symbol #, Rational, latex
 
 
 
+n = Symbol('n')
 tamanho = Symbol('tamanho')
 racio = Symbol('racio')
 podedeve = Symbol('podedeve')
@@ -75,11 +81,13 @@ justificação = Symbol('justificação')
 # no ficheiro Excel.
 #
 # Bizarro mas é para desenrascar.
-def_1  = Eq(tamanho/(tamanho-1), racio)
-def_2  = Eq(tamanho+racio, podedeve+corrigido+justificação)
-def_3  = Eq(tamanho+racio, corrigido+justificação) #estas são proposições "equivalentes"
-def_4  = Eq(tamanho+racio, justificação) #estas são proposições "equivalentes"
-#Ver em baixo também vvvvv
+def_1  = Eq(n,tamanho)
+def_2  = Eq(tamanho, n)
+def_3  = Eq(podedeve, n) 
+def_4  = Eq(corrigido, n)
+def_5  = Eq(racio,n)
+def_6  = Eq(justificação,n) 
+
 
 
 
@@ -96,6 +104,8 @@ scenary_relations = {
     ws.SR(def_2, latex_str=str(def_2)),
     ws.SR(def_3, latex_str=str(def_3)),
     ws.SR(def_4, latex_str=str(def_4)),
+    ws.SR(def_5, latex_str=str(def_5)),
+    ws.SR(def_6, latex_str=str(def_6)),
 }
 
 
@@ -108,6 +118,7 @@ print(f"Current: {getcwd()}")
 
 text_service = ClozeService(
                  student_template=student_template, 
+                 student_feedback=student_feedback, 
                  excel_pathname="sc_or_s.xlsx",
                  author="Pedro Cruz",
                  sequencial=True,

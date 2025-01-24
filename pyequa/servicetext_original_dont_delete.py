@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 import datetime
-from .moodleroutines import Cloze
+from .clozeroutines import Cloze
 
 
 from .wisdomgraph import set2orderedstr

@@ -61,13 +61,18 @@ class AbstractService:
 
 
 
-    def buildall_exercises(self,no_of_given_vars,silence):
+    def buildall_exercises(self,no_of_given_vars,max_ex_per_comb,silence):
         self.build_in_silence = silence
 
         #self.scenario is given when Scenary is instantiated
         Y = self.scenario.yield_inputvarsset_nodepathlist(no_of_given_vars)
 
+        #Controls number of exercises
+        count = max_ex_per_comb
+
         for problem_pair in Y:
+
+            print(f"==> {problem_pair[0]}")
 
             inputvars_set  = problem_pair[0]
             node_path_list = problem_pair[1]
@@ -75,8 +80,16 @@ class AbstractService:
             #General steps for the solution
             self.solverslist_answer_text = self.solverslist_build_answer_text(inputvars_set,node_path_list)
 
-            #abstract method
+            #Abstract method
             self.add_problem_with_variants(inputvars_set,node_path_list)
+
+            #Decrease counting
+            if max_ex_per_comb: #if there is control
+                count = count - 1 
+                if not count: #when zero
+                    break #get out of cycle
+
+
 
 
 

@@ -1,0 +1,12 @@
+
+---
+title: "df_sc_or_s-study.Rmd"
+author: "Pedro Cruz"
+date: "2024-12-26_20-57-12"
+output:
+  html_document: default
+---
+
+
+# Model df_sc_or_s-study.Rmd - CLOZE
+

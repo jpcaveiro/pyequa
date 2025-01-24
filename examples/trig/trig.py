@@ -150,10 +150,10 @@ world.draw_wisdom_graph(figsize=[80,80])
 
 
 # %%
-#Buildall_exercises(...)
+#Buildall(...)
 
 
 #dar ao user 3 variáveis conhecidas
-all_paths = world.buildall_exercises(maxvars=2) 
+all_paths = world.buildall(maxvars=2) 
 
 

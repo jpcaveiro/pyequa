@@ -20,7 +20,7 @@ import pandas as pd
 import os
 import datetime
 from .serviceabstract import AbstractService, rename_old_filename, DEFAULT_ANSWER_TEMPLATE
-from .moodleroutines import Cloze
+from .clozeroutines import Cloze
 
 
 from .wisdomgraph import set2orderedstr
@@ -44,6 +44,7 @@ class ClozeService(AbstractService):
 
     def __init__(self, 
                  student_template=None, 
+                 student_feedback=None, 
                  excel_pathname=None,
                  author="(Author)",
                  answer_template=DEFAULT_ANSWER_TEMPLATE,
@@ -55,6 +56,7 @@ class ClozeService(AbstractService):
 
         # Only in ClozeService
         self.student_template = student_template
+        self.student_feedback = student_feedback
         self.sequencial = sequencial #1 problem with all variants (for study only)
         self.basename, _ = os.path.splitext(os.path.basename(self.excel_pathname))
         if self.sequencial:
@@ -122,7 +124,8 @@ class ClozeService(AbstractService):
         for var_no in range(self.varcount):
 
             # "%" is modulo
-            self.dataframe_iloc = (self.dataframe_iloc + 1) % self.dataframe.index.size
+            #print(f"debuf: self.dataframe.index.size = {self.dataframe.index.size}")
+            self.dataframe_iloc = (self.dataframe_iloc + 1) % self.dataframe.shape[0]
 
             # problem and technical keywords
             args_dict = dict()
@@ -159,7 +162,7 @@ class ClozeService(AbstractService):
 
 
             args_dict['variation_number'] = \
-                f"{(vno):03d} (excel row is {(self.dataframe_iloc + 1):02d})" # nr. linha pandas + 1 = nr. da linha do excel
+                f"{(vno):03d} (data row is {(self.dataframe_iloc + 1):02d})" # nr. linha pandas + 1 = nr. da linha do excel
 
 
 
@@ -170,7 +173,13 @@ class ClozeService(AbstractService):
             #print(args_dict)
             # https://docs.python.org/3/library/string.html#string.Formatter.vformat
             # "check_unused_args() is assumed to raise an exception if the check fails.""
-            student_text = self.student_template.format(**args_dict) #raise an exception if the check fails
+            #raise an exception if the check fails
+
+            variant_str = f"\n\n## variante {args_dict['variation_number']}\n\n"
+            student_str = self.student_template.format(**args_dict)
+            feedback_str = f"\n### feedback\n\n{self.student_feedback}\n"
+
+            student_text = variant_str + student_str + feedback_str
 
             # ----------------
             # Write problem or solution on student and solutions file

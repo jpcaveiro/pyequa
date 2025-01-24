@@ -1,0 +1,83 @@
+
+---
+title: "df_sc_or_s-study.Rmd"
+author: "Pedro Cruz"
+date: "2024-12-26_21-02-12"
+output:
+  html_document: default
+---
+
+
+# Model df_sc_or_s-study.Rmd - CLOZE
+
+## variante 001 (excel row is 01)
+
+
+O desvio padrão corrigido, \(s_c\), é um estimador centrado para o desvio padrão do modelo populacional \(\sigma\),  \(E[s_c] = \sigma\).
+
+**(a)** Verifique que para uma amostra de tamanho **'2'** a relação entre \(s_c\) e \(s\) é dada por:
+
+* \(s_c\) = {:NUMERICAL:%100%1.414:0.01} \(s\)
+
+Apenas para efeitos da próxima alínea, considere, agora, que um racio \(s_c/s\) inferior a 1.01 é negligenciável.
+
+**(b)** Com uma amostra de tamanho **'2'**, **deve** ser usado o desvio padrão **corrigido** pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)## variante 002 (excel row is 02)
+
+
+O desvio padrão corrigido, \(s_c\), é um estimador centrado para o desvio padrão do modelo populacional \(\sigma\),  \(E[s_c] = \sigma\).
+
+**(a)** Verifique que para uma amostra de tamanho **'4'** a relação entre \(s_c\) e \(s\) é dada por:
+
+* \(s_c\) = **1.155** \(s\)
+
+Apenas para efeitos da próxima alínea, considere, agora, que um racio \(s_c/s\) inferior a 1.01 é negligenciável.
+
+**(b)** Com uma amostra de tamanho **'4'**, **deve** ser usado o desvio padrão **corrigido** pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)## variante 003 (excel row is 03)
+
+
+O desvio padrão corrigido, \(s_c\), é um estimador centrado para o desvio padrão do modelo populacional \(\sigma\),  \(E[s_c] = \sigma\).
+
+**(a)** Verifique que para uma amostra de tamanho **'10'** a relação entre \(s_c\) e \(s\) é dada por:
+
+* \(s_c\) = {:NUMERICAL:%100%1.054:0.01} \(s\)
+
+Apenas para efeitos da próxima alínea, considere, agora, que um racio \(s_c/s\) inferior a 1.01 é negligenciável.
+
+**(b)** Com uma amostra de tamanho **'10'**, **deve** ser usado o desvio padrão **corrigido** pois o desvio padrão corrigido é {:MULTICHOICE_S:%100%maior, ou bastante maior, que o\~%0%aproximado ao} desvio padrão não corrigido.
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)## variante 004 (excel row is 04)
+
+
+O desvio padrão corrigido, \(s_c\), é um estimador centrado para o desvio padrão do modelo populacional \(\sigma\),  \(E[s_c] = \sigma\).
+
+**(a)** Verifique que para uma amostra de tamanho **'20'** a relação entre \(s_c\) e \(s\) é dada por:
+
+* \(s_c\) = {:NUMERICAL:%100%1.026:0.01} \(s\)
+
+Apenas para efeitos da próxima alínea, considere, agora, que um racio \(s_c/s\) inferior a 1.01 é negligenciável.
+
+**(b)** Com uma amostra de tamanho **'20'**, **deve** ser usado o desvio padrão {:MULTICHOICE_S:%100%corrigido\~%0%corrigido ou não} pois o desvio padrão corrigido é **maior, ou bastante maior, que o** desvio padrão não corrigido.
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)## variante 005 (excel row is 05)
+
+
+O desvio padrão corrigido, \(s_c\), é um estimador centrado para o desvio padrão do modelo populacional \(\sigma\),  \(E[s_c] = \sigma\).
+
+**(a)** Verifique que para uma amostra de tamanho **'100'** a relação entre \(s_c\) e \(s\) é dada por:
+
+* \(s_c\) = {:NUMERICAL:%100%1.005:0.01} \(s\)
+
+Apenas para efeitos da próxima alínea, considere, agora, que um racio \(s_c/s\) inferior a 1.01 é negligenciável.
+
+**(b)** Com uma amostra de tamanho **'100'**, **pode** ser usado o desvio padrão {:MULTICHOICE_S:%0%corrigido\~%100%corrigido ou não} pois o desvio padrão corrigido é {:MULTICHOICE_S:%0%maior, ou bastante maior, que o\~%100%aproximado ao} desvio padrão não corrigido.
+### feedback
+
+(Consulte o docente das suas turmas ou uma OT.)
