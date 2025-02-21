@@ -13,7 +13,7 @@ import itertools
 import networkx as nx
 import matplotlib.pyplot as plt
 import datetime
-from sympy import Eq,Symbol,latex
+from sympy import Eq,Symbol,latex,parse_expr
 
 
 #from slugify import slugify
@@ -34,12 +34,15 @@ def sortedsymbols(symbols_iterable):
 
 
 
-def Combinations(someset, empty = True):
+def Combinations(someset, include_empty_set = True):
+    """
+    empty = True makes [] part of the answer.
+    """
 
     list_of_sets = []
 
-    if empty:
-        start = 0 
+    if include_empty_set:
+        start = 0  #itertools.combinations(someset, 0) produce empty set
     else:
         start = 1
 
@@ -88,19 +91,22 @@ class SympyRelation:
 
     """
     
-    def __init__(self,sympyrelation,free_symbols=None,latex_str=""):
+    def __init__(self,sympyrelation,free_symbols=None,latex_str="", input_is_str=False):
         
-        self.sympyrelation = sympyrelation
+        if input_is_str:
+            self.sympyrelation = parse_expr(sympyrelation)
+        else:
+            self.sympyrelation = sympyrelation
 
         if free_symbols:
             self.free_symbols = free_symbols
         else:
-            self.free_symbols = sympyrelation.free_symbols
+            self.free_symbols = self.sympyrelation.free_symbols
 
         if latex_str:
             self.latex_str = latex_str
         else:
-            self.latex_str = latex(sympyrelation)
+            self.latex_str = latex(self.sympyrelation)
 
     def __str__(self):
         return self.latex_str
@@ -215,7 +221,15 @@ class Scenario:
         """
 
         #scenario
-        self.scenario_relations = scenario_relations
+        #scenario_relations can be: a set of str or a set of SR (see above):
+
+        self.scenario_relations = set()
+        for eq in scenario_relations:
+            if type(eq) == str:
+                self.scenario_relations.add(SR(eq,latex_str=eq,input_is_str=True)) #str to a "wisdomgraph.SR" objet
+            else:
+                self.scenario_relations.add(eq) #here user provid a wisdomgraph.SR objet
+
         self.text_service = text_service
         self.text_service.scenario = self
         #self.answer_template = answer_template
@@ -254,6 +268,36 @@ class Scenario:
         self.build_wisdomgraph()
 
 
+    def input_level(self, var_combination):
+        """
+        example input:
+
+        - var_combination is {var1,var2,var3}
+
+        example output:
+
+        - 
+
+        
+        'probacerto':  {'type': float, 'tol': 0.001, 'givenvarlevel': 1},
+        """
+
+        input_level_sum = 0
+        for var in var_combination:
+            #var is a sympy symbol
+            var_str = str(var)
+            if var_str in self.text_service.variable_attributes:
+                # if an author has defined attributes for var
+                if 'givenvarlevel' in self.text_service.variable_attributes[var_str]:
+                    # if 'givenvarlevel' has defined by the autor
+                    level = self.text_service.variable_attributes[var_str]['givenvarlevel']
+                    input_level_sum += level
+                else:
+                    input_level_sum += 1
+            else:
+                input_level_sum += 1
+
+        return input_level_sum      
 
 
     def buildsome_solvercandidates(self,rellist):
@@ -371,7 +415,7 @@ class Scenario:
             #How many variables in common
             output_vars = set.intersection( *listofvarsets )
 
-            #How many variables in common
+            #How many variables should be known in advance
             input_vars = all_vars - output_vars
 
             if len(output_vars) == 2:
@@ -753,10 +797,12 @@ class Scenario:
         """
 
         self.build_in_silence = silence
-        if no_of_given_vars==None:
+        if no_of_given_vars==None: # this means produce exercise starting with lots of given vars
             total_vars = len(self.allvars_list)
             for nvars in range(total_vars-1, 0, -1):
+                print("="*20)
                 print(f"Generate exercises with {nvars} given variables.")
+                print("="*20)
                 self.text_service.buildall_exercises(no_of_given_vars=nvars,max_ex_per_comb=max_ex_per_comb,silence=silence)
         else:
             self.text_service.buildall_exercises(no_of_given_vars=no_of_given_vars,max_ex_per_comb=max_ex_per_comb,silence=silence)
@@ -806,8 +852,22 @@ class Scenario:
 
         # Generate all combinations of specified size
         # requested in arguments.
-        C = Combinations(self.allvars_list,empty=False)
-        original_list_of_inputvars_set = [sv for sv in C if len(sv) == no_of_given_vars]
+        C = Combinations(self.allvars_list, include_empty_set=False)
+
+        #TODO: improve performance
+
+        # Calcular pesos de cada set de variaveis, fazer uma lista com pesos como esta
+        #d = [ [['a','b'], 5], [['q','f'], 8], [['l','p'], 5], [['a','s'],8] ]
+        #d = sorted(d, key=lambda x: x[1], reverse=True)
+        #print(d)
+        C_weighted = [
+            [var_combination, self.input_level(var_combination)] for var_combination in C
+        ]
+
+        C_weighted = sorted(C_weighted, key=lambda x: x[1]) #, reverse=True)
+
+        # sv is a pair[ (sympy vars), input_level ]
+        original_list_of_inputvars_set = [sv[0] for sv in C_weighted if len(sv[0]) == no_of_given_vars]
 
 
         #Novo

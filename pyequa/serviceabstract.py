@@ -33,10 +33,12 @@ class AbstractService:
 
     def __init__(self, 
                  excel_pathname=None,
+                 variable_attributes=None,
                  answer_template=DEFAULT_ANSWER_TEMPLATE
                 ): 
 
         self.excel_pathname = excel_pathname
+        self.variable_attributes=variable_attributes
         self.answer_template = answer_template
 
         #Delayed

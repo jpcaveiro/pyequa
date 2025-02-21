@@ -3,7 +3,7 @@
 
 class Cloze:
 
-    def __init__(self, dataframe, pandas_series, args_dict, allvars_list, inputvars_set):
+    def __init__(self, dataframe, pandas_series, args_dict, allvars_list, inputvars_set, variable_attributes):
 
         # args_dict is to be modified
         self.args_dict = args_dict.copy() # Será copy()?
@@ -13,6 +13,7 @@ class Cloze:
         self.allvars_list = allvars_list 
         self.inputvars_set = inputvars_set
         self.pandas_series = pandas_series
+        self.variable_attributes = variable_attributes
 
 
     def get_unique_answers(self,colname):
@@ -51,7 +52,7 @@ class Cloze:
             # var+input: student see {:NUMERICAL/MULTICHOICE: if var is NOT in inputvars_set
             # var+output: student see value if var is NOT in inputvars_set
 
-            self.args_dict[str(var)+'input'] = "**" + str(value) + "**"
+            self.args_dict[str(var)] = "**" + str(value) + "**"
             self.args_dict[str(var)+'output'] = ""
 
 
@@ -78,7 +79,13 @@ class Cloze:
 
         for var in outputvars_set:
 
-            var_is_stringtype = self.dataframe[var.name].dtype == object
+
+            if var.name in self.variable_attributes:
+                # get type from author specification
+                var_is_stringtype = self.variable_attributes[var.name]['type'] == str
+            else:
+                # get type from "excel" / "python dataframe"
+                var_is_stringtype = self.dataframe[var.name].dtype == object
 
             # saber se é numérico ou str
             #
@@ -112,10 +119,10 @@ class Cloze:
                 more_str = ""
 
             if var_is_stringtype:
-                self.args_dict[var.name+'input'] = "{:MULTICHOICE_S:" + options_str + "}" + more_str
+                self.args_dict[var.name] = "{:MULTICHOICE_S:" + options_str + "}" + more_str
                 self.args_dict[var.name+'output'] = options_str
             else:
-                self.args_dict[var.name+'input'] = "{:NUMERICAL:" + options_str + "}" + more_str
+                self.args_dict[var.name] = "{:NUMERICAL:" + options_str + "}" + more_str
                 self.args_dict[var.name+'output'] = options_str
 
         #Debug
