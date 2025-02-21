@@ -28,8 +28,7 @@ from .wisdomgraph import set2orderedstr
 # self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
 # self.buildone_scenary_text(inputvars_set)
 
-FILE_HEADER = """
----
+FILE_HEADER = """---
 title: "{title}"
 author: "{author}"
 date: "{date}"
@@ -46,16 +45,30 @@ class ClozeService(AbstractService):
                  student_template=None, 
                  student_feedback=None, 
                  excel_pathname=None,
+                 variable_attributes=None,
                  author="(Author)",
                  answer_template=DEFAULT_ANSWER_TEMPLATE,
                  sequencial = True, 
                  varcount=1): #varcount as in rmdmoodle
 
         # See AbstractService.__init__()
-        super().__init__(excel_pathname,answer_template)
+        super().__init__(excel_pathname,variable_attributes,answer_template)
 
         # Only in ClozeService
-        self.student_template = student_template
+        # student_template could be a filename or a string
+        from os import getcwd, chdir
+        print(f"Current file 2:\n{getcwd()}")
+        if '.md' in student_template:
+            try:
+                with open(r'..\\'+student_template, mode='r', encoding='utf-8') as file:
+                    self.student_template = file.read()
+            except FileNotFoundError:
+                print(f"Error: File '{student_template}' not found.")
+                raise FileNotFoundError
+        else:
+            self.student_template = student_template
+
+
         self.student_feedback = student_feedback
         self.sequencial = sequencial #1 problem with all variants (for study only)
         self.basename, _ = os.path.splitext(os.path.basename(self.excel_pathname))
@@ -139,7 +152,7 @@ class ClozeService(AbstractService):
             # var+output: student see value if var is NOT in inputvars_set
 
 
-            cloze = Cloze(self.dataframe, pandas_series, args_dict, self.scenario.allvars_list, inputvars_set)
+            cloze = Cloze(self.dataframe, pandas_series, args_dict, self.scenario.allvars_list, inputvars_set, self.variable_attributes)
             args_dict = cloze.mk_input_fields()
 
 

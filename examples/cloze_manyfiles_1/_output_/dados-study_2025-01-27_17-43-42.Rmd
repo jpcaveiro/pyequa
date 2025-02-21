@@ -1,0 +1,12 @@
+
+---
+title: "dados-study.Rmd"
+author: "Pedro Cruz"
+date: "2025-01-27_17-42-50"
+output:
+  html_document: default
+---
+
+
+# Model dados-study.Rmd - CLOZE
+

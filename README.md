@@ -49,3 +49,8 @@ Enter `C:\Users\pedrocruz\Documents\GitHub\studygraph`.
 C:\Users\pedrocruz\Documents\GitHub\studygraph> .venv/Scripts/activate
 C:\Users\pedrocruz\Documents\GitHub\pyequa> pip install -e C:\Users\pedrocruz\Documents\GitHub\pyequa
 ```
+
+# markdown extension
+
+![alt text](image.png)
+
