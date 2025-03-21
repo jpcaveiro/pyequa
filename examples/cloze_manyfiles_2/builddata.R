@@ -15,7 +15,7 @@ rejeitarounao <- mapply(
 )
 
 menormaior <- mapply( 
-    function(vp, a) ifelse(vp < a, 'é menor', 'é maior'), 
+    function(vp, a) ifelse(vp < a, 'é maior', 'é menor'), 
     valorp,
     alpha
 )

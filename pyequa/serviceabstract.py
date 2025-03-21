@@ -32,7 +32,7 @@ class AbstractService:
     """
 
     def __init__(self, 
-                 excel_pathname=None,
+                 pandas_dataframe=None,
                  variable_attributes=None,
                  answer_template=DEFAULT_ANSWER_TEMPLATE
                 ): 
@@ -45,9 +45,11 @@ class AbstractService:
         self.scenario = None #atribuído quando este TextService é passado para o Scenario
         self.solverslist_answer_text = None #see below
 
-        #Excel is compulsory
-        assert self.excel_pathname, "Excel filename with variables data must be given." + f"({os.getcwd()})"
-        self.dataframe = pd.read_excel(self.excel_pathname)
+        #assert self.excel_pathname, "Excel filename with variables data must be given." + f"({os.getcwd()})"
+        #self.dataframe = pd.read_excel(self.excel_pathname)
+
+        assert pandas_dataframe, f"A 'python pandas' data frame must be given."
+        self.pandas_dataframe = pandas_dataframe
 
 
         #Create "_output_"

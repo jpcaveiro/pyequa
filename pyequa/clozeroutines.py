@@ -9,7 +9,7 @@ class Cloze:
         self.args_dict = args_dict.copy() # Será copy()?
 
         # read only
-        self.dataframe = dataframe
+        self.pandas_dataframe = dataframe
         self.allvars_list = allvars_list 
         self.inputvars_set = inputvars_set
         self.pandas_series = pandas_series
@@ -17,7 +17,7 @@ class Cloze:
 
 
     def get_unique_answers(self,colname):
-        all_possible_answers = self.dataframe[colname].unique()
+        all_possible_answers = self.pandas_dataframe[colname].unique()
         return list(all_possible_answers)    
     
 
@@ -65,7 +65,7 @@ class Cloze:
         #print(query_str)
 
         #"d" é um dataframe
-        d = self.dataframe.query(query_str)
+        d = self.pandas_dataframe.query(query_str)
         #Debug
         #print(d)
 
@@ -85,7 +85,7 @@ class Cloze:
                 var_is_stringtype = self.variable_attributes[var.name]['type'] == str
             else:
                 # get type from "excel" / "python dataframe"
-                var_is_stringtype = self.dataframe[var.name].dtype == object
+                var_is_stringtype = self.pandas_dataframe[var.name].dtype == object
 
             # saber se é numérico ou str
             #
@@ -95,7 +95,7 @@ class Cloze:
             # criar a string multichoice
 
             all_correct_values = d[var.name].unique() #can be just one
-            all_unique_values = self.dataframe[var.name].unique()
+            all_unique_values = self.pandas_dataframe[var.name].unique()
 
             more_than_on_correct = len(all_correct_values) > 1
 
