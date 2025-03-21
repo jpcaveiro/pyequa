@@ -1,0 +1,11 @@
+---
+title: "dados-study.txt"
+author: "Pedro Cruz"
+date: "2025-03-20_15-03-39"
+output:
+  html_document: default
+---
+
+
+# Model dados-study.txt - CLOZE
+

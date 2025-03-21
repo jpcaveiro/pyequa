@@ -171,7 +171,7 @@ class Scenario:
     _IGNORANCE_NODE_NAME_ = 'ignorance'
     _KNOWLEDGE_NODE_NAME_ = 'knowledge'
 
-    def __init__(self, scenario_relations, text_service, r=[1,2]):
+    def __init__(self, scenario_relations, text_service, list_of_number_of_relations_at_once=None):
         """
 
         Inputs:
@@ -223,12 +223,12 @@ class Scenario:
         #scenario
         #scenario_relations can be: a set of str or a set of SR (see above):
 
-        self.scenario_relations = set()
+        self.scenario_relations_set = set()
         for eq in scenario_relations:
             if type(eq) == str:
-                self.scenario_relations.add(SR(eq,latex_str=eq,input_is_str=True)) #str to a "wisdomgraph.SR" objet
+                self.scenario_relations_set.add(SR(eq,latex_str=eq,input_is_str=True)) #str to a "wisdomgraph.SR" objet
             else:
-                self.scenario_relations.add(eq) #here user provid a wisdomgraph.SR objet
+                self.scenario_relations_set.add(eq) #here user provid a wisdomgraph.SR objet
 
         self.text_service = text_service
         self.text_service.scenario = self
@@ -237,7 +237,7 @@ class Scenario:
 
         #special node name (see node_name())
         self.allvars_set = set()
-        for rel in self.scenario_relations:
+        for rel in self.scenario_relations_set:
             self.allvars_set = self.allvars_set.union( rel.free_symbols ).copy()
 
         #TODO: ordenar sympy symbols: não pode ser
@@ -251,11 +251,18 @@ class Scenario:
         #that has a name like 'a,b,c,d,e,f' (all vars)
         self.node_knowledge_name = join_varnames(self.allvars_set)
     
+
+
+        if not list_of_number_of_relations_at_once:
+            list_of_number_of_relations_at_once = list(range(1, len(self.scenario_relations_set) + 1))
+        self.list_of_number_of_relations_at_once = list_of_number_of_relations_at_once
+
+
         #build all solver candidates like: (a,b) -> (c,d) from relations
         #Populates:
         # self.rel_number_list = a number 1, 2, or more relations at same time
-        # self.solver_candidates = a list of edges; below a graph with this edges is formed
-        self.buildall_solvercandidates(r)
+        # self.solver_candidates_list = a list of edges; below a graph with this edges is formed
+        self.buildall_solvercandidates()
 
 
         #Makes a MuliDiGraph where nodes represent "known vars at the moment"
@@ -286,7 +293,7 @@ class Scenario:
         for var in var_combination:
             #var is a sympy symbol
             var_str = str(var)
-            if var_str in self.text_service.variable_attributes:
+            if self.text_service.variable_attributes and var_str in self.text_service.variable_attributes:
                 # if an author has defined attributes for var
                 if 'givenvarlevel' in self.text_service.variable_attributes[var_str]:
                     # if 'givenvarlevel' has defined by the autor
@@ -300,7 +307,7 @@ class Scenario:
         return input_level_sum      
 
 
-    def buildsome_solvercandidates(self,rellist):
+    def buildsome_solvercandidates(self,rel_set): 
         """
         From one relation, or system of relations, produce functions
         based on combinations of variables.
@@ -361,159 +368,87 @@ class Scenario:
         
         """
         
+
         #This function returns a list of solvers
         solver_candidates = []
 
         #Number of relations
-        nrel= len(rellist)
+        nrel= len(rel_set)
 
-        if nrel == 1:
+        #Something like [ {v1,v2}, {v1,v3}, etc ]
+        listofvarsets = [rel.free_symbols for rel in rel_set]
+
+        #All vars in the rel_set
+        all_vars_in_rel_set = set.union( *listofvarsets )
+
+        #Variables in common 
+        candidate_output_vars_set = set.intersection( *listofvarsets )
+
+        #How many variables should be known in advance
+        must_be_known_vars_in_rel_set = all_vars_in_rel_set - candidate_output_vars_set
+
+        #There are `nrel` relations to be used to produce solvers
+        combinations_of_output_vars_set = itertools.combinations( candidate_output_vars_set, nrel )
+
+        for output_vars_combination in combinations_of_output_vars_set:
+
+            output_vars_set = set(output_vars_combination)
             
-            rel = rellist[0]
-            
-            #lista de variaveis da unica relação
-            listofvars = list( rel.free_symbols )
+            assert(type(output_vars_set) == set)
 
+            known_vars_set_for_this_case  = set.union(must_be_known_vars_in_rel_set, candidate_output_vars_set - output_vars_set)
 
-            #All solvers will be formed by: 1 var of output and the rest as input
-            for outputvar in listofvars:
-                
-                #duplica o conjunto (python set -- ver 00FirstCase)
-                setofvars =  rel.free_symbols.copy()
+            #Produce "solver candidate"
+            sc = SolverCandidate(known_vars_set_for_this_case, output_vars_set, set(rel_set))
 
-                #debug:
-                #print("setofvars=",setofvars)
-                #print("setofvars type",type(setofvars))
-
-                #remove a var. selecionada para output
-                setofvars.remove(outputvar)
-
-                #produz o "solver candidate"
-                #print(f"classe de rel: {type(rel)}")
-                sc = SolverCandidate(setofvars,{outputvar},{rel})
-
-                solver_candidates.append( sc )
-                
-            #ver abaixo o return solver_candidates
-            
-            
-        elif nrel == 2: #two relations
-
-            #sets of vars from each rel
-            listofvarsets = [rel.free_symbols for rel in rellist]
-
-
-            #all vars
-            all_vars = set.union( *listofvarsets )
-
-            #TODO: 
-            #1. Justificar porque o output só pode ser feito
-            #   com a intersecção das vars das relações
-            #2. Porque só se considera len(output_vars) == 2 OU len(output_vars) > 2
-            #   E se en(output_vars) == 1 ?
-
-            #How many variables in common
-            output_vars = set.intersection( *listofvarsets )
-
-            #How many variables should be known in advance
-            input_vars = all_vars - output_vars
-
-            if len(output_vars) == 2:
-                #case: 2 unknowns in 2 relations
-
-                #produz o "solver candidate"
-                sc = SolverCandidate(input_vars,output_vars,set(rellist))
-
-                solver_candidates.append( sc )
-
-
-            elif len(output_vars) > 2:
-
-                #Caso semelhante ao caso de uma relação: e' preciso rodar as variaveis.
-
-                #TODO: Este caso deve englobar o caso de cima.
-
-                #selecao de vars que vao ficar 
-                #(que vao ser encontradas em sistemas de dois por dois)
-                #(as outras vao ser adicionadas aos inputs)
-
-                C = itertools.combinations( output_vars, 2 )
-                
-                for output_pair in C:
-
-                    set_output_pair = set(output_pair)
-
-                    #Debug
-                    #print type(input_vars), type(output_vars), type(set_output_pair)
-
-                    all_inputs = set.union(input_vars, output_vars - set_output_pair)
-
-                    #produz o "solver candidate"
-                    sc = SolverCandidate(all_inputs,set_output_pair,set(rellist))
-
-                    solver_candidates.append( sc )
-
-        else: # nrel > 2:
-            
-            raise NotImplementedError("3 or more relations is not yet implemented.")
-        
+            solver_candidates.append( sc )
 
         return solver_candidates
 
 
 
-    def buildall_solvercandidates(self,r=[1]):
+
+    def buildall_solvercandidates(self):
         """
-        From scenario, the "self.buildall_solvercandidates()" is called 
-        to form "solver candidates" from combinations of relations:
 
-        - combinations of all 1 by 1
-        - combinations of all 2 by 2
-        - else not implemented yet
+        Inputs:
 
-        
-        Input:
-
-        - r: a list ([1],[2], or [1,2]). TODO: complete cases 1, ..., total_number_of_relations
+        - `self.list_of_number_of_relations_at_once`: is a list
 
         Output:
 
-        - self.solver_candidates
+        - self.solver_candidates_list
+
+        Idea:
+
+        * To find 1 unknown (1 variable), it is needed 1 equation (or relation) with that variable in commom.
+        * To find 2 unknowns (2 variables), it is needed 2 equations (or relations) with those variables in commom.
+        * To find 3 unknowns (3 variables), it is needed 3 equations (or relations) with those variables in commom.
+        * etc
+
+        Numbers in `list_of_number_of_relations_at_once` define the number of 
+        unknowns (or variables) that student must find given something that is already known.
+
+        From scenario, the "self.buildall_solvercandidates()" is called 
+        to form "solver candidates" from combinations of relations.
 
         """
 
-        self.relnumber_list = r
-        self.solver_candidates = []
+        # The input is part of self:
+        # self.list_of_number_of_relations_at_once
 
-        if type(r)==list:
+        self.solver_candidates_list = []
 
-            do_one = 1 in r
-            do_two = 2 in r
+        for nrel in self.list_of_number_of_relations_at_once:
 
-        else:
+            #self.relnumber_list = r
 
-            do_one = r==1
-            do_two = r==2
-
-        #Note: it can do_one AND do_two
-        #      or only one of them.
-        if do_one:
-            #solver candidates based on 1 relation
-            for rel in self.scenario_relations:
-                #solver candidates formed from
-                #a single reluation
-                scandidates_1rel = self.buildsome_solvercandidates([rel])
-                self.solver_candidates += scandidates_1rel
-
-        if do_two:
-            #solver candidates based on 2 relations
-            for relpair in itertools.combinations(self.scenario_relations, 2):
+            for rel_set in itertools.combinations(self.scenario_relations_set, nrel):
                 #solver candidates formed from
                 #two relation
-                scandidates_2rel = self.buildsome_solvercandidates(relpair)
-                self.solver_candidates += scandidates_2rel
+                solver_candidates_list = self.buildsome_solvercandidates(rel_set)
+                self.solver_candidates_list += solver_candidates_list
 
-        #TODO: considerar mais casos além de "do_one" e "do_two".
 
 
 
@@ -549,7 +484,7 @@ class Scenario:
 
         #para obter o label de um no: "T.get_vertex(1)"
 
-        for s in self.solver_candidates:
+        for s in self.solver_candidates_list:
             self.add_edge_from_solver(s)
 
 
@@ -999,5 +934,4 @@ class Scenario:
 
             #Construção de um exercício
             #solution_steps += ()
-
 

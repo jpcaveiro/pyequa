@@ -48,7 +48,8 @@ class ClozeService(AbstractService):
                  variable_attributes=None,
                  author="(Author)",
                  answer_template=DEFAULT_ANSWER_TEMPLATE,
-                 sequencial = True, 
+                 sequencial = True,
+                 output_extension='txt', 
                  varcount=1): #varcount as in rmdmoodle
 
         # See AbstractService.__init__()
@@ -57,10 +58,11 @@ class ClozeService(AbstractService):
         # Only in ClozeService
         # student_template could be a filename or a string
         from os import getcwd, chdir
-        print(f"Current file 2:\n{getcwd()}")
+        student_template_path = os.path.join(r'..', student_template)
+        print(f"pyequa is opening file {student_template_path}.")
         if '.md' in student_template:
             try:
-                with open(r'..\\'+student_template, mode='r', encoding='utf-8') as file:
+                with open(student_template_path, mode='r', encoding='utf-8') as file:
                     self.student_template = file.read()
             except FileNotFoundError:
                 print(f"Error: File '{student_template}' not found.")
@@ -74,13 +76,13 @@ class ClozeService(AbstractService):
         self.basename, _ = os.path.splitext(os.path.basename(self.excel_pathname))
         if self.sequencial:
             self.basename = self.basename + "-study"
-        self.extension = "Rmd"
-        self.file_path_student = f"{self.basename}.{self.extension}"
+        self.output_extension = output_extension
+        self.file_path_student = f"{self.basename}.{self.output_extension}"
         self.varcount = varcount
 
         # Counters
         self.problem_no = 0
-        self.dataframe_iloc = -1 # each row of excel "excel/pandas"
+        self.pandas_dataframe_iloc = -1 # each row of excel "excel/pandas"
 
         rename_old_filename(self.file_path_student)
 
@@ -137,14 +139,14 @@ class ClozeService(AbstractService):
         for var_no in range(self.varcount):
 
             # "%" is modulo
-            #print(f"debuf: self.dataframe.index.size = {self.dataframe.index.size}")
-            self.dataframe_iloc = (self.dataframe_iloc + 1) % self.dataframe.shape[0]
+            #print(f"debuf: self.pandas_dataframe.index.size = {self.pandas_dataframe.index.size}")
+            self.pandas_dataframe_iloc = (self.pandas_dataframe_iloc + 1) % self.pandas_dataframe.shape[0]
 
             # problem and technical keywords
             args_dict = dict()
 
             # problem keywords
-            pandas_series = self.dataframe.iloc[self.dataframe_iloc]
+            pandas_series = self.pandas_dataframe.iloc[self.pandas_dataframe_iloc]
 
             # var+input: student see the value if var is in inputvars_set (ako "given variable")
             # var+input: student see (incógnita) if var is NOT in inputvars_set (ako "determine variable")
@@ -152,7 +154,7 @@ class ClozeService(AbstractService):
             # var+output: student see value if var is NOT in inputvars_set
 
 
-            cloze = Cloze(self.dataframe, pandas_series, args_dict, self.scenario.allvars_list, inputvars_set, self.variable_attributes)
+            cloze = Cloze(self.pandas_dataframe, pandas_series, args_dict, self.scenario.allvars_list, inputvars_set, self.variable_attributes)
             args_dict = cloze.mk_input_fields()
 
 
@@ -175,7 +177,7 @@ class ClozeService(AbstractService):
 
 
             args_dict['variation_number'] = \
-                f"{(vno):03d} (data row is {(self.dataframe_iloc + 1):02d})" # nr. linha pandas + 1 = nr. da linha do excel
+                f"{(vno):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d})" # nr. linha pandas + 1 = nr. da linha do excel
 
 
 
@@ -190,7 +192,7 @@ class ClozeService(AbstractService):
 
             variant_str = f"\n\n## variante {args_dict['variation_number']}\n\n"
             student_str = self.student_template.format(**args_dict)
-            feedback_str = f"\n### feedback\n\n{self.student_feedback}\n"
+            feedback_str = f"\n\n### feedback\n\n{self.student_feedback}\n"
 
             student_text = variant_str + student_str + feedback_str
 

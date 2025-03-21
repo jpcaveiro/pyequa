@@ -1,7 +1,7 @@
 ---
 title: "dados-study.Rmd"
 author: "Pedro Cruz"
-date: "2025-02-28_11-24-45"
+date: "2025-02-28_11-28-01"
 output:
   html_document: default
 ---
