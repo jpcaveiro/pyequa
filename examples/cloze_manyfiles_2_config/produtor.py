@@ -28,54 +28,42 @@ variable_attributes = {
 }
 
 
-
-student_feedback = r"""
-
-#(Consulte o docente das suas turmas ou uma OT.)
-
-"""
-
-
 # com 4 equações, em geral, consegue-se 4 variáveis
 # exemplo: sistema de 4 equações a 4 incógnitas
 
 
+import os
+from pathlib import Path
+
+# Path to the default configuration file
+from pyequa.config import get_config
+CONFIG_PATH = Path(__file__).parent / "config.yaml"
+config = get_config(CONFIG_PATH)
+
+
 from pyequa import wisdomgraph as ws
 from pyequa.servicecloze import ClozeService
-import pandas as pd
+
 
 # Choose where to store this exercise
-# é necessário situar a pasta onde tudo decorre
-# pois a pasta funciona como "objeto"
-
-from os import getcwd, chdir
-print(f"Current file:\n{getcwd()}")
-chdir(r"examples\\cloze_manyfiles_2")
-print(f"Current: {getcwd()}")
-
-#Para melhorar a sintaxe do Path:
-#from pathlib import Path
-## Creates a path that works on any OS
-#folder = Path("my_folder/subfolder/file.txt")
-## You can use / operator to join paths
-#config_path = Path("config") / "settings.ini"
-## Convert to string if needed
-#str_path = str(folder)
+#from os import getcwd, chdir
+#print(f"Current file:\n{getcwd()}")
+#chdir(r"examples\\cloze_manyfiles_2")
+#print(f"Current: {getcwd()}")
 
 
 pandas_dataframe = pd.read_excel("dados.xlsx")
 
 
 text_service = ClozeService(
-                 student_template="exercise_model.md", 
+                 student_template="enunciado.md", 
                  student_feedback=student_feedback, 
                  pandas_dataframe=pandas_dataframe,
                  variable_attributes=variable_attributes,
                  author="Pedro Cruz",
                  sequencial=True,
                  output_extension='md',
-                 varcount=1,
-                 model_path=getcwd())
+                 varcount=1)
 
 
 #world = ws.Scenario(scenary_relations, text_service,r=[2])
@@ -89,6 +77,4 @@ world = ws.Scenario(scenary_relations, text_service) #implícito que r=[1,2]
 world.buildall(no_of_given_vars=None, max_ex_per_comb=3) 
 
 
-
-PyEqua().run(scenary_relations,variable_attributes)
 

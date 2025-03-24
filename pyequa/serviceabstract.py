@@ -4,53 +4,60 @@ import datetime
 
 
 from .wisdomgraph import set2orderedstr
-# Ver:
-# self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
-# self.buildone_scenary_text(inputvars_set)
 
+from pathlib import Path
 
+def get_last_folder(path):
+    """
 
-DEFAULT_ANSWER_TEMPLATE = """Sabendo
+    ```python
+    # Examples
+    print(get_last_folder('/path/to/your/folder'))   # Output: 'folder'
+    print(get_last_folder('/path/to/your/folder/'))  # Output: 'folder'
+    print(get_last_folder('/'))  # Output: '/'
+    ```
 
-{localinputvars}
+    """
 
-e usando
-
-{solvers}
-
-determina-se
-
-{localoutputvars}
-
-"""
-
+    path = Path(path)
+    # Resolve the path to handle any '..' or '.' and normalize slashes
+    resolved_path = path.resolve()
+    # Get the last non-empty part
+    return resolved_path.parts[-1] if resolved_path.parts[-1] else resolved_path.parts[-2]
 
 
 class AbstractService:
-    """
-    
-    """
 
     def __init__(self, 
                  pandas_dataframe=None,
                  variable_attributes=None,
-                 answer_template=DEFAULT_ANSWER_TEMPLATE
+                 answer_template=None,
+                 gen_method='fixed',
+                 output_extension='txt'
                 ): 
 
-        self.excel_pathname = excel_pathname
-        self.variable_attributes=variable_attributes
+
+        assert pandas_dataframe is not None, f"A 'python pandas' data frame must be given."
+        self.pandas_dataframe = pandas_dataframe
+
+        # TODO: What if variable attributes is not given?
+        self.variable_attributes = variable_attributes
+
+
+        # TODO: What if answer_template is not given?
         self.answer_template = answer_template
 
-        #Delayed
+        self.gen_method = gen_method
+
+        # Delayed: only when "self" is created this variables get instances
         self.scenario = None #atribuído quando este TextService é passado para o Scenario
         self.solverslist_answer_text = None #see below
 
-        #assert self.excel_pathname, "Excel filename with variables data must be given." + f"({os.getcwd()})"
-        #self.dataframe = pd.read_excel(self.excel_pathname)
-
-        assert pandas_dataframe, f"A 'python pandas' data frame must be given."
-        self.pandas_dataframe = pandas_dataframe
-
+        #TODO: improve this getcwd() to a better strategy
+        self.exercise_folder = os.getcwd()
+        self.basename = get_last_folder(self.exercise_folder)
+        self.output_extension = output_extension
+        self.file_path_student = f"{self.basename}.{self.output_extension}"
 
         #Create "_output_"
         DEFAULT_OUTPUT_FOLDER = "_output_"
@@ -58,6 +65,7 @@ class AbstractService:
             os.makedirs(DEFAULT_OUTPUT_FOLDER)
             print(F"Folder '{DEFAULT_OUTPUT_FOLDER}' created.")
 
+        # TODO: avoid change dir !
         #Text is stores here.
         os.chdir(DEFAULT_OUTPUT_FOLDER)
 
@@ -65,14 +73,17 @@ class AbstractService:
 
 
 
-    def buildall_exercises(self,no_of_given_vars,max_ex_per_comb,silence):
+    def buildall_exercises(self, number_of_given_vars, number_of_variants_per_exercise=None, silence=False):
+
+        assert number_of_given_vars
+        
         self.build_in_silence = silence
 
         #self.scenario is given when Scenary is instantiated
-        Y = self.scenario.yield_inputvarsset_nodepathlist(no_of_given_vars)
+        Y = self.scenario.yield_inputvarsset_nodepathlist(number_of_given_vars)
 
-        #Controls number of exercises
-        count = max_ex_per_comb
+        #Controls number of variants
+        count = number_of_variants_per_exercise
 
         for problem_pair in Y:
 
@@ -88,7 +99,7 @@ class AbstractService:
             self.add_problem_with_variants(inputvars_set,node_path_list)
 
             #Decrease counting
-            if max_ex_per_comb: #if there is control
+            if number_of_variants_per_exercise: #if there is control
                 count = count - 1 
                 if not count: #when zero
                     break #get out of cycle

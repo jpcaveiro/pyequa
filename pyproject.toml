@@ -11,4 +11,5 @@ dependencies = [
     "networkx",
     "matplotlib",
     "openpyxl",
+    "PyYAML",
 ]

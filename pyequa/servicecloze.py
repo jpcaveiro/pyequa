@@ -1,20 +1,4 @@
-"""
 
-
-# Discussion:
-
-# Add "How did you do it?"
-#HOW =  "# Diz-me como foi? - ESSAY\n\n"
-#HOW += "## Variante Única\n\n"
-#HOW += "Indique a dificuldade (fácil, preciso pensar um pouco, exigente, não consegui ainda):\n\n\n"
-#HOW += "Explique, sucintamente e nas linhas em baixo, que equações foram usadas e ideia das instruções (de software ou calculadora) usados.\n\n\n"
-#HOW += "Obrigado (Equipa docente de MNE).\n"
-#with open(f"{self.basename}.{self.extension}", "a", encoding="utf-8") as file_object:
-#    # Write the text to the file
-#    file_object.write(HOW)
-        
-
-"""
 
 import pandas as pd
 import os
@@ -37,23 +21,22 @@ output:
 ---
 """
 
-
-
 class ClozeService(AbstractService):
 
     def __init__(self, 
-                 student_template=None, 
-                 student_feedback=None, 
-                 excel_pathname=None,
+                 student_template=None,
+                 student_feedback=None,
+                 answer_template=None,
+                 pandas_dataframe=None,
                  variable_attributes=None,
                  author="(Author)",
-                 answer_template=DEFAULT_ANSWER_TEMPLATE,
-                 sequencial = True,
+                 gen_method = 'sequential',
                  output_extension='txt', 
-                 varcount=1): #varcount as in rmdmoodle
+                 number_of_variants_per_exercise=1
+                 ): 
 
         # See AbstractService.__init__()
-        super().__init__(excel_pathname,variable_attributes,answer_template)
+        super().__init__(pandas_dataframe, variable_attributes, answer_template, gen_method, output_extension)
 
         # Only in ClozeService
         # student_template could be a filename or a string
@@ -72,38 +55,33 @@ class ClozeService(AbstractService):
 
 
         self.student_feedback = student_feedback
-        self.sequencial = sequencial #1 problem with all variants (for study only)
-        self.basename, _ = os.path.splitext(os.path.basename(self.excel_pathname))
-        if self.sequencial:
-            self.basename = self.basename + "-study"
-        self.output_extension = output_extension
-        self.file_path_student = f"{self.basename}.{self.output_extension}"
-        self.varcount = varcount
+
+        self.number_of_variants_per_exercise = number_of_variants_per_exercise
 
         # Counters
         self.problem_no = 0
         self.pandas_dataframe_iloc = -1 # each row of excel "excel/pandas"
 
+        # See serviceabstract.py where self.file_path_student is built
         rename_old_filename(self.file_path_student)
 
-
         # Create new file Rmd file
-        rmd_header = FILE_HEADER.format(title = self.file_path_student, 
+        rmd_header = FILE_HEADER.format(title  = self.file_path_student, 
                                         author = author,
-                                        date = datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S"))
+                                        date   = datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S"))
 
-        if self.sequencial:
-            #Only in case of sequencial variants concatenating all problems and their  variants
+        if gen_method == 'sequential':
+            #Only in case of sequential variants concatenating all problems and their  variants
             problem_header = f"""\n\n# Model {self.file_path_student} - CLOZE\n\n"""
         else:
             problem_header = "" #Empty. Problem header will be added later with their variants.
 
-        with open(self.file_path_student, "w", encoding="utf-8") as file_object:
+        with open(self.file_path_student, mode="w", encoding="utf-8") as file_object:
             # Write the text to the file
             file_object.write(rmd_header+problem_header)
 
 
-    def add_problem_with_variants(self,inputvars_set,node_path_list):
+    def add_problem_with_variants(self, inputvars_set, node_path_list):
         """
         Produces problems like "rmdmoodle":
 
@@ -123,7 +101,7 @@ class ClozeService(AbstractService):
         """
 
 
-        if not self.sequencial:
+        if self.gen_method != 'sequential':
 
             problem_header = f"\n# Problem {self.problem_no+1:02d} - CLOZE\n"
             # ----------------
@@ -136,7 +114,7 @@ class ClozeService(AbstractService):
 
 
         # Add variants
-        for var_no in range(self.varcount):
+        for var_no in range(self.number_of_variants_per_exercise):
 
             # "%" is modulo
             #print(f"debuf: self.pandas_dataframe.index.size = {self.pandas_dataframe.index.size}")
@@ -161,7 +139,7 @@ class ClozeService(AbstractService):
 
             args_dict['answer_steps'] = self.solverslist_answer_text
 
-            if self.sequencial:
+            if self.sequential:
                 # Variants are added linearly and not separated by different types of problems.
                 # problem_no starts at 0. Example:
                 # problem_no=0 var_no=0 produce ## Variant 1
@@ -171,7 +149,7 @@ class ClozeService(AbstractService):
                 # problem_no=2 var_no=0 produce ## Variant 5
                 # problem_no=2 var_no=1 produce ## Variant 6
                 # etc
-                vno = self.problem_no*self.varcount + (var_no+1)  
+                vno = self.problem_no*self.number_of_variants_per_exercise + (var_no+1)  
             else:
                 vno = var_no + 1
 

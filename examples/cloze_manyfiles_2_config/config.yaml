@@ -1,25 +1,7 @@
-# pyequa defaults
-
-
-
-default_answer_template: |
-  Knowing
-
-  {localinputvars}
-
-  and using
-
-  {solvers}
-
-  it can be found
-
-  {localoutputvars}
-
-
 
 
 # Method to give feedback of an exercise: default_student_feedback vs (to be developed)
-student_feedback: default_student_feedback #see below what is associated
+student_feedback: default_student_feedback
 
 
 # In case of no method, this text apperar to student.
@@ -28,38 +10,39 @@ default_student_feedback: |
   (No feedback is available. Please consult your class teacher(s).)
 
 
-
 # Output destination of the produced exercises
 output_service: moodle_cloze
 output_extension: md #output to a markdown file
 
 
-# In a folder, the standard filename for anexercise template
+# In a folder, the standard filename for an exercise template
 student_template_filename: exercise_model.md
 
 # CSV as a standard format
-dataframe_type: csv
+default_data_filename: data.csv
+data_type: csv
 csv_separator: "," 
 csv_decimal: "." 
 
 
 default_author: author
 
+# sequencial vs fixed vs all
+gen_method: sequencial
 
-# sequential vs fixed vs all
-gen_method: sequential
-
-# when gen_method is 'sequential'
+# sequential gen_method
 # level = number/difficulty of fill-in-the-blanks in an exercise
-# number of variants of the same exercise model
-number_of_variants_per_exercise: 1 
+# number of exercises per level
+number_exercises_per_level: 1
 
-# when gen_method is 'fixed' 
-number_of_given_vars: 1 
+# fixed gen_method
+# chosen: a set of fill-in-the-blanks
+no_of_given_vars: 1 #mostly probable, user must change this
+max_ex_per_chosen: 3
 
-# when gen_method is 'all'
-# TODO
-
+# all gen_method
+# chosen: a set of fill-in-the-blanks
+max_ex_per_chosen: 3
 
 # output a knowledge graph
 output_knowledge_graph: false

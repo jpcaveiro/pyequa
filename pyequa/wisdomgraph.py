@@ -307,7 +307,7 @@ class Scenario:
         return input_level_sum      
 
 
-    def buildsome_solvercandidates(self,rel_set): 
+    def buildsome_solvercandidates(self, rel_set): 
         """
         From one relation, or system of relations, produce functions
         based on combinations of variables.
@@ -714,15 +714,15 @@ class Scenario:
         plt.savefig(plot_fn)
 
 
-    def buildall(self,no_of_given_vars=None,max_ex_per_comb=None,silence=True):
+    def buildall(self, number_of_given_vars=None, number_of_variants_per_exercise=None, silence=True):
         """
         Add exercises to a file.
 
         Input:
-        - no_of_given_vars: None or positive integer.
-        - max_ex_per_comb: combinations of variables could make a lot of cases, this max cuts them out.
+        - number_of_given_vars: None or positive integer.
+        - number_of_variants_per_exercise: combinations of variables could make a lot of cases, this max cuts them out.
 
-        If no_of_given_vars is None it does like:
+        If self.text_service.gen_method == 'sequential' it does like:
 
         - `buildall(no_of_given_vars= len(allvars_list) - 1) # probably the easiest`
         - `buildall(no_of_given_vars= len(allvars_list) - 2) # maybe a little more difficult`
@@ -732,19 +732,33 @@ class Scenario:
         """
 
         self.build_in_silence = silence
-        if no_of_given_vars==None: # this means produce exercise starting with lots of given vars
+
+        if self.text_service.gen_method == 'sequential': 
+
+            # Each new exercises have an increased 'number_of_given_vars': from total_vars-1 to 0.
             total_vars = len(self.allvars_list)
             for nvars in range(total_vars-1, 0, -1):
                 print("="*20)
                 print(f"Generate exercises with {nvars} given variables.")
                 print("="*20)
-                self.text_service.buildall_exercises(no_of_given_vars=nvars,max_ex_per_comb=max_ex_per_comb,silence=silence)
+
+                self.text_service.buildall_exercises(number_of_given_vars=nvars,
+                                                     number_of_variants_per_exercise=number_of_variants_per_exercise,
+                                                     silence=silence)
+                
+        elif self.text_service.gen_method == 'fixed': 
+
+            # All exercises have a fixed 'number_of_given_vars'
+            self.text_service.buildall_exercises(number_of_given_vars=number_of_given_vars,
+                                                 number_of_variants_per_exercise=number_of_variants_per_exercise,
+                                                 silence=silence)
+
         else:
-            self.text_service.buildall_exercises(no_of_given_vars=no_of_given_vars,max_ex_per_comb=max_ex_per_comb,silence=silence)
+
+            raise Exception
 
 
-
-    def yield_inputvarsset_nodepathlist(self,no_of_given_vars=1):
+    def yield_inputvarsset_nodepathlist(self, no_of_given_vars=1):
         """
         Builds exercises from a given set of variables.
 
