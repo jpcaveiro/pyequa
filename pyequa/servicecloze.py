@@ -3,14 +3,14 @@
 import pandas as pd
 import os
 import datetime
-from .serviceabstract import AbstractService, rename_old_filename, DEFAULT_ANSWER_TEMPLATE
+from .serviceabstract import AbstractService, rename_old_filename
 from .clozeroutines import Cloze
 
 
 from .wisdomgraph import set2orderedstr
 # Ver:
-# self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
-# self.buildone_scenary_text(inputvars_set)
+# self.solverslist_text = self.solverslist_buildtext(givenvars_set,node_path_list)
+# self.buildone_scenary_text(givenvars_set)
 
 FILE_HEADER = """---
 title: "{title}"
@@ -29,14 +29,22 @@ class ClozeService(AbstractService):
                  answer_template=None,
                  pandas_dataframe=None,
                  variable_attributes=None,
+                 distractors = None,
                  author="(Author)",
-                 gen_method = 'sequential',
+                 gen_method = 'challenge',
                  output_extension='txt', 
                  number_of_variants_per_exercise=1
+                 config=None
                  ): 
 
         # See AbstractService.__init__()
-        super().__init__(pandas_dataframe, variable_attributes, answer_template, gen_method, output_extension)
+        super().__init__(pandas_dataframe=pandas_dataframe, 
+                         variable_attributes=variable_attributes, 
+                         distractors=distractors, 
+                         answer_template=answer_template, 
+                         gen_method=gen_method, 
+                         output_extension=output_extension,
+                         config=config)
 
         # Only in ClozeService
         # student_template could be a filename or a string
@@ -70,8 +78,8 @@ class ClozeService(AbstractService):
                                         author = author,
                                         date   = datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S"))
 
-        if gen_method == 'sequential':
-            #Only in case of sequential variants concatenating all problems and their  variants
+        if gen_method == 'challenge':
+            #Only in case of challenge variants concatenating all problems and their  variants
             problem_header = f"""\n\n# Model {self.file_path_student} - CLOZE\n\n"""
         else:
             problem_header = "" #Empty. Problem header will be added later with their variants.
@@ -81,7 +89,7 @@ class ClozeService(AbstractService):
             file_object.write(rmd_header+problem_header)
 
 
-    def add_problem_with_variants(self, inputvars_set, node_path_list):
+    def add_problem_with_variants(self, givenvars_set, node_path_list):
         """
         Produces problems like "rmdmoodle":
 
@@ -95,13 +103,13 @@ class ClozeService(AbstractService):
         Input
         =====
 
-        - inputvars_set : what variables the student knows
+        - givenvars_set : what variables the student knows
         - node_path_list: what nodes, in graph, are part of solution
 
         """
 
 
-        if self.gen_method != 'sequential':
+        if self.gen_method != 'challenge':
 
             problem_header = f"\n# Problem {self.problem_no+1:02d} - CLOZE\n"
             # ----------------
@@ -124,22 +132,30 @@ class ClozeService(AbstractService):
             args_dict = dict()
 
             # problem keywords
-            pandas_series = self.pandas_dataframe.iloc[self.pandas_dataframe_iloc]
+            pandas_row_series = self.pandas_dataframe.iloc[self.pandas_dataframe_iloc]
 
-            # var+input: student see the value if var is in inputvars_set (ako "given variable")
-            # var+input: student see (incógnita) if var is NOT in inputvars_set (ako "determine variable")
-            # var+output: student see nothing if var is in inputvars_set
-            # var+output: student see value if var is NOT in inputvars_set
+            # var+input: student see the value if var is in givenvars_set (ako "given variable")
+            # var+input: student see (incógnita) if var is NOT in givenvars_set (ako "determine variable")
+            # var+output: student see nothing if var is in givenvars_set
+            # var+output: student see value if var is NOT in givenvars_set
 
 
-            cloze = Cloze(self.pandas_dataframe, pandas_series, args_dict, self.scenario.allvars_list, inputvars_set, self.variable_attributes)
-            args_dict = cloze.mk_input_fields()
+            cloze = Cloze(self.pandas_dataframe, 
+                          pandas_row_series, 
+                          args_dict, 
+                          self.scenario.allvars_list, 
+                          givenvars_set, 
+                          self.variable_attributes,
+                          self.distractors,
+                          self.config)
+            
+            args_dict = cloze.vars_to_fields()
 
 
 
             args_dict['answer_steps'] = self.solverslist_answer_text
 
-            if self.sequential:
+            if self.gen_method == 'challenge':
                 # Variants are added linearly and not separated by different types of problems.
                 # problem_no starts at 0. Example:
                 # problem_no=0 var_no=0 produce ## Variant 1

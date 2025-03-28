@@ -31,18 +31,24 @@ class AbstractService:
     def __init__(self, 
                  pandas_dataframe=None,
                  variable_attributes=None,
+                 distractors = None,
                  answer_template=None,
                  gen_method='fixed',
-                 output_extension='txt'
+                 output_extension='txt',
+                 config=None
                 ): 
 
+
+        self.config = config
 
         assert pandas_dataframe is not None, f"A 'python pandas' data frame must be given."
         self.pandas_dataframe = pandas_dataframe
 
-        # TODO: What if variable attributes is not given?
+        # TODO: What if variable_attributes is not given?
         self.variable_attributes = variable_attributes
 
+        # TODO: What if distractors is not given?
+        self.distractors = distractors
 
         # TODO: What if answer_template is not given?
         self.answer_template = answer_template
@@ -80,7 +86,7 @@ class AbstractService:
         self.build_in_silence = silence
 
         #self.scenario is given when Scenary is instantiated
-        Y = self.scenario.yield_inputvarsset_nodepathlist(number_of_given_vars)
+        Y = self.scenario.yield_givenvarsset_nodepathlist(number_of_given_vars)
 
         #Controls number of variants
         count = number_of_variants_per_exercise
@@ -89,14 +95,14 @@ class AbstractService:
 
             print(f"==> {problem_pair[0]}")
 
-            inputvars_set  = problem_pair[0]
+            givenvars_set  = problem_pair[0]
             node_path_list = problem_pair[1]
 
             #General steps for the solution
-            self.solverslist_answer_text = self.solverslist_build_answer_text(inputvars_set,node_path_list)
+            self.solverslist_answer_text = self.solverslist_build_answer_text(givenvars_set,node_path_list)
 
             #Abstract method
-            self.add_problem_with_variants(inputvars_set,node_path_list)
+            self.add_problem_with_variants(givenvars_set,node_path_list)
 
             #Decrease counting
             if number_of_variants_per_exercise: #if there is control
@@ -113,26 +119,26 @@ class AbstractService:
 
 
 
-    def solverslist_build_answer_text(self,inputvars_set,node_path_list):
+    def solverslist_build_answer_text(self,givenvars_set,node_path_list):
 
         #see class Scenario above
         #self.answer_template
 
         answer_text = ""
 
-        given_vars_node = set2orderedstr(inputvars_set)
+        given_vars_node = set2orderedstr(givenvars_set)
 
         if given_vars_node in node_path_list:
             # If given_vars_node is in the solution path then it is not necessary explain
             # the path from ignorance to given_vars_node.
-            nodepair_list = zip(node_path_list[len_inputvars_set:-1], node_path_list[(len_inputvars_set+1):])
+            nodepair_list = zip(node_path_list[len_givenvars_set:-1], node_path_list[(len_givenvars_set+1):])
         else:
             # If given_vars_node is NOT in the solution path then it is NECESSARY to explain
             # the path from ignorance to knowledge.
             nodepair_list = zip(node_path_list[1:-1], node_path_list[2:])
 
 
-        len_inputvars_set = len(inputvars_set)
+        len_givenvars_set = len(givenvars_set)
 
         # node_path_list 
         # node_path_list[len_first_nodes:-1] : 
@@ -154,13 +160,13 @@ class AbstractService:
             #Fourth element is a SolverCandidate 
             solver_candidate = edge[3]
 
-            localinputvars = self.scenario.wisdomgraph.nodes[nodepair[0]]['vars']
-            localoutputvars = self.scenario.wisdomgraph.nodes[nodepair[1]]['vars']
+            localgivenvars = self.scenario.wisdomgraph.nodes[nodepair[0]]['vars']
+            localrequestedvars = self.scenario.wisdomgraph.nodes[nodepair[1]]['vars']
             solvers = solver_candidate.relations_latex()
 
             answer_text += self.answer_template.format(
-                localinputvars = "{}" if localinputvars==set() else  localinputvars,
-                localoutputvars = set(localoutputvars)-set(localinputvars),
+                localgivenvars = "{}" if localgivenvars==set() else  localgivenvars,
+                localrequestedvars = set(localrequestedvars)-set(localgivenvars),
                 solvers = solvers,
             )
 

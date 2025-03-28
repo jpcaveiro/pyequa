@@ -235,7 +235,7 @@ class Scenario:
         #self.answer_template = answer_template
 
 
-        #special node name (see node_name())
+        #special node name (see node_name()) #TODO: distractor variables does not appear in relations
         self.allvars_set = set()
         for rel in self.scenario_relations_set:
             self.allvars_set = self.allvars_set.union( rel.free_symbols ).copy()
@@ -366,6 +366,7 @@ class Scenario:
         
         - proteger contra duplicados nas relações
         
+
         """
         
 
@@ -722,7 +723,7 @@ class Scenario:
         - number_of_given_vars: None or positive integer.
         - number_of_variants_per_exercise: combinations of variables could make a lot of cases, this max cuts them out.
 
-        If self.text_service.gen_method == 'sequential' it does like:
+        If self.text_service.gen_method == 'challenge' it does like:
 
         - `buildall(no_of_given_vars= len(allvars_list) - 1) # probably the easiest`
         - `buildall(no_of_given_vars= len(allvars_list) - 2) # maybe a little more difficult`
@@ -733,7 +734,7 @@ class Scenario:
 
         self.build_in_silence = silence
 
-        if self.text_service.gen_method == 'sequential': 
+        if self.text_service.gen_method == 'challenge': 
 
             # Each new exercises have an increased 'number_of_given_vars': from total_vars-1 to 0.
             total_vars = len(self.allvars_list)
@@ -755,10 +756,10 @@ class Scenario:
 
         else:
 
-            raise Exception
+            raise
 
 
-    def yield_inputvarsset_nodepathlist(self, no_of_given_vars=1):
+    def yield_givenvarsset_nodepathlist(self, no_of_given_vars=1):
         """
         Builds exercises from a given set of variables.
 
@@ -769,7 +770,7 @@ class Scenario:
 
         
         An exercise is defined by:
-        - inputvars_set : the known variables
+        - givenvars_set : the known variables
         - nodepath_list : path from "ignorance" to the "knowledge" (or node of known variables?)
 
                 
@@ -816,28 +817,28 @@ class Scenario:
         C_weighted = sorted(C_weighted, key=lambda x: x[1]) #, reverse=True)
 
         # sv is a pair[ (sympy vars), input_level ]
-        original_list_of_inputvars_set = [sv[0] for sv in C_weighted if len(sv[0]) == no_of_given_vars]
+        original_list_of_givenvars_set = [sv[0] for sv in C_weighted if len(sv[0]) == no_of_given_vars]
 
 
         #Novo
-        list_of_inputvars_set  = []
+        list_of_givenvars_set  = []
         list_of_node_path_list = []
 
         # -----------------------------------------
         # Each tuple in "all_vars_sets" produce an exercise
         # -----------------------------------------
-        for inputvars_set in original_list_of_inputvars_set:
+        for givenvars_set in original_list_of_givenvars_set:
 
             #
             # Discussion: when is this combination necessary?
             #
             # Creates edges from ignorance
             # to each combinations of variables
-            # icomb = Combinations(inputvars_set, empty = False)
+            # icomb = Combinations(givenvars_set, empty = False)
             #print(icomb)
 
             # Forçar solução única de partida:
-            icomb =  [inputvars_set]
+            icomb =  [givenvars_set]
 
             for set_of_var in icomb:
                 set_of_var_node = set2orderedstr(set_of_var)
@@ -858,7 +859,7 @@ class Scenario:
             #AGORA: write all paths (each path is an exercise)
             if not self.build_in_silence:
                 print("="*10)
-                print(f"Caminhos sabendo: {inputvars_set}")
+                print(f"Caminhos sabendo: {givenvars_set}")
                 print("="*10)
 
             #Shortest
@@ -870,18 +871,18 @@ class Scenario:
                         print(node)
 
                 #DEBUG
-                #self.debug_exercise(inputvars_set,node_path_list)
+                #self.debug_exercise(givenvars_set,node_path_list)
 
                 #muito antigo
-                #outputvars_set = set(self.allvars_list) - set(inputvars_set)
+                #requestedvars_set = set(self.allvars_list) - set(givenvars_set)
 
                 #ANTES: o que estava a funcionar
                 #dataframe_iloc += 1
-                #self.solverslist_answer_text = self.solverslist_build_answer_text(inputvars_set,node_path_list,silence)
-                #teacher_text = self.text_service.build_one(self,inputvars_set,dataframe_iloc,node_path_list)
+                #self.solverslist_answer_text = self.solverslist_build_answer_text(givenvars_set,node_path_list,silence)
+                #teacher_text = self.text_service.build_one(self,givenvars_set,dataframe_iloc,node_path_list)
 
                 #NOVO: keep for later use with yield
-                list_of_inputvars_set.append(inputvars_set)
+                list_of_givenvars_set.append(givenvars_set)
                 list_of_node_path_list.append(node_path_list)
 
 
@@ -910,16 +911,16 @@ class Scenario:
         #-----------------
         # Yield mechanism
         #-----------------
-        list_of_pairs = zip(list_of_inputvars_set,list_of_node_path_list)
+        list_of_pairs = zip(list_of_givenvars_set,list_of_node_path_list)
         for pair in list_of_pairs:
-            yield pair #(inputvars_set, node_path_list)
+            yield pair #(givenvars_set, node_path_list)
 
         #end of buildall()
 
 
-    def debug_exercise(inputvars_set,node_path_list,silence=True):
+    def debug_exercise(givenvars_set,node_path_list,silence=True):
 
-        l = len(inputvars_set) #len_first_nodes
+        l = len(givenvars_set) #len_first_nodes
 
         print(f"Solution in {len(node_path_list)-l-1} steps.")
 

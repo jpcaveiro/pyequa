@@ -4,7 +4,7 @@
 answer_template: |
   Knowing
 
-  {localinputvars}
+  {localgivenvars}
 
   and using
 
@@ -12,7 +12,7 @@ answer_template: |
 
   it can be found
 
-  {localoutputvars}
+  {localrequestedvars}
 
 
 
@@ -33,7 +33,7 @@ output_extension: md #output to a markdown file
 student_template_filename: exercise_model.md
 
 # CSV as a standard format
-dataframe_type: xlsx  #csv or xlsx
+dataframe_type: csv # xlsx  or csv 
 csv_separator: "," 
 csv_decimal: "." 
 
@@ -41,11 +41,10 @@ csv_decimal: "."
 author: Pedro Cruz
 
 
-# sequential vs fixed vs all
-gen_method: sequential
+# challenge vs exam
+gen_method: challenge
 
-# when gen_method is 'sequential'
-# level = number/difficulty of fill-in-the-blanks in an exercise
+# when gen_method is 'challenge'
 # number of variants of the same exercise model
 number_of_variants_per_exercise: 1 
 
@@ -55,6 +54,7 @@ number_of_given_vars: 1
 # when gen_method is 'all'
 # TODO
 
+several_solutions: " (mais que uma solução; escolha uma) "
 
 # output a knowledge graph
 output_knowledge_graph: true

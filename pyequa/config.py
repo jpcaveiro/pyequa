@@ -1,4 +1,5 @@
 import yaml
+from os import getcwd, chdir
 from pathlib import Path
 from pyequa import wisdomgraph as ws
 from pyequa.servicecloze import ClozeService
@@ -16,8 +17,16 @@ def load_config(config_path=None):
     if config_path is None:
         config_path = DEFAULT_CONFIG_PATH
 
-    with open(config_path, "r") as file:
-        config = yaml.safe_load(file)
+    try:
+        with open(config_path, "r") as file:
+            config = yaml.safe_load(file)
+
+    except FileNotFoundError:
+        print(f"File '{config_path}' does not exist.")
+    except PermissionError:
+        print(f"No permission to access the file '{config_path}'.")
+    except IOError:
+        print(f"File '{config_path}' cannot be opened for other reasons.")
 
     return config
 
@@ -60,41 +69,33 @@ class PyEqua:
 
     """
 
-    def __init__(self):
+    def __init__(self, exercise_folder=None):
         # Universal File Path Handling in Python
 
         # Load 
         # Load the default configuration
-        config = load_config()
+        default_config = load_config()
 
+        chdir(exercise_folder)
+        print(f"Exercise folder: {getcwd()}\n\n")
         user_config_path = Path("config.yaml")
 
-        try:
-
-            with open(user_config_path) as _: 
-                # File exists and can be opened
-                print(f"Reading configuration from {local_config_path}.")
-                user_config = load_config(user_config_path)
-                config      = merge_configs(config, user_config)
-
-        except FileNotFoundError:
-            print("Local 'config.yaml' does not exist.")
-        except PermissionError:
-            print("No permission to access the file 'config.yaml'.")
-        except IOError:
-            print("File 'config.yaml' cannot be opened for other reasons.")
-
+        print(f"Reading configuration from {user_config_path}.")
+        user_config = load_config(user_config_path)
+        config      = merge_configs(default_config, user_config)
 
         # A config dict is expected to be working now:
         self.config = config
 
 
-    def run(self, scenary_relations=None, variable_attributes=None, pandas_data_frame=None):
+    def run(self, scenary_relations=None, variable_attributes=None, distractors=None, pandas_data_frame=None):
+
         assert scenary_relations
         assert variable_attributes
 
+
         # data_frame creation or use
-        if pandas_dataframe is None:
+        if pandas_data_frame is None:
 
             dataframe_type = self.config['dataframe_type']
 
@@ -105,7 +106,7 @@ class PyEqua:
                     csv_separator = self.config['csv_separator']
                     csv_decimal   = self.config['csv_decimal']
 
-                    pandas_dataframe = pd.read_csv('data.csv', 
+                    pandas_data_frame = pd.read_csv('data.csv', 
                                      sep=csv_separator, 
                                      decimal=csv_decimal,
                                      header=0,
@@ -113,34 +114,40 @@ class PyEqua:
                                      encoding='utf-8')
 
                 case 'xlsx':
-                    pandas_dataframe = pd.read_excel('data.xlsx')
+                    pandas_data_frame = pd.read_excel('data.xlsx')
 
 
         
-        if config['output_service'] == 'moodle_cloze':
+        if self.config['output_service'] == 'moodle_cloze':
 
                 text_service = ClozeService(
-                                student_template=config['student_template_filename'] #like "exercise_model.md", 
-                                student_feedback=config['student_feedback'],
-                                answer_template=config['answer_template'],
-                                pandas_dataframe=pandas_dataframe,
-                                variable_attributes=variable_attributes,
-                                author=config['author'],
-                                gen_method=config['gen_method'],
-                                output_extension=config['output_extension'],
-                                number_of_variants_per_exercise=config['number_of_variants_per_exercise']
+                                student_template = self.config['student_template_filename'], #like "exercise_model.md", 
+                                student_feedback = self.config['student_feedback'],
+                                answer_template  = self.config['answer_template'],
+                                pandas_dataframe = pandas_data_frame,
+                                variable_attributes = variable_attributes,
+                                distractors      = distractors,
+                                author           = self.config['author'],
+                                gen_method       = self.config['gen_method'],
+                                output_extension = self.config['output_extension'],
+                                number_of_variants_per_exercise = self.config['number_of_variants_per_exercise'],
+                                config           = self.config,
                 )
 
                 world = ws.Scenario(scenary_relations, text_service) 
 
-                world.buildall(number_of_given_vars=config['number_of_given_vars'], 
-                               number_of_variants_per_exercise=config['number_of_variants_per_exercise']) 
+                world.buildall(number_of_given_vars = self.config['number_of_given_vars'], 
+                               number_of_variants_per_exercise = self.config['number_of_variants_per_exercise']) 
         
         else:
 
+            #TODO: other methods of exporting
             raise ValueError("set config['output_service'] to 'moodle_cloze'")
 
 
         # TODO: handle this:
         # output a knowledge graph
         #output_knowledge_graph: false
+        if self.config['output_knowledge_graph'] == 'true':
+            world.draw_wisdom_graph()
+            

@@ -2,10 +2,10 @@
 
 
 
-default_answer_template: |
+answer_template: |
   Knowing
 
-  {localinputvars}
+  {localgivenvars}
 
   and using
 
@@ -13,17 +13,13 @@ default_answer_template: |
 
   it can be found
 
-  {localoutputvars}
+  {localrequestedvars}
 
 
 
 
-# Method to give feedback of an exercise: default_student_feedback vs (to be developed)
-student_feedback: default_student_feedback #see below what is associated
-
-
-# In case of no method, this text apperar to student.
-default_student_feedback: |
+# 
+student_feedback: |
   
   (No feedback is available. Please consult your class teacher(s).)
 
@@ -38,28 +34,29 @@ output_extension: md #output to a markdown file
 student_template_filename: exercise_model.md
 
 # CSV as a standard format
-dataframe_type: csv
+dataframe_type: csv  #csv or xlsx
 csv_separator: "," 
 csv_decimal: "." 
 
 
-default_author: author
+author: author
 
 
-# sequential vs fixed vs all
-gen_method: sequential
+# challenge vs exam 
+gen_method: challenge
 
-# when gen_method is 'sequential'
-# level = number/difficulty of fill-in-the-blanks in an exercise
+# when gen_method is 'challenge'
 # number of variants of the same exercise model
 number_of_variants_per_exercise: 1 
 
-# when gen_method is 'fixed' 
+# when gen_method is 'exam' 
 number_of_given_vars: 1 
 
 # when gen_method is 'all'
 # TODO
 
+several_solutions: " (more than one solution; choose one) "
+global_tolerance: 0.001
 
 # output a knowledge graph
 output_knowledge_graph: false
