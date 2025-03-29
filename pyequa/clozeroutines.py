@@ -49,7 +49,7 @@ class Cloze:
             for distractor_name in self.distractors[var.name].keys():
                 #run over 'disty_d1', 'disty_d2', 'disty_d3'
                 option = self.pandas_row_series[distractor_name] #text is series row
-                discount = self.distractors[var.name] #from 'disty_d1' we get '-30'
+                discount = self.distractors[var.name][distractor_name] #from 'disty_d1' we get '-30'
                 assert discount in ALLOWED_PERCENTAGES, f"Moodle accepts only {ALLOWED_PERCENTAGES}."
                 options_list.append(f"%{discount}%{option}")
 
@@ -125,8 +125,8 @@ class Cloze:
             #print(type(value))
 
             #Student see the value if var is in givenvars_set:
-            if self.variable_attributes[var.name]['type'] == 'multichoice' or \
-                self.variable_attributes[var.name]['type'] == 'shortanswer':
+            if self.variable_attributes[var.name]['type'].lower() == 'multichoice' or \
+                self.variable_attributes[var.name]['type'].lower() == 'shortanswer':
                 know_this = f"{var} == '''{value}'''"
             else:
                 know_this = f"{var} == {value}" 
@@ -134,7 +134,7 @@ class Cloze:
 
             #The way student sees the variable value
             self.args_dict[str(var)] = "**" + str(value) + "**"
-            self.args_dict[str(var)+'output'] = "" #TODO: remove "var+output"
+            #self.args_dict[str(var)+'output'] = "" #TODO: remove "var+output"
 
 
 
@@ -195,12 +195,10 @@ class Cloze:
                         #they are considered correct. Many times
                         #it could be a single value in several rows.
                         options_list.append(f"%100%{option}")
-                    else:
-                        options_list.append(f"%0%{option}")
 
                 # Wrong answers can be in distractor variables (columns)
                 # or the other values in same var column.
-                options_list_wrong_answers = self.get_distractors_in_columns(self, var)
+                options_list_wrong_answers = self.get_distractors_in_columns(var)
 
                 if options_list_wrong_answers:
                     #Author provided distrators
@@ -234,25 +232,25 @@ class Cloze:
                 more_str = ""
 
 
-            if self.variable_attributes and \ 
-                  var.name in self.variable_attributes and \
-                  'type' in self.variable_attributes[var.name]:
+            if self.variable_attributes and \
+               var.name in self.variable_attributes and \
+               'type' in self.variable_attributes[var.name]:
 
                 #There is variable_attributes:
 
                 match self.variable_attributes[var.name]['type']:
                 
-                case 'multichoice':
-                    self.args_dict[var.name] = "{:MULTICHOICE_S:" + options_str + "}" + more_str
+                    case 'multichoice':
+                        self.args_dict[var.name] = "{:MULTICHOICE_S:" + options_str + "}" + more_str
 
-                case 'numerical':
-                    self.args_dict[var.name] = "{:NUMERICAL:" + options_str + "}" + more_str
+                    case 'numerical':
+                        self.args_dict[var.name] = "{:NUMERICAL:" + options_str + "}" + more_str
 
-                case 'shortanswer':
-                    self.args_dict[var.name] = "{:SHORTANSWER:" + options_str + "}" + more_str
-            
-                case _:
-                    stop("check variable_attributes for cloze type: 'multichoice', 'numerical' or 'shortanswer'.")
+                    case 'shortanswer':
+                        self.args_dict[var.name] = "{:SHORTANSWER:" + options_str + "}" + more_str
+                
+                    case _:
+                        raise("check variable_attributes for cloze type: 'multichoice', 'numerical' or 'shortanswer'.")
                     
             else:
 
@@ -264,6 +262,17 @@ class Cloze:
                     self.args_dict[var.name] = "{:NUMERICAL:" + options_str + "}" + more_str
 
 
+        #Add "pure" distractor values of variables
+        #By "pure": only polute student undestanding.
+        for dis_var_name in self.distractors.keys():
+
+            if self.distractors[dis_var_name] is None: #means "None attributes"
+                #if no attributes it's a pure distractor
+
+                #get variable value in a row (series) of pandas_dataframe
+                value = self.pandas_row_series[dis_var_name]
+
+                self.args_dict[dis_var_name] = "**" + str(value) + "**"
 
         #Debug
         #print(self.args_dict)

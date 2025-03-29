@@ -1,18 +1,16 @@
 
 
-import pandas as pd
 import os
 import datetime
+import markdown
 from .serviceabstract import AbstractService, rename_old_filename
 from .clozeroutines import Cloze
 
 
 from .wisdomgraph import set2orderedstr
-# Ver:
-# self.solverslist_text = self.solverslist_buildtext(givenvars_set,node_path_list)
-# self.buildone_scenary_text(givenvars_set)
 
-FILE_HEADER = """---
+
+FILE_HEADER_template = """---
 title: "{title}"
 author: "{author}"
 date: "{date}"
@@ -21,10 +19,49 @@ output:
 ---
 """
 
+
+CLOZE_template = """
+<question type="category">
+    <category>
+        <text>$course$/top/{moodle_imports_category}/{exam_title}/{question_title}</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>{variant_title} de {question_title}</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[{xml_clozequestion}]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[{xml_feedbackglobal}]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+"""
+
+#
+#  xml_str = '<?xml version="1.0" encoding="UTF-8"?>\n<quiz>\n'
+#
+#  Include sequentialy all CLOZE_template
+#  (each CLOZE_template has a path in Moodle Category tree):
+#
+#     <text>$course$/top/{imports}/{exam_title}/{question_title}</text>
+#
+#  xml_str = xml_str + '</quiz>\n'
+#
+
+
 class ClozeService(AbstractService):
 
     def __init__(self, 
-                 student_template=None,
+                 student_template_filename=None,
                  student_feedback=None,
                  answer_template=None,
                  pandas_dataframe=None,
@@ -33,7 +70,7 @@ class ClozeService(AbstractService):
                  author="(Author)",
                  gen_method = 'challenge',
                  output_extension='txt', 
-                 number_of_variants_per_exercise=1
+                 number_of_variants_per_exercise=1,
                  config=None
                  ): 
 
@@ -49,9 +86,9 @@ class ClozeService(AbstractService):
         # Only in ClozeService
         # student_template could be a filename or a string
         from os import getcwd, chdir
-        student_template_path = os.path.join(r'..', student_template)
+        student_template_path = os.path.join(r'..', student_template_filename)
         print(f"pyequa is opening file {student_template_path}.")
-        if '.md' in student_template:
+        if '.md' in student_template_filename:
             try:
                 with open(student_template_path, mode='r', encoding='utf-8') as file:
                     self.student_template = file.read()
@@ -74,19 +111,35 @@ class ClozeService(AbstractService):
         rename_old_filename(self.file_path_student)
 
         # Create new file Rmd file
-        rmd_header = FILE_HEADER.format(title  = self.file_path_student, 
+        rmd_header = FILE_HEADER_template.format(title  = self.file_path_student, 
                                         author = author,
-                                        date   = datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S"))
+                                        date   = datetime.datetime.now().strftime(r'%Y-%m-%d_%H-%M-%S'))
 
+        # ----------------------
+        # Markdown file: header
+        # ----------------------
         if gen_method == 'challenge':
+
             #Only in case of challenge variants concatenating all problems and their  variants
-            problem_header = f"""\n\n# Model {self.file_path_student} - CLOZE\n\n"""
+            rmd_problemheader = f"""\n\n# Model {self.file_path_student} - CLOZE\n\n"""
+
         else:
-            problem_header = "" #Empty. Problem header will be added later with their variants.
+            
+            rmd_problemheader = "" #Empty. Problem header will be added later with their variants.
 
         with open(self.file_path_student, mode="w", encoding="utf-8") as file_object:
             # Write the text to the file
-            file_object.write(rmd_header+problem_header)
+            file_object.write(rmd_header+rmd_problemheader)
+
+        # ----------------------
+        # Moodle file: header
+        # ----------------------
+        # Create a new xml file for Moodle
+        xml_header = '<?xml version="1.0" encoding="UTF-8"?>\n<quiz>\n'
+        with open(self.file_path_student+'.xml', mode="w", encoding="utf-8") as file_object:
+            # Write the text to the file
+            file_object.write(xml_header)
+
 
 
     def add_problem_with_variants(self, givenvars_set, node_path_list):
@@ -111,13 +164,19 @@ class ClozeService(AbstractService):
 
         if self.gen_method != 'challenge':
 
-            problem_header = f"\n# Problem {self.problem_no+1:02d} - CLOZE\n"
             # ----------------
-            # Write header on student and solutions file
+            # Markdown: Write header on student and solutions file
             # ----------------
+            rmd_problemheader = f"\n# Problem {self.problem_no+1:02d} - CLOZE\n"
+
             with open(self.file_path_student, "a", encoding="utf-8") as file_object:
                 # Write the text to the file
-                file_object.write(problem_header)
+                file_object.write(rmd_problemheader)
+
+
+            # Moodle xml : see below because Moodle xml repeats
+            # the problem header in each varian/problem
+
 
 
 
@@ -184,22 +243,60 @@ class ClozeService(AbstractService):
             # "check_unused_args() is assumed to raise an exception if the check fails.""
             #raise an exception if the check fails
 
-            variant_str = f"\n\n## variante {args_dict['variation_number']}\n\n"
-            student_str = self.student_template.format(**args_dict)
+            variant_str = f"\n\n## {self.config['variant_word']} {args_dict['variation_number']}\n\n"
+
+            try:
+                student_str = self.student_template.format(**args_dict)
+            except KeyError as k:
+                print(f"Missing column '{k}' in 'data.{self.config[self.config['dataframe_type']]}'.")
+                raise
+                
             feedback_str = f"\n\n### feedback\n\n{self.student_feedback}\n"
 
             student_text = variant_str + student_str + feedback_str
 
             # ----------------
-            # Write problem or solution on student and solutions file
+            # Markdown: write problem or solution on student and solutions file
             # ----------------
             with open(self.file_path_student, "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(student_text)
 
+
+            # ------------
+            # Moodle xml: write problem or solution on student and solutions file
+            # ------------
+
+            # See https://chat.deepseek.com/a/chat/s/0c4ac66a-c452-490f-9d95-91c22abe1da2
+            student_str_without_backslash = student_str.replace(r'\~', '~')
+            student_str_html = markdown.markdown(student_str_without_backslash)
+
+            moodle_imports_category = self.config['moodle_import_folder']
+            exam_title = self.config['gen_method']
+            question_title = self.file_path_student
+            variant_title = f"{self.config['variant_word']} {args_dict['variation_number']}"
+            xml_clozequestion = student_str_html
+            xml_feedbackglobal = self.student_feedback
+
+            xml_cloze = CLOZE_template.format(
+                moodle_imports_category = moodle_imports_category,
+                exam_title = exam_title,
+                question_title = question_title,
+                variant_title = variant_title,
+                xml_clozequestion = xml_clozequestion,
+                xml_feedbackglobal = xml_feedbackglobal,
+            )
+
+            with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
+                # Write the text to the file
+                file_object.write(xml_cloze)
+
             #Next number
             self.problem_no += 1                
             
 
-
-
+    def close_buildall_exercises(self):
+        with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
+            # Write the text to the file
+            file_object.write('\n</quiz>\n')
+        

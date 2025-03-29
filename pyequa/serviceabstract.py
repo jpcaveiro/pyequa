@@ -110,6 +110,8 @@ class AbstractService:
                 if not count: #when zero
                     break #get out of cycle
 
+        self.close_buildall_exercises()
+
 
 
 

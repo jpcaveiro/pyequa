@@ -121,7 +121,7 @@ class PyEqua:
         if self.config['output_service'] == 'moodle_cloze':
 
                 text_service = ClozeService(
-                                student_template = self.config['student_template_filename'], #like "exercise_model.md", 
+                                student_template_filename = self.config['student_template_filename'], #like "exercise_model.md", 
                                 student_feedback = self.config['student_feedback'],
                                 answer_template  = self.config['answer_template'],
                                 pandas_dataframe = pandas_data_frame,

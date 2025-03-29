@@ -42,15 +42,16 @@ author: Pedro Cruz
 
 
 # challenge vs exam
-gen_method: exam #challenge
+gen_method: exam
 
 # when gen_method is 'challenge'
 # number of variants of the same exercise model
-number_of_variants_per_exercise: 4
+number_of_variants_per_exercise: 1 
 
-# when gen_method is 'exam' 
-number_of_given_vars: 4
-#TODO: option: "minimum variables"
+# when gen_method is 'fixed' 
+number_of_given_vars: 1
+#TODO: "only input vars" 
+
 
 # when gen_method is 'all'
 # TODO
@@ -60,9 +61,8 @@ several_solutions: " (mais que uma solução; escolha uma) "
 # output a knowledge graph
 output_knowledge_graph: true
 
-moodle_import_folder: importados
 
-variant_word: 'Variante'
+
 
 
 

@@ -747,7 +747,7 @@ class Scenario:
                                                      number_of_variants_per_exercise=number_of_variants_per_exercise,
                                                      silence=silence)
                 
-        elif self.text_service.gen_method == 'fixed': 
+        elif self.text_service.gen_method == 'exam': 
 
             # All exercises have a fixed 'number_of_given_vars'
             self.text_service.buildall_exercises(number_of_given_vars=number_of_given_vars,
