@@ -56,6 +56,19 @@ def Combinations(someset, include_empty_set = True):
 
 
 
+def Combinations_of_givensize(someset, givensize):
+    """
+    empty = True makes [] part of the answer.
+    """
+
+    list_of_sets = []
+
+    for combo in itertools.combinations(someset, givensize):
+        list_of_sets.append(combo)
+
+    return list_of_sets
+
+
 def set2orderedstr(someset):
     """
     Nota: a < b sendo a e b um sympy.symbol
@@ -232,6 +245,8 @@ class Scenario:
 
         self.text_service = text_service
         self.text_service.scenario = self
+        self.config = text_service.config
+        
         #self.answer_template = answer_template
 
 
@@ -715,51 +730,40 @@ class Scenario:
         plt.savefig(plot_fn)
 
 
-    def buildall(self, number_of_given_vars=None, number_of_variants_per_exercise=None, silence=True):
-        """
-        Add exercises to a file.
+    def yield_givenvarsset_nodepathlist_from_varset(self, givenvars_set=None):
 
-        Input:
-        - number_of_given_vars: None or positive integer.
-        - number_of_variants_per_exercise: combinations of variables could make a lot of cases, this max cuts them out.
-
-        If self.text_service.gen_method == 'challenge' it does like:
-
-        - `buildall(no_of_given_vars= len(allvars_list) - 1) # probably the easiest`
-        - `buildall(no_of_given_vars= len(allvars_list) - 2) # maybe a little more difficult`
-        - etc
-        - `` buildall(no_of_given_vars= 1) # probably the most difficult`
-
-        """
-
-        self.build_in_silence = silence
-
-        if self.text_service.gen_method == 'challenge': 
-
-            # Each new exercises have an increased 'number_of_given_vars': from total_vars-1 to 0.
-            total_vars = len(self.allvars_list)
-            for nvars in range(total_vars-1, 0, -1):
-                print("="*20)
-                print(f"Generate exercises with {nvars} given variables.")
-                print("="*20)
-
-                self.text_service.buildall_exercises(number_of_given_vars=nvars,
-                                                     number_of_variants_per_exercise=number_of_variants_per_exercise,
-                                                     silence=silence)
-                
-        elif self.text_service.gen_method == 'exam': 
-
-            # All exercises have a fixed 'number_of_given_vars'
-            self.text_service.buildall_exercises(number_of_given_vars=number_of_given_vars,
-                                                 number_of_variants_per_exercise=number_of_variants_per_exercise,
-                                                 silence=silence)
-
-        else:
-
-            raise
+        list_of_list_of_givenvars_set = [ list(givenvars_set) ]
+        return self.yield_givenvarsset_nodepathlist(list_of_list_of_givenvars_set)
 
 
-    def yield_givenvarsset_nodepathlist(self, no_of_given_vars=1):
+
+    def yield_givenvarsset_nodepathlist_from_number(self, number_of_given_vars=None):
+        # see below yield_givenvarsset_nodepathlist()
+
+        # Generate all combinations of specified size
+        C = Combinations_of_givensize(self.allvars_list, number_of_given_vars)
+
+        #TODO: improve performance
+
+        # Calcular pesos de cada set de variaveis, fazer uma lista com pesos como esta
+        #d = [ [['a','b'], 5], [['q','f'], 8], [['l','p'], 5], [['a','s'],8] ]
+        #d = sorted(d, key=lambda x: x[1], reverse=True)
+        #print(d)
+        C_weighted = [
+            [var_combination, self.input_level(var_combination)] for var_combination in C
+        ]
+
+        C_weighted = sorted(C_weighted, key=lambda x: x[1]) #, reverse=True)
+
+        # sv is a pair[ (sympy vars), input_level ]
+        #list_of_list_of_givenvars_set = [sv[0] for sv in C_weighted if len(sv[0]) == number_of_given_vars]
+        list_of_list_of_givenvars_set = [sv[0] for sv in C_weighted] #Not needed: if len(sv[0]) == number_of_given_vars]
+
+        return self.yield_givenvarsset_nodepathlist(list_of_list_of_givenvars_set)
+
+
+
+    def yield_givenvarsset_nodepathlist(self, list_of_list_of_givenvars_set=None):
         """
         Builds exercises from a given set of variables.
 
@@ -799,35 +803,16 @@ class Scenario:
 
         """
 
-
-        # Generate all combinations of specified size
-        # requested in arguments.
-        C = Combinations(self.allvars_list, include_empty_set=False)
-
-        #TODO: improve performance
-
-        # Calcular pesos de cada set de variaveis, fazer uma lista com pesos como esta
-        #d = [ [['a','b'], 5], [['q','f'], 8], [['l','p'], 5], [['a','s'],8] ]
-        #d = sorted(d, key=lambda x: x[1], reverse=True)
-        #print(d)
-        C_weighted = [
-            [var_combination, self.input_level(var_combination)] for var_combination in C
-        ]
-
-        C_weighted = sorted(C_weighted, key=lambda x: x[1]) #, reverse=True)
-
-        # sv is a pair[ (sympy vars), input_level ]
-        original_list_of_givenvars_set = [sv[0] for sv in C_weighted if len(sv[0]) == no_of_given_vars]
-
+        assert list_of_list_of_givenvars_set
 
         #Novo
         list_of_givenvars_set  = []
         list_of_node_path_list = []
 
         # -----------------------------------------
-        # Each tuple in "all_vars_sets" produce an exercise
+        # Each set in list_of_list_of_givenvars_set produce an exercise
         # -----------------------------------------
-        for givenvars_set in original_list_of_givenvars_set:
+        for givenvars_set in list_of_list_of_givenvars_set:
 
             #
             # Discussion: when is this combination necessary?
@@ -857,7 +842,7 @@ class Scenario:
             #has_a_path = nx.has_path(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_)
                 
             #AGORA: write all paths (each path is an exercise)
-            if not self.build_in_silence:
+            if self.config['debug']:
                 print("="*10)
                 print(f"Caminhos sabendo: {givenvars_set}")
                 print("="*10)
@@ -866,7 +851,7 @@ class Scenario:
             try:
                 node_path_list = list(nx.shortest_path(self.wisdomgraph, Scenario._IGNORANCE_NODE_NAME_, Scenario._KNOWLEDGE_NODE_NAME_))
 
-                if not self.build_in_silence:
+                if self.config['debug']:
                     for node in node_path_list:
                         print(node)
 
@@ -878,7 +863,7 @@ class Scenario:
 
                 #ANTES: o que estava a funcionar
                 #dataframe_iloc += 1
-                #self.solverslist_answer_text = self.solverslist_build_answer_text(givenvars_set,node_path_list,silence)
+                #self.solverslist_answer_text = self.solverslist_build_answer_text(givenvars_set,node_path_list)
                 #teacher_text = self.text_service.build_one(self,givenvars_set,dataframe_iloc,node_path_list)
 
                 #NOVO: keep for later use with yield
@@ -887,7 +872,8 @@ class Scenario:
 
 
             except nx.NetworkXNoPath:
-                if not self.build_in_silence:
+                
+                if self.config['debug']:
                     #Debug
                     print("    Não há caminho!")
 
@@ -911,14 +897,14 @@ class Scenario:
         #-----------------
         # Yield mechanism
         #-----------------
-        list_of_pairs = zip(list_of_givenvars_set,list_of_node_path_list)
+        list_of_pairs = zip(list_of_givenvars_set, list_of_node_path_list)
         for pair in list_of_pairs:
             yield pair #(givenvars_set, node_path_list)
 
         #end of buildall()
 
 
-    def debug_exercise(givenvars_set,node_path_list,silence=True):
+    def debug_exercise(givenvars_set,node_path_list):
 
         l = len(givenvars_set) #len_first_nodes
 

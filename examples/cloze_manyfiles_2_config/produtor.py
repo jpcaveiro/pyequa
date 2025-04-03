@@ -41,7 +41,7 @@ CONFIG_PATH = Path(__file__).parent / "config.yaml"
 config = get_config(CONFIG_PATH)
 
 
-from pyequa import wisdomgraph as ws
+from pyequa import scenario as ws
 from pyequa.servicecloze import ClozeService
 
 

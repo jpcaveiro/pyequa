@@ -40,29 +40,36 @@ csv_decimal: "."
 
 author: Pedro Cruz
 
-
-# challenge vs exam
-gen_method: exam #challenge
+# ---- challenge vs exam vs all ----
+method: challenge
 
 # when gen_method is 'challenge'
-# number of variants of the same exercise model
 number_of_variants_per_exercise: 4
 
 # when gen_method is 'exam' 
-number_of_given_vars: 4
-#TODO: option: "minimum variables"
+# number_of_fill_in_blank_vars: 1 
+# number_of_variants_per_exercise: 1 
 
-# when gen_method is 'all'
-# TODO
+# when gen_method is 'all' 
+# todo
+# todo
 
-several_solutions: " (mais que uma solução; escolha uma) "
+
+several_solutions: " (more than one solution; choose one) "
+global_tolerance: 0.001
+
+
+
+moodle_import_folder: imports
+
+variant_word: Variant
+
+
+# Debug section
 
 # output a knowledge graph
-output_knowledge_graph: true
+output_knowledge_graph: false
 
-moodle_import_folder: importados
-
-variant_word: 'Variante'
-
-
+# developer messages
+debug: false
 

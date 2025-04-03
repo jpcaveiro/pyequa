@@ -3,7 +3,7 @@ import os
 import datetime
 
 
-from .wisdomgraph import set2orderedstr
+from .scenario import set2orderedstr
 
 from pathlib import Path
 
@@ -77,50 +77,6 @@ class AbstractService:
 
 
 
-
-
-    def buildall_exercises(self, number_of_given_vars, number_of_variants_per_exercise=None, silence=False):
-
-        assert number_of_given_vars
-        
-        self.build_in_silence = silence
-
-        #self.scenario is given when Scenary is instantiated
-        Y = self.scenario.yield_givenvarsset_nodepathlist(number_of_given_vars)
-
-        #Controls number of variants
-        count = number_of_variants_per_exercise
-
-        for problem_pair in Y:
-
-            print(f"==> {problem_pair[0]}")
-
-            givenvars_set  = problem_pair[0]
-            node_path_list = problem_pair[1]
-
-            #General steps for the solution
-            self.solverslist_answer_text = self.solverslist_build_answer_text(givenvars_set,node_path_list)
-
-            #Abstract method
-            self.add_problem_with_variants(givenvars_set,node_path_list)
-
-            #Decrease counting
-            if number_of_variants_per_exercise: #if there is control
-                count = count - 1 
-                if not count: #when zero
-                    break #get out of cycle
-
-        self.close_buildall_exercises()
-
-
-
-
-
-
-
-
-
-
     def solverslist_build_answer_text(self,givenvars_set,node_path_list):
 
         #see class Scenario above
@@ -147,7 +103,7 @@ class AbstractService:
         # node_path_list[(len_first_nodes+1):]
         for nodepair in nodepair_list:
 
-            if not self.build_in_silence:
+            if self.config['debug']:
                 #find edge
                 print('-'*3)
                 print(f'=>from {nodepair[0]}')

@@ -12,7 +12,7 @@ class Cloze:
     def __init__(self, 
                  pandas_dataframe, 
                  pandas_row_series, 
-                 args_dict, 
+                 #args_dict, 
                  allvars_list, 
                  givenvars_set, 
                  variable_attributes,
@@ -20,7 +20,8 @@ class Cloze:
                  config):
 
         # args_dict is to be modified
-        self.args_dict = args_dict.copy() # Será copy()?
+        #self.args_dict = args_dict.copy() # copy()?
+        self.args_dict = dict()
 
         # read only
         self.pandas_dataframe = pandas_dataframe
@@ -76,7 +77,7 @@ class Cloze:
             # get type from author specification
             tol = self.variable_attributes[var.name]['tol']
         else:
-            # if author does NOT gives a dictionary of attributes
+            # if author does NOT give a dictionary of attributes
             # get type from "excel" / "python dataframe"
             tol = self.config['global_tolerance']
 
@@ -266,8 +267,9 @@ class Cloze:
         #By "pure": only polute student undestanding.
         for dis_var_name in self.distractors.keys():
 
-            if self.distractors[dis_var_name] is None: #means "None attributes"
-                #if no attributes it's a pure distractor
+            if self.distractors[dis_var_name] is None: 
+                # Empty set means a "pure" distractor.
+                # (if no attributes it's a pure distractor)
 
                 #get variable value in a row (series) of pandas_dataframe
                 value = self.pandas_row_series[dis_var_name]
