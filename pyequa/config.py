@@ -4,7 +4,9 @@ from pathlib import Path
 from pyequa import scenario as ws
 from pyequa.servicecloze import ClozeService
 import pandas as pd
-
+#from pandas.api.types import is_numeric_dtype
+from pandas import Float64Dtype
+from pandas import Int64Dtype
 
 # Path to the default configuration file
 DEFAULT_CONFIG_PATH = Path(__file__).parent / "default_config.yaml"
@@ -105,6 +107,7 @@ def separate_by_type(input_dict):
     return distractors, non_distractors
 
 
+
 class PyEqua:
 
     def __init__(self, 
@@ -162,10 +165,49 @@ class PyEqua:
                                      decimal=csv_decimal,
                                      header=0,
                                      index_col=None,
+                                     converters = self.mk_converters(),
                                      encoding='utf-8')
 
                 case 'xlsx':
                     self.pandas_data_frame = pd.read_excel('data.xlsx')
+
+        '''
+        # Convert, if necessary, dtypes
+        # Example: df['col2'] = df['col2'].astype(str)
+        for v_name in self.variable_attributes.keys():
+
+            v_type = self.variable_attributes[v_name]["type"]
+
+            if v_type == "numerical":
+
+                #todo
+                #if self.pandas_data_frame[v_name].dtype == 
+                pass
+            
+            elif v_type == "multichoice":
+
+                if is_numeric_dtype(self.pandas_data_frame[v_name]):
+
+                    self.pandas_data_frame[v_name].dtype 
+
+                else:
+
+                    self.pandas_data_frame[v_name]
+                    
+
+
+
+            elif v_type == "distractor": 
+
+                pass
+
+            else:
+
+                raise 
+            
+            and self.pandas_data_frame[v].dtype 
+
+            '''
 
 
         if self.config['output_service'] == 'moodle_cloze':
@@ -188,6 +230,28 @@ class PyEqua:
 
             #TODO: other methods of exporting
             raise ValueError("set config['output_service'] to 'moodle_cloze'")
+
+
+
+    def mk_converters(self):
+        """
+        converters={'col2': str}
+        """
+        dict_of_converters_1 = {
+            var_name: str for var_name in self.variable_attributes.keys() 
+               if self.variable_attributes[var_name]['type'] == 'multichoice'
+        }
+        dict_of_converters_2 = {
+            var_name: self.variable_attributes[var_name]['converter'] for var_name in self.variable_attributes.keys() 
+               if 'converter' in self.variable_attributes[var_name]
+        }
+
+        merged_dict = {**dict_of_converters_1, **dict_of_converters_2}
+
+        return merged_dict
+        
+
+
 
 
     def exploratory(self):

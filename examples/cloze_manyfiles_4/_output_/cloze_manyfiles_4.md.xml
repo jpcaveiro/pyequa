@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/cloze_manyfiles_4.md</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 001 (data row is 01) ((b2, numb1, b1))</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>O número </p>
+<ul>
+<li>x = <strong>1011</strong> escrito na base <strong>2</strong></li>
+</ul>
+<p>tem a representação</p>
+<ul>
+<li>x = {:MULTICHOICE_S:%100%11~%0%17~%0%73~%0%13~%0%1011001~%0%100010~%0%D63~%0%456} escrito na base <strong>10</strong></li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/cloze_manyfiles_4.md</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 002 (data row is 02) ((b2, numb1, numb2))</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>O número </p>
+<ul>
+<li>x = <strong>10001</strong> escrito na base {:MULTICHOICE_S:%100%2~%0%10}</li>
+</ul>
+<p>tem a representação</p>
+<ul>
+<li>x = <strong>17</strong> escrito na base <strong>10</strong></li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/cloze_manyfiles_4.md</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 003 (data row is 03) ((b2, b1, numb2))</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>O número </p>
+<ul>
+<li>x = {:MULTICHOICE_S:%100%1110011~%0%1011~%0%10001~%0%10011~%0%89~%0%34~%0%3427~%0%1110} escrito na base <strong>2</strong></li>
+</ul>
+<p>tem a representação</p>
+<ul>
+<li>x = <strong>73</strong> escrito na base <strong>16</strong></li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/cloze_manyfiles_4.md</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 004 (data row is 04) ((numb1, b1, numb2))</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>O número </p>
+<ul>
+<li>x = <strong>10011</strong> escrito na base <strong>2</strong></li>
+</ul>
+<p>tem a representação</p>
+<ul>
+<li>x = <strong>13</strong> escrito na base {:MULTICHOICE_S:%100%16~%0%10~%0%2}</li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+</quiz>
