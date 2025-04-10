@@ -252,6 +252,52 @@ class PyEqua:
         
 
 
+    def hard(self, requested_number_of_problems=1, max_combinations_givenvars_per_easynesslevel=1, number_of_problems_per_givenvars=1):
+        # Learning from the same exercises for everybody
+        
+        total_vars = len(self.scenario.allvars_list)
+
+        self.text_service.deterministic_problem_number = 1
+        self.text_service.pandas_dataframe_iloc = -1
+
+        problem_number = 1
+
+        # Each new exercises have an increased 'number_of_given_vars': from total_vars-1 to 0.
+        for nvars in range(1, total_vars):
+
+            print("="*20)
+            print(f"Add exercises with {nvars} given variables.")
+
+            Y = self.scenario.yield_givenvarsset_nodepathlist_from_number(number_of_given_vars=nvars, reverse=True)
+
+            #Control
+            count = max_combinations_givenvars_per_easynesslevel
+
+            for problem_pair in Y:
+
+                print(f"==> exercies given {problem_pair[0]}")
+
+                givenvars_tuple  = problem_pair[0]
+                node_path_list = problem_pair[1]
+
+                #General steps for the solution
+                self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_tuple, node_path_list)
+
+                #Abstract method
+                self.text_service.challenge_deterministic_add(givenvars_tuple, node_path_list, number_of_problems_per_givenvars)
+
+                problem_number = problem_number + 1
+
+                #Decrease counting
+                if max_combinations_givenvars_per_easynesslevel: #if there is control
+                    count = count - 1 
+                    if not count: #when zero
+                        break #get out of cycle
+
+            if problem_number > requested_number_of_problems:
+                break
+
+        self.conclude()
 
 
     def exploratory(self):
@@ -287,14 +333,14 @@ class PyEqua:
 
                 print(f"==> exercies given {problem_pair[0]}")
 
-                givenvars_set  = problem_pair[0]
+                givenvars_tuple  = problem_pair[0]
                 node_path_list = problem_pair[1]
 
                 #General steps for the solution
-                self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_set, node_path_list)
+                self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_tuple, node_path_list)
 
                 #Abstract method
-                self.text_service.challenge_deterministic_add(givenvars_set, node_path_list, number_of_problems_per_givenvars)
+                self.text_service.challenge_deterministic_add(givenvars_tuple, node_path_list, number_of_problems_per_givenvars)
 
                 #Decrease counting
                 if max_combinations_givenvars_per_easynesslevel: #if there is control
@@ -332,14 +378,14 @@ class PyEqua:
 
                 print(f"==> exercies given {problem_pair[0]}")
 
-                givenvars_set  = problem_pair[0]
+                givenvars_tuple  = problem_pair[0]
                 node_path_list = problem_pair[1]
 
                 #General steps for the solution
-                self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_set,node_path_list)
+                self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_tuple,node_path_list)
 
                 #Abstract method
-                self.text_service.challenge_with_randomquestions_add(var_no, givenvars_set, node_path_list)
+                self.text_service.challenge_with_randomquestions_add(var_no, givenvars_tuple, node_path_list)
 
                 #Decrease counting
                 if max_combinations_givenvars_per_easynesslevel: #if there is control
@@ -374,14 +420,14 @@ class PyEqua:
 
             print(f"==> exercies given {problem_pair[0]}")
 
-            givenvars_set  = problem_pair[0]
+            givenvars_tuple  = problem_pair[0]
             node_path_list = problem_pair[1]
 
             #General steps for the solution
-            self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_set,node_path_list)
+            self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_tuple,node_path_list)
 
             #Abstract method
-            self.text_service.exam_with_randomquestions_add(givenvars_set, node_path_list, number_of_problems_per_givenvars)
+            self.text_service.exam_with_randomquestions_add(givenvars_tuple, node_path_list, number_of_problems_per_givenvars)
 
 
         self.conclude()

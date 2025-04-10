@@ -175,7 +175,7 @@ class ClozeService(AbstractService):
             cloze = Cloze(self.pandas_dataframe, 
                           pandas_row_series, 
                           #args_dict, # all vars values to be replaced in student text model
-                          self.scenario.allvars_list, 
+                          self.scenario.allvars_set, 
                           givenvars_set, 
                           self.variable_attributes,
                           self.distractors,

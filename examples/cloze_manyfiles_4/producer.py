@@ -75,9 +75,11 @@ pe = PyEqua(Path(__file__).parent, scenario_relations, variable_attributes)
 
 
 # Teacher can read and choose
-pe.exploratory() # is the same as
+#pe.exploratory() # is the same as
 #pe.challenge_deterministic(max_combinations_givenvars_per_easynesslevel = None,  # no control
 #                         number_of_problems_per_givenvars = 1,  # single variant for each case
 #)
 
 
+
+pe.scenario.draw_wisdom_graph()

@@ -5,6 +5,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 
 **ANOVA** da "duração efetiva do efeito de fluidos isolantes":
+
 <table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
     <colgroup>
       <col style="width: 25%">

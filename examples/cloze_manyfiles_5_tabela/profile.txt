@@ -1,0 +1,2314 @@
+ameError: name 'cProfile' is not defined. Did you forget to import 'cProfile'? 
+PS C:\Users\pedrocruz\Documents\GitHub\pyequa>  c:; cd 'c:\Users\pedrocruz\Documents\GitHub\pyequa'; & 'c:\Users\pedrocruz\Documents\GitHub\pyequa\.venv\Scripts\python.exe' 'c:\Users\pedrocruz\.vscode\extensions\ms-python.debugpy-2025.6.0-win32-x64\bundled\libs\debugpy\launcher' '63063' '--' 'examples\cloze_manyfiles_5_tabela\producer.py'
+C:\Users\pedrocruz\Documents\GitHub\pyequa\examples\cloze_manyfiles_5_tabela
+{'g': 4, 'n': 6, 'sqgrupos': 1000, 'sqerros': 100, 'dfgrupos': 3, 'dferros': 20, 'sqtotal': 1100, 'dftotal': 23, 'msqgrupos': 333.333, 'msqerros': 5.0, 'f': 66.667, 'sig': 0.0}
+   g  n  sqgrupos  sqerros  ...  msqgrupos  msqerros       f    sig
+0  4  4         4        4  ...      1.333     0.333   4.003  0.035
+1  4  6      1000      100  ...    333.333     5.000  66.667  0.000
+2  4  5       500      480  ...    166.667    30.000   5.556  0.008
+3  5  5       180      170  ...     45.000     8.500   5.294  0.004
+4  4  4       200      120  ...     66.667    10.000   6.667  0.007
+
+[5 rows x 12 columns]
+Exercise folder: C:\Users\pedrocruz\Documents\GitHub\pyequa\examples\cloze_manyfiles_5_tabela
+
+
+Reading configuration from config.yaml.
+pyequa is opening file ..\exercise_model.md.
+File 'cloze_manyfiles_5_tabela.md' is now cloze_manyfiles_5_tabel_2025-04-05_17-49-49.md.
+====================
+Add exercises with 11 given variables.
+==> exercies given (f, dfgrupos, g, n, sig, sqerros, sqtotal, dferros, sqgrupos, msqgrupos, dftotal)
+====================
+Add exercises with 10 given variables.
+==> exercies given (f, dfgrupos, g, n, sig, sqerros, sqtotal, dferros, sqgrupos, msqgrupos)
+====================
+Add exercises with 9 given variables.
+==> exercies given (f, dfgrupos, g, n, sig, sqerros, sqtotal, dferros, sqgrupos)
+====================
+Add exercises with 8 given variables.
+==> exercies given (f, dfgrupos, g, n, sig, sqerros, dferros, sqgrupos)
+====================
+Add exercises with 7 given variables.
+==> exercies given (f, dfgrupos, g, n, sqerros, dferros, sqgrupos)
+====================
+Add exercises with 6 given variables.
+==> exercies given (dfgrupos, g, n, sqerros, dferros, sqgrupos)
+====================
+Add exercises with 5 given variables.
+==> exercies given (dfgrupos, g, n, sqerros, sqgrupos)
+====================
+Add exercises with 4 given variables.
+==> exercies given (dfgrupos, n, sqerros, sqgrupos)
+====================
+Add exercises with 3 given variables.
+====================
+Add exercises with 2 given variables.
+====================
+Add exercises with 1 given variables.
+         4162665486 function calls (4162654036 primitive calls) in 2667.638 seconds
+
+https://chat.deepseek.com/a/chat/s/b62d8800-f91e-4211-b55d-a615358e865d
+
+When using `cProfile` in Python to profile your code, the output includes several fields that help you understand where your program is spending time. Here's a breakdown of the key fields:
+
+### **Fields in cProfile Output:**
+1. **`ncalls`**  
+   - **Meaning**: Number of calls to the function.  
+   - **Interpretation**:  
+     - If two numbers are given (e.g., `100/5`), the first is the **total calls**, and the second is the **primitive (non-recursive) calls**.  
+     - A high number may indicate a loop or recursive function that could be optimized.
+
+2. **`tottime`** (Total Time)  
+   - **Meaning**: Total time spent in the function **excluding time in sub-functions**.  
+   - **Interpretation**:  
+     - Helps identify "hot" functions where the most time is spent in the function itself (not its children).  
+     - Optimizing functions with high `tottime` can yield direct performance improvements.
+
+3. **`percall`** (Time per call, derived from `tottime`)  
+   - **Meaning**: `tottime / ncalls` (average time per call, excluding sub-functions).  
+   - **Interpretation**:  
+     - If this is high, each call to the function is expensive.  
+     - Useful for spotting inefficient single executions (e.g., a slow calculation inside a loop).
+
+4. **`cumtime`** (Cumulative Time)  
+   - **Meaning**: Total time spent in the function **including sub-functions**.  
+   - **Interpretation**:  
+     - Shows the total impact of a function (including all its dependencies).  
+     - High `cumtime` suggests the function (or its sub-calls) is a bottleneck.
+
+5. **`percall`** (Time per call, derived from `cumtime`)  
+   - **Meaning**: `cumtime / ncalls` (average time per call, including sub-functions).  
+   - **Interpretation**:  
+     - Helps understand the full cost of calling a function (including its dependencies).  
+     - Useful for comparing the overall efficiency of different functions.
+
+### **Example cProfile Output:**
+```
+         2000 function calls (1980 primitive calls) in 0.010 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.010    0.010 main.py:1(<module>)
+        5    0.002    0.000    0.008    0.002 helper.py:10(process_data)
+      100    0.003    0.000    0.006    0.000 utils.py:5(calculate)
+     1000    0.001    0.000    0.001    0.000 {built-in method len}
+```
+### **Key Takeaways:**
+- **Optimize high `tottime` functions first** (they’re doing expensive work locally).  
+- **Check high `cumtime` functions** (they or their sub-calls are slow).  
+- **Look for high `ncalls` with high `percall`** (inefficient functions called frequently).  
+- **Low `tottime` but high `cumtime`** means the function itself is fast, but its sub-calls are slow.  
+
+Would you like help analyzing a specific `cProfile` output?
+
+
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+251658828  472.572    0.000  632.506    0.000 printer.py:294(_print)
+251658828  321.834    0.000  789.983    0.000 printer.py:258(__init__)
+251658828  273.750    0.000 2242.081    0.000 _print_helpers.py:27(__str__)     
+251658828  218.297    0.000 1801.052    0.000 str.py:980(sstr)
+251658828  192.025    0.000  317.570    0.000 printer.py:250(_get_initial_settings)
+251658828  167.279    0.000 1968.331    0.000 printer.py:371(__call__)
+ 33538048  165.962    0.000 2439.667    0.000 scenario.py:94(join_varnames)     
+251658828  160.266    0.000  792.772    0.000 printer.py:290(doprint)
+284151844   81.675    0.000   81.676    0.000 {built-in method builtins.getattr}
+519617313/519615470   81.080    0.000   81.081    0.000 {built-in method builtins.len}
+267900536   78.204    0.000   78.204    0.000 {method 'update' of 'dict' objects}
+251658852   68.137    0.000   68.137    0.000 {method 'copy' of 'dict' objects} 
+268436186   60.448    0.000   60.448    0.000 {method 'items' of 'dict' objects}
+251659611   45.032    0.000   45.032    0.000 {built-in method builtins.hasattr}
+ 16241680   44.537    0.000   62.238    0.000 multidigraph.py:416(add_edge)     
+     4094   40.487    0.010 2575.755    0.629 scenario.py:578(add_edge_from_solver)
+251658828   39.559    0.000   39.559    0.000 str.py:845(_print_Symbol)
+ 70745102   29.278    0.000   32.317    0.000 reportviews.py:1333(__iter__)     
+     4094   20.658    0.005   88.865    0.022 scenario.py:625(remove_edge_from_solver)
+ 16241680   19.518    0.000   29.269    0.000 multidigraph.py:514(remove_edge)  
+ 33562631   19.280    0.000   19.280    0.000 {built-in method builtins.sorted} 
+ 33538048   16.428    0.000 2456.095    0.000 scenario.py:520(node_name)        
+ 33546394   13.607    0.000   13.607    0.000 {method 'join' of 'str' objects}  
+ 16769144   12.323    0.000   12.323    0.000 {method 'union' of 'set' objects} 
+ 32487454   11.739    0.000   18.068    0.000 misc.py:595(_clear_cache)
+     4094    6.617    0.002   35.889    0.009 multigraph.py:702(remove_edges_from)
+ 16769024    4.593    0.000    4.593    0.000 {method 'issubset' of 'set' objects}
+       19    0.773    0.041 2667.270  140.383 scenario.py:777(yield_givenvarsset_nodepathlist)
+  1439034    0.692    0.000    0.692    0.000 {method 'get' of 'dict' objects}  
+     4094    0.310    0.000    0.536    0.000 unweighted.py:266(_bidirectional_pred_succ)
+    24572    0.131    0.000    1.170    0.000 scenario.py:83(set2orderedstr)    
+   543834    0.123    0.000    0.123    0.000 {method 'append' of 'list' objects}
+    59617    0.060    0.000    0.069    0.000 coreviews.py:102(__getitem__)     
+     8361    0.032    0.000    0.035    0.000 {method 'format' of 'str' objects}
+     8188    0.028    0.000    0.576    0.000 scenario.py:170(__init__)
+     4094    0.025    0.000    0.572    0.000 unweighted.py:202(bidirectional_shortest_path)
+    59617    0.021    0.000    0.033    0.000 coreviews.py:49(__iter__)
+     4094    0.018    0.000    0.232    0.000 scenario.py:304(input_level)      
+8188/4094    0.017    0.000    0.609    0.000 backends.py:627(__call__)
+     4094    0.015    0.000    0.623    0.000 <class 'networkx.utils.decorators.argmap'> compilation 4:1(argmap_shortest_path_1)
+    49284    0.014    0.000    0.014    0.000 basic.py:189(__hash__)
+    64414    0.014    0.000    0.014    0.000 {built-in method builtins.iter}   
+     4094    0.010    0.000    0.012    0.000 reportviews.py:205(__call__)      
+    59619    0.010    0.000    0.010    0.000 coreviews.py:43(__init__)
+     4094    0.009    0.000    0.590    0.000 <class 'networkx.utils.decorators.argmap'> compilation 8:1(argmap_bidirectional_shortest_path_5)
+     4094    0.009    0.000    0.600    0.000 generic.py:43(shortest_path)      
+       30    0.008    0.000    0.008    0.000 {built-in method builtins.print}  
+25862/25794    0.006    0.000    0.009    0.000 {built-in method builtins.isinstance}
+     8224    0.005    0.000    0.005    0.000 graph.py:455(__contains__)        
+     4094    0.004    0.000    0.007    0.000 reportviews.py:331(__iter__)      
+     8188    0.004    0.000    0.004    0.000 scenario.py:118(__init__)
+       17    0.004    0.000    0.004    0.000 {built-in method _io.open}        
+      352    0.004    0.000    0.027    0.000 series.py:389(__init__)
+       17    0.003    0.000    0.003    0.000 {method '__exit__' of '_io._IOBase' objects}
+       11    0.003    0.000    0.238    0.022 scenario.py:751(yield_givenvarsset_nodepathlist_from_number)
+        8    0.002    0.000    0.078    0.010 clozeroutines.py:87(vars_to_fields)
+      352    0.002    0.000    0.007    0.000 construction.py:517(sanitize_array)
+     4130    0.002    0.000    0.002    0.000 reportviews.py:1362(__call__)     
+       16    0.002    0.000    0.011    0.001 parser.py:134(goahead)
+     3337    0.001    0.000    0.001    0.000 {method 'reverse' of 'list' objects}
+       11    0.001    0.000    0.002    0.000 scenario.py:67(Combinations_of_givensize)
+        1    0.001    0.001 2667.638 2667.638 config.py:263(challenge_deterministic)
+     4094    0.001    0.000    0.001    0.000 reportviews.py:313(__init__)      
+  558/535    0.001    0.000    0.003    0.000 treeprocessors.py:253(__applyPattern)
+     1316    0.001    0.000    0.003    0.000 ops.py:146(type)
+      688    0.001    0.000    0.004    0.000 generic.py:6301(__setattr__)      
+     2041    0.001    0.000    0.001    0.000 {method 'match' of 're.Pattern' objects}
+      412    0.001    0.000    0.001    0.000 generic.py:278(__init__)
+      276    0.001    0.000    0.002    0.000 generic.py:6236(__finalize__)     
+      816    0.001    0.000    0.002    0.000 tokenize.py:530(_generate_tokens_from_c_tokenizer)
+      296    0.001    0.000    0.004    0.000 htmlparser.py:299(parse_starttag) 
+ 3052/768    0.001    0.000    0.003    0.000 common.py:62(flatten)
+       72    0.001    0.000    0.004    0.000 algorithms.py:427(unique_with_mask)
+        8    0.001    0.000    0.023    0.003 generic.py:644(_get_cleaned_column_resolvers)
+     4094    0.001    0.000    0.001    0.000 multidigraph.py:864(is_directed)  
+      352    0.001    0.000    0.004    0.000 managers.py:1863(from_array)      
+     1199    0.001    0.000    0.001    0.000 {method 'search' of 're.Pattern' objects}
+     1980    0.001    0.000    0.002    0.000 generic.py:42(_instancecheck)     
+     1980    0.001    0.000    0.001    0.000 generic.py:37(_check)
+      328    0.001    0.000    0.002    0.000 common.py:1596(pandas_dtype)      
+      528    0.001    0.000    0.003    0.000 parsing.py:170(tokenize_string)   
+    70/20    0.001    0.000    0.002    0.000 _parser.py:512(_parse)
+      360    0.001    0.000    0.001    0.000 blocks.py:2716(new_block)
+       10    0.001    0.000    0.001    0.000 {built-in method builtins.compile}
+      628    0.001    0.000    0.001    0.000 blocks.py:2827(external_values)   
+    376/8    0.001    0.000    0.019    0.002 expr.py:399(visit)
+     1096    0.001    0.000    0.001    0.000 _markupbase.py:44(updatepos)      
+      368    0.001    0.000    0.001    0.000 generic.py:6284(__getattr__)      
+      104    0.001    0.000    0.001    0.000 {built-in method numpy.array}     
+      248    0.001    0.000    0.003    0.000 parser.py:379(parse_endtag)       
+      464    0.001    0.000    0.002    0.000 series.py:784(name)
+      423    0.001    0.000    0.001    0.000 core.py:302(is_block_level)       
+    332/8    0.001    0.000    0.002    0.000 ast.py:207(_fix)
+      296    0.001    0.000    0.001    0.000 htmlparser.py:163(handle_starttag)
+  748/584    0.000    0.000    0.001    0.000 {built-in method builtins.all}    
+        8    0.000    0.000    0.114    0.014 servicecloze.py:150(challenge_deterministic_add)
+      320    0.000    0.000    0.002    0.000 construction.py:769(_try_cast)    
+      836    0.000    0.000    0.001    0.000 series.py:734(name)
+      368    0.000    0.000    0.002    0.000 generic.py:807(_set_axis)
+     4094    0.000    0.000    0.000    0.000 scenario.py:767(<lambda>)
+      352    0.000    0.000    0.001    0.000 blocks.py:2645(maybe_coerce_values)
+      352    0.000    0.000    0.001    0.000 config.py:127(_get_single_key)    
+      112    0.000    0.000    0.009    0.000 series.py:6201(_construct_result) 
+      558    0.000    0.000    0.001    0.000 util.py:336(__getitem__)
+   120/60    0.000    0.000    0.008    0.000 {built-in method _operator.eq}    
+        8    0.000    0.000    0.005    0.001 serviceabstract.py:80(solverslist_build_answer_text)
+   115/19    0.000    0.000    0.001    0.000 _compiler.py:37(_compile)
+      208    0.000    0.000    0.001    0.000 base.py:3777(get_loc)
+      656    0.000    0.000    0.001    0.000 ast.py:269(iter_child_nodes)      
+      164    0.000    0.000    0.002    0.000 series.py:1095(__getitem__)       
+      256    0.000    0.000    0.001    0.000 htmlparser.py:122(line_offset)    
+      248    0.000    0.000    0.002    0.000 htmlparser.py:184(handle_endtag)  
+      768    0.000    0.000    0.005    0.000 ops.py:246(<genexpr>)
+      272    0.000    0.000    0.001    0.000 util.py:364(register)
+      408    0.000    0.000    0.000    0.000 managers.py:2004(internal_values) 
+      352    0.000    0.000    0.001    0.000 config.py:635(_get_root)
+      628    0.000    0.000    0.002    0.000 managers.py:2000(external_values) 
+     1088    0.000    0.000    0.002    0.000 inference.py:80(iterable_not_string)
+      222    0.000    0.000    0.005    0.000 __init__.py:280(_compile)
+      352    0.000    0.000    0.002    0.000 config.py:145(_get_option)        
+      148    0.000    0.000    0.000    0.000 {method 'sub' of 're.Pattern' objects}
+     1166    0.000    0.000    0.000    0.000 {built-in method __new__ of type object at 0x00007FF9F77F98B0}
+      636    0.000    0.000    0.000    0.000 construction.py:481(ensure_wrapped_if_datetimelike)
+      992    0.000    0.000    0.001    0.000 inference.py:334(is_hashable)     
+      112    0.000    0.000    0.010    0.000 expr.py:491(_maybe_evaluate_binop)
+     1788    0.000    0.000    0.000    0.000 {built-in method builtins.issubclass}
+      464    0.000    0.000    0.001    0.000 common.py:1571(validate_all_hashable)
+    55/32    0.000    0.000    0.004    0.000 treeprocessors.py:120(__handleInline)
+      672    0.000    0.000    0.001    0.000 __init__.py:447(_make)
+     1472    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects} 
+     1048    0.000    0.000    0.000    0.000 {method 'count' of 'str' objects} 
+      558    0.000    0.000    0.000    0.000 {method 'finditer' of 're.Pattern' objects}
+     1001    0.000    0.000    0.001    0.000 range.py:999(__len__)
+       72    0.000    0.000    0.003    0.000 frame.py:4062(__getitem__)        
+      104    0.000    0.000    0.010    0.000 generic.py:6432(dtypes)
+      384    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects} 
+  496/248    0.000    0.000    0.000    0.000 expr.py:123(<lambda>)
+      536    0.000    0.000    0.000    0.000 construction.py:416(extract_array)
+     1091    0.000    0.000    0.001    0.000 <frozen abc>:117(__instancecheck__)
+      360    0.000    0.000    0.000    0.000 blocks.py:2674(get_block_type)    
+     1091    0.000    0.000    0.001    0.000 {built-in method _abc._abc_instancecheck}
+       60    0.000    0.000    0.002    0.000 array_ops.py:288(comparison_op)   
+       44    0.000    0.000    0.000    0.000 managers.py:1012(iget)
+       16    0.000    0.000    0.000    0.000 cast.py:1156(maybe_infer_to_datetimelike)
+     1024    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+      360    0.000    0.000    0.000    0.000 {method 'astype' of 'numpy.ndarray' objects}
+       72    0.000    0.000    0.001    0.000 cast.py:1604(maybe_cast_to_integer_array)
+      164    0.000    0.000    0.001    0.000 series.py:1220(_get_value)        
+    151/5    0.000    0.000    0.000    0.000 {built-in method _abc._abc_subclasscheck}
+        8    0.000    0.000    0.001    0.000 managers.py:958(fast_xs)
+      928    0.000    0.000    0.001    0.000 common.py:1590(<genexpr>)
+      352    0.000    0.000    0.001    0.000 construction.py:696(_sanitize_ndim)
+  268/104    0.000    0.000    0.001    0.000 ops.py:248(is_scalar)
+      136    0.000    0.000    0.000    0.000 parsing.py:22(create_valid_python_identifier)
+      240    0.000    0.000    0.001    0.000 ops.py:165(is_datetime)
+      112    0.000    0.000    0.006    0.000 ops.py:244(operand_types)
+      112    0.000    0.000    0.001    0.000 expr.py:422(_rewrite_membership_op)
+    112/8    0.000    0.000    0.014    0.002 ops.py:368(__call__)
+      904    0.000    0.000    0.000    0.000 __init__.py:34(using_copy_on_write)
+      176    0.000    0.000    0.001    0.000 warnings.py:182(_add_filter)      
+      628    0.000    0.000    0.001    0.000 blocks.py:249(external_values)    
+      248    0.000    0.000    0.001    0.000 htmlparser.py:148(get_endtag_text)
+       72    0.000    0.000    0.002    0.000 algorithms.py:106(_ensure_data)   
+     63/8    0.000    0.000    0.000    0.000 serializers.py:118(_serialize_html)
+      104    0.000    0.000    0.001    0.000 managers.py:287(get_dtypes)       
+      669    0.000    0.000    0.000    0.000 _parser.py:168(__getitem__)       
+      720    0.000    0.000    0.000    0.000 base.py:7593(ensure_index)        
+        8    0.000    0.000    0.005    0.001 treeprocessors.py:343(run)        
+     1198    0.000    0.000    0.000    0.000 {method 'end' of 're.Match' objects}
+     1064    0.000    0.000    0.000    0.000 {built-in method builtins.hash}   
+      628    0.000    0.000    0.002    0.000 series.py:789(values)
+        8    0.000    0.000    0.001    0.000 blockparser.py:138(parseBlocks)   
+      296    0.000    0.000    0.001    0.000 parser.py:345(check_for_whole_start_tag)
+        8    0.000    0.000    0.004    0.001 inlinepatterns.py:53(build_inlinepatterns)
+      120    0.000    0.000    0.002    0.000 ops.py:84(__init__)
+      352    0.000    0.000    0.001    0.000 base.py:7688(maybe_extract_name)  
+      368    0.000    0.000    0.001    0.000 base.py:86(_validate_set_axis)    
+      112    0.000    0.000    0.006    0.000 ops.py:238(has_invalid_return_type)
+      112    0.000    0.000    0.003    0.000 ops.py:350(__init__)
+      320    0.000    0.000    0.002    0.000 generic.py:511(_validate_dtype)   
+       60    0.000    0.000    0.007    0.000 series.py:6110(_cmp_method)       
+      252    0.000    0.000    0.000    0.000 indexing.py:2765(check_dict_or_set_indexers)
+      112    0.000    0.000    0.001    0.000 ops.py:469(_disallow_scalar_only_bool_ops)
+       72    0.000    0.000    0.001    0.000 _dtype.py:346(_name_get)
+      352    0.000    0.000    0.000    0.000 config.py:676(_translate_key)     
+      412    0.000    0.000    0.000    0.000 flags.py:51(__init__)
+      128    0.000    0.000    0.003    0.000 inlinepatterns.py:286(__init__)   
+        8    0.000    0.000    0.001    0.000 tokenize.py:233(compat)
+       52    0.000    0.000    0.001    0.000 array_ops.py:393(logical_op)      
+      368    0.000    0.000    0.001    0.000 managers.py:236(set_axis)
+      694    0.000    0.000    0.000    0.000 {method 'group' of 're.Match' objects}
+      272    0.000    0.000    0.000    0.000 util.py:317(__contains__)
+      792    0.000    0.000    0.000    0.000 ast.py:257(iter_fields)
+        8    0.000    0.000    0.020    0.002 core.py:315(convert)
+       60    0.000    0.000    0.009    0.000 expr.py:707(visit_Compare)        
+       32    0.000    0.000    0.004    0.000 base.py:1543(to_series)
+       72    0.000    0.000    0.001    0.000 algorithms.py:280(_check_object_for_strings)
+       52    0.000    0.000    0.003    0.000 frame.py:3983(_ixs)
+        8    0.000    0.000    0.002    0.000 blockprocessors.py:42(build_block_parser)
+      252    0.000    0.000    0.000    0.000 blocks.py:1253(iget)
+      136    0.000    0.000    0.001    0.000 parsing.py:136(tokenize_backtick_quoted_string)
+    55/32    0.000    0.000    0.000    0.000 treeprocessors.py:172(__processPlaceholders)
+      104    0.000    0.000    0.000    0.000 managers.py:1026(iget_values)     
+      176    0.000    0.000    0.000    0.000 {method 'remove' of 'list' objects}
+      136    0.000    0.000    0.003    0.000 parsing.py:99(clean_column_name)  
+      504    0.000    0.000    0.000    0.000 htmlparser.py:211(handle_data)    
+      424    0.000    0.000    0.000    0.000 ops.py:231(return_type)
+      408    0.000    0.000    0.001    0.000 series.py:831(_values)
+      276    0.000    0.000    0.000    0.000 flags.py:87(allows_duplicate_labels)
+       16    0.000    0.000    0.000    0.000 take.py:120(_take_nd_ndarray)
+  272/264    0.000    0.000    0.000    0.000 {built-in method numpy.asarray}   
+      176    0.000    0.000    0.000    0.000 warnings.py:482(__enter__)        
+       60    0.000    0.000    0.002    0.000 ops.py:107(_resolve_name)
+       40    0.000    0.000    0.000    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+       52    0.000    0.000    0.006    0.000 series.py:6123(_logical_method)   
+      210    0.000    0.000    0.000    0.000 common.py:1434(_is_dtype_type)    
+       72    0.000    0.000    0.002    0.000 frame.py:4626(_get_item_cache)    
+      352    0.000    0.000    0.001    0.000 common.py:568(require_length_match)
+    58/19    0.000    0.000    0.002    0.000 _parser.py:452(_parse_sub)        
+      352    0.000    0.000    0.000    0.000 construction.py:735(_sanitize_str_dtypes)
+  536/208    0.000    0.000    0.000    0.000 ops.py:250(<genexpr>)
+        8    0.000    0.000    0.066    0.008 frame.py:4680(query)
+      104    0.000    0.000    0.000    0.000 {method 'take' of 'numpy.ndarray' objects}
+   198/78    0.000    0.000    0.000    0.000 {built-in method builtins.any}    
+   104/52    0.000    0.000    0.006    0.000 {built-in method _operator.and_}  
+      537    0.000    0.000    0.000    0.000 base.py:909(__len__)
+      112    0.000    0.000    0.004    0.000 expr.py:449(_maybe_transform_eq_ne)
+       17    0.000    0.000    0.000    0.000 {method 'write' of '_io.TextIOWrapper' objects}
+      486    0.000    0.000    0.000    0.000 {method 'find' of 'str' objects}  
+   130/49    0.000    0.000    0.000    0.000 _parser.py:178(getwidth)
+       60    0.000    0.000    0.001    0.000 expr.py:457(_maybe_downcast_constants)
+       88    0.000    0.000    0.000    0.000 util.py:324(__iter__)
+        8    0.000    0.000    0.000    0.000 cast.py:1432(find_common_type)    
+      544    0.000    0.000    0.000    0.000 ops.py:220(__iter__)
+      128    0.000    0.000    0.000    0.000 enum.py:1531(__or__)
+        8    0.000    0.000    0.005    0.001 generic.py:634(_get_index_resolvers)
+       60    0.000    0.000    0.001    0.000 array_ops.py:189(_na_arithmetic_op)
+      256    0.000    0.000    0.001    0.000 expr.py:165(<genexpr>)
+      112    0.000    0.000    0.014    0.000 common.py:62(new_method)
+      659    0.000    0.000    0.000    0.000 {method 'start' of 're.Match' objects}
+      352    0.000    0.000    0.000    0.000 construction.py:758(_maybe_repeat)
+      368    0.000    0.000    0.000    0.000 {method 'rindex' of 'str' objects}
+      352    0.000    0.000    0.000    0.000 config.py:617(_select_options)    
+       72    0.000    0.000    0.000    0.000 warnings.py:131(filterwarnings)   
+        8    0.000    0.000    0.000    0.000 utils.py:239(maybe_convert_indices)
+        8    0.000    0.000    0.063    0.008 frame.py:4846(eval)
+       88    0.000    0.000    0.000    0.000 common.py:1198(is_bool_dtype)     
+        8    0.000    0.000    0.034    0.004 eval.py:170(eval)
+      117    0.000    0.000    0.000    0.000 reportviews.py:949(<genexpr>)     
+      112    0.000    0.000    0.001    0.000 ops.py:436(convert_values)        
+      176    0.000    0.000    0.000    0.000 warnings.py:503(__exit__)
+      120    0.000    0.000    0.000    0.000 __init__.py:1019(__len__)
+      404    0.000    0.000    0.000    0.000 ops.py:142(is_scalar)
+      240    0.000    0.000    0.000    0.000 expr.py:172(<lambda>)
+       60    0.000    0.000    0.002    0.000 expr.py:540(visit_Name)
+       72    0.000    0.000    0.000    0.000 base.py:5323(__contains__)        
+       26    0.000    0.000    0.000    0.000 _compiler.py:243(_optimize_charset)
+       88    0.000    0.000    0.000    0.000 base.py:5373(__getitem__)
+   180/60    0.000    0.000    0.000    0.000 __init__.py:1028(__contains__)    
+      404    0.000    0.000    0.000    0.000 managers.py:1837(__init__)        
+      120    0.000    0.000    0.000    0.000 ops.py:76(__new__)
+       23    0.000    0.000    0.000    0.000 inlinepatterns.py:653(handleMatch)
+       60    0.000    0.000    0.000    0.000 ops.py:124(update)
+       48    0.000    0.000    0.000    0.000 {method 'copy' of 'numpy.ndarray' objects}
+      646    0.000    0.000    0.000    0.000 util.py:400(_sort)
+      415    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects} 
+      478    0.000    0.000    0.000    0.000 {method 'pop' of 'list' objects}  
+      396    0.000    0.000    0.000    0.000 ops.py:335(is_term)
+  480/120    0.000    0.000    0.000    0.000 __init__.py:1029(<genexpr>)       
+       52    0.000    0.000    0.000    0.000 common.py:103(_maybe_match_name)  
+       16    0.000    0.000    0.000    0.000 cast.py:550(maybe_promote)        
+       72    0.000    0.000    0.005    0.000 base.py:1019(unique)
+        8    0.000    0.000    0.000    0.000 scope.py:148(__init__)
+      337    0.000    0.000    0.000    0.000 _parser.py:261(get)
+      272    0.000    0.000    0.000    0.000 <string>:1(<lambda>)
+       72    0.000    0.000    0.000    0.000 numerictypes.py:357(issubdtype)   
+        8    0.000    0.000    0.000    0.000 cast.py:1391(np_find_common_type) 
+       96    0.000    0.000    0.000    0.000 common.py:137(is_object_dtype)    
+       52    0.000    0.000    0.015    0.000 expr.py:734(visitor)
+       60    0.000    0.000    0.008    0.000 expr.py:530(visit_BinOp)
+      104    0.000    0.000    0.000    0.000 warnings.py:166(simplefilter)     
+       16    0.000    0.000    0.004    0.000 generic.py:603(_get_axis_resolvers)
+       72    0.000    0.000    0.000    0.000 common.py:633(is_integer_dtype)   
+     16/8    0.000    0.000    0.001    0.000 postprocessors.py:74(run)
+       19    0.000    0.000    0.000    0.000 _compiler.py:511(_compile_info)   
+      456    0.000    0.000    0.000    0.000 _parser.py:240(__next)
+      168    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 range.py:1148(take)
+       16    0.000    0.000    0.005    0.000 indexing.py:1176(__getitem__)     
+      178    0.000    0.000    0.000    0.000 enum.py:713(__call__)
+       44    0.000    0.000    0.001    0.000 frame.py:4608(_box_col_values)    
+      252    0.000    0.000    0.000    0.000 common.py:372(apply_if_callable)  
+      208    0.000    0.000    0.005    0.000 __init__.py:226(compile)
+       52    0.000    0.000    0.001    0.000 frame.py:678(_constructor_sliced_from_mgr)
+      352    0.000    0.000    0.000    0.000 config.py:649(_get_deprecated_option)
+       24    0.000    0.000    0.000    0.000 base.py:649(_simple_new)
+       60    0.000    0.000    0.000    0.000 common.py:992(is_numeric_v_string_like)
+      296    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+      552    0.000    0.000    0.000    0.000 generic.py:405(flags)
+      112    0.000    0.000    0.001    0.000 common.py:81(get_op_result_name)  
+      528    0.000    0.000    0.000    0.000 {built-in method _warnings._filters_mutated}
+       36    0.000    0.000    0.000    0.000 reportviews.py:907(__init__)      
+      558    0.000    0.000    0.000    0.000 inlinepatterns.py:237(getCompiledRegExp)
+        8    0.000    0.000    0.007    0.001 core.py:88(__init__)
+       16    0.000    0.000    0.001    0.000 blockprocessors.py:345(__init__)  
+      431    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+       72    0.000    0.000    0.003    0.000 algorithms.py:262(_get_hashtable_algo)
+       52    0.000    0.000    0.000    0.000 ops.py:252(is_datetime)
+     40/8    0.000    0.000    0.000    0.000 treeprocessors.py:418(_prettifyETree)
+       40    0.000    0.000    0.000    0.000 {built-in method numpy.empty}     
+       16    0.000    0.000    0.000    0.000 numeric.py:274(full)
+       31    0.000    0.000    0.000    0.000 treeprocessors.py:333(__build_ancestors)
+       60    0.000    0.000    0.000    0.000 expr.py:551(visit_Constant)       
+       72    0.000    0.000    0.005    0.000 series.py:2344(unique)
+       19    0.000    0.000    0.004    0.000 _compiler.py:740(compile)
+      288    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects} 
+       60    0.000    0.000    0.001    0.000 expr.py:384(__format__)
+       40    0.000    0.000    0.000    0.000 {method 'sort' of 'list' objects} 
+      176    0.000    0.000    0.000    0.000 warnings.py:456(__init__)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:465(run)        
+       60    0.000    0.000    0.000    0.000 generic.py:339(_from_mgr)
+        8    0.000    0.000    0.000    0.000 preprocessors.py:37(build_preprocessors)
+        8    0.000    0.000    0.001    0.000 managers.py:623(reindex_indexer)  
+      120    0.000    0.000    0.000    0.000 ops.py:94(local_name)
+      112    0.000    0.000    0.000    0.000 expr.py:302(f)
+      104    0.000    0.000    0.000    0.000 base.py:549(find)
+      260    0.000    0.000    0.000    0.000 managers.py:180(blknos)
+       72    0.000    0.000    0.000    0.000 algorithms.py:184(_reconstruct_data)
+       72    0.000    0.000    0.000    0.000 _dtype.py:330(_name_includes_bit_suffix)
+        8    0.000    0.000    0.002    0.000 generic.py:4027(take)
+       36    0.000    0.000    0.000    0.000 scenario.py:188(relations_latex)  
+      112    0.000    0.000    0.001    0.000 frame.py:4027(_iter_column_arrays)
+        8    0.000    0.000    0.002    0.000 indexing.py:1719(_getitem_axis)   
+      230    0.000    0.000    0.000    0.000 _parser.py:164(__len__)
+      104    0.000    0.000    0.000    0.000 array_ops.py:410(fill_bool)       
+      144    0.000    0.000    0.000    0.000 numerictypes.py:283(issubclass_)  
+       72    0.000    0.000    0.004    0.000 algorithms.py:307(unique)
+       60    0.000    0.000    0.000    0.000 scope.py:246(swapkey)
+      155    0.000    0.000    0.002    0.000 {built-in method builtins.next}   
+      420    0.000    0.000    0.000    0.000 ops.py:174(value)
+      178    0.000    0.000    0.000    0.000 enum.py:1116(__new__)
+      324    0.000    0.000    0.000    0.000 _parser.py:256(match)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:612(run)       
+      221    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+       61    0.000    0.000    0.000    0.000 missing.py:184(_isna)
+      328    0.000    0.000    0.000    0.000 managers.py:1940(_block)
+       52    0.000    0.000    0.000    0.000 series.py:6137(_align_for_op)     
+       72    0.000    0.000    0.000    0.000 reportviews.py:188(__getitem__)   
+      104    0.000    0.000    0.009    0.000 expr.py:728(_try_visit_binop)     
+       52    0.000    0.000    0.000    0.000 {method 'reshape' of 'numpy.ndarray' objects}
+      112    0.000    0.000    0.000    0.000 ops.py:215(__init__)
+      144    0.000    0.000    0.000    0.000 tokenize.py:449(generate_tokens)  
+       16    0.000    0.000    0.000    0.000 take.py:564(_take_preprocess_indexer_and_fill_value)
+      120    0.000    0.000    0.000    0.000 generic.py:667(_info_axis)        
+      104    0.000    0.000    0.000    0.000 frame.py:4017(_get_column_array)  
+      120    0.000    0.000    0.000    0.000 scope.py:193(has_resolvers)       
+       36    0.000    0.000    0.000    0.000 clozeroutines.py:60(var_is_stringtype)
+      231    0.000    0.000    0.000    0.000 {built-in method builtins.min}    
+      276    0.000    0.000    0.000    0.000 generic.py:363(attrs)
+      112    0.000    0.000    0.000    0.000 dispatch.py:17(should_extension_dispatch)
+       52    0.000    0.000    0.000    0.000 array_ops.py:352(na_logical_op)   
+      274    0.000    0.000    0.000    0.000 {built-in method builtins.callable}
+      180    0.000    0.000    0.000    0.000 _parser.py:176(append)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:39(build_treeprocessors)
+       44    0.000    0.000    0.000    0.000 series.py:1471(_set_as_cached)    
+        8    0.000    0.000    0.007    0.001 core.py:131(build_parser)
+       38    0.000    0.000    0.000    0.000 enum.py:1541(__and__)
+      146    0.000    0.000    0.000    0.000 common.py:1399(_get_dtype)        
+      128    0.000    0.000    0.000    0.000 enum.py:197(__get__)
+       16    0.000    0.000    0.001    0.000 blocks.py:1287(take_nd)
+      368    0.000    0.000    0.000    0.000 series.py:1480(_clear_item_cache) 
+        8    0.000    0.000    0.011    0.001 preprocessors.py:86(run)
+       19    0.000    0.000    0.002    0.000 _parser.py:969(parse)
+       88    0.000    0.000    0.000    0.000 blockprocessors.py:74(__init__)   
+      165    0.000    0.000    0.000    0.000 _parser.py:293(tell)
+      248    0.000    0.000    0.000    0.000 expr.py:68(_replace_booleans)     
+      118    0.000    0.000    0.000    0.000 treeprocessors.py:462(unescape)   
+       60    0.000    0.000    0.000    0.000 scope.py:207(resolve)
+      296    0.000    0.000    0.000    0.000 htmlparser.py:295(get_starttag_text)
+      156    0.000    0.000    0.000    0.000 {method 'isidentifier' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 utils.py:419(check_array_indexer)
+        8    0.000    0.000    0.001    0.000 blockparser.py:100(parseDocument) 
+       40    0.000    0.000    0.000    0.000 generic.py:586(_get_axis)
+       36    0.000    0.000    0.000    0.000 reportviews.py:948(__iter__)      
+        8    0.000    0.000    0.000    0.000 preprocessors.py:69(run)
+        8    0.000    0.000    0.000    0.000 blockprocessors.py:170(__init__)  
+      353    0.000    0.000    0.000    0.000 typing.py:2132(cast)
+      248    0.000    0.000    0.000    0.000 htmlparser.py:135(at_line_start)  
+       16    0.000    0.000    0.000    0.000 common.py:97(is_bool_indexer)     
+      120    0.000    0.000    0.000    0.000 ops.py:101(__call__)
+      248    0.000    0.000    0.000    0.000 parsing.py:73(clean_backtick_quoted_toks)
+        2    0.000    0.000    0.000    0.000 decorators.py:1064(signature)     
+       60    0.000    0.000    0.007    0.000 arraylike.py:38(__eq__)
+       16    0.000    0.000    0.001    0.000 take.py:59(take_nd)
+      138    0.000    0.000    0.000    0.000 common.py:123(<lambda>)
+      248    0.000    0.000    0.000    0.000 parser.py:127(clear_cdata_mode)   
+      140    0.000    0.000    0.000    0.000 {method '__contains__' of 'frozenset' objects}
+      276    0.000    0.000    0.000    0.000 flags.py:55(allows_duplicate_labels)
+        8    0.000    0.000    0.001    0.000 managers.py:869(take)
+       73    0.000    0.000    0.000    0.000 {built-in method fromkeys}        
+       60    0.000    0.000    0.000    0.000 expressions.py:226(evaluate)      
+      156    0.000    0.000    0.000    0.000 managers.py:196(blklocs)
+        8    0.000    0.000    0.001    0.000 inlinepatterns.py:432(__init__)   
+       58    0.000    0.000    0.000    0.000 common.py:1375(_is_dtype)
+        2    0.000    0.000    0.000    0.000 inspect.py:2368(_signature_from_function)
+      248    0.000    0.000    0.000    0.000 expr.py:93(_replace_locals)       
+      272    0.000    0.000    0.000    0.000 util.py:407(<lambda>)
+      138    0.000    0.000    0.000    0.000 common.py:121(classes)
+       42    0.000    0.000    0.000    0.000 common.py:1163(is_float_dtype)    
+       72    0.000    0.000    0.000    0.000 algorithms.py:217(_ensure_arraylike)
+        8    0.000    0.000    0.003    0.000 indexing.py:1397(_getitem_axis)   
+       19    0.000    0.000    0.001    0.000 _compiler.py:573(_code)
+       23    0.000    0.000    0.000    0.000 inlinepatterns.py:582(parse_sub_patterns)
+      120    0.000    0.000    0.000    0.000 _parser.py:113(__init__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:556(run)       
+       72    0.000    0.000    0.000    0.000 common.py:131(<lambda>)
+      4/2    0.000    0.000    0.000    0.000 inspect.py:2463(_signature_from_callable)
+        8    0.000    0.000    0.002    0.000 generic.py:4142(_take_with_is_copy)
+       60    0.000    0.000    0.001    0.000 {function Expr.__format__ at 0x00000221F83400E0}
+       36    0.000    0.000    0.000    0.000 graph.py:1977(nbunch_iter)        
+        8    0.000    0.000    0.027    0.003 core.py:463(markdown)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:586(run)       
+       36    0.000    0.000    0.000    0.000 reportviews.py:916(<lambda>)      
+       16    0.000    0.000    0.000    0.000 base.py:5437(_can_hold_identifiers_and_holds_name)
+       56    0.000    0.000    0.000    0.000 managers.py:1993(dtype)
+       16    0.000    0.000    0.000    0.000 common.py:572(condition)
+       32    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1390(_handle_fromlist)
+       23    0.000    0.000    0.000    0.000 treeprocessors.py:90(__makePlaceholder)
+    151/5    0.000    0.000    0.000    0.000 <frozen abc>:121(__subclasscheck__)
+    27/19    0.000    0.000    0.000    0.000 _compiler.py:436(_get_literal_prefix)
+       60    0.000    0.000    0.000    0.000 missing.py:131(dispatch_fill_zeros)
+        8    0.000    0.000    0.019    0.002 expr.py:820(parse)
+       61    0.000    0.000    0.000    0.000 missing.py:101(isna)
+       23    0.000    0.000    0.000    0.000 inlinepatterns.py:548(build_single)
+       52    0.000    0.000    0.006    0.000 arraylike.py:68(__and__)
+       24    0.000    0.000    0.000    0.000 {method 'any' of 'numpy.ndarray' objects}
+        8    0.000    0.000    0.015    0.002 {built-in method _functools.reduce}
+        8    0.000    0.000    0.000    0.000 frame.py:1047(shape)
+        8    0.000    0.000    0.000    0.000 eval.py:30(_check_engine)
+      208    0.000    0.000    0.000    0.000 base.py:6672(_maybe_cast_indexer) 
+       16    0.000    0.000    0.000    0.000 inference.py:195(is_array_like)   
+       16    0.000    0.000    0.000    0.000 cast.py:1471(<genexpr>)
+       88    0.000    0.000    0.000    0.000 common.py:152(cast_scalar_indexer)
+       23    0.000    0.000    0.000    0.000 treeprocessors.py:143(__processElementText)
+        8    0.000    0.000    0.001    0.000 indexing.py:2632(check_bool_indexer)
+       64    0.000    0.000    0.000    0.000 blockprocessors.py:356(test)      
+      104    0.000    0.000    0.000    0.000 {method 'find' of 'bytearray' objects}
+       16    0.000    0.000    0.000    0.000 postprocessors.py:107(isblocklevel)
+       81    0.000    0.000    0.000    0.000 reportviews.py:934(<lambda>)      
+       60    0.000    0.000    0.000    0.000 range.py:553(equals)
+       60    0.000    0.000    0.000    0.000 expressions.py:67(_evaluate_standard)
+        8    0.000    0.000    0.000    0.000 htmlparser.py:83(__init__)        
+       26    0.000    0.000    0.000    0.000 _compiler.py:216(_compile_charset)
+       25    0.000    0.000    0.000    0.000 _parser.py:372(_escape)
+        8    0.000    0.000    0.003    0.000 indexing.py:1205(_getbool_axis)   
+      118    0.000    0.000    0.000    0.000 serializers.py:64(_escape_cdata)  
+       16    0.000    0.000    0.000    0.000 blocks.py:292(make_block_same_class)
+       16    0.000    0.000    0.000    0.000 range.py:483(_view)
+        2    0.000    0.000    0.001    0.000 decorators.py:874(compile)        
+        8    0.000    0.000    0.020    0.002 expr.py:792(__init__)
+        8    0.000    0.000    0.000    0.000 postprocessors.py:40(build_postprocessors)
+      180    0.000    0.000    0.000    0.000 ops.py:182(name)
+       16    0.000    0.000    0.000    0.000 base.py:773(_view)
+        8    0.000    0.000    0.000    0.000 base.py:836(__iter__)
+       16    0.000    0.000    0.000    0.000 range.py:201(_simple_new)
+        8    0.000    0.000    0.000    0.000 managers.py:948(from_blocks)      
+       72    0.000    0.000    0.000    0.000 _dtype.py:24(_kind_name)
+       12    0.000    0.000    0.000    0.000 inspect.py:2729(__init__)
+      168    0.000    0.000    0.000    0.000 base.py:363(ndim)
+       70    0.000    0.000    0.000    0.000 treeprocessors.py:190(linkText)   
+        8    0.000    0.000    0.000    0.000 scope.py:54(ensure_scope)
+        2    0.000    0.000    0.000    0.000 backends.py:590(__signature__)    
+      150    0.000    0.000    0.000    0.000 {built-in method builtins.ord}    
+       29    0.000    0.000    0.000    0.000 _parser.py:449(_uniq)
+        9    0.000    0.000    0.000    0.000 base.py:82(shape)
+        5    0.000    0.000    0.000    0.000 _compiler.py:386(_mk_bitmap)      
+        8    0.000    0.000    0.000    0.000 printing.py:165(pprint_thing)     
+        2    0.000    0.000    0.000    0.000 decorators.py:922(assemble)       
+       94    0.000    0.000    0.000    0.000 _parser.py:83(groups)
+        4    0.000    0.000    0.000    0.000 inspect.py:3015(__init__)
+       40    0.000    0.000    0.000    0.000 util.py:251(get_placeholder)      
+       14    0.000    0.000    0.000    0.000 __init__.py:179(sub)
+        8    0.000    0.000    0.000    0.000 {method 'expandtabs' of 'str' objects}
+       72    0.000    0.000    0.000    0.000 __init__.py:42(warn_copy_on_write)
+       23    0.000    0.000    0.000    0.000 treeprocessors.py:96(__findPlaceholder)
+       64    0.000    0.000    0.000    0.000 blockprocessors.py:553(test)      
+        8    0.000    0.000    0.002    0.000 expr.py:134(_preparse)
+       16    0.000    0.000    0.000    0.000 base.py:1765(_get_names)
+       40    0.000    0.000    0.000    0.000 base.py:831(_reset_identity)      
+      128    0.000    0.000    0.000    0.000 enum.py:1279(value)
+        8    0.000    0.000    0.000    0.000 core.py:279(set_output_format)    
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:432(run)        
+        8    0.000    0.000    0.000    0.000 blockprocessors.py:451(__init__)  
+       56    0.000    0.000    0.000    0.000 series.py:707(dtype)
+      126    0.000    0.000    0.000    0.000 {method 'items' of 'xml.etree.ElementTree.Element' objects}
+        8    0.000    0.000    0.000    0.000 serializers.py:192(to_xhtml_string)
+       16    0.000    0.000    0.000    0.000 generic.py:4379(_set_is_copy)     
+        8    0.000    0.000    0.014    0.002 expr.py:811(__call__)
+       75    0.000    0.000    0.000    0.000 base.py:5144(_values)
+        8    0.000    0.000    0.002    0.000 tokenize.py:188(untokenize)       
+       39    0.000    0.000    0.000    0.000 _compiler.py:398(_simple)
+        8    0.000    0.000    0.000    0.000 {method 'nonzero' of 'numpy.ndarray' objects}
+       60    0.000    0.000    0.000    0.000 __init__.py:1008(__getitem__)     
+        8    0.000    0.000    0.002    0.000 tokenize.py:275(untokenize)       
+       66    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+       48    0.000    0.000    0.000    0.000 __init__.py:998(__init__)
+       48    0.000    0.000    0.000    0.000 util.py:203(__init__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:463(test)      
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:174(test)      
+       55    0.000    0.000    0.000    0.000 util.py:347(__len__)
+       24    0.000    0.000    0.000    0.000 _parser.py:86(opengroup)
+       16    0.000    0.000    0.000    0.000 __init__.py:1049(new_child)       
+       56    0.000    0.000    0.000    0.000 base.py:1671(name)
+       72    0.000    0.000    0.000    0.000 common.py:126(_classes_and_not_datetimelike)
+       32    0.000    0.000    0.000    0.000 {built-in method _elementtree.SubElement}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        8    0.000    0.000    0.000    0.000 utils.py:62(is_list_like_indexer) 
+       41    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}  
+      112    0.000    0.000    0.000    0.000 series.py:660(_constructor)       
+       19    0.000    0.000    0.000    0.000 {built-in method _sre.compile}    
+       16    0.000    0.000    0.000    0.000 common.py:536(is_string_dtype)    
+       24    0.000    0.000    0.000    0.000 _methods.py:55(_any)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:289(test)      
+       23    0.000    0.000    0.000    0.000 treeprocessors.py:114(__stashNode)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:80(__init__)
+       24    0.000    0.000    0.000    0.000 _validators.py:226(validate_bool_kwarg)
+       23    0.000    0.000    0.000    0.000 inlinepatterns.py:643(build_element)
+        8    0.000    0.000    0.011    0.001 parser.py:104(feed)
+        8    0.000    0.000    0.000    0.000 parser.py:86(__init__)
+        8    0.000    0.000    0.000    0.000 expr.py:754(__init__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:525(test)      
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:78(lastChild)  
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:499(test)      
+        8    0.000    0.000    0.000    0.000 blockparser.py:83(__init__)       
+        8    0.000    0.000    0.000    0.000 htmlparser.py:107(close)
+       24    0.000    0.000    0.000    0.000 _parser.py:98(closegroup)
+        1    0.000    0.000    0.000    0.000 base.py:842(_engine)
+       19    0.000    0.000    0.000    0.000 _parser.py:231(__init__)
+        8    0.000    0.000    0.000    0.000 {method 'copy' of 'list' objects} 
+        8    0.000    0.000    0.000    0.000 eval.py:123(_convert_expression)  
+        6    0.000    0.000    0.000    0.000 decorators.py:854(_name)
+       16    0.000    0.000    0.000    0.000 take.py:325(_get_take_nd_function)
+        8    0.000    0.000    0.000    0.000 base.py:378(interleaved_dtype)    
+        8    0.000    0.000    0.000    0.000 serializers.py:175(_write_html)   
+        8    0.000    0.000    0.000    0.000 core.py:263(reset)
+       64    0.000    0.000    0.000    0.000 __init__.py:122(unescape)
+        8    0.000    0.000    0.000    0.000 htmlparser.py:96(reset)
+       48    0.000    0.000    0.000    0.000 generic.py:572(_get_axis_number)  
+       36    0.000    0.000    0.000    0.000 clozeroutines.py:74(get_tolerance)
+        8    0.000    0.000    0.000    0.000 indexing.py:161(iloc)
+        8    0.000    0.000    0.000    0.000 indexing.py:1667(_validate_integer)
+        8    0.000    0.000    0.000    0.000 decorators.py:1200(_indent)       
+       42    0.000    0.000    0.000    0.000 _parser.py:172(__setitem__)       
+     12/8    0.000    0.000    0.000    0.000 decorators.py:1170(_flatten)      
+        8    0.000    0.000    0.000    0.000 range.py:1009(__getitem__)        
+      110    0.000    0.000    0.000    0.000 <frozen _collections_abc>:435(__subclasshook__)
+        8    0.000    0.000    0.000    0.000 base.py:5552(equals)
+       38    0.000    0.000    0.000    0.000 _compiler.py:570(isstring)        
+        8    0.000    0.000    0.016    0.002 expr.py:413(visit_Module)
+        8    0.000    0.000    0.000    0.000 parser.py:96(reset)
+       32    0.000    0.000    0.000    0.000 {method 'lstrip' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 series.py:978(__array__)
+       16    0.000    0.000    0.000    0.000 indexing.py:1165(_check_deprecated_callable_usage)
+       16    0.000    0.000    0.000    0.000 base.py:2066(_get_level_values)   
+        8    0.000    0.000    0.014    0.002 engines.py:133(evaluate)
+       42    0.000    0.000    0.000    0.000 common.py:686(<lambda>)
+        8    0.000    0.000    0.000    0.000 base.py:74(__len__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:254(test)      
+        8    0.000    0.000    0.000    0.000 {built-in method sys._getframe}   
+       23    0.000    0.000    0.000    0.000 treeprocessors.py:48(isString)    
+        8    0.000    0.000    0.000    0.000 frame.py:659(_constructor_from_mgr)
+       40    0.000    0.000    0.000    0.000 util.py:312(__init__)
+        8    0.000    0.000    0.002    0.000 ast.py:199(fix_missing_locations) 
+       60    0.000    0.000    0.000    0.000 ops.py:178(value)
+       10    0.000    0.000    0.000    0.000 _compiler.py:467(_get_charset_prefix)
+        8    0.000    0.000    0.000    0.000 printing.py:196(as_escaped_string)
+        8    0.000    0.000    0.015    0.002 expr.py:733(visit_BoolOp)
+        8    0.000    0.000    0.000    0.000 indexing.py:305(loc)
+        2    0.000    0.000    0.001    0.000 decorators.py:720(_lazy_compile)  
+       32    0.000    0.000    0.000    0.000 blockparser.py:67(isstate)        
+       32    0.000    0.000    0.000    0.000 {method 'iter' of 'xml.etree.ElementTree.Element' objects}
+      4/2    0.000    0.000    0.000    0.000 inspect.py:3067(from_callable)    
+        1    0.000    0.000    0.000    0.000 servicecloze.py:462(close_build)  
+        8    0.000    0.000    0.000    0.000 {method 'min' of 'numpy.ndarray' objects}
+       24    0.000    0.000    0.000    0.000 cast.py:1462(<genexpr>)
+        8    0.000    0.000    0.000    0.000 clozeroutines.py:12(__init__)     
+       19    0.000    0.000    0.000    0.000 _parser.py:953(fix_flags)
+        1    0.000    0.000    0.000    0.000 config.py:391(conclude)
+        9    0.000    0.000    0.000    0.000 _compiler.py:407(_generate_overlap_table)
+        8    0.000    0.000    0.000    0.000 util.py:228(store)
+        8    0.000    0.000    0.000    0.000 {method 'max' of 'numpy.ndarray' objects}
+       16    0.000    0.000    0.000    0.000 base.py:332(array)
+       16    0.000    0.000    0.000    0.000 base.py:1992(_validate_index_level)
+        8    0.000    0.000    0.000    0.000 {method 'splitlines' of 'str' objects}
+       60    0.000    0.000    0.000    0.000 ops.py:192(_resolve_name)
+        8    0.000    0.000    0.001    0.000 blockparser.py:120(parseChunk)    
+       16    0.000    0.000    0.000    0.000 common.py:529(is_string_or_object_np_dtype)
+       16    0.000    0.000    0.000    0.000 __init__.py:55(using_pyarrow_string_dtype)
+       17    0.000    0.000    0.000    0.000 <frozen codecs>:186(__init__)     
+       56    0.000    0.000    0.000    0.000 range.py:376(dtype)
+       60    0.000    0.000    0.000    0.000 expr.py:704(translate_In)
+       27    0.000    0.000    0.000    0.000 base.py:84(<genexpr>)
+        8    0.000    0.000    0.016    0.002 expr.py:419(visit_Expr)
+       34    0.000    0.000    0.000    0.000 _compiler.py:31(_combine_flags)   
+        8    0.000    0.000    0.001    0.000 ast.py:34(parse)
+        8    0.000    0.000    0.000    0.000 inlinepatterns.py:393(__init__)   
+        8    0.000    0.000    0.000    0.000 postprocessors.py:84(substitute_match)
+        8    0.000    0.000    0.000    0.000 inference.py:373(is_sequence)     
+       16    0.000    0.000    0.000    0.000 managers.py:291(arrays)
+       11    0.000    0.000    0.000    0.000 <frozen _collections_abc>:104(_check_methods)
+       23    0.000    0.000    0.000    0.000 inlinepatterns.py:254(type)       
+       23    0.000    0.000    0.000    0.000 {method 'insert' of 'xml.etree.ElementTree.Element' objects}
+        8    0.000    0.000    0.000    0.000 base.py:791(is_)
+        8    0.000    0.000    0.000    0.000 eval.py:94(_check_resolvers)      
+       10    0.000    0.000    0.000    0.000 backends.py:599(<genexpr>)        
+        8    0.000    0.000    0.000    0.000 generic.py:592(_get_block_manager_axis)
+       16    0.000    0.000    0.000    0.000 expr.py:807(assigner)
+      2/1    0.000    0.000    0.001    0.001 decorators.py:788(func)
+        2    0.000    0.000    0.000    0.000 inspect.py:747(unwrap)
+       37    0.000    0.000    0.000    0.000 _compiler.py:428(_get_iscased)    
+       54    0.000    0.000    0.000    0.000 inspect.py:2782(name)
+       16    0.000    0.000    0.000    0.000 postprocessors.py:117(stash_to_string)
+       19    0.000    0.000    0.000    0.000 _parser.py:77(__init__)
+       16    0.000    0.000    0.000    0.000 blocks.py:266(mgr_locs)
+       24    0.000    0.000    0.000    0.000 cast.py:1478(<genexpr>)
+        8    0.000    0.000    0.000    0.000 decorators.py:831(_count)
+        1    0.000    0.000    0.000    0.000 cast.py:605(_maybe_promote_cached)
+       16    0.000    0.000    0.000    0.000 cast.py:1473(<genexpr>)
+        8    0.000    0.000    0.000    0.000 postprocessors.py:125(run)        
+        3    0.000    0.000    0.000    0.000 functools.py:979(__get__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:583(test)      
+        8    0.000    0.000    0.000    0.000 {method 'index' of 'str' objects} 
+       19    0.000    0.000    0.000    0.000 {built-in method builtins.max}    
+        1    0.000    0.000    0.000    0.000 range.py:237(_data)
+        1    0.000    0.000    0.000    0.000 cast.py:613(_maybe_promote)       
+        8    0.000    0.000    0.000    0.000 core.py:159(registerExtensions)   
+        8    0.000    0.000    0.000    0.000 _methods.py:39(_amax)
+        8    0.000    0.000    0.000    0.000 blocks.py:718(dtype)
+        8    0.000    0.000    0.000    0.000 expr.py:392(__init__)
+        8    0.000    0.000    0.000    0.000 _markupbase.py:27(__init__)       
+       32    0.000    0.000    0.000    0.000 inspect.py:2794(kind)
+      4/2    0.000    0.000    0.000    0.000 inspect.py:3325(signature)        
+       16    0.000    0.000    0.000    0.000 eval.py:105(_check_expression)    
+        8    0.000    0.000    0.000    0.000 parser.py:113(close)
+       17    0.000    0.000    0.000    0.000 <frozen codecs>:214(setstate)     
+       16    0.000    0.000    0.000    0.000 ElementTree.py:525(__init__)      
+        8    0.000    0.000    0.000    0.000 util.py:221(__init__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:609(test)      
+        8    0.000    0.000    0.000    0.000 _methods.py:43(_amin)
+        8    0.000    0.000    0.000    0.000 engines.py:52(__init__)
+       16    0.000    0.000    0.000    0.000 multiarray.py:1080(copyto)        
+       10    0.000    0.000    0.000    0.000 inspect.py:3062(<genexpr>)        
+        8    0.000    0.000    0.000    0.000 managers.py:246(items)
+        2    0.000    0.000    0.000    0.000 inspect.py:175(get_annotations)   
+       16    0.000    0.000    0.000    0.000 {built-in method builtins.id}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.exec}   
+        1    0.000    0.000    0.000    0.000 {built-in method numpy.arange}    
+        8    0.000    0.000    0.000    0.000 {method 'clear' of 'dict' objects}
+       16    0.000    0.000    0.000    0.000 ElementTree.py:531(getroot)       
+        8    0.000    0.000    0.000    0.000 function.py:64(__call__)
+        8    0.000    0.000    0.000    0.000 eval.py:152(_check_for_locals)    
+        3    0.000    0.000    0.000    0.000 <frozen _collections_abc>:288(__subclasshook__)
+        2    0.000    0.000    0.000    0.000 blocks.py:253(fill_value)
+        8    0.000    0.000    0.000    0.000 tokenize.py:169(__init__)
+        1    0.000    0.000    0.000    0.000 missing.py:728(is_valid_na_for_dtype)
+        3    0.000    0.000    0.000    0.000 missing.py:673(na_value_for_dtype)        1    0.000    0.000    0.000    0.000 multidigraph.py:589(edges)
+        8    0.000    0.000    0.000    0.000 util.py:246(reset)
+        2    0.000    0.000    0.000    0.000 inspect.py:3083(replace)
+        8    0.000    0.000    0.000    0.000 base.py:1176(_maybe_disallow_fill)        8    0.000    0.000    0.000    0.000 eval.py:75(_check_parser)
+       10    0.000    0.000    0.000    0.000 <frozen _collections_abc>:309(__subclasshook__)
+        6    0.000    0.000    0.000    0.000 {method 'values' of 'mappingproxy' objects}
+        1    0.000    0.000    0.000    0.000 reportviews.py:1058(__init__)
+       16    0.000    0.000    0.000    0.000 <frozen _collections_abc>:341(__subclasshook__)
+        5    0.000    0.000    0.000    0.000 {method 'translate' of 'bytearray' objects}
+        1    0.000    0.000    0.000    0.000 base.py:5170(_get_engine_target)
+        8    0.000    0.000    0.000    0.000 generic.py:696(ndim)
+        8    0.000    0.000    0.000    0.000 managers.py:913(__init__)
+        9    0.000    0.000    0.000    0.000 range.py:315(step)
+        8    0.000    0.000    0.000    0.000 multiarray.py:669(result_type)
+        1    0.000    0.000    0.000    0.000 common.py:1040(needs_i8_conversion)
+        1    0.000    0.000    0.000    0.000 base.py:456(_engine_type)
+        1    0.000    0.000    0.000    0.000 base.py:2313(is_unique)
+        9    0.000    0.000    0.000    0.000 range.py:280(start)
+        4    0.000    0.000    0.000    0.000 inspect.py:371(isfunction)
+        4    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
+        8    0.000    0.000    0.000    0.000 inspect.py:2786(default)
+        2    0.000    0.000    0.000    0.000 inspect.py:767(_is_wrapper)
+        2    0.000    0.000    0.000    0.000 <frozen _collections_abc>:388(__subclasshook__)
+        1    0.000    0.000    0.000    0.000 cast.py:524(ensure_dtype_can_hold_na)
+        6    0.000    0.000    0.000    0.000 inspect.py:3075(parameters)
+        1    0.000    0.000    0.000    0.000 multidigraph.py:383(succ)
+        2    0.000    0.000    0.000    0.000 {built-in method sys.getrecursionlimit}
+        2    0.000    0.000    0.000    0.000 decorators.py:1058(<genexpr>)
+        2    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 <class 'networkx.utils.decorators.argmap'> compilation 4:1(<module>)    
+        1    0.000    0.000    0.000    0.000 <class 'networkx.utils.decorators.argmap'> compilation 8:1(<module>)    
+        1    0.000    0.000    0.000    0.000 _parser.py:100(checkgroup)
+        1    0.000    0.000    0.000    0.000 base.py:974(dtype)
+        1    0.000    0.000    0.000    0.000 range.py:231(_constructor)
+        1    0.000    0.000    0.000    0.000 _parser.py:103(checklookbehindgroup)
+        1    0.000    0.000    0.000    0.000 range.py:298(stop)
+
+
+# verion 2
+
+
+Reading configuration from config.yaml.
+pyequa is opening file ..\exercise_model.md.
+File 'cloze_manyfiles_5_tabela.md' is now cloze_manyfiles_5_tabel_2025-04-05_19-09-39.md.
+====================
+Add exercises with 11 given variables.
+==> exercies given (sqerros, g, sig, dftotal, f, dfgrupos, n, msqgrupos, msqerros, sqgrupos, dferros)
+====================
+Add exercises with 10 given variables.
+==> exercies given (sqerros, g, sig, dftotal, f, dfgrupos, n, msqgrupos, sqgrupos, dferros)
+====================
+Add exercises with 9 given variables.
+==> exercies given (sqerros, g, sig, dftotal, f, dfgrupos, n, sqgrupos, dferros)
+====================
+Add exercises with 8 given variables.
+==> exercies given (sqerros, g, sig, dftotal, dfgrupos, n, sqgrupos, dferros)
+====================
+Add exercises with 7 given variables.
+==> exercies given (sqerros, g, sig, dfgrupos, n, sqgrupos, dferros)
+====================
+Add exercises with 6 given variables.
+==> exercies given (sqerros, g, dfgrupos, n, sqgrupos, dferros)
+====================
+Add exercises with 5 given variables.
+==> exercies given (sqerros, g, dfgrupos, n, sqgrupos)
+====================
+Add exercises with 4 given variables.
+==> exercies given (sqerros, g, n, sqgrupos)
+====================
+Add exercises with 3 given variables.
+====================
+Add exercises with 2 given variables.
+====================
+Add exercises with 1 given variables.
+
+
+         389635197 function calls (389623742 primitive calls) in 251.354 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     4094   41.849    0.010  165.707    0.040 scenario.py:585(add_edge_from_solver)
+ 16241680   31.557    0.000   44.931    0.000 multidigraph.py:416(add_edge)
+ 33538048   30.249    0.000   53.720    0.000 scenario.py:94(join_varnames)
+ 70745102   27.188    0.000   30.046    0.000 reportviews.py:1333(__iter__)
+     4094   19.050    0.005   82.676    0.020 scenario.py:632(remove_edge_from_solver)
+ 16241680   18.088    0.000   27.382    0.000 multidigraph.py:514(remove_edge)
+ 33562631   13.854    0.000   13.855    0.000 {built-in method builtins.sorted}
+ 33538048   12.622    0.000   66.342    0.000 scenario.py:527(node_name)
+ 32487454    9.924    0.000   15.091    0.000 misc.py:595(_clear_cache)
+ 33546394    9.640    0.000    9.640    0.000 {method 'join' of 'str' objects}
+ 16769144    9.210    0.000    9.210    0.000 {method 'union' of 'set' objects}
+     4094    6.195    0.002   33.578    0.008 multigraph.py:702(remove_edges_from)
+ 32616484    5.211    0.000    5.212    0.000 {built-in method builtins.getattr}
+ 16365176    4.805    0.000    4.805    0.000 {method 'update' of 'dict' objects}
+ 16769024    3.358    0.000    3.358    0.000 {method 'issubset' of 'set' objects}
+ 16900831    2.889    0.000    2.889    0.000 {method 'items' of 'dict' objects}
+16546597/16544753    2.361    0.000    2.362    0.000 {built-in method builtins.len}
+       19    0.726    0.038  250.979   13.209 scenario.py:784(yield_givenvarsset_nodepathlist)
+  1439040    0.506    0.000    0.506    0.000 {method 'get' of 'dict' objects}
+     4094    0.286    0.000    0.498    0.000 unweighted.py:266(_bidirectional_pred_succ)
+   123468    0.275    0.000    0.362    0.000 printer.py:294(_print)
+   123468    0.185    0.000    1.275    0.000 _print_helpers.py:27(__str__)
+   123468    0.170    0.000    0.421    0.000 printer.py:258(__init__)
+    24572    0.130    0.000    1.201    0.000 scenario.py:83(set2orderedstr)
+   123468    0.119    0.000    0.988    0.000 str.py:980(sstr)
+   543779    0.118    0.000    0.118    0.000 {method 'append' of 'list' objects}
+   123468    0.103    0.000    1.090    0.000 printer.py:371(__call__)
+   123468    0.101    0.000    0.171    0.000 printer.py:250(_get_initial_settings)
+   123468    0.086    0.000    0.448    0.000 printer.py:290(doprint)
+    59617    0.049    0.000    0.060    0.000 coreviews.py:102(__getitem__)
+   123492    0.041    0.000    0.041    0.000 {method 'copy' of 'dict' objects}
+     8366    0.029    0.000    0.032    0.000 {method 'format' of 'str' objects}
+     4094    0.026    0.000    0.535    0.000 unweighted.py:202(bidirectional_shortest_path)
+   124251    0.025    0.000    0.025    0.000 {built-in method builtins.hasattr}
+     8188    0.023    0.000    0.544    0.000 scenario.py:177(__init__)
+     4094    0.020    0.000    0.595    0.000 <class 'networkx.utils.decorators.argmap'> compilation 4:1(argmap_shortest_path_1)
+    59617    0.020    0.000    0.032    0.000 coreviews.py:49(__iter__)
+   123468    0.020    0.000    0.020    0.000 str.py:845(_print_Symbol)
+     4094    0.019    0.000    0.236    0.000 scenario.py:311(input_level)
+8188/4094    0.019    0.000    0.575    0.000 backends.py:627(__call__)
+    64414    0.014    0.000    0.014    0.000 {built-in method builtins.iter}
+    49284    0.013    0.000    0.013    0.000 basic.py:189(__hash__)
+     4094    0.011    0.000    0.555    0.000 <class 'networkx.utils.decorators.argmap'> compilation 8:1(argmap_bidirectional_shortest_path_5)
+    59619    0.010    0.000    0.010    0.000 coreviews.py:43(__init__)
+     4094    0.010    0.000    0.565    0.000 generic.py:43(shortest_path)
+     4094    0.009    0.000    0.010    0.000 reportviews.py:205(__call__)
+       30    0.007    0.000    0.007    0.000 {built-in method builtins.print}
+25880/25812    0.006    0.000    0.009    0.000 {built-in method builtins.isinstance}
+     8224    0.005    0.000    0.005    0.000 graph.py:455(__contains__)
+       17    0.004    0.000    0.004    0.000 {method '__exit__' of '_io._IOBase' objects}
+     4094    0.004    0.000    0.007    0.000 reportviews.py:331(__iter__)
+       17    0.004    0.000    0.004    0.000 {built-in method _io.open}
+     8188    0.004    0.000    0.004    0.000 scenario.py:125(__init__)
+      352    0.003    0.000    0.026    0.000 series.py:389(__init__)
+       11    0.003    0.000    0.243    0.022 scenario.py:758(yield_givenvarsset_nodepathlist_from_number)
+        8    0.002    0.000    0.076    0.009 clozeroutines.py:87(vars_to_fields)
+       11    0.002    0.000    0.003    0.000 scenario.py:67(Combinations_of_givensize)
+      352    0.002    0.000    0.007    0.000 construction.py:517(sanitize_array)
+       16    0.002    0.000    0.012    0.001 parser.py:134(goahead)
+     3339    0.002    0.000    0.002    0.000 {method 'reverse' of 'list' objects}
+  560/536    0.002    0.000    0.003    0.000 treeprocessors.py:253(__applyPattern)
+     4130    0.001    0.000    0.002    0.000 reportviews.py:1362(__call__)
+        1    0.001    0.001  251.354  251.354 config.py:263(challenge_deterministic)
+      296    0.001    0.000    0.004    0.000 htmlparser.py:299(parse_starttag)
+     2048    0.001    0.000    0.001    0.000 {method 'match' of 're.Pattern' objects}
+      688    0.001    0.000    0.004    0.000 generic.py:6301(__setattr__)
+     1316    0.001    0.000    0.003    0.000 ops.py:146(type)
+     4094    0.001    0.000    0.001    0.000 reportviews.py:313(__init__)
+ 3052/768    0.001    0.000    0.003    0.000 common.py:62(flatten)
+      816    0.001    0.000    0.002    0.000 tokenize.py:530(_generate_tokens_from_c_tokenizer)
+      276    0.001    0.000    0.002    0.000 generic.py:6236(__finalize__)
+      412    0.001    0.000    0.001    0.000 generic.py:278(__init__)
+       72    0.001    0.000    0.004    0.000 algorithms.py:427(unique_with_mask)
+        8    0.001    0.000    0.023    0.003 generic.py:644(_get_cleaned_column_resolvers)
+     4094    0.001    0.000    0.001    0.000 multidigraph.py:864(is_directed)
+     1200    0.001    0.000    0.001    0.000 {method 'search' of 're.Pattern' objects}
+      352    0.001    0.000    0.003    0.000 managers.py:1863(from_array)
+     1980    0.001    0.000    0.002    0.000 generic.py:42(_instancecheck)
+      528    0.001    0.000    0.003    0.000 parsing.py:170(tokenize_string)
+      328    0.001    0.000    0.002    0.000 common.py:1596(pandas_dtype)
+     1980    0.001    0.000    0.001    0.000 generic.py:37(_check)
+    70/20    0.001    0.000    0.002    0.000 _parser.py:512(_parse)
+      424    0.001    0.000    0.001    0.000 core.py:302(is_block_level)
+      360    0.001    0.000    0.001    0.000 blocks.py:2716(new_block)
+      248    0.001    0.000    0.003    0.000 parser.py:379(parse_endtag)
+     1096    0.001    0.000    0.001    0.000 _markupbase.py:44(updatepos)
+    376/8    0.001    0.000    0.019    0.002 expr.py:399(visit)
+      368    0.001    0.000    0.001    0.000 generic.py:6284(__getattr__)
+      628    0.001    0.000    0.001    0.000 blocks.py:2827(external_values)
+       10    0.001    0.000    0.001    0.000 {built-in method builtins.compile}
+      104    0.001    0.000    0.001    0.000 {built-in method numpy.array}
+      464    0.001    0.000    0.002    0.000 series.py:784(name)
+        8    0.001    0.000    0.116    0.015 servicecloze.py:150(challenge_deterministic_add)
+    332/8    0.001    0.000    0.002    0.000 ast.py:207(_fix)
+      296    0.001    0.000    0.002    0.000 htmlparser.py:163(handle_starttag)
+      222    0.001    0.000    0.005    0.000 __init__.py:280(_compile)
+  748/584    0.001    0.000    0.001    0.000 {built-in method builtins.all}
+     4094    0.001    0.000    0.001    0.000 scenario.py:774(<lambda>)
+   115/19    0.000    0.000    0.001    0.000 _compiler.py:37(_compile)
+        8    0.000    0.000    0.006    0.001 serviceabstract.py:80(solverslist_build_answer_text)
+      272    0.000    0.000    0.001    0.000 util.py:364(register)
+      836    0.000    0.000    0.001    0.000 series.py:734(name)
+      256    0.000    0.000    0.001    0.000 htmlparser.py:122(line_offset)
+      320    0.000    0.000    0.002    0.000 construction.py:769(_try_cast)
+      248    0.000    0.000    0.002    0.000 htmlparser.py:184(handle_endtag)
+      560    0.000    0.000    0.001    0.000 util.py:336(__getitem__)
+      352    0.000    0.000    0.001    0.000 blocks.py:2645(maybe_coerce_values)
+      352    0.000    0.000    0.001    0.000 config.py:127(_get_single_key)
+      368    0.000    0.000    0.002    0.000 generic.py:807(_set_axis)
+      112    0.000    0.000    0.009    0.000 series.py:6201(_construct_result)
+      656    0.000    0.000    0.001    0.000 ast.py:269(iter_child_nodes)
+      768    0.000    0.000    0.005    0.000 ops.py:246(<genexpr>)
+      164    0.000    0.000    0.002    0.000 series.py:1095(__getitem__)
+   120/60    0.000    0.000    0.007    0.000 {built-in method _operator.eq}
+      352    0.000    0.000    0.001    0.000 config.py:635(_get_root)
+     1088    0.000    0.000    0.002    0.000 inference.py:80(iterable_not_string)
+      208    0.000    0.000    0.000    0.000 base.py:3777(get_loc)
+      636    0.000    0.000    0.000    0.000 construction.py:481(ensure_wrapped_if_datetimelike)
+      352    0.000    0.000    0.002    0.000 config.py:145(_get_option)
+      992    0.000    0.000    0.001    0.000 inference.py:334(is_hashable)
+      150    0.000    0.000    0.000    0.000 {method 'sub' of 're.Pattern' objects}
+     1166    0.000    0.000    0.000    0.000 {built-in method __new__ of type object at 0x00007FF9F77F98B0}
+      560    0.000    0.000    0.000    0.000 {method 'finditer' of 're.Pattern' objects}
+     1048    0.000    0.000    0.000    0.000 {method 'count' of 'str' objects}
+     1480    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+      464    0.000    0.000    0.001    0.000 common.py:1571(validate_all_hashable)
+    56/32    0.000    0.000    0.004    0.000 treeprocessors.py:120(__handleInline)
+     1804    0.000    0.000    0.000    0.000 {built-in method builtins.issubclass}
+      672    0.000    0.000    0.001    0.000 __init__.py:447(_make)
+      276    0.000    0.000    0.000    0.000 flags.py:87(allows_duplicate_labels)
+      408    0.000    0.000    0.000    0.000 managers.py:2004(internal_values)
+      628    0.000    0.000    0.002    0.000 managers.py:2000(external_values)
+      360    0.000    0.000    0.001    0.000 blocks.py:2674(get_block_type)
+      104    0.000    0.000    0.010    0.000 generic.py:6432(dtypes)
+      112    0.000    0.000    0.010    0.000 expr.py:491(_maybe_evaluate_binop)
+        8    0.000    0.000    0.001    0.000 blockparser.py:138(parseBlocks)
+     1091    0.000    0.000    0.001    0.000 <frozen abc>:117(__instancecheck__)
+       72    0.000    0.000    0.003    0.000 frame.py:4062(__getitem__)
+      384    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+       72    0.000    0.000    0.001    0.000 cast.py:1604(maybe_cast_to_integer_array)
+  496/248    0.000    0.000    0.000    0.000 expr.py:123(<lambda>)
+      536    0.000    0.000    0.000    0.000 construction.py:416(extract_array)
+     1001    0.000    0.000    0.000    0.000 range.py:999(__len__)
+      360    0.000    0.000    0.000    0.000 {method 'astype' of 'numpy.ndarray' objects}
+       60    0.000    0.000    0.002    0.000 array_ops.py:288(comparison_op)
+     1024    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+      136    0.000    0.000    0.000    0.000 parsing.py:22(create_valid_python_identifier)
+       44    0.000    0.000    0.000    0.000 managers.py:1012(iget)
+      928    0.000    0.000    0.001    0.000 common.py:1590(<genexpr>)
+      352    0.000    0.000    0.001    0.000 construction.py:696(_sanitize_ndim)
+     1091    0.000    0.000    0.001    0.000 {built-in method _abc._abc_instancecheck}
+        8    0.000    0.000    0.003    0.000 blockprocessors.py:42(build_block_parser)
+      164    0.000    0.000    0.001    0.000 series.py:1220(_get_value)
+        8    0.000    0.000    0.005    0.001 treeprocessors.py:343(run)
+     64/8    0.000    0.000    0.000    0.000 serializers.py:118(_serialize_html)
+      112    0.000    0.000    0.006    0.000 ops.py:244(operand_types)
+        8    0.000    0.000    0.004    0.001 inlinepatterns.py:53(build_inlinepatterns)
+      296    0.000    0.000    0.001    0.000 parser.py:345(check_for_whole_start_tag)
+      240    0.000    0.000    0.001    0.000 ops.py:165(is_datetime)
+    151/5    0.000    0.000    0.000    0.000 {built-in method _abc._abc_subclasscheck}
+      112    0.000    0.000    0.001    0.000 expr.py:422(_rewrite_membership_op)
+      176    0.000    0.000    0.001    0.000 warnings.py:182(_add_filter)
+    112/8    0.000    0.000    0.014    0.002 ops.py:368(__call__)
+       76    0.000    0.000    0.001    0.000 _dtype.py:346(_name_get)
+       16    0.000    0.000    0.000    0.000 cast.py:1156(maybe_infer_to_datetimelike)
+  268/104    0.000    0.000    0.001    0.000 ops.py:248(is_scalar)
+      248    0.000    0.000    0.001    0.000 htmlparser.py:148(get_endtag_text)
+      904    0.000    0.000    0.000    0.000 __init__.py:34(using_copy_on_write)
+      628    0.000    0.000    0.001    0.000 blocks.py:249(external_values)
+      272    0.000    0.000    0.000    0.000 util.py:317(__contains__)
+        8    0.000    0.000    0.001    0.000 managers.py:958(fast_xs)
+       72    0.000    0.000    0.001    0.000 algorithms.py:106(_ensure_data)
+     1200    0.000    0.000    0.000    0.000 {method 'end' of 're.Match' objects}
+      320    0.000    0.000    0.002    0.000 generic.py:511(_validate_dtype)
+      669    0.000    0.000    0.000    0.000 _parser.py:168(__getitem__)
+      104    0.000    0.000    0.001    0.000 managers.py:287(get_dtypes)
+      720    0.000    0.000    0.000    0.000 base.py:7593(ensure_index)
+      120    0.000    0.000    0.002    0.000 ops.py:84(__init__)
+        8    0.000    0.000    0.022    0.003 core.py:315(convert)
+  272/264    0.000    0.000    0.001    0.000 {built-in method numpy.asarray}
+      352    0.000    0.000    0.001    0.000 base.py:7688(maybe_extract_name)
+      696    0.000    0.000    0.000    0.000 {method 'group' of 're.Match' objects}
+      628    0.000    0.000    0.002    0.000 series.py:789(values)
+      112    0.000    0.000    0.002    0.000 ops.py:350(__init__)
+     1064    0.000    0.000    0.000    0.000 {built-in method builtins.hash}
+      252    0.000    0.000    0.000    0.000 indexing.py:2765(check_dict_or_set_indexers)
+      368    0.000    0.000    0.001    0.000 base.py:86(_validate_set_axis)
+      112    0.000    0.000    0.001    0.000 ops.py:469(_disallow_scalar_only_bool_ops)
+      112    0.000    0.000    0.006    0.000 ops.py:238(has_invalid_return_type)
+      412    0.000    0.000    0.000    0.000 flags.py:51(__init__)
+      104    0.000    0.000    0.000    0.000 managers.py:1026(iget_values)
+      128    0.000    0.000    0.003    0.000 inlinepatterns.py:286(__init__)
+      504    0.000    0.000    0.000    0.000 htmlparser.py:211(handle_data)
+        8    0.000    0.000    0.001    0.000 tokenize.py:233(compat)
+       52    0.000    0.000    0.001    0.000 array_ops.py:393(logical_op)
+      368    0.000    0.000    0.001    0.000 managers.py:236(set_axis)
+      136    0.000    0.000    0.001    0.000 parsing.py:136(tokenize_backtick_quoted_string)
+      136    0.000    0.000    0.003    0.000 parsing.py:99(clean_column_name)
+      352    0.000    0.000    0.000    0.000 config.py:676(_translate_key)
+       72    0.000    0.000    0.000    0.000 base.py:5323(__contains__)
+    56/32    0.000    0.000    0.000    0.000 treeprocessors.py:172(__processPlaceholders)
+       52    0.000    0.000    0.003    0.000 frame.py:3983(_ixs)
+       72    0.000    0.000    0.001    0.000 algorithms.py:280(_check_object_for_strings)
+       88    0.000    0.000    0.000    0.000 util.py:324(__iter__)
+      792    0.000    0.000    0.000    0.000 ast.py:257(iter_fields)
+      488    0.000    0.000    0.000    0.000 {method 'find' of 'str' objects}
+      176    0.000    0.000    0.000    0.000 {method 'remove' of 'list' objects}
+       52    0.000    0.000    0.006    0.000 series.py:6123(_logical_method)
+      408    0.000    0.000    0.001    0.000 series.py:831(_values)
+      128    0.000    0.000    0.000    0.000 enum.py:1531(__or__)
+       40    0.000    0.000    0.000    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+       16    0.000    0.000    0.001    0.000 take.py:120(_take_nd_ndarray)
+      176    0.000    0.000    0.000    0.000 warnings.py:482(__enter__)
+       72    0.000    0.000    0.002    0.000 frame.py:4626(_get_item_cache)
+        8    0.000    0.000    0.064    0.008 frame.py:4680(query)
+      252    0.000    0.000    0.000    0.000 blocks.py:1253(iget)
+       60    0.000    0.000    0.001    0.000 ops.py:107(_resolve_name)
+       60    0.000    0.000    0.007    0.000 series.py:6110(_cmp_method)
+       60    0.000    0.000    0.008    0.000 expr.py:707(visit_Compare)
+       32    0.000    0.000    0.003    0.000 base.py:1543(to_series)
+      352    0.000    0.000    0.000    0.000 construction.py:735(_sanitize_str_dtypes)
+    58/19    0.000    0.000    0.002    0.000 _parser.py:452(_parse_sub)
+      352    0.000    0.000    0.001    0.000 common.py:568(require_length_match)
+      104    0.000    0.000    0.000    0.000 {method 'take' of 'numpy.ndarray' objects}
+      544    0.000    0.000    0.000    0.000 ops.py:220(__iter__)
+      210    0.000    0.000    0.000    0.000 common.py:1434(_is_dtype_type)
+      424    0.000    0.000    0.000    0.000 ops.py:231(return_type)
+      664    0.000    0.000    0.000    0.000 {method 'start' of 're.Match' objects}
+   198/78    0.000    0.000    0.000    0.000 {built-in method builtins.any}
+      368    0.000    0.000    0.000    0.000 {method 'rindex' of 'str' objects}
+  536/208    0.000    0.000    0.000    0.000 ops.py:250(<genexpr>)
+      537    0.000    0.000    0.000    0.000 base.py:909(__len__)
+       60    0.000    0.000    0.001    0.000 expr.py:457(_maybe_downcast_constants)
+   130/49    0.000    0.000    0.000    0.000 _parser.py:178(getwidth)
+       17    0.000    0.000    0.000    0.000 {method 'write' of '_io.TextIOWrapper' objects}
+   104/52    0.000    0.000    0.006    0.000 {built-in method _operator.and_}
+      112    0.000    0.000    0.003    0.000 expr.py:449(_maybe_transform_eq_ne)
+      112    0.000    0.000    0.014    0.000 common.py:62(new_method)
+        8    0.000    0.000    0.005    0.001 generic.py:634(_get_index_resolvers)
+      176    0.000    0.000    0.000    0.000 warnings.py:503(__exit__)
+       60    0.000    0.000    0.001    0.000 array_ops.py:189(_na_arithmetic_op)
+      272    0.000    0.000    0.000    0.000 <string>:1(<lambda>)
+      121    0.000    0.000    0.000    0.000 reportviews.py:949(<genexpr>)
+      256    0.000    0.000    0.001    0.000 expr.py:165(<genexpr>)
+        8    0.000    0.000    0.033    0.004 eval.py:170(eval)
+      352    0.000    0.000    0.000    0.000 config.py:617(_select_options)
+        8    0.000    0.000    0.008    0.001 core.py:88(__init__)
+        8    0.000    0.000    0.000    0.000 utils.py:239(maybe_convert_indices)
+      352    0.000    0.000    0.000    0.000 construction.py:758(_maybe_repeat)
+       88    0.000    0.000    0.000    0.000 common.py:1198(is_bool_dtype)
+       72    0.000    0.000    0.000    0.000 warnings.py:131(filterwarnings)
+      112    0.000    0.000    0.001    0.000 ops.py:436(convert_values)
+        8    0.000    0.000    0.000    0.000 cast.py:1432(find_common_type)
+      120    0.000    0.000    0.000    0.000 __init__.py:1019(__len__)
+      404    0.000    0.000    0.000    0.000 ops.py:142(is_scalar)
+       26    0.000    0.000    0.000    0.000 _compiler.py:243(_optimize_charset)
+       88    0.000    0.000    0.000    0.000 base.py:5373(__getitem__)
+      208    0.000    0.000    0.005    0.000 __init__.py:226(compile)
+     16/8    0.000    0.000    0.001    0.000 postprocessors.py:74(run)
+       16    0.000    0.000    0.001    0.000 blockprocessors.py:345(__init__)
+       16    0.000    0.000    0.000    0.000 cast.py:550(maybe_promote)
+      240    0.000    0.000    0.000    0.000 expr.py:172(<lambda>)
+      178    0.000    0.000    0.000    0.000 enum.py:713(__call__)
+      648    0.000    0.000    0.000    0.000 util.py:400(_sort)
+        8    0.000    0.000    0.061    0.008 frame.py:4846(eval)
+      396    0.000    0.000    0.000    0.000 ops.py:335(is_term)
+       60    0.000    0.000    0.002    0.000 expr.py:540(visit_Name)
+       24    0.000    0.000    0.000    0.000 inlinepatterns.py:653(handleMatch)
+      404    0.000    0.000    0.000    0.000 managers.py:1837(__init__)
+      416    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects}
+      456    0.000    0.000    0.000    0.000 _parser.py:240(__next)
+       60    0.000    0.000    0.000    0.000 ops.py:124(update)
+      480    0.000    0.000    0.000    0.000 {method 'pop' of 'list' objects}
+   180/60    0.000    0.000    0.000    0.000 __init__.py:1028(__contains__)
+  480/120    0.000    0.000    0.000    0.000 __init__.py:1029(<genexpr>)
+       52    0.000    0.000    0.000    0.000 common.py:103(_maybe_match_name)
+      120    0.000    0.000    0.000    0.000 ops.py:76(__new__)
+      432    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+      288    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+       76    0.000    0.000    0.000    0.000 numerictypes.py:357(issubdtype)
+        8    0.000    0.000    0.000    0.000 scope.py:148(__init__)
+       96    0.000    0.000    0.000    0.000 common.py:137(is_object_dtype)
+       72    0.000    0.000    0.005    0.000 base.py:1019(unique)
+      337    0.000    0.000    0.000    0.000 _parser.py:261(get)
+      104    0.000    0.000    0.000    0.000 warnings.py:166(simplefilter)
+       16    0.000    0.000    0.004    0.000 indexing.py:1176(__getitem__)
+      552    0.000    0.000    0.000    0.000 generic.py:405(flags)
+       60    0.000    0.000    0.008    0.000 expr.py:530(visit_BinOp)
+      560    0.000    0.000    0.000    0.000 inlinepatterns.py:237(getCompiledRegExp)
+      324    0.000    0.000    0.000    0.000 _parser.py:256(match)
+     40/8    0.000    0.000    0.000    0.000 treeprocessors.py:418(_prettifyETree)
+       44    0.000    0.000    0.001    0.000 frame.py:4608(_box_col_values)
+      252    0.000    0.000    0.000    0.000 common.py:372(apply_if_callable)
+       40    0.000    0.000    0.000    0.000 {method 'sort' of 'list' objects}
+       16    0.000    0.000    0.004    0.000 generic.py:603(_get_axis_resolvers)
+      112    0.000    0.000    0.001    0.000 common.py:81(get_op_result_name)
+       72    0.000    0.000    0.000    0.000 common.py:633(is_integer_dtype)
+       52    0.000    0.000    0.015    0.000 expr.py:734(visitor)
+       32    0.000    0.000    0.000    0.000 treeprocessors.py:333(__build_ancestors)
+       36    0.000    0.000    0.000    0.000 reportviews.py:907(__init__)
+      352    0.000    0.000    0.000    0.000 config.py:649(_get_deprecated_option)
+       48    0.000    0.000    0.000    0.000 {method 'copy' of 'numpy.ndarray' objects}
+       76    0.000    0.000    0.000    0.000 _dtype.py:330(_name_includes_bit_suffix)
+      104    0.000    0.000    0.000    0.000 base.py:549(find)
+      296    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+      528    0.000    0.000    0.000    0.000 {built-in method _warnings._filters_mutated}
+       52    0.000    0.000    0.001    0.000 frame.py:678(_constructor_sliced_from_mgr)
+       24    0.000    0.000    0.000    0.000 base.py:649(_simple_new)
+       72    0.000    0.000    0.000    0.000 algorithms.py:184(_reconstruct_data)
+       60    0.000    0.000    0.000    0.000 common.py:992(is_numeric_v_string_like)
+        8    0.000    0.000    0.000    0.000 range.py:1148(take)
+       19    0.000    0.000    0.004    0.000 _compiler.py:740(compile)
+      260    0.000    0.000    0.000    0.000 managers.py:180(blknos)
+      368    0.000    0.000    0.000    0.000 series.py:1480(_clear_item_cache)
+      168    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+       19    0.000    0.000    0.000    0.000 _compiler.py:511(_compile_info)
+        8    0.000    0.000    0.007    0.001 core.py:131(build_parser)
+       52    0.000    0.000    0.000    0.000 ops.py:252(is_datetime)
+       72    0.000    0.000    0.005    0.000 series.py:2344(unique)
+       72    0.000    0.000    0.002    0.000 algorithms.py:262(_get_hashtable_algo)
+        8    0.000    0.000    0.000    0.000 cast.py:1391(np_find_common_type)
+       60    0.000    0.000    0.000    0.000 expr.py:551(visit_Constant)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:465(run)
+        8    0.000    0.000    0.001    0.000 managers.py:623(reindex_indexer)
+      120    0.000    0.000    0.000    0.000 ops.py:94(local_name)
+      178    0.000    0.000    0.000    0.000 enum.py:1116(__new__)
+       16    0.000    0.000    0.000    0.000 take.py:564(_take_preprocess_indexer_and_fill_value)
+        8    0.000    0.000    0.029    0.004 core.py:463(markdown)
+      112    0.000    0.000    0.001    0.000 frame.py:4027(_iter_column_arrays)
+        8    0.000    0.000    0.000    0.000 preprocessors.py:37(build_preprocessors)
+       60    0.000    0.000    0.000    0.000 generic.py:339(_from_mgr)
+      176    0.000    0.000    0.000    0.000 warnings.py:456(__init__)
+      112    0.000    0.000    0.000    0.000 expr.py:302(f)
+      104    0.000    0.000    0.000    0.000 array_ops.py:410(fill_bool)
+       60    0.000    0.000    0.001    0.000 expr.py:384(__format__)
+       16    0.000    0.000    0.000    0.000 numeric.py:274(full)
+      155    0.000    0.000    0.002    0.000 {built-in method builtins.next}
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:612(run)
+       38    0.000    0.000    0.000    0.000 enum.py:1541(__and__)
+      221    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+      152    0.000    0.000    0.000    0.000 numerictypes.py:283(issubclass_)
+        8    0.000    0.000    0.002    0.000 generic.py:4027(take)
+      128    0.000    0.000    0.000    0.000 enum.py:197(__get__)
+       60    0.000    0.000    0.000    0.000 scope.py:246(swapkey)
+      180    0.000    0.000    0.000    0.000 _parser.py:176(append)
+        8    0.000    0.000    0.001    0.000 indexing.py:1719(_getitem_axis)
+        8    0.000    0.000    0.001    0.000 preprocessors.py:69(run)
+        8    0.000    0.000    0.000    0.000 blockprocessors.py:170(__init__)
+      120    0.000    0.000    0.000    0.000 generic.py:667(_info_axis)
+       52    0.000    0.000    0.000    0.000 series.py:6137(_align_for_op)
+      420    0.000    0.000    0.000    0.000 ops.py:174(value)
+       40    0.000    0.000    0.000    0.000 {built-in method numpy.empty}
+       72    0.000    0.000    0.004    0.000 algorithms.py:307(unique)
+      144    0.000    0.000    0.000    0.000 tokenize.py:449(generate_tokens)
+      112    0.000    0.000    0.000    0.000 ops.py:215(__init__)
+      104    0.000    0.000    0.000    0.000 frame.py:4017(_get_column_array)
+      328    0.000    0.000    0.000    0.000 managers.py:1940(_block)
+       88    0.000    0.000    0.000    0.000 blockprocessors.py:74(__init__)
+       52    0.000    0.000    0.000    0.000 array_ops.py:352(na_logical_op)
+      231    0.000    0.000    0.000    0.000 {built-in method builtins.min}
+       52    0.000    0.000    0.000    0.000 {method 'reshape' of 'numpy.ndarray' objects}
+      230    0.000    0.000    0.000    0.000 _parser.py:164(__len__)
+       19    0.000    0.000    0.002    0.000 _parser.py:969(parse)
+      104    0.000    0.000    0.008    0.000 expr.py:728(_try_visit_binop)
+      112    0.000    0.000    0.000    0.000 dispatch.py:17(should_extension_dispatch)
+      120    0.000    0.000    0.000    0.000 scope.py:193(has_resolvers)
+      276    0.000    0.000    0.000    0.000 generic.py:363(attrs)
+       62    0.000    0.000    0.000    0.000 missing.py:184(_isna)
+        8    0.000    0.000    0.001    0.000 inlinepatterns.py:432(__init__)
+      274    0.000    0.000    0.000    0.000 {built-in method builtins.callable}
+       19    0.000    0.000    0.002    0.000 _compiler.py:573(_code)
+       36    0.000    0.000    0.000    0.000 scenario.py:195(relations_latex)
+       60    0.000    0.000    0.007    0.000 arraylike.py:38(__eq__)
+      156    0.000    0.000    0.000    0.000 managers.py:196(blklocs)
+      120    0.000    0.000    0.000    0.000 treeprocessors.py:462(unescape)
+        8    0.000    0.000    0.000    0.000 utils.py:419(check_array_indexer)
+       44    0.000    0.000    0.000    0.000 series.py:1471(_set_as_cached)
+      296    0.000    0.000    0.000    0.000 htmlparser.py:295(get_starttag_text)
+       16    0.000    0.000    0.001    0.000 blocks.py:1287(take_nd)
+      156    0.000    0.000    0.000    0.000 {method 'isidentifier' of 'str' objects}
+      248    0.000    0.000    0.000    0.000 expr.py:68(_replace_booleans)
+        8    0.000    0.000    0.002    0.000 blockparser.py:100(parseDocument)
+      146    0.000    0.000    0.000    0.000 common.py:1399(_get_dtype)
+       60    0.000    0.000    0.000    0.000 scope.py:207(resolve)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:39(build_treeprocessors)
+       40    0.000    0.000    0.000    0.000 generic.py:586(_get_axis)
+      165    0.000    0.000    0.000    0.000 _parser.py:293(tell)
+        2    0.000    0.000    0.000    0.000 decorators.py:1064(signature)
+       16    0.000    0.000    0.000    0.000 common.py:97(is_bool_indexer)
+       16    0.000    0.000    0.001    0.000 take.py:59(take_nd)
+      120    0.000    0.000    0.000    0.000 ops.py:101(__call__)
+      140    0.000    0.000    0.000    0.000 {method '__contains__' of 'frozenset' objects}
+      248    0.000    0.000    0.000    0.000 htmlparser.py:135(at_line_start)
+      353    0.000    0.000    0.000    0.000 typing.py:2132(cast)
+       72    0.000    0.000    0.000    0.000 reportviews.py:188(__getitem__)
+      272    0.000    0.000    0.000    0.000 util.py:407(<lambda>)
+      248    0.000    0.000    0.000    0.000 parsing.py:73(clean_backtick_quoted_toks)
+        8    0.000    0.000    0.000    0.000 {method 'copy' of 'list' objects}
+        8    0.000    0.000    0.012    0.002 preprocessors.py:86(run)
+      276    0.000    0.000    0.000    0.000 flags.py:55(allows_duplicate_labels)
+       58    0.000    0.000    0.000    0.000 common.py:1375(_is_dtype)
+      248    0.000    0.000    0.000    0.000 parser.py:127(clear_cdata_mode)
+      138    0.000    0.000    0.000    0.000 common.py:123(<lambda>)
+        8    0.000    0.000    0.002    0.000 managers.py:869(take)
+       60    0.000    0.000    0.000    0.000 expressions.py:226(evaluate)
+      248    0.000    0.000    0.000    0.000 expr.py:93(_replace_locals)
+       24    0.000    0.000    0.000    0.000 inlinepatterns.py:582(parse_sub_patterns)
+      138    0.000    0.000    0.000    0.000 common.py:121(classes)
+       73    0.000    0.000    0.000    0.000 {built-in method fromkeys}
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:556(run)
+       42    0.000    0.000    0.000    0.000 common.py:1163(is_float_dtype)
+       24    0.000    0.000    0.000    0.000 inlinepatterns.py:548(build_single)
+       72    0.000    0.000    0.000    0.000 algorithms.py:217(_ensure_arraylike)
+        2    0.000    0.000    0.000    0.000 inspect.py:2368(_signature_from_function)
+        8    0.000    0.000    0.003    0.000 indexing.py:1397(_getitem_axis)
+       24    0.000    0.000    0.000    0.000 treeprocessors.py:90(__makePlaceholder)
+       16    0.000    0.000    0.000    0.000 common.py:572(condition)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:586(run)
+       72    0.000    0.000    0.000    0.000 common.py:131(<lambda>)
+        8    0.000    0.000    0.002    0.000 generic.py:4142(_take_with_is_copy)
+       36    0.000    0.000    0.000    0.000 graph.py:1977(nbunch_iter)
+      4/2    0.000    0.000    0.000    0.000 inspect.py:2463(_signature_from_callable)
+       36    0.000    0.000    0.000    0.000 reportviews.py:948(__iter__)
+       16    0.000    0.000    0.000    0.000 postprocessors.py:107(isblocklevel)
+        8    0.000    0.000    0.000    0.000 frame.py:1047(shape)
+       60    0.000    0.000    0.001    0.000 {function Expr.__format__ at 0x0000024E7C6F00E0}
+       16    0.000    0.000    0.000    0.000 base.py:5437(_can_hold_identifiers_and_holds_name)
+       56    0.000    0.000    0.000    0.000 managers.py:1993(dtype)
+        8    0.000    0.000    0.000    0.000 postprocessors.py:40(build_postprocessors)
+       62    0.000    0.000    0.000    0.000 missing.py:101(isna)
+    27/19    0.000    0.000    0.000    0.000 _compiler.py:436(_get_literal_prefix)
+       52    0.000    0.000    0.006    0.000 arraylike.py:68(__and__)
+       16    0.000    0.000    0.000    0.000 inference.py:195(is_array_like)
+       24    0.000    0.000    0.000    0.000 treeprocessors.py:143(__processElementText)
+        8    0.000    0.000    0.015    0.002 {built-in method _functools.reduce}
+    151/5    0.000    0.000    0.000    0.000 <frozen abc>:121(__subclasscheck__)
+      120    0.000    0.000    0.000    0.000 serializers.py:64(_escape_cdata)
+       60    0.000    0.000    0.000    0.000 missing.py:131(dispatch_fill_zeros)
+       16    0.000    0.000    0.000    0.000 blocks.py:292(make_block_same_class)
+        8    0.000    0.000    0.001    0.000 serializers.py:192(to_xhtml_string)
+      104    0.000    0.000    0.000    0.000 {method 'find' of 'bytearray' objects}
+       36    0.000    0.000    0.000    0.000 clozeroutines.py:60(var_is_stringtype)
+       32    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1390(_handle_fromlist)
+        8    0.000    0.000    0.000    0.000 htmlparser.py:83(__init__)
+       64    0.000    0.000    0.000    0.000 blockprocessors.py:356(test)
+       24    0.000    0.000    0.000    0.000 {method 'any' of 'numpy.ndarray' objects}
+        8    0.000    0.000    0.000    0.000 base.py:836(__iter__)
+        8    0.000    0.000    0.000    0.000 eval.py:30(_check_engine)
+       85    0.000    0.000    0.000    0.000 reportviews.py:934(<lambda>)
+      208    0.000    0.000    0.000    0.000 base.py:6672(_maybe_cast_indexer)
+       40    0.000    0.000    0.000    0.000 util.py:251(get_placeholder)
+        8    0.000    0.000    0.019    0.002 expr.py:820(parse)
+       26    0.000    0.000    0.000    0.000 _compiler.py:216(_compile_charset)
+       88    0.000    0.000    0.000    0.000 common.py:152(cast_scalar_indexer)
+       25    0.000    0.000    0.000    0.000 _parser.py:372(_escape)
+        8    0.000    0.000    0.001    0.000 indexing.py:2632(check_bool_indexer)
+       60    0.000    0.000    0.000    0.000 range.py:553(equals)
+       60    0.000    0.000    0.000    0.000 expressions.py:67(_evaluate_standard)
+        9    0.000    0.000    0.000    0.000 base.py:82(shape)
+        8    0.000    0.000    0.019    0.002 expr.py:792(__init__)
+       24    0.000    0.000    0.000    0.000 _methods.py:55(_any)
+       64    0.000    0.000    0.000    0.000 blockprocessors.py:553(test)
+      180    0.000    0.000    0.000    0.000 ops.py:182(name)
+        2    0.000    0.000    0.001    0.000 decorators.py:874(compile)
+       29    0.000    0.000    0.000    0.000 _parser.py:449(_uniq)
+        8    0.000    0.000    0.000    0.000 core.py:263(reset)
+       72    0.000    0.000    0.000    0.000 treeprocessors.py:190(linkText)
+      168    0.000    0.000    0.000    0.000 base.py:363(ndim)
+       16    0.000    0.000    0.000    0.000 base.py:773(_view)
+       36    0.000    0.000    0.000    0.000 reportviews.py:916(<lambda>)
+        8    0.000    0.000    0.003    0.000 indexing.py:1205(_getbool_axis)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:432(run)
+       76    0.000    0.000    0.000    0.000 _dtype.py:24(_kind_name)
+       16    0.000    0.000    0.000    0.000 cast.py:1471(<genexpr>)
+        8    0.000    0.000    0.014    0.002 expr.py:811(__call__)
+       12    0.000    0.000    0.000    0.000 inspect.py:2729(__init__)
+       24    0.000    0.000    0.000    0.000 treeprocessors.py:96(__findPlaceholder)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:463(test)
+        8    0.000    0.000    0.000    0.000 {method 'expandtabs' of 'str' objects}
+      128    0.000    0.000    0.000    0.000 enum.py:1279(value)
+      150    0.000    0.000    0.000    0.000 {built-in method builtins.ord}
+       16    0.000    0.000    0.000    0.000 range.py:201(_simple_new)
+        8    0.000    0.000    0.000    0.000 blockparser.py:83(__init__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:174(test)
+       16    0.000    0.000    0.000    0.000 range.py:483(_view)
+        8    0.000    0.000    0.000    0.000 core.py:279(set_output_format)
+        8    0.000    0.000    0.000    0.000 printing.py:165(pprint_thing)
+        8    0.000    0.000    0.000    0.000 managers.py:948(from_blocks)
+       94    0.000    0.000    0.000    0.000 _parser.py:83(groups)
+       72    0.000    0.000    0.000    0.000 __init__.py:42(warn_copy_on_write)
+      128    0.000    0.000    0.000    0.000 {method 'items' of 'xml.etree.ElementTree.Element' objects}
+        5    0.000    0.000    0.000    0.000 _compiler.py:386(_mk_bitmap)
+        8    0.000    0.000    0.002    0.000 expr.py:134(_preparse)
+        8    0.000    0.000    0.002    0.000 tokenize.py:188(untokenize)
+       39    0.000    0.000    0.000    0.000 _compiler.py:398(_simple)
+      120    0.000    0.000    0.000    0.000 _parser.py:113(__init__)
+        8    0.000    0.000    0.000    0.000 scope.py:54(ensure_scope)
+        8    0.000    0.000    0.000    0.000 htmlparser.py:107(close)
+        8    0.000    0.000    0.000    0.000 blockprocessors.py:451(__init__)
+        2    0.000    0.000    0.000    0.000 decorators.py:922(assemble)
+        4    0.000    0.000    0.000    0.000 inspect.py:3015(__init__)
+        2    0.000    0.000    0.000    0.000 backends.py:590(__signature__)
+       67    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+       40    0.000    0.000    0.000    0.000 base.py:831(_reset_identity)
+       56    0.000    0.000    0.000    0.000 series.py:707(dtype)
+       60    0.000    0.000    0.000    0.000 __init__.py:1008(__getitem__)
+       16    0.000    0.000    0.000    0.000 generic.py:4379(_set_is_copy)
+       24    0.000    0.000    0.000    0.000 inlinepatterns.py:643(build_element)
+       14    0.000    0.000    0.000    0.000 __init__.py:179(sub)
+       24    0.000    0.000    0.000    0.000 _parser.py:86(opengroup)
+       75    0.000    0.000    0.000    0.000 base.py:5144(_values)
+       16    0.000    0.000    0.000    0.000 base.py:1765(_get_names)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:289(test)
+        8    0.000    0.000    0.002    0.000 tokenize.py:275(untokenize)
+        8    0.000    0.000    0.012    0.001 parser.py:104(feed)
+       56    0.000    0.000    0.000    0.000 util.py:347(__len__)
+       48    0.000    0.000    0.000    0.000 __init__.py:998(__init__)
+       72    0.000    0.000    0.000    0.000 common.py:126(_classes_and_not_datetimelike)
+       16    0.000    0.000    0.000    0.000 take.py:325(_get_take_nd_function)
+       32    0.000    0.000    0.000    0.000 {built-in method _elementtree.SubElement}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+       48    0.000    0.000    0.000    0.000 util.py:203(__init__)
+        8    0.000    0.000    0.000    0.000 parser.py:86(__init__)
+       19    0.000    0.000    0.000    0.000 {built-in method _sre.compile}
+       16    0.000    0.000    0.000    0.000 __init__.py:1049(new_child)
+      112    0.000    0.000    0.000    0.000 series.py:660(_constructor)
+        8    0.000    0.000    0.000    0.000 expr.py:754(__init__)
+       24    0.000    0.000    0.000    0.000 treeprocessors.py:114(__stashNode)
+       19    0.000    0.000    0.000    0.000 _parser.py:231(__init__)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:80(__init__)
+        8    0.000    0.000    0.000    0.000 {method 'nonzero' of 'numpy.ndarray' objects}
+       40    0.000    0.000    0.000    0.000 util.py:312(__init__)
+        8    0.000    0.000    0.000    0.000 serializers.py:175(_write_html)
+       16    0.000    0.000    0.000    0.000 common.py:536(is_string_dtype)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:525(test)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:78(lastChild)
+       41    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+       56    0.000    0.000    0.000    0.000 base.py:1671(name)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:499(test)
+       24    0.000    0.000    0.000    0.000 _validators.py:226(validate_bool_kwarg)
+        8    0.000    0.000    0.000    0.000 htmlparser.py:96(reset)
+        1    0.000    0.000    0.000    0.000 base.py:842(_engine)
+        8    0.000    0.000    0.000    0.000 base.py:378(interleaved_dtype)
+       64    0.000    0.000    0.000    0.000 __init__.py:122(unescape)
+       48    0.000    0.000    0.000    0.000 generic.py:572(_get_axis_number)
+        6    0.000    0.000    0.000    0.000 decorators.py:854(_name)
+        8    0.000    0.000    0.000    0.000 range.py:1009(__getitem__)
+        1    0.000    0.000    0.000    0.000 config.py:391(conclude)
+       24    0.000    0.000    0.000    0.000 _parser.py:98(closegroup)
+        8    0.000    0.000    0.000    0.000 series.py:978(__array__)
+       36    0.000    0.000    0.000    0.000 clozeroutines.py:74(get_tolerance)
+        8    0.000    0.000    0.000    0.000 eval.py:123(_convert_expression)
+       16    0.000    0.000    0.000    0.000 base.py:2066(_get_level_values)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:254(test)
+       38    0.000    0.000    0.000    0.000 _compiler.py:570(isstring)
+        8    0.000    0.000    0.000    0.000 utils.py:62(is_list_like_indexer)
+       42    0.000    0.000    0.000    0.000 common.py:686(<lambda>)
+        8    0.000    0.000    0.000    0.000 indexing.py:1667(_validate_integer)
+       42    0.000    0.000    0.000    0.000 _parser.py:172(__setitem__)
+       24    0.000    0.000    0.000    0.000 treeprocessors.py:48(isString)
+        8    0.000    0.000    0.000    0.000 base.py:5552(equals)
+        8    0.000    0.000    0.000    0.000 frame.py:659(_constructor_from_mgr)
+       16    0.000    0.000    0.000    0.000 indexing.py:1165(_check_deprecated_callable_usage)
+        8    0.000    0.000    0.014    0.002 engines.py:133(evaluate)
+        8    0.000    0.000    0.015    0.002 expr.py:413(visit_Module)
+        8    0.000    0.000    0.000    0.000 indexing.py:161(iloc)
+     12/8    0.000    0.000    0.000    0.000 decorators.py:1170(_flatten)
+       32    0.000    0.000    0.000    0.000 {method 'lstrip' of 'str' objects}
+       32    0.000    0.000    0.000    0.000 blockparser.py:67(isstate)
+      110    0.000    0.000    0.000    0.000 <frozen _collections_abc>:435(__subclasshook__)
+        8    0.000    0.000    0.000    0.000 parser.py:96(reset)
+        8    0.000    0.000    0.000    0.000 printing.py:196(as_escaped_string)
+        8    0.000    0.000    0.000    0.000 base.py:74(__len__)
+       10    0.000    0.000    0.000    0.000 _compiler.py:467(_get_charset_prefix)
+        8    0.000    0.000    0.000    0.000 decorators.py:1200(_indent)
+        8    0.000    0.000    0.000    0.000 {method 'min' of 'numpy.ndarray' objects}
+        8    0.000    0.000    0.001    0.000 blockparser.py:120(parseChunk)
+        8    0.000    0.000    0.000    0.000 {method 'max' of 'numpy.ndarray' objects}
+       16    0.000    0.000    0.000    0.000 common.py:529(is_string_or_object_np_dtype)
+        8    0.000    0.000    0.000    0.000 util.py:228(store)
+       19    0.000    0.000    0.000    0.000 _parser.py:953(fix_flags)
+       32    0.000    0.000    0.000    0.000 {method 'iter' of 'xml.etree.ElementTree.Element' objects}
+        2    0.000    0.000    0.000    0.000 take.py:287(_get_take_nd_function_cached)
+        8    0.000    0.000    0.000    0.000 indexing.py:305(loc)
+       16    0.000    0.000    0.000    0.000 base.py:332(array)
+        8    0.000    0.000    0.000    0.000 postprocessors.py:84(substitute_match)
+       24    0.000    0.000    0.000    0.000 cast.py:1462(<genexpr>)
+       60    0.000    0.000    0.000    0.000 ops.py:192(_resolve_name)
+        8    0.000    0.000    0.000    0.000 clozeroutines.py:12(__init__)
+       60    0.000    0.000    0.000    0.000 ops.py:178(value)
+        8    0.000    0.000    0.015    0.002 expr.py:733(visit_BoolOp)
+       24    0.000    0.000    0.000    0.000 inlinepatterns.py:254(type)
+        9    0.000    0.000    0.000    0.000 _compiler.py:407(_generate_overlap_table)
+        8    0.000    0.000    0.002    0.000 ast.py:199(fix_missing_locations)
+      4/2    0.000    0.000    0.000    0.000 inspect.py:3067(from_callable)
+       56    0.000    0.000    0.000    0.000 range.py:376(dtype)
+       16    0.000    0.000    0.000    0.000 base.py:1992(_validate_index_level)
+       60    0.000    0.000    0.000    0.000 expr.py:704(translate_In)
+        2    0.000    0.000    0.001    0.000 decorators.py:720(_lazy_compile)
+        8    0.000    0.000    0.000    0.000 inlinepatterns.py:393(__init__)
+       27    0.000    0.000    0.000    0.000 base.py:84(<genexpr>)
+       16    0.000    0.000    0.000    0.000 __init__.py:55(using_pyarrow_string_dtype)
+        8    0.000    0.000    0.015    0.002 expr.py:419(visit_Expr)
+       24    0.000    0.000    0.000    0.000 {method 'insert' of 'xml.etree.ElementTree.Element' objects}
+        8    0.000    0.000    0.000    0.000 eval.py:94(_check_resolvers)
+       16    0.000    0.000    0.000    0.000 postprocessors.py:117(stash_to_string)
+        8    0.000    0.000    0.000    0.000 {built-in method sys._getframe}
+       34    0.000    0.000    0.000    0.000 _compiler.py:31(_combine_flags)
+        8    0.000    0.000    0.000    0.000 postprocessors.py:125(run)
+       17    0.000    0.000    0.000    0.000 <frozen codecs>:186(__init__)
+        8    0.000    0.000    0.000    0.000 {method 'splitlines' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 inference.py:373(is_sequence)
+       16    0.000    0.000    0.000    0.000 expr.py:807(assigner)
+       16    0.000    0.000    0.000    0.000 managers.py:291(arrays)
+       24    0.000    0.000    0.000    0.000 cast.py:1478(<genexpr>)
+        8    0.000    0.000    0.000    0.000 ast.py:34(parse)
+        8    0.000    0.000    0.000    0.000 generic.py:592(_get_block_manager_axis)
+      2/1    0.000    0.000    0.001    0.001 decorators.py:788(func)
+        8    0.000    0.000    0.000    0.000 base.py:791(is_)
+       10    0.000    0.000    0.000    0.000 backends.py:599(<genexpr>)
+       11    0.000    0.000    0.000    0.000 <frozen _collections_abc>:104(_check_methods)
+        8    0.000    0.000    0.000    0.000 {method 'index' of 'str' objects}
+       19    0.000    0.000    0.000    0.000 _parser.py:77(__init__)
+        2    0.000    0.000    0.000    0.000 cast.py:605(_maybe_promote_cached)
+       37    0.000    0.000    0.000    0.000 _compiler.py:428(_get_iscased)
+        2    0.000    0.000    0.000    0.000 cast.py:613(_maybe_promote)
+        1    0.000    0.000    0.000    0.000 servicecloze.py:462(close_build)
+       16    0.000    0.000    0.000    0.000 cast.py:1473(<genexpr>)
+        2    0.000    0.000    0.000    0.000 inspect.py:747(unwrap)
+       54    0.000    0.000    0.000    0.000 inspect.py:2782(name)
+       16    0.000    0.000    0.000    0.000 blocks.py:266(mgr_locs)
+        8    0.000    0.000    0.000    0.000 expr.py:392(__init__)
+        8    0.000    0.000    0.000    0.000 parser.py:113(close)
+       19    0.000    0.000    0.000    0.000 {built-in method builtins.max}
+        8    0.000    0.000    0.000    0.000 decorators.py:831(_count)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:583(test)
+        3    0.000    0.000    0.000    0.000 functools.py:979(__get__)
+        8    0.000    0.000    0.000    0.000 _markupbase.py:27(__init__)
+        8    0.000    0.000    0.000    0.000 _methods.py:39(_amax)
+        8    0.000    0.000    0.000    0.000 _methods.py:43(_amin)
+        1    0.000    0.000    0.000    0.000 multidigraph.py:589(edges)
+        8    0.000    0.000    0.000    0.000 util.py:221(__init__)
+      4/2    0.000    0.000    0.000    0.000 inspect.py:3325(signature)
+        1    0.000    0.000    0.000    0.000 range.py:237(_data)
+        8    0.000    0.000    0.000    0.000 core.py:159(registerExtensions)
+        8    0.000    0.000    0.000    0.000 blocks.py:718(dtype)
+       16    0.000    0.000    0.000    0.000 ElementTree.py:525(__init__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:609(test)
+       16    0.000    0.000    0.000    0.000 multiarray.py:1080(copyto)
+        2    0.000    0.000    0.000    0.000 missing.py:728(is_valid_na_for_dtype)
+       16    0.000    0.000    0.000    0.000 ElementTree.py:531(getroot)
+        8    0.000    0.000    0.000    0.000 util.py:246(reset)
+       17    0.000    0.000    0.000    0.000 <frozen codecs>:214(setstate)
+       10    0.000    0.000    0.000    0.000 inspect.py:3062(<genexpr>)
+        4    0.000    0.000    0.000    0.000 missing.py:673(na_value_for_dtype)
+        8    0.000    0.000    0.000    0.000 managers.py:246(items)
+       16    0.000    0.000    0.000    0.000 eval.py:105(_check_expression)
+        1    0.000    0.000    0.000    0.000 {built-in method numpy.arange}
+        8    0.000    0.000    0.000    0.000 function.py:64(__call__)
+        2    0.000    0.000    0.000    0.000 inspect.py:175(get_annotations)
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        8    0.000    0.000    0.000    0.000 {method 'clear' of 'dict' objects}
+       16    0.000    0.000    0.000    0.000 {built-in method builtins.id}
+       32    0.000    0.000    0.000    0.000 inspect.py:2794(kind)
+        1    0.000    0.000    0.000    0.000 multidigraph.py:402(pred)
+        6    0.000    0.000    0.000    0.000 {method 'values' of 'mappingproxy' objects}
+        8    0.000    0.000    0.000    0.000 generic.py:696(ndim)
+        8    0.000    0.000    0.000    0.000 engines.py:52(__init__)
+        8    0.000    0.000    0.000    0.000 eval.py:152(_check_for_locals)
+        3    0.000    0.000    0.000    0.000 <frozen _collections_abc>:288(__subclasshook__)
+        8    0.000    0.000    0.000    0.000 _markupbase.py:32(reset)
+       16    0.000    0.000    0.000    0.000 <frozen _collections_abc>:341(__subclasshook__)
+        1    0.000    0.000    0.000    0.000 base.py:5170(_get_engine_target)
+        9    0.000    0.000    0.000    0.000 range.py:315(step)
+        8    0.000    0.000    0.000    0.000 base.py:1176(_maybe_disallow_fill)
+       10    0.000    0.000    0.000    0.000 <frozen _collections_abc>:309(__subclasshook__)
+        8    0.000    0.000    0.000    0.000 eval.py:75(_check_parser)
+        5    0.000    0.000    0.000    0.000 {method 'translate' of 'bytearray' objects}
+        8    0.000    0.000    0.000    0.000 tokenize.py:169(__init__)
+        2    0.000    0.000    0.000    0.000 cast.py:524(ensure_dtype_can_hold_na)
+        2    0.000    0.000    0.000    0.000 blocks.py:253(fill_value)
+        2    0.000    0.000    0.000    0.000 inspect.py:3083(replace)
+        1    0.000    0.000    0.000    0.000 base.py:456(_engine_type)
+        9    0.000    0.000    0.000    0.000 range.py:280(start)
+        8    0.000    0.000    0.000    0.000 managers.py:913(__init__)
+        1    0.000    0.000    0.000    0.000 reportviews.py:1058(__init__)
+        8    0.000    0.000    0.000    0.000 multiarray.py:669(result_type)
+        4    0.000    0.000    0.000    0.000 inspect.py:371(isfunction)
+        1    0.000    0.000    0.000    0.000 common.py:1040(needs_i8_conversion)
+        1    0.000    0.000    0.000    0.000 base.py:2313(is_unique)
+        2    0.000    0.000    0.000    0.000 <frozen _collections_abc>:388(__subclasshook__)
+        4    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
+        8    0.000    0.000    0.000    0.000 inspect.py:2786(default)
+        2    0.000    0.000    0.000    0.000 inspect.py:767(_is_wrapper)
+        6    0.000    0.000    0.000    0.000 inspect.py:3075(parameters)
+        2    0.000    0.000    0.000    0.000 {built-in method sys.getrecursionlimit}
+        2    0.000    0.000    0.000    0.000 decorators.py:1058(<genexpr>)
+        2    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 multidigraph.py:383(succ)
+        1    0.000    0.000    0.000    0.000 <class 'networkx.utils.decorators.argmap'> compilation 4:1(<module>)    
+        1    0.000    0.000    0.000    0.000 <class 'networkx.utils.decorators.argmap'> compilation 8:1(<module>)    
+        1    0.000    0.000    0.000    0.000 _parser.py:100(checkgroup)
+        1    0.000    0.000    0.000    0.000 range.py:298(stop)
+        1    0.000    0.000    0.000    0.000 range.py:231(_constructor)
+        1    0.000    0.000    0.000    0.000 _parser.py:103(checklookbehindgroup)
+        1    0.000    0.000    0.000    0.000 base.py:974(dtype)
+        
+        
+        # Version 3
+
+
+        
+
+Reading configuration from config.yaml.
+pyequa is opening file ..\exercise_model.md.
+File 'cloze_manyfiles_5_tabela.md' is now cloze_manyfiles_5_tabel_2025-04-05_19-27-49.md.
+====================
+Add exercises with 11 given variables.
+==> exercies given (f, g, sqgrupos, dftotal, msqerros, sqerros, msqgrupos, n, sig, dfgrupos, dferros)
+====================
+Add exercises with 10 given variables.
+==> exercies given (f, g, sqgrupos, dftotal, msqerros, sqerros, msqgrupos, n, dfgrupos, dferros)
+====================
+Add exercises with 9 given variables.
+==> exercies given (f, g, sqgrupos, dftotal, msqerros, sqerros, n, dfgrupos, dferros)
+====================
+Add exercises with 8 given variables.
+==> exercies given (f, g, sqgrupos, dftotal, sqerros, n, dfgrupos, dferros)
+====================
+Add exercises with 7 given variables.
+==> exercies given (f, g, sqgrupos, sqerros, n, dfgrupos, dferros)
+====================
+Add exercises with 6 given variables.
+==> exercies given (g, sqgrupos, sqerros, n, dfgrupos, dferros)
+====================
+Add exercises with 5 given variables.
+==> exercies given (g, sqgrupos, sqerros, n, dfgrupos)
+====================
+Add exercises with 4 given variables.
+==> exercies given (g, sqgrupos, sqerros, n)
+====================
+Add exercises with 3 given variables.
+====================
+Add exercises with 2 given variables.
+====================
+Add exercises with 1 given variables.
+         389635226 function calls (389623771 primitive calls) in 243.372 seconds
+
+   Ordered by: internal time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+     4094   40.947    0.010  160.672    0.039 scenario.py:590(add_edge_from_solver)
+ 16241680   30.480    0.000   43.188    0.000 multidigraph.py:416(add_edge)
+ 33538048   29.371    0.000   51.098    0.000 scenario.py:94(join_varnames)
+ 70745102   26.430    0.000   29.189    0.000 reportviews.py:1333(__iter__)
+     4094   18.766    0.005   79.969    0.020 scenario.py:637(remove_edge_from_solver)
+ 16241680   17.151    0.000   26.151    0.000 multidigraph.py:514(remove_edge)
+ 33538048   13.128    0.000   64.226    0.000 scenario.py:532(node_name)
+ 33538088   12.240    0.000   12.240    0.000 {method 'sort' of 'list' objects}
+ 32487454    9.731    0.000   14.449    0.000 misc.py:595(_clear_cache)
+ 33546394    9.491    0.000    9.491    0.000 {method 'join' of 'str' objects}
+ 16769144    8.970    0.000    8.970    0.000 {method 'union' of 'set' objects}
+     4094    5.861    0.001   32.013    0.008 multigraph.py:702(remove_edges_from)
+ 32616484    4.760    0.000    4.761    0.000 {built-in method builtins.getattr}
+ 16365176    4.562    0.000    4.562    0.000 {method 'update' of 'dict' objects}
+ 16769024    3.324    0.000    3.324    0.000 {method 'issubset' of 'set' objects}
+ 16900829    2.788    0.000    2.788    0.000 {method 'items' of 'dict' objects}
+16546597/16544753    2.305    0.000    2.306    0.000 {built-in method builtins.len}
+       19    0.583    0.031  243.026   12.791 scenario.py:789(yield_givenvarsset_nodepathlist)
+  1439040    0.483    0.000    0.483    0.000 {method 'get' of 'dict' objects}
+     4094    0.274    0.000    0.480    0.000 unweighted.py:266(_bidirectional_pred_succ)
+   123468    0.257    0.000    0.340    0.000 printer.py:294(_print)
+   123468    0.173    0.000    1.221    0.000 _print_helpers.py:27(__str__)
+   123468    0.172    0.000    0.411    0.000 printer.py:258(__init__)
+    24572    0.123    0.000    1.160    0.000 scenario.py:83(set2orderedstr)
+   543818    0.115    0.000    0.115    0.000 {method 'append' of 'list' objects}
+   123468    0.114    0.000    0.948    0.000 str.py:980(sstr)
+   123468    0.100    0.000    1.048    0.000 printer.py:371(__call__)
+   123468    0.095    0.000    0.162    0.000 printer.py:250(_get_initial_settings)
+   123468    0.084    0.000    0.424    0.000 printer.py:290(doprint)
+    59617    0.047    0.000    0.058    0.000 coreviews.py:102(__getitem__)
+   123492    0.039    0.000    0.039    0.000 {method 'copy' of 'dict' objects}
+     8366    0.027    0.000    0.030    0.000 {method 'format' of 'str' objects}
+     4094    0.024    0.000    0.516    0.000 unweighted.py:202(bidirectional_shortest_path)
+   124251    0.024    0.000    0.024    0.000 {built-in method builtins.hasattr}
+     8188    0.023    0.000    0.532    0.000 scenario.py:182(__init__)
+    24583    0.021    0.000    0.021    0.000 {built-in method builtins.sorted}
+   123468    0.019    0.000    0.019    0.000 str.py:845(_print_Symbol)
+    59617    0.019    0.000    0.031    0.000 coreviews.py:49(__iter__)
+8188/4094    0.019    0.000    0.554    0.000 backends.py:627(__call__)
+     4094    0.018    0.000    0.572    0.000 <class 'networkx.utils.decorators.argmap'> compilation 4:1(argmap_shortest_path_1)
+     4094    0.017    0.000    0.216    0.000 scenario.py:316(input_level)
+    64414    0.013    0.000    0.013    0.000 {built-in method builtins.iter}
+    49284    0.013    0.000    0.013    0.000 basic.py:189(__hash__)
+    59619    0.011    0.000    0.011    0.000 coreviews.py:43(__init__)
+     4094    0.010    0.000    0.534    0.000 <class 'networkx.utils.decorators.argmap'> compilation 8:1(argmap_bidirectional_shortest_path_5)
+     4094    0.009    0.000    0.544    0.000 generic.py:43(shortest_path)
+     4094    0.009    0.000    0.010    0.000 reportviews.py:205(__call__)
+       30    0.008    0.000    0.008    0.000 {built-in method builtins.print}
+25880/25812    0.005    0.000    0.008    0.000 {built-in method builtins.isinstance}
+     8224    0.005    0.000    0.005    0.000 graph.py:455(__contains__)
+     4094    0.005    0.000    0.007    0.000 reportviews.py:331(__iter__)
+     8188    0.004    0.000    0.004    0.000 scenario.py:130(__init__)
+       17    0.003    0.000    0.003    0.000 {built-in method _io.open}
+      352    0.003    0.000    0.025    0.000 series.py:389(__init__)
+       17    0.003    0.000    0.003    0.000 {method '__exit__' of '_io._IOBase' objects}
+       11    0.002    0.000    0.222    0.020 scenario.py:763(yield_givenvarsset_nodepathlist_from_number)
+       16    0.002    0.000    0.012    0.001 parser.py:134(goahead)
+      352    0.002    0.000    0.006    0.000 construction.py:517(sanitize_array)
+     4130    0.002    0.000    0.002    0.000 reportviews.py:1362(__call__)
+        8    0.002    0.000    0.072    0.009 clozeroutines.py:87(vars_to_fields)
+     3339    0.002    0.000    0.002    0.000 {method 'reverse' of 'list' objects}
+  560/536    0.001    0.000    0.003    0.000 treeprocessors.py:253(__applyPattern)
+       11    0.001    0.000    0.002    0.000 scenario.py:67(Combinations_of_givensize)
+        1    0.001    0.001  243.372  243.372 config.py:263(challenge_deterministic)
+     4094    0.001    0.000    0.001    0.000 multidigraph.py:864(is_directed)
+      296    0.001    0.000    0.004    0.000 htmlparser.py:299(parse_starttag)
+     2048    0.001    0.000    0.001    0.000 {method 'match' of 're.Pattern' objects}
+     1316    0.001    0.000    0.003    0.000 ops.py:146(type)
+      688    0.001    0.000    0.004    0.000 generic.py:6301(__setattr__)
+ 3052/768    0.001    0.000    0.003    0.000 common.py:62(flatten)
+      816    0.001    0.000    0.002    0.000 tokenize.py:530(_generate_tokens_from_c_tokenizer)
+      276    0.001    0.000    0.002    0.000 generic.py:6236(__finalize__)
+     4094    0.001    0.000    0.001    0.000 reportviews.py:313(__init__)
+       72    0.001    0.000    0.004    0.000 algorithms.py:427(unique_with_mask)
+        8    0.001    0.000    0.022    0.003 generic.py:644(_get_cleaned_column_resolvers)
+      412    0.001    0.000    0.001    0.000 generic.py:278(__init__)
+      352    0.001    0.000    0.003    0.000 managers.py:1863(from_array)
+     1200    0.001    0.000    0.001    0.000 {method 'search' of 're.Pattern' objects}
+     1980    0.001    0.000    0.002    0.000 generic.py:42(_instancecheck)
+    70/20    0.001    0.000    0.002    0.000 _parser.py:512(_parse)
+     1980    0.001    0.000    0.001    0.000 generic.py:37(_check)
+      328    0.001    0.000    0.002    0.000 common.py:1596(pandas_dtype)
+      528    0.001    0.000    0.003    0.000 parsing.py:170(tokenize_string)
+     1096    0.001    0.000    0.001    0.000 _markupbase.py:44(updatepos)
+      628    0.001    0.000    0.001    0.000 blocks.py:2827(external_values)
+       10    0.001    0.000    0.001    0.000 {built-in method builtins.compile}
+    376/8    0.001    0.000    0.018    0.002 expr.py:399(visit)
+      360    0.001    0.000    0.001    0.000 blocks.py:2716(new_block)
+      248    0.001    0.000    0.003    0.000 parser.py:379(parse_endtag)
+      104    0.001    0.000    0.001    0.000 {built-in method numpy.array}
+      424    0.001    0.000    0.001    0.000 core.py:302(is_block_level)
+      464    0.001    0.000    0.002    0.000 series.py:784(name)
+      296    0.001    0.000    0.001    0.000 htmlparser.py:163(handle_starttag)
+      368    0.001    0.000    0.001    0.000 generic.py:6284(__getattr__)
+    332/8    0.001    0.000    0.001    0.000 ast.py:207(_fix)
+        8    0.000    0.000    0.109    0.014 servicecloze.py:150(challenge_deterministic_add)
+   115/19    0.000    0.000    0.001    0.000 _compiler.py:37(_compile)
+        8    0.000    0.000    0.005    0.001 serviceabstract.py:80(solverslist_build_answer_text)
+      352    0.000    0.000    0.001    0.000 blocks.py:2645(maybe_coerce_values)
+     4094    0.000    0.000    0.000    0.000 scenario.py:779(<lambda>)
+      112    0.000    0.000    0.009    0.000 series.py:6201(_construct_result)
+      320    0.000    0.000    0.002    0.000 construction.py:769(_try_cast)
+      836    0.000    0.000    0.001    0.000 series.py:734(name)
+  748/584    0.000    0.000    0.001    0.000 {built-in method builtins.all}
+      222    0.000    0.000    0.005    0.000 __init__.py:280(_compile)
+      368    0.000    0.000    0.002    0.000 generic.py:807(_set_axis)
+      560    0.000    0.000    0.001    0.000 util.py:336(__getitem__)
+      352    0.000    0.000    0.001    0.000 config.py:127(_get_single_key)
+      256    0.000    0.000    0.001    0.000 htmlparser.py:122(line_offset)
+      248    0.000    0.000    0.002    0.000 htmlparser.py:184(handle_endtag)
+      768    0.000    0.000    0.005    0.000 ops.py:246(<genexpr>)
+      164    0.000    0.000    0.002    0.000 series.py:1095(__getitem__)
+      656    0.000    0.000    0.001    0.000 ast.py:269(iter_child_nodes)
+      272    0.000    0.000    0.001    0.000 util.py:364(register)
+     1088    0.000    0.000    0.002    0.000 inference.py:80(iterable_not_string)
+   120/60    0.000    0.000    0.007    0.000 {built-in method _operator.eq}
+      352    0.000    0.000    0.001    0.000 config.py:635(_get_root)
+      208    0.000    0.000    0.000    0.000 base.py:3777(get_loc)
+      150    0.000    0.000    0.000    0.000 {method 'sub' of 're.Pattern' objects}
+    56/32    0.000    0.000    0.004    0.000 treeprocessors.py:120(__handleInline)
+      992    0.000    0.000    0.001    0.000 inference.py:334(is_hashable)
+     1166    0.000    0.000    0.000    0.000 {built-in method __new__ of type object at 0x00007FF9F77F98B0}
+      352    0.000    0.000    0.002    0.000 config.py:145(_get_option)
+     1480    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+      672    0.000    0.000    0.001    0.000 __init__.py:447(_make)
+      636    0.000    0.000    0.000    0.000 construction.py:481(ensure_wrapped_if_datetimelike)
+      112    0.000    0.000    0.010    0.000 expr.py:491(_maybe_evaluate_binop)
+     1048    0.000    0.000    0.000    0.000 {method 'count' of 'str' objects}
+      628    0.000    0.000    0.002    0.000 managers.py:2000(external_values)
+     1804    0.000    0.000    0.000    0.000 {built-in method builtins.issubclass}
+      560    0.000    0.000    0.000    0.000 {method 'finditer' of 're.Pattern' objects}
+      464    0.000    0.000    0.001    0.000 common.py:1571(validate_all_hashable)
+      408    0.000    0.000    0.000    0.000 managers.py:2004(internal_values)
+     1001    0.000    0.000    0.000    0.000 range.py:999(__len__)
+      384    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+     64/8    0.000    0.000    0.000    0.000 serializers.py:118(_serialize_html)
+      104    0.000    0.000    0.010    0.000 generic.py:6432(dtypes)
+     1091    0.000    0.000    0.001    0.000 <frozen abc>:117(__instancecheck__)
+  496/248    0.000    0.000    0.000    0.000 expr.py:123(<lambda>)
+     1200    0.000    0.000    0.000    0.000 {method 'end' of 're.Match' objects}
+    151/5    0.000    0.000    0.000    0.000 {built-in method _abc._abc_subclasscheck}
+       72    0.000    0.000    0.002    0.000 frame.py:4062(__getitem__)
+      296    0.000    0.000    0.001    0.000 parser.py:345(check_for_whole_start_tag)
+      360    0.000    0.000    0.000    0.000 blocks.py:2674(get_block_type)
+      536    0.000    0.000    0.000    0.000 construction.py:416(extract_array)
+     1024    0.000    0.000    0.000    0.000 {method 'startswith' of 'str' objects}
+       60    0.000    0.000    0.001    0.000 array_ops.py:288(comparison_op)
+     1091    0.000    0.000    0.001    0.000 {built-in method _abc._abc_instancecheck}
+      164    0.000    0.000    0.001    0.000 series.py:1220(_get_value)
+       72    0.000    0.000    0.001    0.000 cast.py:1604(maybe_cast_to_integer_array)
+        8    0.000    0.000    0.004    0.001 inlinepatterns.py:53(build_inlinepatterns)
+       44    0.000    0.000    0.000    0.000 managers.py:1012(iget)
+      136    0.000    0.000    0.000    0.000 parsing.py:22(create_valid_python_identifier)
+      360    0.000    0.000    0.000    0.000 {method 'astype' of 'numpy.ndarray' objects}
+      112    0.000    0.000    0.006    0.000 ops.py:244(operand_types)
+      928    0.000    0.000    0.001    0.000 common.py:1590(<genexpr>)
+        8    0.000    0.000    0.001    0.000 managers.py:958(fast_xs)
+      240    0.000    0.000    0.001    0.000 ops.py:165(is_datetime)
+      352    0.000    0.000    0.001    0.000 construction.py:696(_sanitize_ndim)
+  268/104    0.000    0.000    0.001    0.000 ops.py:248(is_scalar)
+      112    0.000    0.000    0.001    0.000 expr.py:422(_rewrite_membership_op)
+      904    0.000    0.000    0.000    0.000 __init__.py:34(using_copy_on_write)
+      248    0.000    0.000    0.001    0.000 htmlparser.py:148(get_endtag_text)
+      628    0.000    0.000    0.001    0.000 blocks.py:249(external_values)
+      176    0.000    0.000    0.001    0.000 warnings.py:182(_add_filter)
+    112/8    0.000    0.000    0.013    0.002 ops.py:368(__call__)
+      696    0.000    0.000    0.000    0.000 {method 'group' of 're.Match' objects}
+        8    0.000    0.000    0.005    0.001 treeprocessors.py:343(run)
+      628    0.000    0.000    0.002    0.000 series.py:789(values)
+      669    0.000    0.000    0.000    0.000 _parser.py:168(__getitem__)
+        8    0.000    0.000    0.001    0.000 blockparser.py:138(parseBlocks)
+      120    0.000    0.000    0.002    0.000 ops.py:84(__init__)
+       72    0.000    0.000    0.001    0.000 algorithms.py:106(_ensure_data)
+       16    0.000    0.000    0.000    0.000 cast.py:1156(maybe_infer_to_datetimelike)
+      104    0.000    0.000    0.001    0.000 managers.py:287(get_dtypes)
+      488    0.000    0.000    0.000    0.000 {method 'find' of 'str' objects}
+      352    0.000    0.000    0.001    0.000 base.py:7688(maybe_extract_name)
+      720    0.000    0.000    0.000    0.000 base.py:7593(ensure_index)
+    56/32    0.000    0.000    0.000    0.000 treeprocessors.py:172(__processPlaceholders)
+      320    0.000    0.000    0.002    0.000 generic.py:511(_validate_dtype)
+       76    0.000    0.000    0.001    0.000 _dtype.py:346(_name_get)
+      368    0.000    0.000    0.001    0.000 base.py:86(_validate_set_axis)
+      352    0.000    0.000    0.000    0.000 config.py:676(_translate_key)
+      112    0.000    0.000    0.002    0.000 ops.py:350(__init__)
+      252    0.000    0.000    0.000    0.000 indexing.py:2765(check_dict_or_set_indexers)
+     1064    0.000    0.000    0.000    0.000 {built-in method builtins.hash}
+      112    0.000    0.000    0.006    0.000 ops.py:238(has_invalid_return_type)
+   130/49    0.000    0.000    0.000    0.000 _parser.py:178(getwidth)
+      272    0.000    0.000    0.000    0.000 util.py:317(__contains__)
+       88    0.000    0.000    0.000    0.000 util.py:324(__iter__)
+      112    0.000    0.000    0.001    0.000 ops.py:469(_disallow_scalar_only_bool_ops)
+        8    0.000    0.000    0.001    0.000 tokenize.py:233(compat)
+   198/78    0.000    0.000    0.000    0.000 {built-in method builtins.any}
+      128    0.000    0.000    0.003    0.000 inlinepatterns.py:286(__init__)
+       52    0.000    0.000    0.003    0.000 frame.py:3983(_ixs)
+      412    0.000    0.000    0.000    0.000 flags.py:51(__init__)
+        8    0.000    0.000    0.002    0.000 blockprocessors.py:42(build_block_parser)
+       52    0.000    0.000    0.001    0.000 array_ops.py:393(logical_op)
+        8    0.000    0.000    0.021    0.003 core.py:315(convert)
+      792    0.000    0.000    0.000    0.000 ast.py:257(iter_fields)
+      368    0.000    0.000    0.001    0.000 managers.py:236(set_axis)
+       60    0.000    0.000    0.008    0.000 expr.py:707(visit_Compare)
+      136    0.000    0.000    0.001    0.000 parsing.py:136(tokenize_backtick_quoted_string)
+       52    0.000    0.000    0.006    0.000 series.py:6123(_logical_method)
+       72    0.000    0.000    0.001    0.000 algorithms.py:280(_check_object_for_strings)
+       32    0.000    0.000    0.003    0.000 base.py:1543(to_series)
+      176    0.000    0.000    0.000    0.000 {method 'remove' of 'list' objects}
+      504    0.000    0.000    0.000    0.000 htmlparser.py:211(handle_data)
+      136    0.000    0.000    0.003    0.000 parsing.py:99(clean_column_name)
+      408    0.000    0.000    0.001    0.000 series.py:831(_values)
+      104    0.000    0.000    0.000    0.000 managers.py:1026(iget_values)
+      276    0.000    0.000    0.000    0.000 flags.py:87(allows_duplicate_labels)
+    58/19    0.000    0.000    0.002    0.000 _parser.py:452(_parse_sub)
+       60    0.000    0.000    0.001    0.000 ops.py:107(_resolve_name)
+      252    0.000    0.000    0.000    0.000 blocks.py:1253(iget)
+       16    0.000    0.000    0.001    0.000 take.py:120(_take_nd_ndarray)
+       60    0.000    0.000    0.007    0.000 series.py:6110(_cmp_method)
+      104    0.000    0.000    0.000    0.000 {method 'take' of 'numpy.ndarray' objects}
+      176    0.000    0.000    0.000    0.000 warnings.py:482(__enter__)
+  272/264    0.000    0.000    0.000    0.000 {built-in method numpy.asarray}
+      664    0.000    0.000    0.000    0.000 {method 'start' of 're.Match' objects}
+      352    0.000    0.000    0.001    0.000 common.py:568(require_length_match)
+  536/208    0.000    0.000    0.000    0.000 ops.py:250(<genexpr>)
+       40    0.000    0.000    0.000    0.000 {method 'reduce' of 'numpy.ufunc' objects}
+       72    0.000    0.000    0.002    0.000 frame.py:4626(_get_item_cache)
+      352    0.000    0.000    0.000    0.000 construction.py:735(_sanitize_str_dtypes)
+      210    0.000    0.000    0.000    0.000 common.py:1434(_is_dtype_type)
+      537    0.000    0.000    0.000    0.000 base.py:909(__len__)
+       60    0.000    0.000    0.001    0.000 expr.py:457(_maybe_downcast_constants)
+      128    0.000    0.000    0.000    0.000 enum.py:1531(__or__)
+      112    0.000    0.000    0.003    0.000 expr.py:449(_maybe_transform_eq_ne)
+      424    0.000    0.000    0.000    0.000 ops.py:231(return_type)
+      544    0.000    0.000    0.000    0.000 ops.py:220(__iter__)
+      112    0.000    0.000    0.013    0.000 common.py:62(new_method)
+   104/52    0.000    0.000    0.006    0.000 {built-in method _operator.and_}
+      256    0.000    0.000    0.001    0.000 expr.py:165(<genexpr>)
+       17    0.000    0.000    0.000    0.000 {method 'write' of '_io.TextIOWrapper' objects}
+        8    0.000    0.000    0.004    0.001 generic.py:634(_get_index_resolvers)
+        8    0.000    0.000    0.000    0.000 utils.py:239(maybe_convert_indices)
+       60    0.000    0.000    0.001    0.000 array_ops.py:189(_na_arithmetic_op)
+      352    0.000    0.000    0.000    0.000 construction.py:758(_maybe_repeat)
+        8    0.000    0.000    0.061    0.008 frame.py:4680(query)
+        8    0.000    0.000    0.032    0.004 eval.py:170(eval)
+      176    0.000    0.000    0.000    0.000 warnings.py:503(__exit__)
+      112    0.000    0.000    0.001    0.000 ops.py:436(convert_values)
+        8    0.000    0.000    0.000    0.000 cast.py:1432(find_common_type)
+      352    0.000    0.000    0.000    0.000 config.py:617(_select_options)
+       72    0.000    0.000    0.000    0.000 warnings.py:131(filterwarnings)
+      120    0.000    0.000    0.000    0.000 __init__.py:1019(__len__)
+  480/120    0.000    0.000    0.000    0.000 __init__.py:1029(<genexpr>)
+       88    0.000    0.000    0.000    0.000 common.py:1198(is_bool_dtype)
+      404    0.000    0.000    0.000    0.000 ops.py:142(is_scalar)
+       24    0.000    0.000    0.000    0.000 inlinepatterns.py:653(handleMatch)
+      240    0.000    0.000    0.000    0.000 expr.py:172(<lambda>)
+       60    0.000    0.000    0.002    0.000 expr.py:540(visit_Name)
+      368    0.000    0.000    0.000    0.000 {method 'rindex' of 'str' objects}
+       26    0.000    0.000    0.000    0.000 _compiler.py:243(_optimize_charset)
+       32    0.000    0.000    0.000    0.000 treeprocessors.py:333(__build_ancestors)
+       72    0.000    0.000    0.000    0.000 base.py:5323(__contains__)
+        8    0.000    0.000    0.059    0.007 frame.py:4846(eval)
+      117    0.000    0.000    0.000    0.000 reportviews.py:949(<genexpr>)
+      648    0.000    0.000    0.000    0.000 util.py:400(_sort)
+      456    0.000    0.000    0.000    0.000 _parser.py:240(__next)
+       60    0.000    0.000    0.000    0.000 ops.py:124(update)
+      396    0.000    0.000    0.000    0.000 ops.py:335(is_term)
+      480    0.000    0.000    0.000    0.000 {method 'pop' of 'list' objects}
+   180/60    0.000    0.000    0.000    0.000 __init__.py:1028(__contains__)
+      404    0.000    0.000    0.000    0.000 managers.py:1837(__init__)
+      120    0.000    0.000    0.000    0.000 ops.py:76(__new__)
+       16    0.000    0.000    0.000    0.000 cast.py:550(maybe_promote)
+       88    0.000    0.000    0.000    0.000 base.py:5373(__getitem__)
+      416    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects}
+      337    0.000    0.000    0.000    0.000 _parser.py:261(get)
+        8    0.000    0.000    0.000    0.000 scope.py:148(__init__)
+     16/8    0.000    0.000    0.001    0.000 postprocessors.py:74(run)
+       52    0.000    0.000    0.000    0.000 common.py:103(_maybe_match_name)
+       76    0.000    0.000    0.000    0.000 numerictypes.py:357(issubdtype)
+      104    0.000    0.000    0.000    0.000 warnings.py:166(simplefilter)
+      432    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+       72    0.000    0.000    0.004    0.000 base.py:1019(unique)
+      296    0.000    0.000    0.000    0.000 {method 'endswith' of 'str' objects}
+      178    0.000    0.000    0.000    0.000 enum.py:713(__call__)
+      272    0.000    0.000    0.000    0.000 <string>:1(<lambda>)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:612(run)
+       96    0.000    0.000    0.000    0.000 common.py:137(is_object_dtype)
+       38    0.000    0.000    0.000    0.000 enum.py:1541(__and__)
+       72    0.000    0.000    0.000    0.000 common.py:633(is_integer_dtype)
+       60    0.000    0.000    0.008    0.000 expr.py:530(visit_BinOp)
+       36    0.000    0.000    0.000    0.000 reportviews.py:907(__init__)
+       72    0.000    0.000    0.004    0.000 series.py:2344(unique)
+      208    0.000    0.000    0.005    0.000 __init__.py:226(compile)
+       16    0.000    0.000    0.003    0.000 generic.py:603(_get_axis_resolvers)
+       72    0.000    0.000    0.002    0.000 algorithms.py:262(_get_hashtable_algo)
+       52    0.000    0.000    0.015    0.000 expr.py:734(visitor)
+      560    0.000    0.000    0.000    0.000 inlinepatterns.py:237(getCompiledRegExp)
+      252    0.000    0.000    0.000    0.000 common.py:372(apply_if_callable)
+       16    0.000    0.000    0.004    0.000 indexing.py:1176(__getitem__)
+      324    0.000    0.000    0.000    0.000 _parser.py:256(match)
+       60    0.000    0.000    0.000    0.000 common.py:992(is_numeric_v_string_like)
+      112    0.000    0.000    0.001    0.000 common.py:81(get_op_result_name)
+      528    0.000    0.000    0.000    0.000 {built-in method _warnings._filters_mutated}
+        8    0.000    0.000    0.000    0.000 cast.py:1391(np_find_common_type)
+      552    0.000    0.000    0.000    0.000 generic.py:405(flags)
+       48    0.000    0.000    0.000    0.000 {method 'copy' of 'numpy.ndarray' objects}
+       44    0.000    0.000    0.001    0.000 frame.py:4608(_box_col_values)
+     40/8    0.000    0.000    0.000    0.000 treeprocessors.py:418(_prettifyETree)
+      352    0.000    0.000    0.000    0.000 config.py:649(_get_deprecated_option)
+        8    0.000    0.000    0.000    0.000 range.py:1148(take)
+       19    0.000    0.000    0.000    0.000 _compiler.py:511(_compile_info)
+       16    0.000    0.000    0.001    0.000 blockprocessors.py:345(__init__)
+       52    0.000    0.000    0.001    0.000 frame.py:678(_constructor_sliced_from_mgr)
+       52    0.000    0.000    0.000    0.000 ops.py:252(is_datetime)
+       24    0.000    0.000    0.000    0.000 base.py:649(_simple_new)
+        8    0.000    0.000    0.007    0.001 core.py:88(__init__)
+       60    0.000    0.000    0.000    0.000 expr.py:551(visit_Constant)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:465(run)
+      120    0.000    0.000    0.000    0.000 ops.py:94(local_name)
+      288    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+       16    0.000    0.000    0.000    0.000 numeric.py:274(full)
+      112    0.000    0.000    0.000    0.000 expr.py:302(f)
+      168    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+        8    0.000    0.000    0.001    0.000 managers.py:623(reindex_indexer)
+       60    0.000    0.000    0.001    0.000 expr.py:384(__format__)
+      176    0.000    0.000    0.000    0.000 warnings.py:456(__init__)
+      104    0.000    0.000    0.000    0.000 base.py:549(find)
+      260    0.000    0.000    0.000    0.000 managers.py:180(blknos)
+       16    0.000    0.000    0.000    0.000 take.py:564(_take_preprocess_indexer_and_fill_value)
+      165    0.000    0.000    0.000    0.000 _parser.py:293(tell)
+       76    0.000    0.000    0.000    0.000 _dtype.py:330(_name_includes_bit_suffix)
+       60    0.000    0.000    0.000    0.000 generic.py:339(_from_mgr)
+      178    0.000    0.000    0.000    0.000 enum.py:1116(__new__)
+      152    0.000    0.000    0.000    0.000 numerictypes.py:283(issubclass_)
+      112    0.000    0.000    0.001    0.000 frame.py:4027(_iter_column_arrays)
+      155    0.000    0.000    0.002    0.000 {built-in method builtins.next}
+       19    0.000    0.000    0.004    0.000 _compiler.py:740(compile)
+       72    0.000    0.000    0.000    0.000 algorithms.py:184(_reconstruct_data)
+        8    0.000    0.000    0.002    0.000 generic.py:4027(take)
+      104    0.000    0.000    0.000    0.000 array_ops.py:410(fill_bool)
+       60    0.000    0.000    0.000    0.000 scope.py:246(swapkey)
+      221    0.000    0.000    0.000    0.000 {method 'insert' of 'list' objects}
+      146    0.000    0.000    0.000    0.000 common.py:1399(_get_dtype)
+       19    0.000    0.000    0.002    0.000 _compiler.py:573(_code)
+        8    0.000    0.000    0.002    0.000 indexing.py:1719(_getitem_axis)
+        8    0.000    0.000    0.001    0.000 blockparser.py:100(parseDocument)
+       40    0.000    0.000    0.000    0.000 {built-in method numpy.empty}
+        8    0.000    0.000    0.000    0.000 preprocessors.py:37(build_preprocessors)
+       72    0.000    0.000    0.004    0.000 algorithms.py:307(unique)
+      420    0.000    0.000    0.000    0.000 ops.py:174(value)
+      272    0.000    0.000    0.000    0.000 util.py:407(<lambda>)
+      144    0.000    0.000    0.000    0.000 tokenize.py:449(generate_tokens)
+      230    0.000    0.000    0.000    0.000 _parser.py:164(__len__)
+      112    0.000    0.000    0.000    0.000 ops.py:215(__init__)
+       52    0.000    0.000    0.000    0.000 series.py:6137(_align_for_op)
+      231    0.000    0.000    0.000    0.000 {built-in method builtins.min}
+      120    0.000    0.000    0.000    0.000 generic.py:667(_info_axis)
+      328    0.000    0.000    0.000    0.000 managers.py:1940(_block)
+      120    0.000    0.000    0.000    0.000 scope.py:193(has_resolvers)
+      104    0.000    0.000    0.000    0.000 frame.py:4017(_get_column_array)
+      104    0.000    0.000    0.008    0.000 expr.py:728(_try_visit_binop)
+       36    0.000    0.000    0.000    0.000 scenario.py:200(relations_latex)
+      112    0.000    0.000    0.000    0.000 dispatch.py:17(should_extension_dispatch)
+      276    0.000    0.000    0.000    0.000 generic.py:363(attrs)
+       52    0.000    0.000    0.000    0.000 array_ops.py:352(na_logical_op)
+       62    0.000    0.000    0.000    0.000 missing.py:184(_isna)
+       52    0.000    0.000    0.000    0.000 {method 'reshape' of 'numpy.ndarray' objects}
+      180    0.000    0.000    0.000    0.000 _parser.py:176(append)
+      120    0.000    0.000    0.000    0.000 treeprocessors.py:462(unescape)
+       24    0.000    0.000    0.000    0.000 inlinepatterns.py:548(build_single)
+       19    0.000    0.000    0.002    0.000 _parser.py:969(parse)
+      128    0.000    0.000    0.000    0.000 enum.py:197(__get__)
+      274    0.000    0.000    0.000    0.000 {built-in method builtins.callable}
+        8    0.000    0.000    0.007    0.001 core.py:131(build_parser)
+      368    0.000    0.000    0.000    0.000 series.py:1480(_clear_item_cache)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:556(run)
+       16    0.000    0.000    0.001    0.000 blocks.py:1287(take_nd)
+       44    0.000    0.000    0.000    0.000 series.py:1471(_set_as_cached)
+      296    0.000    0.000    0.000    0.000 htmlparser.py:295(get_starttag_text)
+       60    0.000    0.000    0.000    0.000 scope.py:207(resolve)
+       72    0.000    0.000    0.000    0.000 reportviews.py:188(__getitem__)
+        8    0.000    0.000    0.000    0.000 blockprocessors.py:170(__init__)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:39(build_treeprocessors)
+      156    0.000    0.000    0.000    0.000 {method 'isidentifier' of 'str' objects}
+      248    0.000    0.000    0.000    0.000 expr.py:68(_replace_booleans)
+       40    0.000    0.000    0.000    0.000 generic.py:586(_get_axis)
+        2    0.000    0.000    0.000    0.000 decorators.py:1064(signature)
+      248    0.000    0.000    0.000    0.000 parsing.py:73(clean_backtick_quoted_toks)
+        8    0.000    0.000    0.000    0.000 utils.py:419(check_array_indexer)
+       60    0.000    0.000    0.007    0.000 arraylike.py:38(__eq__)
+      353    0.000    0.000    0.000    0.000 typing.py:2132(cast)
+        8    0.000    0.000    0.000    0.000 htmlparser.py:83(__init__)
+      150    0.000    0.000    0.000    0.000 {built-in method builtins.ord}
+      120    0.000    0.000    0.000    0.000 ops.py:101(__call__)
+      248    0.000    0.000    0.000    0.000 htmlparser.py:135(at_line_start)
+       88    0.000    0.000    0.000    0.000 blockprocessors.py:74(__init__)
+      248    0.000    0.000    0.000    0.000 parser.py:127(clear_cdata_mode)
+       16    0.000    0.000    0.001    0.000 take.py:59(take_nd)
+      248    0.000    0.000    0.000    0.000 expr.py:93(_replace_locals)
+       60    0.000    0.000    0.000    0.000 range.py:553(equals)
+        8    0.000    0.000    0.001    0.000 managers.py:869(take)
+       16    0.000    0.000    0.000    0.000 common.py:97(is_bool_indexer)
+      140    0.000    0.000    0.000    0.000 {method '__contains__' of 'frozenset' objects}
+      276    0.000    0.000    0.000    0.000 flags.py:55(allows_duplicate_labels)
+       24    0.000    0.000    0.000    0.000 inlinepatterns.py:582(parse_sub_patterns)
+       25    0.000    0.000    0.000    0.000 _parser.py:372(_escape)
+       58    0.000    0.000    0.000    0.000 common.py:1375(_is_dtype)
+      138    0.000    0.000    0.000    0.000 common.py:123(<lambda>)
+       60    0.000    0.000    0.000    0.000 expressions.py:226(evaluate)
+        2    0.000    0.000    0.000    0.000 inspect.py:2368(_signature_from_function)
+      4/2    0.000    0.000    0.000    0.000 inspect.py:2463(_signature_from_callable)
+       73    0.000    0.000    0.000    0.000 {built-in method fromkeys}
+        8    0.000    0.000    0.001    0.000 preprocessors.py:69(run)
+       72    0.000    0.000    0.000    0.000 treeprocessors.py:190(linkText)
+       42    0.000    0.000    0.000    0.000 common.py:1163(is_float_dtype)
+      138    0.000    0.000    0.000    0.000 common.py:121(classes)
+        8    0.000    0.000    0.012    0.001 preprocessors.py:86(run)
+       72    0.000    0.000    0.000    0.000 algorithms.py:217(_ensure_arraylike)
+      156    0.000    0.000    0.000    0.000 managers.py:196(blklocs)
+        8    0.000    0.000    0.028    0.003 core.py:463(markdown)
+        8    0.000    0.000    0.003    0.000 indexing.py:1397(_getitem_axis)
+       76    0.000    0.000    0.000    0.000 _dtype.py:24(_kind_name)
+       72    0.000    0.000    0.000    0.000 common.py:131(<lambda>)
+        8    0.000    0.000    0.000    0.000 frame.py:1047(shape)
+       36    0.000    0.000    0.000    0.000 reportviews.py:948(__iter__)
+       36    0.000    0.000    0.000    0.000 graph.py:1977(nbunch_iter)
+       60    0.000    0.000    0.001    0.000 {function Expr.__format__ at 0x000001E076830040}
+    27/19    0.000    0.000    0.000    0.000 _compiler.py:436(_get_literal_prefix)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:586(run)
+       24    0.000    0.000    0.000    0.000 treeprocessors.py:90(__makePlaceholder)
+        8    0.000    0.000    0.002    0.000 generic.py:4142(_take_with_is_copy)
+        8    0.000    0.000    0.018    0.002 expr.py:820(parse)
+       52    0.000    0.000    0.006    0.000 arraylike.py:68(__and__)
+    151/5    0.000    0.000    0.000    0.000 <frozen abc>:121(__subclasscheck__)
+      104    0.000    0.000    0.000    0.000 {method 'find' of 'bytearray' objects}
+       24    0.000    0.000    0.000    0.000 treeprocessors.py:143(__processElementText)
+        8    0.000    0.000    0.015    0.002 {built-in method _functools.reduce}
+        8    0.000    0.000    0.000    0.000 eval.py:30(_check_engine)
+        8    0.000    0.000    0.000    0.000 postprocessors.py:40(build_postprocessors)
+       60    0.000    0.000    0.000    0.000 missing.py:131(dispatch_fill_zeros)
+       56    0.000    0.000    0.000    0.000 managers.py:1993(dtype)
+       16    0.000    0.000    0.000    0.000 base.py:5437(_can_hold_identifiers_and_holds_name)
+        8    0.000    0.000    0.001    0.000 inlinepatterns.py:432(__init__)
+       62    0.000    0.000    0.000    0.000 missing.py:101(isna)
+      208    0.000    0.000    0.000    0.000 base.py:6672(_maybe_cast_indexer)
+      120    0.000    0.000    0.000    0.000 serializers.py:64(_escape_cdata)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:174(test)
+       32    0.000    0.000    0.000    0.000 <frozen importlib._bootstrap>:1390(_handle_fromlist)
+       64    0.000    0.000    0.000    0.000 __init__.py:122(unescape)
+       16    0.000    0.000    0.000    0.000 postprocessors.py:107(isblocklevel)
+       16    0.000    0.000    0.000    0.000 inference.py:195(is_array_like)
+       60    0.000    0.000    0.000    0.000 expressions.py:67(_evaluate_standard)
+       24    0.000    0.000    0.000    0.000 {method 'any' of 'numpy.ndarray' objects}
+       26    0.000    0.000    0.000    0.000 _compiler.py:216(_compile_charset)
+       16    0.000    0.000    0.000    0.000 common.py:572(condition)
+       16    0.000    0.000    0.000    0.000 cast.py:1471(<genexpr>)
+        8    0.000    0.000    0.018    0.002 expr.py:792(__init__)
+      128    0.000    0.000    0.000    0.000 enum.py:1279(value)
+        8    0.000    0.000    0.001    0.000 indexing.py:2632(check_bool_indexer)
+        5    0.000    0.000    0.000    0.000 _compiler.py:386(_mk_bitmap)
+        2    0.000    0.000    0.001    0.000 decorators.py:874(compile)
+        8    0.000    0.000    0.002    0.000 indexing.py:1205(_getbool_axis)
+       88    0.000    0.000    0.000    0.000 common.py:152(cast_scalar_indexer)
+       81    0.000    0.000    0.000    0.000 reportviews.py:934(<lambda>)
+        8    0.000    0.000    0.000    0.000 base.py:836(__iter__)
+        8    0.000    0.000    0.000    0.000 core.py:263(reset)
+      180    0.000    0.000    0.000    0.000 ops.py:182(name)
+       16    0.000    0.000    0.000    0.000 blocks.py:292(make_block_same_class)
+       32    0.000    0.000    0.000    0.000 blockparser.py:67(isstate)
+       36    0.000    0.000    0.000    0.000 clozeroutines.py:60(var_is_stringtype)
+       64    0.000    0.000    0.000    0.000 blockprocessors.py:356(test)
+       12    0.000    0.000    0.000    0.000 inspect.py:2729(__init__)
+       16    0.000    0.000    0.000    0.000 base.py:773(_view)
+        8    0.000    0.000    0.001    0.000 serializers.py:192(to_xhtml_string)
+        8    0.000    0.000    0.000    0.000 scope.py:54(ensure_scope)
+       16    0.000    0.000    0.000    0.000 range.py:483(_view)
+        8    0.000    0.000    0.000    0.000 printing.py:165(pprint_thing)
+      168    0.000    0.000    0.000    0.000 base.py:363(ndim)
+       24    0.000    0.000    0.000    0.000 treeprocessors.py:96(__findPlaceholder)
+       16    0.000    0.000    0.000    0.000 range.py:201(_simple_new)
+       94    0.000    0.000    0.000    0.000 _parser.py:83(groups)
+       29    0.000    0.000    0.000    0.000 _parser.py:449(_uniq)
+       19    0.000    0.000    0.000    0.000 _parser.py:953(fix_flags)
+        4    0.000    0.000    0.000    0.000 inspect.py:3015(__init__)
+       40    0.000    0.000    0.000    0.000 util.py:251(get_placeholder)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:432(run)
+       64    0.000    0.000    0.000    0.000 blockprocessors.py:553(test)
+      120    0.000    0.000    0.000    0.000 _parser.py:113(__init__)
+        9    0.000    0.000    0.000    0.000 base.py:82(shape)
+        2    0.000    0.000    0.000    0.000 decorators.py:922(assemble)
+        8    0.000    0.000    0.000    0.000 managers.py:948(from_blocks)
+        2    0.000    0.000    0.000    0.000 backends.py:590(__signature__)
+        8    0.000    0.000    0.000    0.000 core.py:279(set_output_format)
+       67    0.000    0.000    0.000    0.000 {method 'extend' of 'list' objects}
+       72    0.000    0.000    0.000    0.000 __init__.py:42(warn_copy_on_write)
+       39    0.000    0.000    0.000    0.000 _compiler.py:398(_simple)
+       75    0.000    0.000    0.000    0.000 base.py:5144(_values)
+       40    0.000    0.000    0.000    0.000 base.py:831(_reset_identity)
+        8    0.000    0.000    0.000    0.000 blockprocessors.py:451(__init__)
+        8    0.000    0.000    0.000    0.000 {method 'expandtabs' of 'str' objects}
+       16    0.000    0.000    0.000    0.000 indexing.py:1165(_check_deprecated_callable_usage)
+        8    0.000    0.000    0.002    0.000 expr.py:134(_preparse)
+       36    0.000    0.000    0.000    0.000 reportviews.py:916(<lambda>)
+        8    0.000    0.000    0.002    0.000 tokenize.py:188(untokenize)
+       16    0.000    0.000    0.000    0.000 base.py:1765(_get_names)
+        8    0.000    0.000    0.013    0.002 expr.py:811(__call__)
+        8    0.000    0.000    0.002    0.000 tokenize.py:275(untokenize)
+      128    0.000    0.000    0.000    0.000 {method 'items' of 'xml.etree.ElementTree.Element' objects}
+       48    0.000    0.000    0.000    0.000 util.py:203(__init__)
+       24    0.000    0.000    0.000    0.000 _parser.py:86(opengroup)
+       60    0.000    0.000    0.000    0.000 __init__.py:1008(__getitem__)
+       56    0.000    0.000    0.000    0.000 series.py:707(dtype)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+       48    0.000    0.000    0.000    0.000 __init__.py:998(__init__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:463(test)
+       14    0.000    0.000    0.000    0.000 __init__.py:179(sub)
+       37    0.000    0.000    0.000    0.000 _compiler.py:428(_get_iscased)
+       56    0.000    0.000    0.000    0.000 util.py:347(__len__)
+       16    0.000    0.000    0.000    0.000 generic.py:4379(_set_is_copy)
+       16    0.000    0.000    0.000    0.000 __init__.py:1049(new_child)
+       24    0.000    0.000    0.000    0.000 inlinepatterns.py:643(build_element)
+       41    0.000    0.000    0.000    0.000 {method 'pop' of 'dict' objects}
+       24    0.000    0.000    0.000    0.000 _methods.py:55(_any)
+       19    0.000    0.000    0.000    0.000 {built-in method _sre.compile}
+       72    0.000    0.000    0.000    0.000 common.py:126(_classes_and_not_datetimelike)
+       16    0.000    0.000    0.000    0.000 take.py:325(_get_take_nd_function)
+      112    0.000    0.000    0.000    0.000 series.py:660(_constructor)
+        8    0.000    0.000    0.000    0.000 expr.py:754(__init__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:289(test)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:78(lastChild)
+        8    0.000    0.000    0.000    0.000 blockparser.py:83(__init__)
+       32    0.000    0.000    0.000    0.000 {built-in method _elementtree.SubElement}
+        8    0.000    0.000    0.012    0.001 parser.py:104(feed)
+        8    0.000    0.000    0.000    0.000 treeprocessors.py:80(__init__)
+       24    0.000    0.000    0.000    0.000 treeprocessors.py:114(__stashNode)
+        8    0.000    0.000    0.000    0.000 parser.py:86(__init__)
+       19    0.000    0.000    0.000    0.000 _parser.py:231(__init__)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:525(test)
+        6    0.000    0.000    0.000    0.000 decorators.py:854(_name)
+        8    0.000    0.000    0.000    0.000 htmlparser.py:107(close)
+        8    0.000    0.000    0.000    0.000 {method 'nonzero' of 'numpy.ndarray' objects}
+       24    0.000    0.000    0.000    0.000 _validators.py:226(validate_bool_kwarg)
+       56    0.000    0.000    0.000    0.000 base.py:1671(name)
+        8    0.000    0.000    0.000    0.000 decorators.py:1200(_indent)
+        8    0.000    0.000    0.000    0.000 utils.py:62(is_list_like_indexer)
+        8    0.000    0.000    0.000    0.000 htmlparser.py:96(reset)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:499(test)
+        8    0.000    0.000    0.000    0.000 base.py:378(interleaved_dtype)
+        1    0.000    0.000    0.000    0.000 base.py:842(_engine)
+       16    0.000    0.000    0.000    0.000 common.py:536(is_string_dtype)
+        8    0.000    0.000    0.000    0.000 range.py:1009(__getitem__)
+        8    0.000    0.000    0.000    0.000 indexing.py:1667(_validate_integer)
+       48    0.000    0.000    0.000    0.000 generic.py:572(_get_axis_number)
+        8    0.000    0.000    0.000    0.000 serializers.py:175(_write_html)
+       24    0.000    0.000    0.000    0.000 _parser.py:98(closegroup)
+       42    0.000    0.000    0.000    0.000 _parser.py:172(__setitem__)
+       40    0.000    0.000    0.000    0.000 util.py:312(__init__)
+     12/8    0.000    0.000    0.000    0.000 decorators.py:1170(_flatten)
+       16    0.000    0.000    0.000    0.000 base.py:2066(_get_level_values)
+        8    0.000    0.000    0.000    0.000 series.py:978(__array__)
+       42    0.000    0.000    0.000    0.000 common.py:686(<lambda>)
+       36    0.000    0.000    0.000    0.000 clozeroutines.py:74(get_tolerance)
+       38    0.000    0.000    0.000    0.000 _compiler.py:570(isstring)
+        8    0.000    0.000    0.000    0.000 {method 'copy' of 'list' objects}
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:254(test)
+      110    0.000    0.000    0.000    0.000 <frozen _collections_abc>:435(__subclasshook__)
+        8    0.000    0.000    0.000    0.000 parser.py:96(reset)
+        8    0.000    0.000    0.015    0.002 expr.py:413(visit_Module)
+       24    0.000    0.000    0.000    0.000 treeprocessors.py:48(isString)
+        8    0.000    0.000    0.000    0.000 base.py:5552(equals)
+        8    0.000    0.000    0.000    0.000 eval.py:123(_convert_expression)
+        8    0.000    0.000    0.000    0.000 indexing.py:161(iloc)
+        8    0.000    0.000    0.000    0.000 base.py:74(__len__)
+        8    0.000    0.000    0.000    0.000 printing.py:196(as_escaped_string)
+       60    0.000    0.000    0.000    0.000 ops.py:178(value)
+       32    0.000    0.000    0.000    0.000 {method 'lstrip' of 'str' objects}
+        8    0.000    0.000    0.013    0.002 engines.py:133(evaluate)
+       32    0.000    0.000    0.000    0.000 {method 'iter' of 'xml.etree.ElementTree.Element' objects}
+       10    0.000    0.000    0.000    0.000 _compiler.py:467(_get_charset_prefix)
+       24    0.000    0.000    0.000    0.000 cast.py:1462(<genexpr>)
+        8    0.000    0.000    0.015    0.002 expr.py:733(visit_BoolOp)
+        8    0.000    0.000    0.001    0.000 ast.py:199(fix_missing_locations)
+        8    0.000    0.000    0.000    0.000 {method 'max' of 'numpy.ndarray' objects}
+        9    0.000    0.000    0.000    0.000 _compiler.py:407(_generate_overlap_table)
+        8    0.000    0.000    0.000    0.000 util.py:228(store)
+        8    0.000    0.000    0.001    0.000 blockparser.py:120(parseChunk)
+      4/2    0.000    0.000    0.000    0.000 inspect.py:3067(from_callable)
+       16    0.000    0.000    0.000    0.000 base.py:332(array)
+        8    0.000    0.000    0.000    0.000 {method 'min' of 'numpy.ndarray' objects}
+        8    0.000    0.000    0.000    0.000 clozeroutines.py:12(__init__)
+        2    0.000    0.000    0.001    0.000 decorators.py:720(_lazy_compile)
+        2    0.000    0.000    0.000    0.000 take.py:287(_get_take_nd_function_cached)
+       16    0.000    0.000    0.000    0.000 common.py:529(is_string_or_object_np_dtype)
+       16    0.000    0.000    0.000    0.000 blocks.py:266(mgr_locs)
+        8    0.000    0.000    0.000    0.000 frame.py:659(_constructor_from_mgr)
+       16    0.000    0.000    0.000    0.000 base.py:1992(_validate_index_level)
+        2    0.000    0.000    0.000    0.000 inspect.py:747(unwrap)
+       27    0.000    0.000    0.000    0.000 base.py:84(<genexpr>)
+       60    0.000    0.000    0.000    0.000 expr.py:704(translate_In)
+        8    0.000    0.000    0.000    0.000 eval.py:94(_check_resolvers)
+       60    0.000    0.000    0.000    0.000 ops.py:192(_resolve_name)
+       34    0.000    0.000    0.000    0.000 _compiler.py:31(_combine_flags)
+       24    0.000    0.000    0.000    0.000 cast.py:1478(<genexpr>)
+        8    0.000    0.000    0.000    0.000 indexing.py:305(loc)
+        1    0.000    0.000    0.000    0.000 config.py:391(conclude)
+        8    0.000    0.000    0.000    0.000 postprocessors.py:84(substitute_match)
+       24    0.000    0.000    0.000    0.000 inlinepatterns.py:254(type)
+       16    0.000    0.000    0.000    0.000 __init__.py:55(using_pyarrow_string_dtype)
+       16    0.000    0.000    0.000    0.000 managers.py:291(arrays)
+       24    0.000    0.000    0.000    0.000 {method 'insert' of 'xml.etree.ElementTree.Element' objects}
+        8    0.000    0.000    0.000    0.000 generic.py:592(_get_block_manager_axis)
+       56    0.000    0.000    0.000    0.000 range.py:376(dtype)
+        8    0.000    0.000    0.000    0.000 ast.py:34(parse)
+       16    0.000    0.000    0.000    0.000 expr.py:807(assigner)
+       10    0.000    0.000    0.000    0.000 backends.py:599(<genexpr>)
+        8    0.000    0.000    0.015    0.002 expr.py:419(visit_Expr)
+       17    0.000    0.000    0.000    0.000 <frozen codecs>:186(__init__)
+       16    0.000    0.000    0.000    0.000 postprocessors.py:117(stash_to_string)
+        8    0.000    0.000    0.000    0.000 inlinepatterns.py:393(__init__)
+        8    0.000    0.000    0.000    0.000 {built-in method sys._getframe}
+      2/1    0.000    0.000    0.001    0.001 decorators.py:788(func)
+        1    0.000    0.000    0.000    0.000 servicecloze.py:462(close_build)
+        8    0.000    0.000    0.000    0.000 postprocessors.py:125(run)
+        8    0.000    0.000    0.000    0.000 base.py:791(is_)
+        8    0.000    0.000    0.000    0.000 inference.py:373(is_sequence)
+       11    0.000    0.000    0.000    0.000 <frozen _collections_abc>:104(_check_methods)
+       54    0.000    0.000    0.000    0.000 inspect.py:2782(name)
+       16    0.000    0.000    0.000    0.000 cast.py:1473(<genexpr>)
+        8    0.000    0.000    0.000    0.000 {method 'splitlines' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 cast.py:613(_maybe_promote)
+        2    0.000    0.000    0.000    0.000 cast.py:605(_maybe_promote_cached)
+        8    0.000    0.000    0.000    0.000 decorators.py:831(_count)
+       19    0.000    0.000    0.000    0.000 {built-in method builtins.max}
+        8    0.000    0.000    0.000    0.000 {method 'index' of 'str' objects}
+        8    0.000    0.000    0.000    0.000 expr.py:392(__init__)
+       19    0.000    0.000    0.000    0.000 _parser.py:77(__init__)
+        3    0.000    0.000    0.000    0.000 functools.py:979(__get__)
+        8    0.000    0.000    0.000    0.000 util.py:221(__init__)
+        8    0.000    0.000    0.000    0.000 parser.py:113(close)
+        8    0.000    0.000    0.000    0.000 _methods.py:39(_amax)
+        1    0.000    0.000    0.000    0.000 range.py:237(_data)
+        8    0.000    0.000    0.000    0.000 _methods.py:43(_amin)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:583(test)
+       32    0.000    0.000    0.000    0.000 inspect.py:2794(kind)
+      4/2    0.000    0.000    0.000    0.000 inspect.py:3325(signature)
+       16    0.000    0.000    0.000    0.000 ElementTree.py:525(__init__)
+        8    0.000    0.000    0.000    0.000 _markupbase.py:27(__init__)
+        2    0.000    0.000    0.000    0.000 inspect.py:175(get_annotations)
+       32    0.000    0.000    0.000    0.000 blockprocessors.py:609(test)
+        8    0.000    0.000    0.000    0.000 engines.py:52(__init__)
+       16    0.000    0.000    0.000    0.000 eval.py:105(_check_expression)
+       16    0.000    0.000    0.000    0.000 {built-in method builtins.id}
+        8    0.000    0.000    0.000    0.000 blocks.py:718(dtype)
+       17    0.000    0.000    0.000    0.000 <frozen codecs>:214(setstate)
+        8    0.000    0.000    0.000    0.000 managers.py:246(items)
+        8    0.000    0.000    0.000    0.000 core.py:159(registerExtensions)
+       16    0.000    0.000    0.000    0.000 multiarray.py:1080(copyto)
+        2    0.000    0.000    0.000    0.000 missing.py:728(is_valid_na_for_dtype)
+       10    0.000    0.000    0.000    0.000 inspect.py:3062(<genexpr>)
+        1    0.000    0.000    0.000    0.000 {built-in method numpy.arange}
+        2    0.000    0.000    0.000    0.000 {built-in method builtins.exec}
+        4    0.000    0.000    0.000    0.000 missing.py:673(na_value_for_dtype)
+       16    0.000    0.000    0.000    0.000 ElementTree.py:531(getroot)
+        8    0.000    0.000    0.000    0.000 util.py:246(reset)
+        8    0.000    0.000    0.000    0.000 eval.py:152(_check_for_locals)
+        8    0.000    0.000    0.000    0.000 _markupbase.py:32(reset)
+        8    0.000    0.000    0.000    0.000 tokenize.py:169(__init__)
+        3    0.000    0.000    0.000    0.000 <frozen _collections_abc>:288(__subclasshook__)
+        5    0.000    0.000    0.000    0.000 {method 'translate' of 'bytearray' objects}
+        2    0.000    0.000    0.000    0.000 inspect.py:3083(replace)
+        8    0.000    0.000    0.000    0.000 function.py:64(__call__)
+        2    0.000    0.000    0.000    0.000 blocks.py:253(fill_value)
+        1    0.000    0.000    0.000    0.000 multidigraph.py:402(pred)
+       16    0.000    0.000    0.000    0.000 <frozen _collections_abc>:341(__subclasshook__)
+        6    0.000    0.000    0.000    0.000 {method 'values' of 'mappingproxy' objects}
+        8    0.000    0.000    0.000    0.000 {method 'clear' of 'dict' objects}
+        8    0.000    0.000    0.000    0.000 base.py:1176(_maybe_disallow_fill)
+       10    0.000    0.000    0.000    0.000 <frozen _collections_abc>:309(__subclasshook__)
+        2    0.000    0.000    0.000    0.000 cast.py:524(ensure_dtype_can_hold_na)
+        9    0.000    0.000    0.000    0.000 range.py:315(step)
+        8    0.000    0.000    0.000    0.000 eval.py:75(_check_parser)
+        1    0.000    0.000    0.000    0.000 multidigraph.py:589(edges)
+        1    0.000    0.000    0.000    0.000 base.py:5170(_get_engine_target)
+        8    0.000    0.000    0.000    0.000 generic.py:696(ndim)
+        8    0.000    0.000    0.000    0.000 managers.py:913(__init__)
+        9    0.000    0.000    0.000    0.000 range.py:280(start)
+        8    0.000    0.000    0.000    0.000 multiarray.py:669(result_type)
+        1    0.000    0.000    0.000    0.000 common.py:1040(needs_i8_conversion)
+        1    0.000    0.000    0.000    0.000 reportviews.py:1058(__init__)
+        4    0.000    0.000    0.000    0.000 inspect.py:371(isfunction)
+        1    0.000    0.000    0.000    0.000 base.py:456(_engine_type)
+        2    0.000    0.000    0.000    0.000 <frozen _collections_abc>:388(__subclasshook__)
+        4    0.000    0.000    0.000    0.000 {method 'add' of 'set' objects}
+        2    0.000    0.000    0.000    0.000 inspect.py:767(_is_wrapper)
+        8    0.000    0.000    0.000    0.000 inspect.py:2786(default)
+        6    0.000    0.000    0.000    0.000 inspect.py:3075(parameters)
+        1    0.000    0.000    0.000    0.000 base.py:2313(is_unique)
+        2    0.000    0.000    0.000    0.000 {built-in method sys.getrecursionlimit}
+        1    0.000    0.000    0.000    0.000 multidigraph.py:383(succ)
+        2    0.000    0.000    0.000    0.000 {method 'values' of 'dict' objects}
+        2    0.000    0.000    0.000    0.000 decorators.py:1058(<genexpr>)
+        1    0.000    0.000    0.000    0.000 _parser.py:100(checkgroup)
+        1    0.000    0.000    0.000    0.000 range.py:298(stop)
+        1    0.000    0.000    0.000    0.000 <class 'networkx.utils.decorators.argmap'> compilation 4:1(<module>)    
+        1    0.000    0.000    0.000    0.000 <class 'networkx.utils.decorators.argmap'> compilation 8:1(<module>)    
+        1    0.000    0.000    0.000    0.000 range.py:231(_constructor)
+        1    0.000    0.000    0.000    0.000 base.py:974(dtype)
+        1    0.000    0.000    0.000    0.000 _parser.py:103(checklookbehindgroup)
+        

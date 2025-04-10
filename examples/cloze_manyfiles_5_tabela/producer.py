@@ -78,16 +78,27 @@ print(df)
 
 df.to_excel("data.xlsx")
 
-
-
 from pathlib import Path
 from pyequa.config import PyEqua
 
 pe = PyEqua(Path(__file__).parent, scenario_relations, variable_attributes)
 
+
+#pe.scenario.draw_wisdom_graph()
+
+
+import cProfile
+
+# Profile the function
+#profiler = cProfile.Profile()
+#profiler.enable()
+
+
+
 # Learning from the same exercises for everybody
-pe.challenge_deterministic(max_combinations_givenvars_per_easynesslevel = 1, 
-                           number_of_problems_per_givenvars = 1)
+#pe.challenge_deterministic(max_combinations_givenvars_per_easynesslevel = 1, 
+#                           number_of_problems_per_givenvars = 1)
+
 
 
 # Learning using "moodle random questions" based in a similar level
@@ -107,3 +118,13 @@ pe.challenge_deterministic(max_combinations_givenvars_per_easynesslevel = 1,
 #pe.challenge_deterministic(max_combinations_givenvars_per_easynesslevel = None,  # no control
 #                         number_of_problems_per_givenvars = 1,  # single variant for each case
 #)
+
+
+# Teacher can read and choose
+pe.hard(requested_number_of_problems=4, max_combinations_givenvars_per_easynesslevel=1) # is the same as
+#pe.challenge_no_variants(max_combinations_givenvars_per_easynesslevel = None,  # no control
+#                         number_of_problems_per_givenvars = 1,  # single variant for each case
+#)
+
+#profiler.disable()
+#profiler.print_stats(sort='time')  # Sort by time spent

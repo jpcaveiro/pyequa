@@ -13,8 +13,8 @@ class Cloze:
                  pandas_dataframe, 
                  pandas_row_series, 
                  #args_dict, 
-                 allvars_list, 
-                 givenvars_set, 
+                 allvars_set, 
+                 givenvars_tuple, 
                  variable_attributes,
                  distractors,
                  config):
@@ -25,8 +25,8 @@ class Cloze:
 
         # read only
         self.pandas_dataframe = pandas_dataframe
-        self.allvars_list = allvars_list 
-        self.givenvars_set = givenvars_set
+        self.allvars_set = allvars_set 
+        self.givenvars_set = set(givenvars_tuple)
         self.pandas_row_series = pandas_row_series
         self.variable_attributes = variable_attributes
         self.distractors = distractors
@@ -134,7 +134,7 @@ class Cloze:
             we_know_this.append(know_this)
 
             #The way student sees the variable value
-            self.args_dict[str(var)] = "**" + str(value) + "**"
+            self.args_dict[var.name] = "**" + str(value) + "**"
             #self.args_dict[str(var)+'output'] = "" #TODO: remove "var+output"
 
 
@@ -159,7 +159,9 @@ class Cloze:
         #Calculating the requested vars (vars to fill-in-the-blanks).
         #(to create cloze inputs for non given variables)
         #-------------------------------------------------------------
-        self.requestedvars_set = set(self.allvars_list) - set(self.givenvars_set)
+        #self.requestedvars_set = set(self.allvars_list) - set(self.givenvars_set)
+        self.requestedvars_set = self.allvars_set - self.givenvars_set
+        
         #Debug
         #print(self.requestedvars_set)
 

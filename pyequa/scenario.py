@@ -46,11 +46,19 @@ def Combinations(someset, include_empty_set = True):
     else:
         start = 1
 
+    # Version 1
     for i in range(start,len(someset)+1):
         # Calculate all combinations of size i
         for combo in itertools.combinations(someset, i):
             list_of_sets.append(combo)
             #print(combo)
+
+    # Version 2
+    #for i in range(start,len(someset)+1):
+    #    # Add all combinations of size i
+    #    list_of_sets.append(list(itertools.combinations(someset, i)))
+
+
 
     return list_of_sets
 
@@ -61,10 +69,13 @@ def Combinations_of_givensize(someset, givensize):
     empty = True makes [] part of the answer.
     """
 
+    # Version 1
     list_of_sets = []
-
     for combo in itertools.combinations(someset, givensize):
         list_of_sets.append(combo)
+
+    # Version 2
+    #list_of_sets = list(itertools.combinations(someset, givensize))
 
     return list_of_sets
 
@@ -77,12 +88,24 @@ def set2orderedstr(someset):
     A solução é pedir o str(a).
     """
 
-    return str(sorted([str(s) for s in someset]))
-
+    #return str(sorted([str(s) for s in someset]))
+    return str(sorted([s.name for s in someset]))
 
 def join_varnames(varlist):
 
-    return "".join( sorted( [str(v) for v in varlist] ) )   
+    # ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    # 33538048  165.962    0.000 2439.667    0.000 scenario.py:94(join_varnames)  
+    # Version 1
+    # return "".join( sorted( [str(v) for v in varlist] ) )   
+
+    # Version 2
+    # 33538048   30.249    0.000   53.720    0.000 scenario.py:94(join_varnames)
+    # return "".join( sorted( [v.name for v in varlist] ) )   
+
+    # Version 3
+    x = [v.name for v in varlist]
+    list.sort(x)
+    return "".join( x )   
 
 
 
@@ -290,7 +313,7 @@ class Scenario:
         self.build_wisdomgraph()
 
 
-    def input_level(self, var_combination):
+    def input_level(self, var_combination, reverse=False):
         """
         example input:
 
@@ -319,7 +342,10 @@ class Scenario:
             else:
                 input_level_sum += 1
 
-        return input_level_sum      
+        if reverse:
+            return -input_level_sum
+        else:
+            return input_level_sum
 
 
     def buildsome_solvercandidates(self, rel_set): 
@@ -529,6 +555,7 @@ class Scenario:
 
         #nomes especiais
 
+        #TODO: this special names into default_config.yaml
         if nname=='':
             nname = Scenario._IGNORANCE_NODE_NAME_ #'ignorancia'
         elif nname == self.node_knowledge_name:
@@ -737,7 +764,7 @@ class Scenario:
 
 
 
-    def yield_givenvarsset_nodepathlist_from_number(self, number_of_given_vars=None):
+    def yield_givenvarsset_nodepathlist_from_number(self, number_of_given_vars=None, reverse=False):
         # see below yield_givenvarsset_nodepathlist()
 
         # Generate all combinations of specified size
@@ -750,7 +777,7 @@ class Scenario:
         #d = sorted(d, key=lambda x: x[1], reverse=True)
         #print(d)
         C_weighted = [
-            [var_combination, self.input_level(var_combination)] for var_combination in C
+            [var_combination, self.input_level(var_combination, reverse)] for var_combination in C
         ]
 
         C_weighted = sorted(C_weighted, key=lambda x: x[1]) #, reverse=True)
