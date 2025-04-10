@@ -54,3 +54,7 @@ C:\Users\pedrocruz\Documents\GitHub\pyequa> pip install -e C:\Users\pedrocruz\Do
 
 ![alt text](image.png)
 
+
+# Profile a python function
+
+* https://chat.deepseek.com/a/chat/s/85f38360-ebd8-4c62-a65e-2d71c802ce43

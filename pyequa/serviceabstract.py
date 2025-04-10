@@ -3,54 +3,67 @@ import os
 import datetime
 
 
-from .wisdomgraph import set2orderedstr
-# Ver:
-# self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
-# self.buildone_scenary_text(inputvars_set)
+from .scenario import set2orderedstr
 
+from pathlib import Path
 
+def get_last_folder(path):
+    """
 
-DEFAULT_ANSWER_TEMPLATE = """Sabendo
+    ```python
+    # Examples
+    print(get_last_folder('/path/to/your/folder'))   # Output: 'folder'
+    print(get_last_folder('/path/to/your/folder/'))  # Output: 'folder'
+    print(get_last_folder('/'))  # Output: '/'
+    ```
 
-{localinputvars}
+    """
 
-e usando
-
-{solvers}
-
-determina-se
-
-{localoutputvars}
-
-"""
-
+    path = Path(path)
+    # Resolve the path to handle any '..' or '.' and normalize slashes
+    resolved_path = path.resolve()
+    # Get the last non-empty part
+    return resolved_path.parts[-1] if resolved_path.parts[-1] else resolved_path.parts[-2]
 
 
 class AbstractService:
-    """
-    
-    """
 
     def __init__(self, 
                  pandas_dataframe=None,
                  variable_attributes=None,
-                 answer_template=DEFAULT_ANSWER_TEMPLATE
+                 distractors = None,
+                 answer_template=None,
+                 gen_method='fixed',
+                 output_extension='txt',
+                 config=None
                 ): 
 
-        self.excel_pathname = excel_pathname
-        self.variable_attributes=variable_attributes
+
+        self.config = config
+
+        assert pandas_dataframe is not None, f"A 'python pandas' data frame must be given."
+        self.pandas_dataframe = pandas_dataframe
+
+        # TODO: What if variable_attributes is not given?
+        self.variable_attributes = variable_attributes
+
+        # TODO: What if distractors is not given?
+        self.distractors = distractors
+
+        # TODO: What if answer_template is not given?
         self.answer_template = answer_template
 
-        #Delayed
+        self.gen_method = gen_method
+
+        # Delayed: only when "self" is created this variables get instances
         self.scenario = None #atribuído quando este TextService é passado para o Scenario
         self.solverslist_answer_text = None #see below
 
-        #assert self.excel_pathname, "Excel filename with variables data must be given." + f"({os.getcwd()})"
-        #self.dataframe = pd.read_excel(self.excel_pathname)
-
-        assert pandas_dataframe, f"A 'python pandas' data frame must be given."
-        self.pandas_dataframe = pandas_dataframe
-
+        #TODO: improve this getcwd() to a better strategy
+        self.exercise_folder = os.getcwd()
+        self.basename = get_last_folder(self.exercise_folder)
+        self.output_extension = output_extension
+        self.file_path_student = f"{self.basename}.{self.output_extension}"
 
         #Create "_output_"
         DEFAULT_OUTPUT_FOLDER = "_output_"
@@ -58,77 +71,39 @@ class AbstractService:
             os.makedirs(DEFAULT_OUTPUT_FOLDER)
             print(F"Folder '{DEFAULT_OUTPUT_FOLDER}' created.")
 
+        # TODO: avoid change dir !
         #Text is stores here.
         os.chdir(DEFAULT_OUTPUT_FOLDER)
 
 
 
-
-
-    def buildall_exercises(self,no_of_given_vars,max_ex_per_comb,silence):
-        self.build_in_silence = silence
-
-        #self.scenario is given when Scenary is instantiated
-        Y = self.scenario.yield_inputvarsset_nodepathlist(no_of_given_vars)
-
-        #Controls number of exercises
-        count = max_ex_per_comb
-
-        for problem_pair in Y:
-
-            print(f"==> {problem_pair[0]}")
-
-            inputvars_set  = problem_pair[0]
-            node_path_list = problem_pair[1]
-
-            #General steps for the solution
-            self.solverslist_answer_text = self.solverslist_build_answer_text(inputvars_set,node_path_list)
-
-            #Abstract method
-            self.add_problem_with_variants(inputvars_set,node_path_list)
-
-            #Decrease counting
-            if max_ex_per_comb: #if there is control
-                count = count - 1 
-                if not count: #when zero
-                    break #get out of cycle
-
-
-
-
-
-
-
-
-
-
-    def solverslist_build_answer_text(self,inputvars_set,node_path_list):
+    def solverslist_build_answer_text(self,givenvars_set,node_path_list):
 
         #see class Scenario above
         #self.answer_template
 
         answer_text = ""
 
-        given_vars_node = set2orderedstr(inputvars_set)
+        given_vars_node = set2orderedstr(givenvars_set)
 
         if given_vars_node in node_path_list:
             # If given_vars_node is in the solution path then it is not necessary explain
             # the path from ignorance to given_vars_node.
-            nodepair_list = zip(node_path_list[len_inputvars_set:-1], node_path_list[(len_inputvars_set+1):])
+            nodepair_list = zip(node_path_list[len_givenvars_set:-1], node_path_list[(len_givenvars_set+1):])
         else:
             # If given_vars_node is NOT in the solution path then it is NECESSARY to explain
             # the path from ignorance to knowledge.
             nodepair_list = zip(node_path_list[1:-1], node_path_list[2:])
 
 
-        len_inputvars_set = len(inputvars_set)
+        len_givenvars_set = len(givenvars_set)
 
         # node_path_list 
         # node_path_list[len_first_nodes:-1] : 
         # node_path_list[(len_first_nodes+1):]
         for nodepair in nodepair_list:
 
-            if not self.build_in_silence:
+            if self.config['debug']:
                 #find edge
                 print('-'*3)
                 print(f'=>from {nodepair[0]}')
@@ -143,13 +118,13 @@ class AbstractService:
             #Fourth element is a SolverCandidate 
             solver_candidate = edge[3]
 
-            localinputvars = self.scenario.wisdomgraph.nodes[nodepair[0]]['vars']
-            localoutputvars = self.scenario.wisdomgraph.nodes[nodepair[1]]['vars']
+            localgivenvars = self.scenario.wisdomgraph.nodes[nodepair[0]]['vars']
+            localrequestedvars = self.scenario.wisdomgraph.nodes[nodepair[1]]['vars']
             solvers = solver_candidate.relations_latex()
 
             answer_text += self.answer_template.format(
-                localinputvars = "{}" if localinputvars==set() else  localinputvars,
-                localoutputvars = set(localoutputvars)-set(localinputvars),
+                localgivenvars = "{}" if localgivenvars==set() else  localgivenvars,
+                localrequestedvars = set(localrequestedvars)-set(localgivenvars),
                 solvers = solvers,
             )
 

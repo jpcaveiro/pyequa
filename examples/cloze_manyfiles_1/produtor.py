@@ -35,7 +35,7 @@ student_feedback = r"""
 
 """
 
-from pyequa import wisdomgraph as ws
+from pyequa import scenario as ws
 from pyequa.servicecloze import ClozeService
 
 

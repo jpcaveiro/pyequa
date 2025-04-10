@@ -1,0 +1,75 @@
+# pyequa defaults
+
+
+answer_template: |
+  Knowing
+
+  {localgivenvars}
+
+  and using
+
+  {solvers}
+
+  it can be found
+
+  {localrequestedvars}
+
+
+
+
+# 
+student_feedback: |
+  
+  (No feedback is available. Please consult your class teacher(s).)
+
+
+
+# Output destination of the produced exercises
+output_service: moodle_cloze
+output_extension: md #output to a markdown file
+
+
+# In a folder, the standard filename for anexercise template
+student_template_filename: exercise_model.md
+
+# CSV as a standard format
+dataframe_type: csv # xlsx  or csv 
+csv_separator: "," 
+csv_decimal: "." 
+
+
+author: Pedro Cruz
+
+# ---- challenge vs exam vs all ----
+method: challenge
+
+# when gen_method is 'challenge'
+number_of_variants_per_exercise: 4
+
+# when gen_method is 'exam' 
+# number_of_fill_in_blank_vars: 1 
+# number_of_variants_per_exercise: 1 
+
+# when gen_method is 'all' 
+# todo
+# todo
+
+
+several_solutions: " (more than one solution; choose one) "
+global_tolerance: 0.001
+
+
+
+moodle_import_folder: imports
+
+variant_word: Variant
+
+
+# Debug section
+
+# output a knowledge graph
+output_knowledge_graph: false
+
+# developer messages
+debug: false
+

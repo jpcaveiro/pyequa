@@ -1,0 +1,54 @@
+
+
+# Method to give feedback of an exercise: default_student_feedback vs (to be developed)
+student_feedback: default_student_feedback
+
+
+# In case of no method, this text apperar to student.
+default_student_feedback: |
+  
+  (No feedback is available. Please consult your class teacher(s).)
+
+
+# Output destination of the produced exercises
+output_service: moodle_cloze
+output_extension: md #output to a markdown file
+
+
+# In a folder, the standard filename for an exercise template
+student_template_filename: exercise_model.md
+
+# CSV as a standard format
+default_data_filename: data.csv
+data_type: csv
+csv_separator: "," 
+csv_decimal: "." 
+
+
+default_author: author
+
+# sequencial vs fixed vs all
+gen_method: sequencial
+
+# sequential gen_method
+# level = number/difficulty of fill-in-the-blanks in an exercise
+# number of exercises per level
+number_exercises_per_level: 1
+
+# fixed gen_method
+# chosen: a set of fill-in-the-blanks
+no_of_given_vars: 1 #mostly probable, user must change this
+max_ex_per_chosen: 3
+
+# all gen_method
+# chosen: a set of fill-in-the-blanks
+max_ex_per_chosen: 3
+
+# output a knowledge graph
+output_knowledge_graph: false
+
+
+
+
+
+

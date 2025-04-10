@@ -1,34 +1,14 @@
-"""
-
-
-# Discussion:
-
-# Add "How did you do it?"
-#HOW =  "# Diz-me como foi? - ESSAY\n\n"
-#HOW += "## Variante Única\n\n"
-#HOW += "Indique a dificuldade (fácil, preciso pensar um pouco, exigente, não consegui ainda):\n\n\n"
-#HOW += "Explique, sucintamente e nas linhas em baixo, que equações foram usadas e ideia das instruções (de software ou calculadora) usados.\n\n\n"
-#HOW += "Obrigado (Equipa docente de MNE).\n"
-#with open(f"{self.basename}.{self.extension}", "a", encoding="utf-8") as file_object:
-#    # Write the text to the file
-#    file_object.write(HOW)
-        
-
-"""
-
-import pandas as pd
 import os
 import datetime
-from .serviceabstract import AbstractService, rename_old_filename, DEFAULT_ANSWER_TEMPLATE
+import markdown
+from .serviceabstract import AbstractService, rename_old_filename
 from .clozeroutines import Cloze
 
 
-from .wisdomgraph import set2orderedstr
-# Ver:
-# self.solverslist_text = self.solverslist_buildtext(inputvars_set,node_path_list)
-# self.buildone_scenary_text(inputvars_set)
+from .scenario import set2orderedstr
 
-FILE_HEADER = """---
+
+FILE_HEADER_template = """---
 title: "{title}"
 author: "{author}"
 date: "{date}"
@@ -38,146 +18,374 @@ output:
 """
 
 
+CLOZE_template_randomquestion = """
+<question type="category">
+    <category>
+        <text>$course$/top/{moodle_imports_category}/{exam_title}/{question_title}</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>{variant_title} de {question_title}</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[{xml_clozequestion}]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[{xml_feedbackglobal}]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+"""
+
+CLOZE_template_deterministic = """
+<question type="category">
+    <category>
+        <text>$course$/top/{moodle_imports_category}/{exam_title}</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>{problem_title}</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[{xml_clozequestion}]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[{xml_feedbackglobal}]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+"""
+
+#
+#  xml_str = '<?xml version="1.0" encoding="UTF-8"?>\n<quiz>\n'
+#
+#  Include sequentialy all CLOZE_template
+#  (each CLOZE_template has a path in Moodle Category tree):
+#
+#     <text>$course$/top/{imports}/{exam_title}/{question_title}</text>
+#
+#  xml_str = xml_str + '</quiz>\n'
+#
+
 
 class ClozeService(AbstractService):
 
     def __init__(self, 
-                 student_template=None, 
-                 student_feedback=None, 
-                 excel_pathname=None,
+                 student_template_filename=None,
+                 student_feedback=None,
+                 answer_template=None,
+                 pandas_dataframe=None,
                  variable_attributes=None,
+                 distractors = None,
                  author="(Author)",
-                 answer_template=DEFAULT_ANSWER_TEMPLATE,
-                 sequencial = True,
                  output_extension='txt', 
-                 varcount=1): #varcount as in rmdmoodle
+                 config=None
+                 ): 
 
         # See AbstractService.__init__()
-        super().__init__(excel_pathname,variable_attributes,answer_template)
+        super().__init__(pandas_dataframe=pandas_dataframe, 
+                         variable_attributes=variable_attributes, 
+                         distractors=distractors, 
+                         answer_template=answer_template, 
+                         output_extension=output_extension,
+                         config=config)
 
         # Only in ClozeService
         # student_template could be a filename or a string
         from os import getcwd, chdir
-        student_template_path = os.path.join(r'..', student_template)
+        student_template_path = os.path.join(r'..', student_template_filename)
         print(f"pyequa is opening file {student_template_path}.")
-        if '.md' in student_template:
+        if '.md' in student_template_filename:
             try:
                 with open(student_template_path, mode='r', encoding='utf-8') as file:
                     self.student_template = file.read()
             except FileNotFoundError:
-                print(f"Error: File '{student_template}' not found.")
+                print(f"Error: File '{student_template_path}' not found.")
                 raise FileNotFoundError
         else:
-            self.student_template = student_template
+            self.student_template_path = student_template_path
 
 
         self.student_feedback = student_feedback
-        self.sequencial = sequencial #1 problem with all variants (for study only)
-        self.basename, _ = os.path.splitext(os.path.basename(self.excel_pathname))
-        if self.sequencial:
-            self.basename = self.basename + "-study"
-        self.output_extension = output_extension
-        self.file_path_student = f"{self.basename}.{self.output_extension}"
-        self.varcount = varcount
 
-        # Counters
-        self.problem_no = 0
-        self.pandas_dataframe_iloc = -1 # each row of excel "excel/pandas"
 
+        # See serviceabstract.py where self.file_path_student is built
         rename_old_filename(self.file_path_student)
 
-
-        # Create new file Rmd file
-        rmd_header = FILE_HEADER.format(title = self.file_path_student, 
+        # -------------------------------
+        # Rmd file header for user to see
+        # -------------------------------
+        rmd_header = FILE_HEADER_template.format(title  = self.file_path_student, 
                                         author = author,
-                                        date = datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S"))
-
-        if self.sequencial:
-            #Only in case of sequencial variants concatenating all problems and their  variants
-            problem_header = f"""\n\n# Model {self.file_path_student} - CLOZE\n\n"""
-        else:
-            problem_header = "" #Empty. Problem header will be added later with their variants.
-
-        with open(self.file_path_student, "w", encoding="utf-8") as file_object:
+                                        date   = datetime.datetime.now().strftime(r'%Y-%m-%d_%H-%M-%S'))
+        with open(self.file_path_student, mode="w", encoding="utf-8") as file_object:
             # Write the text to the file
-            file_object.write(rmd_header+problem_header)
+            file_object.write(rmd_header)
 
 
-    def add_problem_with_variants(self,inputvars_set,node_path_list):
-        """
-        Produces problems like "rmdmoodle":
-
-        ## Variant <excelrow_no>
-        ....
-
-        ## Variant <excelrow_no>
-        ....
-
-
-        Input
-        =====
-
-        - inputvars_set : what variables the student knows
-        - node_path_list: what nodes, in graph, are part of solution
-
-        """
-
-
-        if not self.sequencial:
-
-            problem_header = f"\n# Problem {self.problem_no+1:02d} - CLOZE\n"
-            # ----------------
-            # Write header on student and solutions file
-            # ----------------
-            with open(self.file_path_student, "a", encoding="utf-8") as file_object:
-                # Write the text to the file
-                file_object.write(problem_header)
+        # ----------------------
+        # XML moodle file header
+        # ----------------------
+        xml_header = '<?xml version="1.0" encoding="UTF-8"?>\n<quiz>\n'
+        with open(self.file_path_student+'.xml', mode="w", encoding="utf-8") as file_object:
+            # Write the text to the file
+            file_object.write(xml_header)
 
 
 
-        # Add variants
-        for var_no in range(self.varcount):
+    def challenge_deterministic_add(self, givenvars_set, node_path_list, number_of_problems_per_givenvars):
+
+        # Add problems for this `givenvars_set` (there are no variants)
+        # Moodle level is always 1 (no hierarchy)
+
+        # self.deterministic_problem_number
+
+        for _ in range(number_of_problems_per_givenvars):
 
             # "%" is modulo
             #print(f"debuf: self.pandas_dataframe.index.size = {self.pandas_dataframe.index.size}")
             self.pandas_dataframe_iloc = (self.pandas_dataframe_iloc + 1) % self.pandas_dataframe.shape[0]
 
             # problem and technical keywords
-            args_dict = dict()
+            #args_dict = dict()
 
             # problem keywords
-            pandas_series = self.pandas_dataframe.iloc[self.pandas_dataframe_iloc]
+            pandas_row_series = self.pandas_dataframe.iloc[self.pandas_dataframe_iloc]
 
-            # var+input: student see the value if var is in inputvars_set (ako "given variable")
-            # var+input: student see (incógnita) if var is NOT in inputvars_set (ako "determine variable")
-            # var+output: student see nothing if var is in inputvars_set
-            # var+output: student see value if var is NOT in inputvars_set
-
-
-            cloze = Cloze(self.pandas_dataframe, pandas_series, args_dict, self.scenario.allvars_list, inputvars_set, self.variable_attributes)
-            args_dict = cloze.mk_input_fields()
+            # var+input: student see the value if var is in givenvars_set (ako "given variable")
+            # var+input: student see (incógnita) if var is NOT in givenvars_set (ako "determine variable")
+            # var+output: student see nothing if var is in givenvars_set
+            # var+output: student see value if var is NOT in givenvars_set
 
 
+            cloze = Cloze(self.pandas_dataframe, 
+                          pandas_row_series, 
+                          #args_dict, # all vars values to be replaced in student text model
+                          self.scenario.allvars_set, 
+                          givenvars_set, 
+                          self.variable_attributes,
+                          self.distractors,
+                          self.config)
+            
+            args_dict = cloze.vars_to_fields()
 
             args_dict['answer_steps'] = self.solverslist_answer_text
 
-            if self.sequencial:
-                # Variants are added linearly and not separated by different types of problems.
-                # problem_no starts at 0. Example:
-                # problem_no=0 var_no=0 produce ## Variant 1
-                # problem_no=0 var_no=1 produce ## Variant 2
-                # problem_no=1 var_no=0 produce ## Variant 3
-                # problem_no=1 var_no=1 produce ## Variant 4
-                # problem_no=2 var_no=0 produce ## Variant 5
-                # problem_no=2 var_no=1 produce ## Variant 6
-                # etc
-                vno = self.problem_no*self.varcount + (var_no+1)  
-            else:
-                vno = var_no + 1
+
+            args_dict['problem_number_str'] = \
+                f"{(self.deterministic_problem_number):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d}) ({givenvars_set})" # nr. linha pandas + 1 = nr. da linha do excel
+
+
+            # Nós que fazem parte da solução
+            args_dict['nodesequence'] = ', '.join(node_path_list) #node_path_list to text
+
+            #debug
+            #print(args_dict)
+            # https://docs.python.org/3/library/string.html#string.Formatter.vformat
+            # "check_unused_args() is assumed to raise an exception if the check fails.""
+            #raise an exception if the check fails
+
+            problem_header_str = f"\n\n# {self.config['problem_word']} {args_dict['problem_number_str']}\n\n"
+
+            try:
+                student_str = self.student_template.format(**args_dict)
+            except KeyError as k:
+                print(f"Missing column '{k}' in 'data.{self.config['dataframe_type']}'.")
+                raise
+                
+            feedback_str = f"\n\n\n### feedback\n\n{self.student_feedback}\n\n"
+
+            student_text = problem_header_str + student_str + feedback_str
+
+
+            # ----------------
+            # Markdown: write problem or solution on student and solutions file
+            # ----------------
+            with open(self.file_path_student, "a", encoding="utf-8") as file_object:
+                # Write the text to the file
+                file_object.write(student_text)
+
+
+            # ------------
+            # Moodle xml: write problem or solution on student and solutions file
+            # ------------
+
+            # See https://chat.deepseek.com/a/chat/s/0c4ac66a-c452-490f-9d95-91c22abe1da2
+            student_str_without_backslash = student_str.replace(r'\~', '~')
+            student_str_html = markdown.markdown(student_str_without_backslash)
+
+            moodle_imports_category = self.config['moodle_import_folder']
+            exam_title = self.file_path_student
+            problem_title = f"{self.config['problem_word']} {args_dict['problem_number_str']}"
+            xml_clozequestion = student_str_html
+            xml_feedbackglobal = self.student_feedback
+
+            xml_cloze = CLOZE_template_deterministic.format(
+                moodle_imports_category = moodle_imports_category,
+                exam_title = exam_title,
+                problem_title = problem_title,
+                xml_clozequestion = xml_clozequestion,
+                xml_feedbackglobal = xml_feedbackglobal,
+            )
+
+            with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
+                # Write the text to the file
+                file_object.write(xml_cloze)
+
+            #Next poblem number
+            self.deterministic_problem_number = self.deterministic_problem_number + 1
+
+
+    def challenge_with_randomquestions_add(self, var_no, givenvars_set, node_path_list):
+
+
+        # "%" is modulo
+        #print(f"debuf: self.pandas_dataframe.index.size = {self.pandas_dataframe.index.size}")
+        self.pandas_dataframe_iloc = (self.pandas_dataframe_iloc + 1) % self.pandas_dataframe.shape[0]
+
+        # problem and technical keywords
+        #args_dict = dict()
+
+        # problem keywords
+        pandas_row_series = self.pandas_dataframe.iloc[self.pandas_dataframe_iloc]
+
+        # var+input: student see the value if var is in givenvars_set (ako "given variable")
+        # var+input: student see (incógnita) if var is NOT in givenvars_set (ako "determine variable")
+        # var+output: student see nothing if var is in givenvars_set
+        # var+output: student see value if var is NOT in givenvars_set
+
+
+        cloze = Cloze(self.pandas_dataframe, 
+                        pandas_row_series, 
+                        #args_dict, # all vars values to be replaced in student text model
+                        self.scenario.allvars_list, 
+                        givenvars_set, 
+                        self.variable_attributes,
+                        self.distractors,
+                        self.config)
+        
+        args_dict = cloze.vars_to_fields()
+
+        args_dict['answer_steps'] = self.solverslist_answer_text
+
+
+        args_dict['variation_number'] = \
+            f"{(var_no+1):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d}) {givenvars_set}" # nr. linha pandas + 1 = nr. da linha do excel
+
+
+
+        # Nós que fazem parte da solução
+        args_dict['nodesequence'] = ', '.join(node_path_list) #node_path_list to text
+
+        #debug
+        #print(args_dict)
+        # https://docs.python.org/3/library/string.html#string.Formatter.vformat
+        # "check_unused_args() is assumed to raise an exception if the check fails.""
+        #raise an exception if the check fails
+
+        variant_str = f"\n\n## {self.config['variant_word']} {args_dict['variation_number']}\n\n"
+
+        try:
+            student_str = self.student_template.format(**args_dict)
+        except KeyError as k:
+            print(f"Missing column '{k}' in 'data.{self.config['dataframe_type']}'.")
+            raise
+            
+        feedback_str = f"\n\n\n### feedback\n\n{self.student_feedback}\n\n"
+
+        student_text = variant_str + student_str + feedback_str
+
+        # ----------------
+        # Markdown: write problem or solution on student and solutions file
+        # ----------------
+        with open(self.file_path_student, "a", encoding="utf-8") as file_object:
+            # Write the text to the file
+            file_object.write(student_text)
+
+
+        # ------------
+        # Moodle xml: write problem or solution on student and solutions file
+        # ------------
+
+        # See https://chat.deepseek.com/a/chat/s/0c4ac66a-c452-490f-9d95-91c22abe1da2
+        student_str_without_backslash = student_str.replace(r'\~', '~')
+        student_str_html = markdown.markdown(student_str_without_backslash)
+
+        moodle_imports_category = self.config['moodle_import_folder']
+        exam_title = self.file_path_student
+        question_title = str(givenvars_set)
+        variant_title = f"{self.config['variant_word']} {args_dict['variation_number']}"
+        xml_clozequestion = student_str_html
+        xml_feedbackglobal = self.student_feedback
+
+        xml_cloze = CLOZE_template_randomquestion.format(
+            moodle_imports_category = moodle_imports_category,
+            exam_title = exam_title,
+            question_title = question_title,
+            variant_title = variant_title,
+            xml_clozequestion = xml_clozequestion,
+            xml_feedbackglobal = xml_feedbackglobal,
+        )
+
+        with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
+            # Write the text to the file
+            file_object.write(xml_cloze)
+
+            
+
+    def exam_with_randomquestions_add(self, givenvars_set, node_path_list, number_of_variants_per_givenvars):
+
+        self.add_problem_header(problem_str = f"problem given {givenvars_set}")
+
+        # Add variants
+        for var_no in range(number_of_variants_per_givenvars):
+
+            # "%" is modulo
+            #print(f"debuf: self.pandas_dataframe.index.size = {self.pandas_dataframe.index.size}")
+            self.pandas_dataframe_iloc = (self.pandas_dataframe_iloc + 1) % self.pandas_dataframe.shape[0]
+
+            # problem and technical keywords
+            #args_dict = dict()
+
+            # problem keywords
+            pandas_row_series = self.pandas_dataframe.iloc[self.pandas_dataframe_iloc]
+
+            # var+input: student see the value if var is in givenvars_set (ako "given variable")
+            # var+input: student see (incógnita) if var is NOT in givenvars_set (ako "determine variable")
+            # var+output: student see nothing if var is in givenvars_set
+            # var+output: student see value if var is NOT in givenvars_set
+
+
+            cloze = Cloze(self.pandas_dataframe, 
+                          pandas_row_series, 
+                          #args_dict, # all vars values to be replaced in student text model
+                          self.scenario.allvars_list, 
+                          givenvars_set, 
+                          self.variable_attributes,
+                          self.distractors,
+                          self.config)
+            
+            args_dict = cloze.vars_to_fields()
+
+            args_dict['answer_steps'] = self.solverslist_answer_text
 
 
             args_dict['variation_number'] = \
-                f"{(vno):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d})" # nr. linha pandas + 1 = nr. da linha do excel
+                f"{(var_no+1):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d})" # nr. linha pandas + 1 = nr. da linha do excel
 
 
 
@@ -190,22 +398,69 @@ class ClozeService(AbstractService):
             # "check_unused_args() is assumed to raise an exception if the check fails.""
             #raise an exception if the check fails
 
-            variant_str = f"\n\n## variante {args_dict['variation_number']}\n\n"
-            student_str = self.student_template.format(**args_dict)
-            feedback_str = f"\n\n### feedback\n\n{self.student_feedback}\n"
+            variant_str = f"\n\n## {self.config['variant_word']} {args_dict['variation_number']}\n\n"
+
+            try:
+                student_str = self.student_template.format(**args_dict)
+            except KeyError as k:
+                print(f"Missing column '{k}' in 'data.{self.config['dataframe_type']}'.")
+                raise
+                
+            feedback_str = f"\n\n\n### feedback\n\n{self.student_feedback}\n\n"
 
             student_text = variant_str + student_str + feedback_str
 
             # ----------------
-            # Write problem or solution on student and solutions file
+            # Markdown: write problem or solution on student and solutions file
             # ----------------
             with open(self.file_path_student, "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(student_text)
 
-            #Next number
-            self.problem_no += 1                
-            
+
+            # ------------
+            # Moodle xml: write problem or solution on student and solutions file
+            # ------------
+
+            # See https://chat.deepseek.com/a/chat/s/0c4ac66a-c452-490f-9d95-91c22abe1da2
+            student_str_without_backslash = student_str.replace(r'\~', '~')
+            student_str_html = markdown.markdown(student_str_without_backslash)
+
+            moodle_imports_category = self.config['moodle_import_folder']
+            exam_title = self.file_path_student
+            question_title = str(givenvars_set)
+            variant_title = f"{self.config['variant_word']} {args_dict['variation_number']}"
+            xml_clozequestion = student_str_html
+            xml_feedbackglobal = self.student_feedback
+
+            xml_cloze = CLOZE_template_randomquestion.format(
+                moodle_imports_category = moodle_imports_category,
+                exam_title = exam_title,
+                question_title = question_title,
+                variant_title = variant_title,
+                xml_clozequestion = xml_clozequestion,
+                xml_feedbackglobal = xml_feedbackglobal,
+            )
+
+            with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
+                # Write the text to the file
+                file_object.write(xml_cloze)
+
+
+    def add_problem_header(self, problem_str):
+
+        problem_header = f"\n# Problem {problem_str} - CLOZE\n"
+        # ----------------
+        # Write header on student and solutions file
+        # ----------------
+        with open(self.file_path_student, "a", encoding="utf-8") as file_object:
+            # Write the text to the file
+            file_object.write(problem_header)
 
 
 
+    def close_build(self):
+        with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
+            # Write the text to the file
+            file_object.write('\n</quiz>\n')
+        
