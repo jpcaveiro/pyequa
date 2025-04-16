@@ -219,13 +219,15 @@ class ClozeService(AbstractService):
                 # Write the text to the file
                 file_object.write(student_text)
 
+            self.save_moodle_xml(givenvars_set, args_dict, student_str, 'problem_word', 'problem_number_str')
 
+            r"""
             # ------------
             # Moodle xml: write problem or solution on student and solutions file
             # ------------
 
             # See https://chat.deepseek.com/a/chat/s/0c4ac66a-c452-490f-9d95-91c22abe1da2
-            student_str_without_backslash = student_str.replace(r'\~', '~')
+            student_str_without_backslash = student_str.replace(r' \ ~ ', ' ~ ')  
             student_str_html = markdown.markdown(student_str_without_backslash)
 
             moodle_imports_category = self.config['moodle_import_folder']
@@ -245,6 +247,7 @@ class ClozeService(AbstractService):
             with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(xml_cloze)
+            """
 
             #Next poblem number
             self.deterministic_problem_number = self.deterministic_problem_number + 1
@@ -317,35 +320,10 @@ class ClozeService(AbstractService):
             file_object.write(student_text)
 
 
-        # ------------
-        # Moodle xml: write problem or solution on student and solutions file
-        # ------------
+        self.save_moodle_xml(givenvars_set, args_dict, student_str, 'variant_word', 'variation_number')
 
-        # See https://chat.deepseek.com/a/chat/s/0c4ac66a-c452-490f-9d95-91c22abe1da2
-        student_str_without_backslash = student_str.replace(r'\~', '~')
-        student_str_html = markdown.markdown(student_str_without_backslash)
 
-        moodle_imports_category = self.config['moodle_import_folder']
-        exam_title = self.file_path_student
-        question_title = str(givenvars_set)
-        variant_title = f"{self.config['variant_word']} {args_dict['variation_number']}"
-        xml_clozequestion = student_str_html
-        xml_feedbackglobal = self.student_feedback
 
-        xml_cloze = CLOZE_template_randomquestion.format(
-            moodle_imports_category = moodle_imports_category,
-            exam_title = exam_title,
-            question_title = question_title,
-            variant_title = variant_title,
-            xml_clozequestion = xml_clozequestion,
-            xml_feedbackglobal = xml_feedbackglobal,
-        )
-
-        with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
-            # Write the text to the file
-            file_object.write(xml_cloze)
-
-            
 
     def exam_with_randomquestions_add(self, givenvars_set, node_path_list, number_of_variants_per_givenvars):
 
@@ -417,13 +395,15 @@ class ClozeService(AbstractService):
                 # Write the text to the file
                 file_object.write(student_text)
 
+            self.save_moodle_xml(givenvars_set, args_dict, student_str, 'variant_word', 'variation_number')
 
+            r"""
             # ------------
             # Moodle xml: write problem or solution on student and solutions file
             # ------------
 
             # See https://chat.deepseek.com/a/chat/s/0c4ac66a-c452-490f-9d95-91c22abe1da2
-            student_str_without_backslash = student_str.replace(r'\~', '~')
+            student_str_without_backslash = student_str.replace(r' \ ~ ', ' ~ ')
             student_str_html = markdown.markdown(student_str_without_backslash)
 
             moodle_imports_category = self.config['moodle_import_folder']
@@ -445,7 +425,57 @@ class ClozeService(AbstractService):
             with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(xml_cloze)
+            """
 
+
+
+    def save_moodle_xml(self, givenvars_set, args_dict, student_str, variant_problem_str, args_dict_number):
+        # ------------
+        # Moodle xml: write problem or solution on student and solutions file
+        # ------------
+
+        # See https://chat.deepseek.com/a/chat/s/0c4ac66a-c452-490f-9d95-91c22abe1da2
+        student_str_for_pandoc = student_str.replace(r'\~', r'~')
+        student_str_for_pandoc = student_str_for_pandoc.replace('\\\n', '\\\\\\\n')
+        student_str_for_pandoc = student_str_for_pandoc.replace(r'\[', r'\\[')
+        student_str_for_pandoc = student_str_for_pandoc.replace(r'\]', r'\\]')
+        student_str_for_pandoc = student_str_for_pandoc.replace(r'\(', r'\\(')
+        student_str_for_pandoc = student_str_for_pandoc.replace(r'\)', r'\\)')
+        
+        #student_str_for_pandoc = student_str_for_pandoc.replace(r'\\', '\\\\\\\\')
+
+        #no extensions
+        student_str_html = markdown.markdown(student_str_for_pandoc)#, extensions=[KatexExtension()]) #escape=False)
+        student_str_html = student_str_html.replace(r'&amp;', r'&')
+        student_str_html = student_str_html.replace(r'\\(', r'\(')
+        student_str_html = student_str_html.replace(r'\\)', r'\)')
+
+        #https://gemini.google.com/app/d1a1ca0df542b718
+        #student_str_html = markdown.markdown(student_str_without_backslash, escape=False)
+        #https://www.perplexity.ai/search/python-markdown-library-avoid-GPLyi_xvSFSjal_JCqM01w?0=r
+        #student_str_html = markdown.markdown(student_str_without_backslash, extensions=[KatexExtension()])
+
+        moodle_imports_category = self.config['moodle_import_folder']
+        exam_title = self.file_path_student
+        question_title = str(givenvars_set)
+        variant_title = f"{self.config[variant_problem_str]} {args_dict[args_dict_number]}"
+        xml_clozequestion = student_str_html
+        xml_feedbackglobal = self.student_feedback
+
+        xml_cloze = CLOZE_template_randomquestion.format(
+            moodle_imports_category = moodle_imports_category,
+            exam_title = exam_title,
+            question_title = question_title,
+            variant_title = variant_title,
+            xml_clozequestion = xml_clozequestion,
+            xml_feedbackglobal = xml_feedbackglobal,
+        )
+
+        with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
+            # Write the text to the file
+            file_object.write(xml_cloze)
+
+            
 
     def add_problem_header(self, problem_str):
 

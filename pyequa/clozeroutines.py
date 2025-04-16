@@ -127,7 +127,7 @@ class Cloze:
 
             #Student see the value if var is in givenvars_set:
             if self.variable_attributes[var.name]['type'].lower() == 'multichoice' or \
-                self.variable_attributes[var.name]['type'].lower() == 'shortanswer':
+               self.variable_attributes[var.name]['type'].lower() == 'shortanswer':
                 know_this = f"{var} == '''{value}'''"
             else:
                 know_this = f"{var} == {value}" 
@@ -170,13 +170,15 @@ class Cloze:
         #Building the vars_dict for requested vars 
         # (vars to fill-in-the-blanks).
         #--------------------------------------------
-        for var in self.requestedvars_set:
+        for var in self.requestedvars_set: #requested to student as fill-in-the-blanks
 
             #Both numerical or str variables could have more that
             #one solution considering the given pandas_dataset.
-            all_unique_values_for_var = self.pandas_dataframe[var.name].unique()
+            all_unique_values_for_var  = self.pandas_dataframe[var.name].unique() #several values (one is more rare)
             all_correct_values_for_var = rows_with_same_givenvarsvalues[var.name].unique() #can be just one
 
+            # Debug
+            #print(f"len(.) {len(all_correct_values_for_var)}")
 
             #multichoice, shortanswer, or pandas "object"
             var_is_a_string = self.var_is_stringtype(var)
@@ -214,15 +216,42 @@ class Cloze:
 
             else:
 
-                #numerical type: has tolerance
-                tol = self.get_tolerance(var)
-                for option in all_unique_values_for_var:
-                    if option in all_correct_values_for_var:
-                        options_list.append(f"%100%{option}:{tol}") 
+                # TODO: dentro do ficheiro Excel
+                # há solução única mas na realidade
+                # há infinitas soluções: caso do determinante1 Exrc. 8.
+                # em que 'det' e 'a11' estão fill-in-the-blanks
+                # e, dentro do excel só há uma solução,
+                # mas na realidade há infinitas!
+                #  
+                if len(all_correct_values_for_var)==1:
 
-            #TODO
-            #adicionar distractors de multichoice
-            #adicionar vars dos distractors (que não sao de uma multichoice)
+                    numerical_to_multichoice = False
+
+                    #numerical type: has tolerance
+                    tol = self.get_tolerance(var)
+                    for option in all_unique_values_for_var:
+                        if option in all_correct_values_for_var:
+                            options_list.append(f"%100%{option}:{tol}") 
+
+                else:
+                    
+                    #there are more than one numerical solution:
+                    # in this case, convert numerical fill-in-the-bçanks
+                    # to multichoice for student could see all values
+                    # are to be checked (otherwise only by guessing)
+
+                    numerical_to_multichoice = True
+
+                    #all_unique_values_for_var  = self.pandas_dataframe[var.name].unique() #several values (one is more rare)
+                    #all_correct_values_for_var = rows_with_same_givenvarsvalues[var.name].unique() #can be just one
+
+
+
+                    for option in all_unique_values_for_var:
+                        if option in all_correct_values_for_var:
+                            options_list.append(f"%100%{option}") #Not using toleance in multichoice
+                    
+
             
             options_str = '\\~'.join(options_list)
             

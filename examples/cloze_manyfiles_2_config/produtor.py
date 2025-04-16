@@ -74,7 +74,44 @@ world = ws.Scenario(scenary_relations, text_service) #implícito que r=[1,2]
 
 
 # Increased difficult no_of_given_vars=None
-world.buildall(no_of_given_vars=None, max_ex_per_comb=3) 
+#world.buildall(no_of_given_vars=None, max_ex_per_comb=3) 
 
+
+
+from pathlib import Path
+from pyequa.config import PyEqua
+
+pe = PyEqua(Path(__file__).parent, scenario_relations, variable_attributes)
+
+# Learning from the same exercises for everybody
+#pe.challenge_deterministic(max_combinations_givenvars_per_easynesslevel = 2, 
+#                           number_of_problems_per_givenvars = 4,
+#)
+
+
+# Learning using "moodle random questions" based in a similar level
+#pe.challenge_with_randomquestions(max_combinations_givenvars_per_easynesslevel = 2)
+
+
+
+# To make "moodle random questions" for evaluation 
+#   (all questions with equal difficult but different values)
+#pe.exam_with_randomquestions(fill_in_blanks_vars = {'probvalory', 'probsemanas'}, 
+#                             number_of_problems_per_givenvars=4)
+
+
+
+# Teacher can read and choose
+#pe.exploratory() # is the same as
+#pe.challenge_no_variants(max_combinations_givenvars_per_easynesslevel = None,  # no control
+#                         number_of_problems_per_givenvars = 1,  # single variant for each case
+#)
+
+
+
+# Teacher can read and choose
+pe.hard(max_number_of_problems=4, max_combinations_givenvars_per_easynesslevel=None) # is the same as
+
+#pe.scenario.draw_wisdom_graph(figsize=[100,100])
 
 

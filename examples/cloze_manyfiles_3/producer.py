@@ -67,10 +67,7 @@ pe = PyEqua(Path(__file__).parent, scenario_relations, variable_attributes)
 
 
 # Teacher can read and choose
-#pe.hard(requested_number_of_problems=4, max_combinations_givenvars_per_easynesslevel=1) # is the same as
-#pe.challenge_no_variants(max_combinations_givenvars_per_easynesslevel = None,  # no control
-#                         number_of_problems_per_givenvars = 1,  # single variant for each case
-#)
+pe.hard(max_number_of_problems=4, max_combinations_givenvars_per_easynesslevel=None) # is the same as
 
-pe.scenario.draw_wisdom_graph(figsize=[100,100])
+#pe.scenario.draw_wisdom_graph(figsize=[100,100])
 

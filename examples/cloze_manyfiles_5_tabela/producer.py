@@ -9,8 +9,8 @@ print(Path(__file__).parent)
 # Equations or generic relations
 #
 scenario_relations = {
-    "Eq(dfgrupos,g-1)",
-    "Eq(dferros,g*n-g)",
+    "Eq(dfgrupos,  g-1)",
+    "Eq(dferros,   g*n-g)",
     "Eq(sqtotal,   sqgrupos+sqerros)",
     "Eq(dftotal,   dfgrupos+dferros)",
     "Eq(msqgrupos, sqgrupos/dfgrupos)",
@@ -83,11 +83,10 @@ from pyequa.config import PyEqua
 
 pe = PyEqua(Path(__file__).parent, scenario_relations, variable_attributes)
 
-
 #pe.scenario.draw_wisdom_graph()
 
 
-import cProfile
+#import cProfile
 
 # Profile the function
 #profiler = cProfile.Profile()
@@ -121,10 +120,10 @@ import cProfile
 
 
 # Teacher can read and choose
-pe.hard(requested_number_of_problems=4, max_combinations_givenvars_per_easynesslevel=1) # is the same as
-#pe.challenge_no_variants(max_combinations_givenvars_per_easynesslevel = None,  # no control
-#                         number_of_problems_per_givenvars = 1,  # single variant for each case
-#)
+pe.hard_first(max_number_of_problems=None, 
+              max_combinations_givenvars_per_easynesslevel=2, 
+              number_of_problems_per_givenvars=1)
+
 
 #profiler.disable()
 #profiler.print_stats(sort='time')  # Sort by time spent

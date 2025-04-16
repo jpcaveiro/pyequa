@@ -840,7 +840,7 @@ class Scenario:
         # Each set in list_of_list_of_givenvars_set produce an exercise
         # -----------------------------------------
         for givenvars_set in list_of_list_of_givenvars_set:
-
+            #TODO: givenvars_set should be changed to givenvars_list
             #
             # Discussion: when is this combination necessary?
             #

@@ -249,11 +249,44 @@ class PyEqua:
         merged_dict = {**dict_of_converters_1, **dict_of_converters_2}
 
         return merged_dict
-        
+    
 
-
-    def hard(self, requested_number_of_problems=1, max_combinations_givenvars_per_easynesslevel=1, number_of_problems_per_givenvars=1):
+    def easy_first(self, 
+                   max_number_of_problems=None, 
+                   max_combinations_givenvars_per_easynesslevel=None, 
+                   number_of_problems_per_givenvars=1):
         # Learning from the same exercises for everybody
+        # Easy ones first.
+
+        self.challenge_deterministic(
+                   max_number_of_problems, 
+                   max_combinations_givenvars_per_easynesslevel, 
+                   number_of_problems_per_givenvars,
+                   hard_first = False)
+
+
+    def hard_first(self, 
+                   max_number_of_problems=None, 
+                   max_combinations_givenvars_per_easynesslevel=None, 
+                   number_of_problems_per_givenvars=1):
+        # Learning from the same exercises for everybody
+        # hard ones first.
+
+        self.challenge_deterministic(
+                   max_number_of_problems, 
+                   max_combinations_givenvars_per_easynesslevel, 
+                   number_of_problems_per_givenvars,
+                   hard_first = True)
+
+
+    def challenge_deterministic(self, 
+                   max_number_of_problems=None, 
+                   max_combinations_givenvars_per_easynesslevel=None, 
+                   number_of_problems_per_givenvars=1,
+                   hard_first = True):
+        
+        # Learning from the same exercises for everybody
+        # Difficult ones first.
         
         total_vars = len(self.scenario.allvars_list)
 
@@ -262,20 +295,29 @@ class PyEqua:
 
         problem_number = 1
 
+        if hard_first:
+            nvars_range = range(1, total_vars)
+        else:
+            nvars_range = range(total_vars-1, 0, -1)
+
         # Each new exercises have an increased 'number_of_given_vars': from total_vars-1 to 0.
-        for nvars in range(1, total_vars):
+        for nvars in nvars_range:
 
             print("="*20)
             print(f"Add exercises with {nvars} given variables.")
 
-            Y = self.scenario.yield_givenvarsset_nodepathlist_from_number(number_of_given_vars=nvars, reverse=True)
+            if hard_first:
+                Y = self.scenario.yield_givenvarsset_nodepathlist_from_number(number_of_given_vars=nvars, reverse=True)
+            else:
+                Y = self.scenario.yield_givenvarsset_nodepathlist_from_number(number_of_given_vars=nvars, reverse=False)
 
             #Control
-            count = max_combinations_givenvars_per_easynesslevel
+            if max_combinations_givenvars_per_easynesslevel: #if there is control
+                count_combinations = max_combinations_givenvars_per_easynesslevel
 
             for problem_pair in Y:
 
-                print(f"==> exercies given {problem_pair[0]}")
+                print(f"==> Adding {number_of_problems_per_givenvars} exercies given {problem_pair[0]}")
 
                 givenvars_tuple  = problem_pair[0]
                 node_path_list = problem_pair[1]
@@ -290,12 +332,18 @@ class PyEqua:
 
                 #Decrease counting
                 if max_combinations_givenvars_per_easynesslevel: #if there is control
-                    count = count - 1 
-                    if not count: #when zero
+                    count_combinations = count_combinations - 1 
+                    if count_combinations == 0: #when zero
                         break #get out of cycle
 
-            if problem_number > requested_number_of_problems:
+                #Break inner cycle, if needed
+                if max_number_of_problems and problem_number > max_number_of_problems:
+                    break
+
+            #Break outer cycle, if needed
+            if max_number_of_problems and problem_number > max_number_of_problems:
                 break
+
 
         self.conclude()
 
@@ -304,51 +352,6 @@ class PyEqua:
         self.challenge_deterministic(max_combinations_givenvars_per_easynesslevel = 0, 
                                      number_of_problems_per_givenvars = 1)
 
-
-
-    def challenge_deterministic(self, 
-                                max_combinations_givenvars_per_easynesslevel = 2, 
-                                number_of_problems_per_givenvars = 4):
-
-        # Learning from the same exercises for everybody
-        
-        total_vars = len(self.scenario.allvars_list)
-
-        self.text_service.deterministic_problem_number = 1
-        self.text_service.pandas_dataframe_iloc = -1
-
-
-        # Each new exercises have an increased 'number_of_given_vars': from total_vars-1 to 0.
-        for nvars in range(total_vars-1, 0, -1):
-
-            print("="*20)
-            print(f"Add exercises with {nvars} given variables.")
-
-            Y = self.scenario.yield_givenvarsset_nodepathlist_from_number(number_of_given_vars=nvars)
-
-            #Control
-            count = max_combinations_givenvars_per_easynesslevel
-
-            for problem_pair in Y:
-
-                print(f"==> exercies given {problem_pair[0]}")
-
-                givenvars_tuple  = problem_pair[0]
-                node_path_list = problem_pair[1]
-
-                #General steps for the solution
-                self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_tuple, node_path_list)
-
-                #Abstract method
-                self.text_service.challenge_deterministic_add(givenvars_tuple, node_path_list, number_of_problems_per_givenvars)
-
-                #Decrease counting
-                if max_combinations_givenvars_per_easynesslevel: #if there is control
-                    count = count - 1 
-                    if not count: #when zero
-                        break #get out of cycle
-
-        self.conclude()
 
 
     def challenge_with_randomquestions(self, max_combinations_givenvars_per_easynesslevel = 0):
