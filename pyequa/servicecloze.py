@@ -21,7 +21,7 @@ output:
 CLOZE_template_randomquestion = """
 <question type="category">
     <category>
-        <text>$course$/top/{moodle_imports_category}/{exam_title}/{question_title}</text>
+        <text>$course$/top/{moodle_imports_category}/{exam_title}/Random Question {question_title}</text>
     </category>
     <info format="html">
         <text></text>
@@ -44,6 +44,8 @@ CLOZE_template_randomquestion = """
 </question>
 """
 
+'''
+# Not being used
 CLOZE_template_deterministic = """
 <question type="category">
     <category>
@@ -69,6 +71,7 @@ CLOZE_template_deterministic = """
     <idnumber></idnumber>
 </question>
 """
+'''
 
 #
 #  xml_str = '<?xml version="1.0" encoding="UTF-8"?>\n<quiz>\n'
@@ -147,7 +150,7 @@ class ClozeService(AbstractService):
 
 
 
-    def challenge_deterministic_add(self, givenvars_set, node_path_list, number_of_problems_per_givenvars):
+    def challenge_deterministic_add(self, problem_set_number, givenvars_set, node_path_list, number_of_problems_per_givenvars):
 
         # Add problems for this `givenvars_set` (there are no variants)
         # Moodle level is always 1 (no hierarchy)
@@ -187,7 +190,8 @@ class ClozeService(AbstractService):
 
 
             args_dict['problem_number_str'] = \
-                f"{(self.deterministic_problem_number):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d}) ({givenvars_set})" # nr. linha pandas + 1 = nr. da linha do excel
+                f"{(self.deterministic_problem_number):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d})" # nr. linha pandas + 1 = nr. da linha do excel
+                #f"{(self.deterministic_problem_number):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d}) ({givenvars_set})" # nr. linha pandas + 1 = nr. da linha do excel
 
 
             # Nós que fazem parte da solução
@@ -219,7 +223,7 @@ class ClozeService(AbstractService):
                 # Write the text to the file
                 file_object.write(student_text)
 
-            self.save_moodle_xml(givenvars_set, args_dict, student_str, 'problem_word', 'problem_number_str')
+            self.save_moodle_xml(problem_set_number, givenvars_set, args_dict, student_str, 'problem_word', 'problem_number_str')
 
             r"""
             # ------------
@@ -253,7 +257,7 @@ class ClozeService(AbstractService):
             self.deterministic_problem_number = self.deterministic_problem_number + 1
 
 
-    def challenge_with_randomquestions_add(self, var_no, givenvars_set, node_path_list):
+    def challenge_with_randomquestions_add(self, problem_set_number, var_no, givenvars_set, node_path_list):
 
 
         # "%" is modulo
@@ -287,7 +291,9 @@ class ClozeService(AbstractService):
 
 
         args_dict['variation_number'] = \
-            f"{(var_no+1):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d}) {givenvars_set}" # nr. linha pandas + 1 = nr. da linha do excel
+            f"{(var_no+1):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d})" # nr. linha pandas + 1 = nr. da linha do excel
+            #With givenvars_set
+            #f"{(var_no+1):03d} (data row is {(self.pandas_dataframe_iloc + 1):02d}) {givenvars_set}" # nr. linha pandas + 1 = nr. da linha do excel
 
 
 
@@ -320,12 +326,12 @@ class ClozeService(AbstractService):
             file_object.write(student_text)
 
 
-        self.save_moodle_xml(givenvars_set, args_dict, student_str, 'variant_word', 'variation_number')
+        self.save_moodle_xml(problem_set_number, givenvars_set, args_dict, student_str, 'variant_word', 'variation_number')
 
 
 
 
-    def exam_with_randomquestions_add(self, givenvars_set, node_path_list, number_of_variants_per_givenvars):
+    def exam_with_randomquestions_add(self, problem_set_number, givenvars_set, node_path_list, number_of_variants_per_givenvars):
 
         self.add_problem_header(problem_str = f"problem given {givenvars_set}")
 
@@ -395,7 +401,7 @@ class ClozeService(AbstractService):
                 # Write the text to the file
                 file_object.write(student_text)
 
-            self.save_moodle_xml(givenvars_set, args_dict, student_str, 'variant_word', 'variation_number')
+            self.save_moodle_xml(problem_set_number, givenvars_set, args_dict, student_str, 'variant_word', 'variation_number')
 
             r"""
             # ------------
@@ -429,7 +435,7 @@ class ClozeService(AbstractService):
 
 
 
-    def save_moodle_xml(self, givenvars_set, args_dict, student_str, variant_problem_str, args_dict_number):
+    def save_moodle_xml(self, problem_set_number, givenvars_set, args_dict, student_str, variant_problem_str, args_dict_number):
         # ------------
         # Moodle xml: write problem or solution on student and solutions file
         # ------------
@@ -457,7 +463,7 @@ class ClozeService(AbstractService):
 
         moodle_imports_category = self.config['moodle_import_folder']
         exam_title = self.file_path_student
-        question_title = str(givenvars_set)
+        question_title = f"{problem_set_number:03d} {str(givenvars_set)}"
         variant_title = f"{self.config[variant_problem_str]} {args_dict[args_dict_number]}"
         xml_clozequestion = student_str_html
         xml_feedbackglobal = self.student_feedback

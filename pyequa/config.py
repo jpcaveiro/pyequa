@@ -293,12 +293,13 @@ class PyEqua:
         self.text_service.deterministic_problem_number = 1
         self.text_service.pandas_dataframe_iloc = -1
 
-        problem_number = 1
 
         if hard_first:
             nvars_range = range(1, total_vars)
         else:
             nvars_range = range(total_vars-1, 0, -1)
+
+        problem_number = 1
 
         # Each new exercises have an increased 'number_of_given_vars': from total_vars-1 to 0.
         for nvars in nvars_range:
@@ -326,8 +327,7 @@ class PyEqua:
                 self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_tuple, node_path_list)
 
                 #Abstract method
-                self.text_service.challenge_deterministic_add(givenvars_tuple, node_path_list, number_of_problems_per_givenvars)
-
+                self.text_service.challenge_deterministic_add(problem_number,givenvars_tuple, node_path_list, number_of_problems_per_givenvars)
                 problem_number = problem_number + 1
 
                 #Decrease counting
@@ -388,7 +388,7 @@ class PyEqua:
                 self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_tuple,node_path_list)
 
                 #Abstract method
-                self.text_service.challenge_with_randomquestions_add(var_no, givenvars_tuple, node_path_list)
+                self.text_service.challenge_with_randomquestions_add(problem_number, var_no, givenvars_tuple, node_path_list)
 
                 #Decrease counting
                 if max_combinations_givenvars_per_easynesslevel: #if there is control
@@ -419,7 +419,7 @@ class PyEqua:
 
         self.text_service.pandas_dataframe_iloc = -1
 
-        for problem_pair in Y:
+        for (problem_set_number, problem_pair) in enumerate(Y):
 
             print(f"==> exercies given {problem_pair[0]}")
 
@@ -430,7 +430,7 @@ class PyEqua:
             self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_tuple,node_path_list)
 
             #Abstract method
-            self.text_service.exam_with_randomquestions_add(givenvars_tuple, node_path_list, number_of_problems_per_givenvars)
+            self.text_service.exam_with_randomquestions_add(1, givenvars_tuple, node_path_list, number_of_problems_per_givenvars)
 
 
         self.conclude()

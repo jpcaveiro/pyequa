@@ -3,7 +3,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, msqgrupos)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 001 (dfgrupos, msqerros, sig, sqtotal)</text>
     </category>
     <info format="html">
         <text></text>
@@ -12,7 +12,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 001 (data row is 01) ((sig, dftotal, sqgrupos, msqgrupos)) de (sig, dftotal, sqgrupos, msqgrupos)</text>
+        <text>Problem 001 (data row is 01) de 001 (dfgrupos, msqerros, sig, sqtotal)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
@@ -39,24 +39,24 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**4.0**</td>
-        <td>{:NUMERICAL:%100%3:0}</td>
-        <td>**1.333**</td>
-        <td>{:NUMERICAL:%100%4.003:0.005}</td>
-        <td>**0.035**</td>
+        <td>{:NUMERICAL:%100%4:0.05}</td>
+        <td>3</td>
+        <td>{:NUMERICAL:%100%1.333:0.05}</td>
+        <td>{:NUMERICAL:%100%1.0:0.005}</td>
+        <td>0.426</td>
       </tr>
       <tr>
         <td>Within Groups</td>
-        <td>{:NUMERICAL:%100%4:0.05}</td>
+        <td>{:NUMERICAL:%100%16:0.05}</td>
         <td>{:NUMERICAL:%100%12:0}</td>
-        <td>{:NUMERICAL:%100%0.333:0.05}</td>
+        <td>1.333</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>{:NUMERICAL:%100%8:0.05}</td>
-        <td>**15.0**</td>
+        <td>20</td>
+        <td>{:NUMERICAL:%100%15:0}</td>
         <td></td>
         <td></td>
         <td></td>
@@ -64,7 +64,8 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): {:MULTICHOICE_S:%100%não existe diferença significativa entre os valores esperados~%0%existe pelo menos um valor esperado significativamente diferente}</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -78,7 +79,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, msqerros)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 002 (dfgrupos, msqerros, sig, dftotal)</text>
     </category>
     <info format="html">
         <text></text>
@@ -87,7 +88,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 002 (data row is 02) ((sig, dftotal, sqgrupos, msqerros)) de (sig, dftotal, sqgrupos, msqerros)</text>
+        <text>Problem 002 (data row is 02) de 002 (dfgrupos, msqerros, sig, dftotal)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
@@ -114,24 +115,24 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**1000.0**</td>
-        <td>{:NUMERICAL:%100%3:0}</td>
+        <td>{:NUMERICAL:%100%1000:0.05}</td>
+        <td>3</td>
         <td>{:NUMERICAL:%100%333.333:0.05}</td>
         <td>{:NUMERICAL:%100%66.667:0.005}</td>
-        <td>**0.0**</td>
+        <td>0.0</td>
       </tr>
       <tr>
         <td>Within Groups</td>
         <td>{:NUMERICAL:%100%100:0.05}</td>
         <td>{:NUMERICAL:%100%20:0}</td>
-        <td>**5.0**</td>
+        <td>5.0</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
         <td>{:NUMERICAL:%100%1100:0.05}</td>
-        <td>**23.0**</td>
+        <td>23</td>
         <td></td>
         <td></td>
         <td></td>
@@ -139,7 +140,8 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): {:MULTICHOICE_S:%100%existe pelo menos um valor esperado significativamente diferente~%0%não existe diferença significativa entre os valores esperados}</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -153,7 +155,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, msqgrupos, sqtotal)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 003 (dfgrupos, msqerros, sig, sqtotal, f)</text>
     </category>
     <info format="html">
         <text></text>
@@ -162,382 +164,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 003 (data row is 03) ((sig, dftotal, sqgrupos, msqgrupos, sqtotal)) de (sig, dftotal, sqgrupos, msqgrupos, sqtotal)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
-foram analisados {:NUMERICAL:%100%4:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%5:0} registos (em
-horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
-<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
-<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
-    <colgroup>
-      <col style="width: 25%">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td></td>
-        <td>Sum of Squares</td>
-        <td>df</td>
-        <td>Mean Square</td>
-        <td>F</td>
-        <td>Sig.</td>
-      </tr>
-      <tr>
-        <td>Between Groups</td>
-        <td>**500.0**</td>
-        <td>{:NUMERICAL:%100%3:0}</td>
-        <td>**166.667**</td>
-        <td>{:NUMERICAL:%100%5.556:0.005}</td>
-        <td>**0.008**</td>
-      </tr>
-      <tr>
-        <td>Within Groups</td>
-        <td>{:NUMERICAL:%100%480:0.05}</td>
-        <td>{:NUMERICAL:%100%16:0}</td>
-        <td>{:NUMERICAL:%100%30.0:0.05}</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Total</td>
-        <td>**980.0**</td>
-        <td>**19.0**</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-<p>Complete a tabela de ANOVA.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, msqgrupos, msqerros)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 004 (data row is 04) ((sig, dftotal, sqgrupos, msqgrupos, msqerros)) de (sig, dftotal, sqgrupos, msqgrupos, msqerros)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
-foram analisados {:NUMERICAL:%100%5:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%5:0} registos (em
-horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
-<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
-<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
-    <colgroup>
-      <col style="width: 25%">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td></td>
-        <td>Sum of Squares</td>
-        <td>df</td>
-        <td>Mean Square</td>
-        <td>F</td>
-        <td>Sig.</td>
-      </tr>
-      <tr>
-        <td>Between Groups</td>
-        <td>**180.0**</td>
-        <td>{:NUMERICAL:%100%4:0}</td>
-        <td>**45.0**</td>
-        <td>{:NUMERICAL:%100%5.294:0.005}</td>
-        <td>**0.004**</td>
-      </tr>
-      <tr>
-        <td>Within Groups</td>
-        <td>{:NUMERICAL:%100%170:0.05}</td>
-        <td>{:NUMERICAL:%100%20:0}</td>
-        <td>**8.5**</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Total</td>
-        <td>{:NUMERICAL:%100%350:0.05}</td>
-        <td>**24.0**</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-<p>Complete a tabela de ANOVA.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, msqgrupos, sqtotal, msqerros)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 005 (data row is 05) ((sig, dftotal, sqgrupos, msqgrupos, sqtotal, msqerros)) de (sig, dftotal, sqgrupos, msqgrupos, sqtotal, msqerros)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
-foram analisados {:NUMERICAL:%100%4:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%4:0} registos (em
-horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
-<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
-<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
-    <colgroup>
-      <col style="width: 25%">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td></td>
-        <td>Sum of Squares</td>
-        <td>df</td>
-        <td>Mean Square</td>
-        <td>F</td>
-        <td>Sig.</td>
-      </tr>
-      <tr>
-        <td>Between Groups</td>
-        <td>**200.0**</td>
-        <td>{:NUMERICAL:%100%3:0}</td>
-        <td>**66.667**</td>
-        <td>{:NUMERICAL:%100%6.667:0.005}</td>
-        <td>**0.007**</td>
-      </tr>
-      <tr>
-        <td>Within Groups</td>
-        <td>{:NUMERICAL:%100%120:0.05}</td>
-        <td>{:NUMERICAL:%100%12:0}</td>
-        <td>**10.0**</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Total</td>
-        <td>**320.0**</td>
-        <td>**15.0**</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-<p>Complete a tabela de ANOVA.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, msqgrupos, sqtotal, f)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 006 (data row is 01) ((sig, dftotal, sqgrupos, msqgrupos, sqtotal, f)) de (sig, dftotal, sqgrupos, msqgrupos, sqtotal, f)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
-foram analisados {:NUMERICAL:%100%4:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%4:0} registos (em
-horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
-<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
-<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
-    <colgroup>
-      <col style="width: 25%">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td></td>
-        <td>Sum of Squares</td>
-        <td>df</td>
-        <td>Mean Square</td>
-        <td>F</td>
-        <td>Sig.</td>
-      </tr>
-      <tr>
-        <td>Between Groups</td>
-        <td>**4.0**</td>
-        <td>{:NUMERICAL:%100%3:0}</td>
-        <td>**1.333**</td>
-        <td>**4.003**</td>
-        <td>**0.035**</td>
-      </tr>
-      <tr>
-        <td>Within Groups</td>
-        <td>{:NUMERICAL:%100%4:0.05}</td>
-        <td>{:NUMERICAL:%100%12:0}</td>
-        <td>{:NUMERICAL:%100%0.333:0.05}</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Total</td>
-        <td>**8.0**</td>
-        <td>**15.0**</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-<p>Complete a tabela de ANOVA.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, msqgrupos, sqtotal, msqerros, f)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 007 (data row is 02) ((sig, dftotal, sqgrupos, msqgrupos, sqtotal, msqerros, f)) de (sig, dftotal, sqgrupos, msqgrupos, sqtotal, msqerros, f)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
-foram analisados {:NUMERICAL:%100%4:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%6:0} registos (em
-horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
-<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
-<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
-    <colgroup>
-      <col style="width: 25%">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-      <col style="width: 15%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td></td>
-        <td>Sum of Squares</td>
-        <td>df</td>
-        <td>Mean Square</td>
-        <td>F</td>
-        <td>Sig.</td>
-      </tr>
-      <tr>
-        <td>Between Groups</td>
-        <td>**1000.0**</td>
-        <td>{:NUMERICAL:%100%3:0}</td>
-        <td>**333.333**</td>
-        <td>**66.667**</td>
-        <td>**0.0**</td>
-      </tr>
-      <tr>
-        <td>Within Groups</td>
-        <td>{:NUMERICAL:%100%100:0.05}</td>
-        <td>{:NUMERICAL:%100%20:0}</td>
-        <td>**5.0**</td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>Total</td>
-        <td>**1100.0**</td>
-        <td>**23.0**</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-<p>Complete a tabela de ANOVA.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, dferros, msqgrupos, sqtotal, msqerros, f)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 008 (data row is 03) ((sig, dftotal, dferros, msqgrupos, sqtotal, msqerros, f)) de (sig, dftotal, dferros, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>Problem 003 (data row is 03) de 003 (dfgrupos, msqerros, sig, sqtotal, f)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
@@ -565,23 +192,23 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       <tr>
         <td>Between Groups</td>
         <td>{:NUMERICAL:%100%500:0.05}</td>
-        <td>{:NUMERICAL:%100%3:0}</td>
-        <td>**166.667**</td>
-        <td>**5.556**</td>
-        <td>**0.008**</td>
+        <td>3</td>
+        <td>{:NUMERICAL:%100%166.667:0.05}</td>
+        <td>5.556</td>
+        <td>0.008</td>
       </tr>
       <tr>
         <td>Within Groups</td>
         <td>{:NUMERICAL:%100%480:0.05}</td>
-        <td>**16.0**</td>
-        <td>**30.0**</td>
+        <td>{:NUMERICAL:%100%16:0}</td>
+        <td>30.0</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>**980.0**</td>
-        <td>**19.0**</td>
+        <td>980</td>
+        <td>{:NUMERICAL:%100%19:0}</td>
         <td></td>
         <td></td>
         <td></td>
@@ -589,7 +216,8 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): {:MULTICHOICE_S:%100%existe pelo menos um valor esperado significativamente diferente~%0%não existe diferença significativa entre os valores esperados}</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -603,7 +231,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, dferros, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 004 (dfgrupos, msqerros, sig, sqtotal, rejeitarh0)</text>
     </category>
     <info format="html">
         <text></text>
@@ -612,7 +240,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 009 (data row is 04) ((sig, dftotal, sqgrupos, dferros, msqgrupos, sqtotal, msqerros, f)) de (sig, dftotal, sqgrupos, dferros, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>Problem 004 (data row is 04) de 004 (dfgrupos, msqerros, sig, sqtotal, rejeitarh0)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
@@ -639,24 +267,24 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**180.0**</td>
-        <td>{:NUMERICAL:%100%4:0}</td>
-        <td>**45.0**</td>
-        <td>**5.294**</td>
-        <td>**0.004**</td>
+        <td>{:NUMERICAL:%100%180:0.05}</td>
+        <td>4</td>
+        <td>{:NUMERICAL:%100%45.0:0.05}</td>
+        <td>{:NUMERICAL:%100%0.212:0.005}</td>
+        <td>0.929</td>
       </tr>
       <tr>
         <td>Within Groups</td>
-        <td>{:NUMERICAL:%100%170:0.05}</td>
-        <td>**20.0**</td>
-        <td>**8.5**</td>
+        <td>{:NUMERICAL:%100%4250:0.05}</td>
+        <td>{:NUMERICAL:%100%20:0}</td>
+        <td>212.5</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>**350.0**</td>
-        <td>**24.0**</td>
+        <td>4430</td>
+        <td>{:NUMERICAL:%100%24:0}</td>
         <td></td>
         <td></td>
         <td></td>
@@ -664,7 +292,8 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>não existe diferença significativa entre os valores esperados</strong></p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -678,7 +307,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, sqerros, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 005 (dfgrupos, msqerros, sig, sqtotal, f, rejeitarh0)</text>
     </category>
     <info format="html">
         <text></text>
@@ -687,7 +316,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 010 (data row is 05) ((sig, dftotal, sqgrupos, sqerros, msqgrupos, sqtotal, msqerros, f)) de (sig, dftotal, sqgrupos, sqerros, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>Problem 005 (data row is 05) de 005 (dfgrupos, msqerros, sig, sqtotal, f, rejeitarh0)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
@@ -714,24 +343,24 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**200.0**</td>
-        <td>{:NUMERICAL:%100%3:0}</td>
-        <td>**66.667**</td>
-        <td>**6.667**</td>
-        <td>**0.007**</td>
+        <td>{:NUMERICAL:%100%200:0.05}</td>
+        <td>3</td>
+        <td>{:NUMERICAL:%100%66.667:0.05}</td>
+        <td>6.667</td>
+        <td>0.007</td>
       </tr>
       <tr>
         <td>Within Groups</td>
-        <td>**120.0**</td>
+        <td>{:NUMERICAL:%100%120:0.05}</td>
         <td>{:NUMERICAL:%100%12:0}</td>
-        <td>**10.0**</td>
+        <td>10.0</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>**320.0**</td>
-        <td>**15.0**</td>
+        <td>320</td>
+        <td>{:NUMERICAL:%100%15:0}</td>
         <td></td>
         <td></td>
         <td></td>
@@ -739,7 +368,8 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>existe pelo menos um valor esperado significativamente diferente</strong></p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -753,7 +383,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, dferros, sqerros, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 006 (dfgrupos, msqerros, sig, f, rejeitarh0, dftotal)</text>
     </category>
     <info format="html">
         <text></text>
@@ -762,7 +392,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 011 (data row is 01) ((sig, dftotal, sqgrupos, dferros, sqerros, msqgrupos, sqtotal, msqerros, f)) de (sig, dftotal, sqgrupos, dferros, sqerros, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>Problem 006 (data row is 01) de 006 (dfgrupos, msqerros, sig, f, rejeitarh0, dftotal)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
@@ -789,24 +419,24 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**4.0**</td>
-        <td>{:NUMERICAL:%100%3:0}</td>
-        <td>**1.333**</td>
-        <td>**4.003**</td>
-        <td>**0.035**</td>
+        <td>{:NUMERICAL:%100%4:0.05}</td>
+        <td>3</td>
+        <td>{:NUMERICAL:%100%1.333:0.05}</td>
+        <td>1.0</td>
+        <td>0.426</td>
       </tr>
       <tr>
         <td>Within Groups</td>
-        <td>**4.0**</td>
-        <td>**12.0**</td>
-        <td>**0.333**</td>
+        <td>{:NUMERICAL:%100%16:0.05}</td>
+        <td>{:NUMERICAL:%100%12:0}</td>
+        <td>1.333</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>**8.0**</td>
-        <td>**15.0**</td>
+        <td>{:NUMERICAL:%100%20:0.05}</td>
+        <td>15</td>
         <td></td>
         <td></td>
         <td></td>
@@ -814,7 +444,8 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>não existe diferença significativa entre os valores esperados</strong></p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -828,7 +459,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, dferros, dfgrupos, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 007 (dfgrupos, msqerros, sig, sqtotal, f, rejeitarh0, dftotal)</text>
     </category>
     <info format="html">
         <text></text>
@@ -837,7 +468,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 012 (data row is 02) ((sig, dftotal, sqgrupos, dferros, dfgrupos, msqgrupos, sqtotal, msqerros, f)) de (sig, dftotal, sqgrupos, dferros, dfgrupos, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>Problem 007 (data row is 02) de 007 (dfgrupos, msqerros, sig, sqtotal, f, rejeitarh0, dftotal)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
@@ -864,24 +495,24 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**1000.0**</td>
-        <td>**3.0**</td>
-        <td>**333.333**</td>
-        <td>**66.667**</td>
-        <td>**0.0**</td>
+        <td>{:NUMERICAL:%100%1000:0.05}</td>
+        <td>3</td>
+        <td>{:NUMERICAL:%100%333.333:0.05}</td>
+        <td>66.667</td>
+        <td>0.0</td>
       </tr>
       <tr>
         <td>Within Groups</td>
         <td>{:NUMERICAL:%100%100:0.05}</td>
-        <td>**20.0**</td>
-        <td>**5.0**</td>
+        <td>{:NUMERICAL:%100%20:0}</td>
+        <td>5.0</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>**1100.0**</td>
-        <td>**23.0**</td>
+        <td>1100</td>
+        <td>23</td>
         <td></td>
         <td></td>
         <td></td>
@@ -889,7 +520,8 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>existe pelo menos um valor esperado significativamente diferente</strong></p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -903,7 +535,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, dferros, sqerros, dfgrupos, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 008 (dfgrupos, msqerros, sig, sqtotal, f, rejeitarh0, msqgrupos)</text>
     </category>
     <info format="html">
         <text></text>
@@ -912,7 +544,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 013 (data row is 03) ((sig, dftotal, sqgrupos, dferros, sqerros, dfgrupos, msqgrupos, sqtotal, msqerros, f)) de (sig, dftotal, sqgrupos, dferros, sqerros, dfgrupos, msqgrupos, sqtotal, msqerros, f)</text>
+        <text>Problem 008 (data row is 03) de 008 (dfgrupos, msqerros, sig, sqtotal, f, rejeitarh0, msqgrupos)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
@@ -939,24 +571,24 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**500.0**</td>
-        <td>**3.0**</td>
-        <td>**166.667**</td>
-        <td>**5.556**</td>
-        <td>**0.008**</td>
+        <td>{:NUMERICAL:%100%500:0.05}</td>
+        <td>3</td>
+        <td>166.667</td>
+        <td>5.556</td>
+        <td>0.008</td>
       </tr>
       <tr>
         <td>Within Groups</td>
-        <td>**480.0**</td>
-        <td>**16.0**</td>
-        <td>**30.0**</td>
+        <td>{:NUMERICAL:%100%480:0.05}</td>
+        <td>{:NUMERICAL:%100%16:0}</td>
+        <td>30.0</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>**980.0**</td>
-        <td>**19.0**</td>
+        <td>980</td>
+        <td>{:NUMERICAL:%100%19:0}</td>
         <td></td>
         <td></td>
         <td></td>
@@ -964,7 +596,8 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>existe pelo menos um valor esperado significativamente diferente</strong></p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -978,7 +611,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, dferros, sqerros, msqgrupos, sqtotal, n, msqerros, f)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 009 (dfgrupos, msqerros, sig, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
     </category>
     <info format="html">
         <text></text>
@@ -987,11 +620,11 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 014 (data row is 04) ((sig, dftotal, sqgrupos, dferros, sqerros, msqgrupos, sqtotal, n, msqerros, f)) de (sig, dftotal, sqgrupos, dferros, sqerros, msqgrupos, sqtotal, n, msqerros, f)</text>
+        <text>Problem 009 (data row is 04) de 009 (dfgrupos, msqerros, sig, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
-foram analisados {:NUMERICAL:%100%5:0} tipos de fluidos e, para cada um deles, obtiveram-se <strong>5.0</strong> registos (em
+foram analisados {:NUMERICAL:%100%5:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%5:0} registos (em
 horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
 <p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
 <table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
@@ -1014,24 +647,24 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**180.0**</td>
-        <td>{:NUMERICAL:%100%4:0}</td>
-        <td>**45.0**</td>
-        <td>**5.294**</td>
-        <td>**0.004**</td>
+        <td>{:NUMERICAL:%100%180:0.05}</td>
+        <td>4</td>
+        <td>45.0</td>
+        <td>0.212</td>
+        <td>0.929</td>
       </tr>
       <tr>
         <td>Within Groups</td>
-        <td>**170.0**</td>
-        <td>**20.0**</td>
-        <td>**8.5**</td>
+        <td>{:NUMERICAL:%100%4250:0.05}</td>
+        <td>{:NUMERICAL:%100%20:0}</td>
+        <td>212.5</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>**350.0**</td>
-        <td>**24.0**</td>
+        <td>4430</td>
+        <td>24</td>
         <td></td>
         <td></td>
         <td></td>
@@ -1039,7 +672,8 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>não existe diferença significativa entre os valores esperados</strong></p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -1053,7 +687,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, dferros, sqerros, dfgrupos, msqgrupos, sqtotal, n, msqerros, f)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 010 (msqerros, sqgrupos, sig, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1062,11 +696,11 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 015 (data row is 05) ((sig, dftotal, sqgrupos, dferros, sqerros, dfgrupos, msqgrupos, sqtotal, n, msqerros, f)) de (sig, dftotal, sqgrupos, dferros, sqerros, dfgrupos, msqgrupos, sqtotal, n, msqerros, f)</text>
+        <text>Problem 010 (data row is 05) de 010 (msqerros, sqgrupos, sig, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
-foram analisados {:NUMERICAL:%100%4:0} tipos de fluidos e, para cada um deles, obtiveram-se <strong>4.0</strong> registos (em
+foram analisados {:NUMERICAL:%100%4:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%4:0} registos (em
 horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
 <p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
 <table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
@@ -1089,24 +723,24 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**200.0**</td>
-        <td>**3.0**</td>
-        <td>**66.667**</td>
-        <td>**6.667**</td>
-        <td>**0.007**</td>
+        <td>200</td>
+        <td>{:NUMERICAL:%100%3:0}</td>
+        <td>66.667</td>
+        <td>6.667</td>
+        <td>0.007</td>
       </tr>
       <tr>
         <td>Within Groups</td>
-        <td>**120.0**</td>
-        <td>**12.0**</td>
-        <td>**10.0**</td>
+        <td>{:NUMERICAL:%100%120:0.05}</td>
+        <td>{:NUMERICAL:%100%12:0}</td>
+        <td>10.0</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>**320.0**</td>
-        <td>**15.0**</td>
+        <td>320</td>
+        <td>15</td>
         <td></td>
         <td></td>
         <td></td>
@@ -1114,7 +748,8 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>existe pelo menos um valor esperado significativamente diferente</strong></p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -1128,7 +763,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/cloze_manyfiles_5_tabela.md/(sig, dftotal, sqgrupos, dferros, sqerros, dfgrupos, msqgrupos, sqtotal, msqerros, g, f)</text>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 011 (dfgrupos, msqerros, sqgrupos, sig, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1137,11 +772,11 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 016 (data row is 01) ((sig, dftotal, sqgrupos, dferros, sqerros, dfgrupos, msqgrupos, sqtotal, msqerros, g, f)) de (sig, dftotal, sqgrupos, dferros, sqerros, dfgrupos, msqgrupos, sqtotal, msqerros, g, f)</text>
+        <text>Problem 011 (data row is 01) de 011 (dfgrupos, msqerros, sqgrupos, sig, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
-foram analisados <strong>4.0</strong> tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%4:0} registos (em
+foram analisados {:NUMERICAL:%100%4:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%4:0} registos (em
 horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
 <p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
 <table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
@@ -1164,24 +799,24 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**4.0**</td>
-        <td>**3.0**</td>
-        <td>**1.333**</td>
-        <td>**4.003**</td>
-        <td>**0.035**</td>
+        <td>4</td>
+        <td>3</td>
+        <td>1.333</td>
+        <td>1.0</td>
+        <td>0.426</td>
       </tr>
       <tr>
         <td>Within Groups</td>
-        <td>**4.0**</td>
-        <td>**12.0**</td>
-        <td>**0.333**</td>
+        <td>{:NUMERICAL:%100%16:0.05}</td>
+        <td>{:NUMERICAL:%100%12:0}</td>
+        <td>1.333</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
-        <td>**8.0**</td>
-        <td>**15.0**</td>
+        <td>20</td>
+        <td>15</td>
         <td></td>
         <td></td>
         <td></td>
@@ -1189,7 +824,540 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-<p>Complete a tabela de ANOVA.</p>]]></text>
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>não existe diferença significativa entre os valores esperados</strong></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 012 (dfgrupos, msqerros, dferros, sig, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 012 (data row is 02) de 012 (dfgrupos, msqerros, dferros, sig, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
+foram analisados {:NUMERICAL:%100%4:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%6:0} registos (em
+horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
+<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 25%">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>Sum of Squares</td>
+        <td>df</td>
+        <td>Mean Square</td>
+        <td>F</td>
+        <td>Sig.</td>
+      </tr>
+      <tr>
+        <td>Between Groups</td>
+        <td>{:NUMERICAL:%100%1000:0.05}</td>
+        <td>3</td>
+        <td>333.333</td>
+        <td>66.667</td>
+        <td>0.0</td>
+      </tr>
+      <tr>
+        <td>Within Groups</td>
+        <td>{:NUMERICAL:%100%100:0.05}</td>
+        <td>20</td>
+        <td>5.0</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>1100</td>
+        <td>23</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>existe pelo menos um valor esperado significativamente diferente</strong></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 013 (dfgrupos, msqerros, sqgrupos, dferros, sig, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 013 (data row is 03) de 013 (dfgrupos, msqerros, sqgrupos, dferros, sig, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
+foram analisados {:NUMERICAL:%100%4:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%5:0} registos (em
+horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
+<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 25%">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>Sum of Squares</td>
+        <td>df</td>
+        <td>Mean Square</td>
+        <td>F</td>
+        <td>Sig.</td>
+      </tr>
+      <tr>
+        <td>Between Groups</td>
+        <td>500</td>
+        <td>3</td>
+        <td>166.667</td>
+        <td>5.556</td>
+        <td>0.008</td>
+      </tr>
+      <tr>
+        <td>Within Groups</td>
+        <td>{:NUMERICAL:%100%480:0.05}</td>
+        <td>16</td>
+        <td>30.0</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>980</td>
+        <td>19</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>existe pelo menos um valor esperado significativamente diferente</strong></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 014 (dfgrupos, msqerros, sqgrupos, sig, g, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 014 (data row is 04) de 014 (dfgrupos, msqerros, sqgrupos, sig, g, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
+foram analisados <strong>5</strong> tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%5:0} registos (em
+horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
+<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 25%">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>Sum of Squares</td>
+        <td>df</td>
+        <td>Mean Square</td>
+        <td>F</td>
+        <td>Sig.</td>
+      </tr>
+      <tr>
+        <td>Between Groups</td>
+        <td>180</td>
+        <td>4</td>
+        <td>45.0</td>
+        <td>0.212</td>
+        <td>0.929</td>
+      </tr>
+      <tr>
+        <td>Within Groups</td>
+        <td>{:NUMERICAL:%100%4250:0.05}</td>
+        <td>{:NUMERICAL:%100%20:0}</td>
+        <td>212.5</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>4430</td>
+        <td>24</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>não existe diferença significativa entre os valores esperados</strong></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 015 (dfgrupos, msqerros, sqgrupos, dferros, sig, g, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 015 (data row is 05) de 015 (dfgrupos, msqerros, sqgrupos, dferros, sig, g, sqtotal, f, rejeitarh0, dftotal, msqgrupos)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
+foram analisados <strong>4</strong> tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%4:0} registos (em
+horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
+<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 25%">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>Sum of Squares</td>
+        <td>df</td>
+        <td>Mean Square</td>
+        <td>F</td>
+        <td>Sig.</td>
+      </tr>
+      <tr>
+        <td>Between Groups</td>
+        <td>200</td>
+        <td>3</td>
+        <td>66.667</td>
+        <td>6.667</td>
+        <td>0.007</td>
+      </tr>
+      <tr>
+        <td>Within Groups</td>
+        <td>{:NUMERICAL:%100%120:0.05}</td>
+        <td>12</td>
+        <td>10.0</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>320</td>
+        <td>15</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>existe pelo menos um valor esperado significativamente diferente</strong></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 016 (dfgrupos, msqerros, sqgrupos, dferros, sig, sqtotal, f, rejeitarh0, sqerros, dftotal, msqgrupos)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 016 (data row is 01) de 016 (dfgrupos, msqerros, sqgrupos, dferros, sig, sqtotal, f, rejeitarh0, sqerros, dftotal, msqgrupos)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
+foram analisados {:NUMERICAL:%100%4:0} tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%4:0} registos (em
+horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
+<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 25%">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>Sum of Squares</td>
+        <td>df</td>
+        <td>Mean Square</td>
+        <td>F</td>
+        <td>Sig.</td>
+      </tr>
+      <tr>
+        <td>Between Groups</td>
+        <td>4</td>
+        <td>3</td>
+        <td>1.333</td>
+        <td>1.0</td>
+        <td>0.426</td>
+      </tr>
+      <tr>
+        <td>Within Groups</td>
+        <td>16</td>
+        <td>12</td>
+        <td>1.333</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>20</td>
+        <td>15</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>não existe diferença significativa entre os valores esperados</strong></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 017 (dfgrupos, msqerros, sqgrupos, dferros, sig, g, sqtotal, f, rejeitarh0, sqerros, dftotal, msqgrupos)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 017 (data row is 02) de 017 (dfgrupos, msqerros, sqgrupos, dferros, sig, g, sqtotal, f, rejeitarh0, sqerros, dftotal, msqgrupos)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
+foram analisados <strong>4</strong> tipos de fluidos e, para cada um deles, obtiveram-se {:NUMERICAL:%100%6:0} registos (em
+horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
+<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 25%">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>Sum of Squares</td>
+        <td>df</td>
+        <td>Mean Square</td>
+        <td>F</td>
+        <td>Sig.</td>
+      </tr>
+      <tr>
+        <td>Between Groups</td>
+        <td>1000</td>
+        <td>3</td>
+        <td>333.333</td>
+        <td>66.667</td>
+        <td>0.0</td>
+      </tr>
+      <tr>
+        <td>Within Groups</td>
+        <td>100</td>
+        <td>20</td>
+        <td>5.0</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>1100</td>
+        <td>23</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>existe pelo menos um valor esperado significativamente diferente</strong></p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/anova_tabela.md/Random Question 018 (dfgrupos, msqerros, sqgrupos, dferros, sig, g, sqtotal, f, rejeitarh0, dftotal, n, msqgrupos)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 018 (data row is 03) de 018 (dfgrupos, msqerros, sqgrupos, dferros, sig, g, sqtotal, f, rejeitarh0, dftotal, n, msqgrupos)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Num estudo sobre a duração efetiva do efeito de fluidos isolantes a uma carga de 35KV,
+foram analisados <strong>4</strong> tipos de fluidos e, para cada um deles, obtiveram-se <strong>5</strong> registos (em
+horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças médias entre os tipos de fluido. </p>
+<p><strong>ANOVA</strong> da "duração efetiva do efeito de fluidos isolantes":</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 25%">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>Sum of Squares</td>
+        <td>df</td>
+        <td>Mean Square</td>
+        <td>F</td>
+        <td>Sig.</td>
+      </tr>
+      <tr>
+        <td>Between Groups</td>
+        <td>500</td>
+        <td>3</td>
+        <td>166.667</td>
+        <td>5.556</td>
+        <td>0.008</td>
+      </tr>
+      <tr>
+        <td>Within Groups</td>
+        <td>{:NUMERICAL:%100%480:0.05}</td>
+        <td>16</td>
+        <td>30.0</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>980</td>
+        <td>19</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>Complete a tabela de ANOVA.</p>
+<p>Conclusão com \(\alpha=0.05\): <strong>existe pelo menos um valor esperado significativamente diferente</strong></p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[

@@ -51,4 +51,7 @@ horas). De seguida, efetuou-se uma ANOVA para avaliar possíveis diferenças mé
     </tbody>
   </table>
 
-  Complete a tabela de ANOVA.
+Complete a tabela de ANOVA.
+
+Conclusão com \(\alpha=0.05\): {rejeitarh0}
+
