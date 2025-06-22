@@ -30,6 +30,7 @@ class Cloze:
         self.pandas_row_series = pandas_row_series
         self.variable_attributes = variable_attributes
         self.distractors = distractors
+        self.config = config
 
 
     def get_distractors_in_columns(self, var):        
@@ -153,6 +154,8 @@ class Cloze:
         #Debug
         #print(rows_with_same_givenvarsvalues) #it's a pandas dataframe
 
+        if len(rows_with_same_givenvarsvalues) == 0:
+            raise ValueError(f"pyequa: probably '{var}' column, in dataframe, is a numeric type (or automatically converted to a numerical type) but pyequa variable_attributes say is 'multichoice'.")
 
 
         #-------------------------------------------------------------
@@ -303,7 +306,10 @@ class Cloze:
                 # (if no attributes it's a pure distractor)
 
                 #get variable value in a row (series) of pandas_dataframe
-                value = self.pandas_row_series[dis_var_name]
+                try:
+                    value = self.pandas_row_series[dis_var_name]
+                except KeyError as k:
+                    raise KeyError(f"Add variable '{dis_var_name}' to the dataframe.")
 
                 self.args_dict[dis_var_name] = "**" + str(value) + "**"
 

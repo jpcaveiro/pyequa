@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/anova_table.md/Random Question 001 [dftotal, n, g, msqgroups, sqgroups, sqerrors, dferrors, msqerrors, dfgroups, f]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 001 (data row is 01) de 001 [dftotal, n, g, msqgroups, sqgroups, sqerrors, dferrors, msqerrors, dfgroups, f]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>In a study examining the effective duration of insulating fluids under a 35KV load, <strong>4</strong> types of fluids were analyzed, and <strong>4</strong> measurements (in hours) were recorded for each. Subsequently, ANOVA was conducted to evaluate potential mean differences among the fluid types.</p>
+<p><strong>ANOVA</strong> of "duration of insulating fluids under a 35KV load":</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 25%">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+      <col style="width: 15%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td></td>
+        <td>Sum of Squares</td>
+        <td>df</td>
+        <td>Mean Square</td>
+        <td>F</td>
+        <td>Sig.</td>
+      </tr>
+      <tr>
+        <td>Between Groups</td>
+        <td>**4**</td>
+        <td>**3**</td>
+        <td>**1.333**</td>
+        <td>**1.0**</td>
+        <td>{:NUMERICAL:%100%0.426:0.005}</td>
+      </tr>
+      <tr>
+        <td>Within Groups</td>
+        <td>**16**</td>
+        <td>**12**</td>
+        <td>**1.333**</td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>{:NUMERICAL:%100%20:0.05}</td>
+        <td>**15**</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>Complete this ANOVA table.</p>
+<p>Conclusion with  \(\alpha=0.05\): {:MULTICHOICE_S:%100%não existe diferença significativa entre os valores esperados~%0%existe pelo menos um valor esperado significativamente diferente}</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+</quiz>

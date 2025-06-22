@@ -656,7 +656,7 @@ class Scenario:
 
 
 
-    def draw_wisdom_graph(self,figsize=[10,10],plot_fn=f'output_{datetime.datetime.now().strftime(r"%y%m%d-%H%M")}.pdf'):
+    def draw_wisdom_graph(self,plot_fn=f'output_{datetime.datetime.now().strftime(r"%y%m%d-%H%M")}.pdf', figsize=[10,10]):
         """
         based on the number of variables, produce a grid of
         positions for vertices
@@ -752,7 +752,7 @@ class Scenario:
         edge_labels_list = [ ((n1,n2),key) for n1,n2,key in G.edges(keys=True)]
         edge_labels_dict = dict(edge_labels_list)
         nx.draw_networkx(G,pos=pos_dic)
-        nx.draw_networkx_edge_labels(G, pos=pos_dic, edge_labels=edge_labels_dict)
+        #nx.draw_networkx_edge_labels(G, pos=pos_dic, edge_labels=edge_labels_dict)
 
         plt.savefig(plot_fn)
 

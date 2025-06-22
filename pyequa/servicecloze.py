@@ -279,7 +279,7 @@ class ClozeService(AbstractService):
         cloze = Cloze(self.pandas_dataframe, 
                         pandas_row_series, 
                         #args_dict, # all vars values to be replaced in student text model
-                        self.scenario.allvars_list, 
+                        self.scenario.allvars_set, 
                         givenvars_set, 
                         self.variable_attributes,
                         self.distractors,
@@ -331,7 +331,7 @@ class ClozeService(AbstractService):
 
 
 
-    def exam_with_randomquestions_add(self, problem_set_number, givenvars_set, node_path_list, number_of_variants_per_givenvars):
+    def randomquestion_sameblanks_add(self, problem_set_number, givenvars_set, node_path_list, number_of_variants_per_givenvars):
 
         self.add_problem_header(problem_str = f"problem given {givenvars_set}")
 
@@ -357,7 +357,7 @@ class ClozeService(AbstractService):
             cloze = Cloze(self.pandas_dataframe, 
                           pandas_row_series, 
                           #args_dict, # all vars values to be replaced in student text model
-                          self.scenario.allvars_list, 
+                          self.scenario.allvars_set, 
                           givenvars_set, 
                           self.variable_attributes,
                           self.distractors,

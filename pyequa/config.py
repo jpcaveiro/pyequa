@@ -4,9 +4,9 @@ from pathlib import Path
 from pyequa import scenario as ws
 from pyequa.servicecloze import ClozeService
 import pandas as pd
-#from pandas.api.types import is_numeric_dtype
-from pandas import Float64Dtype
-from pandas import Int64Dtype
+from pandas.api.types import is_numeric_dtype
+#from pandas import Float64Dtype
+#from pandas import Int64Dtype
 
 # Path to the default configuration file
 DEFAULT_CONFIG_PATH = Path(__file__).parent / "default_config.yaml"
@@ -106,6 +106,8 @@ def separate_by_type(input_dict):
         
     return distractors, non_distractors
 
+def num2str(value):
+    return f"{value}"
 
 
 class PyEqua:
@@ -160,7 +162,7 @@ class PyEqua:
                     csv_separator = self.config['csv_separator']
                     csv_decimal   = self.config['csv_decimal']
 
-                    self.pandas_data_frame = pd.read_csv('data.csv', 
+                    self.pandas_dataframe = pd.read_csv('data.csv', 
                                      sep=csv_separator, 
                                      decimal=csv_decimal,
                                      header=0,
@@ -169,9 +171,9 @@ class PyEqua:
                                      encoding='utf-8')
 
                 case 'xlsx':
-                    self.pandas_data_frame = pd.read_excel('data.xlsx')
+                    self.pandas_dataframe = pd.read_excel('data.xlsx')
 
-        '''
+
         # Convert, if necessary, dtypes
         # Example: df['col2'] = df['col2'].astype(str)
         for v_name in self.variable_attributes.keys():
@@ -179,36 +181,27 @@ class PyEqua:
             v_type = self.variable_attributes[v_name]["type"]
 
             if v_type == "numerical":
+                #if is_numeric_dtype(self.pandas_dataframe[v_name])
+                #    pass
+                #else:
+                #    # Try to convert to numerical type
+                #    pass 
 
-                #todo
-                #if self.pandas_data_frame[v_name].dtype == 
-                pass
+                pass   
             
             elif v_type == "multichoice":
 
-                if is_numeric_dtype(self.pandas_data_frame[v_name]):
+                if is_numeric_dtype(self.pandas_dataframe[v_name]):
 
-                    self.pandas_data_frame[v_name].dtype 
-
-                else:
-
-                    self.pandas_data_frame[v_name]
-                    
-
-
-
-            elif v_type == "distractor": 
-
-                pass
+                    # self.pandas_dataframe[v_name].apply(str) não parece funcionar
+                    new_values = [num2str(v) for v in self.pandas_dataframe[v_name]]
+                    self.pandas_dataframe[v_name] = new_values
 
             else:
 
                 raise 
-            
-            and self.pandas_data_frame[v].dtype 
 
-            '''
-
+            print(f"===> variable {v_name} has pandas type {self.pandas_dataframe[v_name].dtype} and variable_type {self.variable_attributes[v_name]["type"]}")
 
         if self.config['output_service'] == 'moodle_cloze':
 
@@ -216,7 +209,7 @@ class PyEqua:
                                 student_template_filename = self.config['student_template_filename'], #like "exercise_model.md", 
                                 student_feedback = self.config['student_feedback'],
                                 answer_template  = self.config['answer_template'],
-                                pandas_dataframe    = self.pandas_data_frame,
+                                pandas_dataframe    = self.pandas_dataframe,
                                 variable_attributes = self.variable_attributes,
                                 distractors         = self.distractors,
                                 author           = self.config['author'],
@@ -258,7 +251,7 @@ class PyEqua:
         # Learning from the same exercises for everybody
         # Easy ones first.
 
-        self.challenge_deterministic(
+        self._challenge_deterministic(
                    max_number_of_problems, 
                    max_combinations_givenvars_per_easynesslevel, 
                    number_of_problems_per_givenvars,
@@ -272,14 +265,14 @@ class PyEqua:
         # Learning from the same exercises for everybody
         # hard ones first.
 
-        self.challenge_deterministic(
+        self._challenge_deterministic(
                    max_number_of_problems, 
                    max_combinations_givenvars_per_easynesslevel, 
                    number_of_problems_per_givenvars,
                    hard_first = True)
 
 
-    def challenge_deterministic(self, 
+    def _challenge_deterministic(self, 
                    max_number_of_problems=None, 
                    max_combinations_givenvars_per_easynesslevel=None, 
                    number_of_problems_per_givenvars=1,
@@ -349,10 +342,11 @@ class PyEqua:
 
 
     def exploratory(self):
-        self.challenge_deterministic(max_combinations_givenvars_per_easynesslevel = 0, 
-                                     number_of_problems_per_givenvars = 1)
-
-
+        self._challenge_deterministic(
+                   max_number_of_problems=None, 
+                   max_combinations_givenvars_per_easynesslevel=None, 
+                   number_of_problems_per_givenvars=1,
+                   hard_first = False)
 
     def challenge_with_randomquestions(self, max_combinations_givenvars_per_easynesslevel = 0):
         # max_combinations_givenvars_per_easynesslevel = 0 means all it can get
@@ -404,7 +398,7 @@ class PyEqua:
 
 
 
-    def exam_with_randomquestions(self, fill_in_blanks_vars, number_of_problems_per_givenvars = 1):
+    def randomquestion_sameblanks(self, fill_in_blanks_vars, number_of_problems_per_givenvars = 1):
         # fill_in_blanks_vars is a set of names
 
         print("="*20)
@@ -430,7 +424,7 @@ class PyEqua:
             self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_tuple,node_path_list)
 
             #Abstract method
-            self.text_service.exam_with_randomquestions_add(1, givenvars_tuple, node_path_list, number_of_problems_per_givenvars)
+            self.text_service.randomquestion_sameblanks_add(1, givenvars_tuple, node_path_list, number_of_problems_per_givenvars)
 
 
         self.conclude()
@@ -441,6 +435,7 @@ class PyEqua:
 
         self.text_service.close_build()
 
+        # todo: remove this
         # output_knowledge_graph
         if self.config['output_knowledge_graph']:
             self.scenario.draw_wisdom_graph()

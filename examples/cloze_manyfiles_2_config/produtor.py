@@ -96,7 +96,7 @@ pe = PyEqua(Path(__file__).parent, scenario_relations, variable_attributes)
 
 # To make "moodle random questions" for evaluation 
 #   (all questions with equal difficult but different values)
-#pe.exam_with_randomquestions(fill_in_blanks_vars = {'probvalory', 'probsemanas'}, 
+#pe.randomquestion_sameblanks(fill_in_blanks_vars = {'probvalory', 'probsemanas'}, 
 #                             number_of_problems_per_givenvars=4)
 
 

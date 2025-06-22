@@ -94,22 +94,19 @@ pe = PyEqua(Path(__file__).parent, scenario_relations, variable_attributes)
 
 # To make "moodle random questions" for evaluation 
 #   (all questions with equal difficult but different values)
-#pe.exam_with_randomquestions(fill_in_blanks_vars = {'probvalory', 'probsemanas'}, 
+#pe.randomquestion_sameblanks(fill_in_blanks_vars = {'mean', 'variance', 'cv'}, 
 #                             number_of_problems_per_givenvars=4)
 
 
 
 # Teacher can read and choose
-#pe.exploratory() # is the same as
-#pe.challenge_deterministic(max_combinations_givenvars_per_easynesslevel = None,  # no control
-#                         number_of_problems_per_givenvars = 1,  # single variant for each case
-#)
+pe.exploratory() # is the same as
 
 
 # Teacher can read and choose
-pe.hard_first(max_number_of_problems=None, 
-              max_combinations_givenvars_per_easynesslevel=2, 
-              number_of_problems_per_givenvars=1)
+#pe.hard_first(max_number_of_problems=None, 
+#              max_combinations_givenvars_per_easynesslevel=2, 
+#              number_of_problems_per_givenvars=1)
 
 
 #profiler.disable()
