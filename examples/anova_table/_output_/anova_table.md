@@ -1,12 +1,12 @@
 ---
 title: "anova_table.md"
 author: "author"
-date: "2025-05-16_11-19-30"
+date: "2025-06-25_19-10-09"
 output:
   html_document: default
 ---
 
-# Problem problem given [dftotal, n, g, msqgroups, sqgroups, sqerrors, dferrors, msqerrors, dfgroups, f] - CLOZE
+# Problem problem given [g, sqgroups, dfgroups, msqerrors, dftotal, sqerrors, n, dferrors, msqgroups, f] - CLOZE
 
 
 ## Variant 001 (data row is 01)
@@ -64,7 +64,7 @@ In a study examining the effective duration of insulating fluids under a 35KV lo
 
 Complete this ANOVA table.
 
-Conclusion with  \(\alpha=0.05\): {:MULTICHOICE_S:%100%não existe diferença significativa entre os valores esperados\~%0%existe pelo menos um valor esperado significativamente diferente}
+Conclusion with  \(\alpha=0.05\): {:MULTICHOICE_S:%100%there is no significant difference between the expected values.\~%0%there is at least one expected value that is significantly different.}
 
 
 

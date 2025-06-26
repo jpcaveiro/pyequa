@@ -3,7 +3,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/anova_table.md/Random Question 001 [dftotal, n, g, msqgroups, sqgroups, sqerrors, dferrors, msqerrors, dfgroups, f]</text>
+        <text>$course$/top/imports/anova_table.md/Random Question 001 [g, sqgroups, dfgroups, msqerrors, dftotal, sqerrors, n, dferrors, msqgroups, f]</text>
     </category>
     <info format="html">
         <text></text>
@@ -12,7 +12,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 001 (data row is 01) de 001 [dftotal, n, g, msqgroups, sqgroups, sqerrors, dferrors, msqerrors, dfgroups, f]</text>
+        <text>Variant 001 (data row is 01) de 001 [g, sqgroups, dfgroups, msqerrors, dftotal, sqerrors, n, dferrors, msqgroups, f]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>In a study examining the effective duration of insulating fluids under a 35KV load, <strong>4</strong> types of fluids were analyzed, and <strong>4</strong> measurements (in hours) were recorded for each. Subsequently, ANOVA was conducted to evaluate potential mean differences among the fluid types.</p>
@@ -63,7 +63,7 @@
   </table>
 
 <p>Complete this ANOVA table.</p>
-<p>Conclusion with  \(\alpha=0.05\): {:MULTICHOICE_S:%100%não existe diferença significativa entre os valores esperados~%0%existe pelo menos um valor esperado significativamente diferente}</p>]]></text>
+<p>Conclusion with  \(\alpha=0.05\): {:MULTICHOICE_S:%100%there is no significant difference between the expected values.~%0%there is at least one expected value that is significantly different.}</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[

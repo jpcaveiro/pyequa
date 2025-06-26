@@ -10,5 +10,3 @@ and based on this sample, the following statistics are calculated:
 * \(s_c^2\) = {variance}
 * variation coefficient = {cv}
 
-
-

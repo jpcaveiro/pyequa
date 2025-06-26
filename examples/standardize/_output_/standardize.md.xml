@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/standardize.md/Random Question 001 (cv, x3, variance)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 001 (data row is 01) de 001 (cv, x3, variance)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider the following sample,</p>
+<ul>
+<li>\(x_1\)={:NUMERICAL:%100%1:0.05}</li>
+<li>\(x_2\)={:NUMERICAL:%100%2:0.05}</li>
+<li>\(x_3\)=<strong>3.0</strong></li>
+</ul>
+<p>and based on this sample, the following statistics are calculated:</p>
+<ul>
+<li>\(\bar x\) = {:NUMERICAL:%100%2.0:0.05}</li>
+<li>\(s_c^2\) = <strong>1.0</strong></li>
+<li>variation coefficient = <strong>0.5</strong></li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/standardize.md/Random Question 002 (cv, x3, mean)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 002 (data row is 02) de 002 (cv, x3, mean)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider the following sample,</p>
+<ul>
+<li>\(x_1\)={:NUMERICAL:%100%2:0.05}</li>
+<li>\(x_2\)={:NUMERICAL:%100%2:0.05}</li>
+<li>\(x_3\)=<strong>4.0</strong></li>
+</ul>
+<p>and based on this sample, the following statistics are calculated:</p>
+<ul>
+<li>\(\bar x\) = <strong>2.666666666666667</strong></li>
+<li>\(s_c^2\) = {:NUMERICAL:%100%1.333333333333333:0.05}</li>
+<li>variation coefficient = <strong>0.4330127018922193</strong></li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/standardize.md/Random Question 003 (cv, x3, x1, variance)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 003 (data row is 03) de 003 (cv, x3, x1, variance)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider the following sample,</p>
+<ul>
+<li>\(x_1\)=<strong>3.0</strong></li>
+<li>\(x_2\)={:NUMERICAL:%100%2:0.05}</li>
+<li>\(x_3\)=<strong>5.0</strong></li>
+</ul>
+<p>and based on this sample, the following statistics are calculated:</p>
+<ul>
+<li>\(\bar x\) = {:NUMERICAL:%100%3.333333333333333:0.05}</li>
+<li>\(s_c^2\) = <strong>2.333333333333333</strong></li>
+<li>variation coefficient = <strong>0.458257569495584</strong></li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/standardize.md/Random Question 004 (cv, x3, x1, mean)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 004 (data row is 04) de 004 (cv, x3, x1, mean)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider the following sample,</p>
+<ul>
+<li>\(x_1\)=<strong>4.0</strong></li>
+<li>\(x_2\)={:NUMERICAL:%100%2:0.05}</li>
+<li>\(x_3\)=<strong>6.0</strong></li>
+</ul>
+<p>and based on this sample, the following statistics are calculated:</p>
+<ul>
+<li>\(\bar x\) = <strong>4.0</strong></li>
+<li>\(s_c^2\) = {:NUMERICAL:%100%4.0:0.05}</li>
+<li>variation coefficient = <strong>0.5</strong></li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/standardize.md/Random Question 005 (cv, x3, x1, variance, mean)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 005 (data row is 05) de 005 (cv, x3, x1, variance, mean)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider the following sample,</p>
+<ul>
+<li>\(x_1\)=<strong>5.0</strong></li>
+<li>\(x_2\)={:NUMERICAL:%100%2:0.05}</li>
+<li>\(x_3\)=<strong>7.0</strong></li>
+</ul>
+<p>and based on this sample, the following statistics are calculated:</p>
+<ul>
+<li>\(\bar x\) = <strong>4.666666666666666</strong></li>
+<li>\(s_c^2\) = <strong>6.333333333333334</strong></li>
+<li>variation coefficient = <strong>0.5392738882336251</strong></li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/standardize.md/Random Question 006 (cv, x3, x1, variance, x2)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 006 (data row is 01) de 006 (cv, x3, x1, variance, x2)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider the following sample,</p>
+<ul>
+<li>\(x_1\)=<strong>1.0</strong></li>
+<li>\(x_2\)=<strong>2.0</strong></li>
+<li>\(x_3\)=<strong>3.0</strong></li>
+</ul>
+<p>and based on this sample, the following statistics are calculated:</p>
+<ul>
+<li>\(\bar x\) = {:NUMERICAL:%100%2.0:0.05}</li>
+<li>\(s_c^2\) = <strong>1.0</strong></li>
+<li>variation coefficient = <strong>0.5</strong></li>
+</ul>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+</quiz>
