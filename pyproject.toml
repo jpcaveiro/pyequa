@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyequa"
-version = "0.0.2"
+version = "0.0.4"
 authors = [
   { name="Pedro Cruz", email="pedrocruz@ua.pt" },
 ]
@@ -16,6 +16,7 @@ classifiers = [
     "Operating System :: OS Independent",
     "Development Status :: 4 - Beta",
     "Topic :: Education :: Computer Aided Instruction (CAI)",
+    "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
 ]
 dependencies = [
     "sympy",
