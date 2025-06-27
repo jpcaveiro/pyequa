@@ -201,7 +201,7 @@ class PyEqua:
 
                 raise 
 
-            print(f"===> variable {v_name} has pandas type {self.pandas_dataframe[v_name].dtype} and variable_type {self.variable_attributes[v_name]["type"]}")
+            print(f"===> variable {v_name} has pandas type {self.pandas_dataframe[v_name].dtype} and variable_type {self.variable_attributes[v_name]['type']}")
 
         if self.config['output_service'] == 'moodle_cloze':
 
