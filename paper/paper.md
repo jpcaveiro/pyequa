@@ -11,7 +11,6 @@ authors:
   - name: João Pedro Cruz
     orcid: 0000-0003-3781-5660
     affiliation: "1"
-authors:
   - name: Joaquim Gomes
     orcid: 0009-0002-8457-2905
     affiliation: "2"
