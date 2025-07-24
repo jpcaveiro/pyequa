@@ -110,7 +110,7 @@ Some notes:
 * Data files (`data.csv` as explained previously) have been written by hand (carefully chosen interesting values or text strings for quizzes), or was coded in Python, R, or using Excel functions.
 * If a column in data file has text, it will be implemented as a multiple choice field in Moodle like shown in the image:
 
-![multichoice.png](multichoice.png)
+![A fill-in-the-blanks variable with textual values is transformed into a multiple choice field.](multichoice.png)
 
 # Citations
 
