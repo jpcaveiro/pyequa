@@ -8,9 +8,6 @@ version = "0.0.2"
 authors = [
   { name="Pedro Cruz", email="pedrocruz@ua.pt" },
 ]
-license = "GPL-3.0-or-later"
-license-files = ["LICENSE.md"]
-packages = ["src/pyequa"]
 description = "Exercises from equations and relations."
 readme = "README.md"
 classifiers = [
