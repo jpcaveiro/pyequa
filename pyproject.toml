@@ -4,10 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pyequa"
-version = "0.0.1"
+version = "0.0.2"
 authors = [
   { name="Pedro Cruz", email="pedrocruz@ua.pt" },
 ]
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE.md"]
 packages = ["src/pyequa"]
 description = "Exercises from equations and relations."
 readme = "README.md"
@@ -16,7 +18,7 @@ classifiers = [
     "Operating System :: OS Independent",
     "Development Status :: 4 - Beta",
     "Topic :: Education :: Computer Aided Instruction (CAI)",
-    "License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
 ]
 dependencies = [
     "sympy",
@@ -27,7 +29,6 @@ dependencies = [
     "PyYAML",
     "Markdown",
 ]
-
 
 [project.urls]
 Homepage = "https://github.com/jpedroan/pyequa"
