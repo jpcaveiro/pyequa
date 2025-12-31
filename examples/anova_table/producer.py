@@ -41,7 +41,7 @@ variable_attributes = {
 from pathlib import Path
 from pyequa.config import PyEqua
 
-pe = PyEqua(Path(__file__).parent, scenario_relations, variable_attributes)
+pe = PyEqua("anova_table", scenario_relations, variable_attributes)
 
 #pe.scenario.draw_wisdom_graph()
 

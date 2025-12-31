@@ -1,12 +1,12 @@
 ---
-title: "anova_table.md"
+title: "anova_table"
 author: "author"
-date: "2025-06-25_19-10-09"
+date: "2025-12-30_23-44-59"
 output:
   html_document: default
 ---
 
-# Problem problem given [g, sqgroups, dfgroups, msqerrors, dftotal, sqerrors, n, dferrors, msqgroups, f] - CLOZE
+# Problem problem given [msqgroups, dftotal, sqerrors, f, sqgroups, dfgroups, n, g, msqerrors, dferrors] - CLOZE
 
 
 ## Variant 001 (data row is 01)

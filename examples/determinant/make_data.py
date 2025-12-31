@@ -20,7 +20,7 @@ def round_up_half(number, decimals=1):
 def make(a11,a12,a21,a22):
     d = a11*a22 - a12*a21
     d = round_up_half(d, 3)
-    solucaounica = "tem solução única" if d!=0 else "tem zero ou infinitas soluções"
+    uniquesolution = "has a unique solution" if d!=0 else "has zero or infinite solutions"
 
     # locals() tem todas as variáveis locais
     return locals()

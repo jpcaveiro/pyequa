@@ -21,10 +21,9 @@ variable_attributes = {
     'sig':  {'type': 'multichoice', 'givenvarlevel': 3},
 }
 
-from pathlib import Path
 from pyequa.config import PyEqua
 
-pe = PyEqua(Path(__file__).parent, scenary_relations, variable_attributes)
+pe = PyEqua("z_test", scenary_relations, variable_attributes)
 
 
 

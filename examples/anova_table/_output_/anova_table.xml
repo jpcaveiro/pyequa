@@ -3,7 +3,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/anova_table.md/Random Question 001 [g, sqgroups, dfgroups, msqerrors, dftotal, sqerrors, n, dferrors, msqgroups, f]</text>
+        <text>$course$/top/imports/anova_table/Random Question 001 [msqgroups, dftotal, sqerrors, f, sqgroups, dfgroups, n, g, msqerrors, dferrors]</text>
     </category>
     <info format="html">
         <text></text>
@@ -12,7 +12,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 001 (data row is 01) de 001 [g, sqgroups, dfgroups, msqerrors, dftotal, sqerrors, n, dferrors, msqgroups, f]</text>
+        <text>Variant 001 (data row is 01) de 001 [msqgroups, dftotal, sqerrors, f, sqgroups, dfgroups, n, g, msqerrors, dferrors]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>In a study examining the effective duration of insulating fluids under a 35KV load, <strong>4</strong> types of fluids were analyzed, and <strong>4</strong> measurements (in hours) were recorded for each. Subsequently, ANOVA was conducted to evaluate potential mean differences among the fluid types.</p>
