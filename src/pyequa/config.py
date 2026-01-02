@@ -88,7 +88,7 @@ class Config:
             user_config = self.load_config(user_config_path)
         except:
             user_config = dict()
-            print(r"Cannot access {user_config_path}.")
+            print(r"User profile `config.yaml` is not given. Using project configuration.")
 
 
         config = self.merge_configs(default_config, user_config)
@@ -109,7 +109,7 @@ class Config:
                 config = yaml.safe_load(file)
 
         except FileNotFoundError as ferr:
-            print(f"File '{config_path}' does not exist.\n\n")
+            print(f"File '{config_path}' does not exist.")
             raise ferr
         except PermissionError as perr:
             print(f"No permission to access the file '{config_path}'.\n\n")
@@ -246,7 +246,7 @@ class PyEqua:
                                 config           = self.config,
                 )
 
-                self.scenario = ws.Scenario(self.scenario_relations, self.text_service) 
+                self.scenario = ws.Scenario(self, self.scenario_relations, self.text_service) 
 
         else:
 

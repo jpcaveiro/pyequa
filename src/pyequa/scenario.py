@@ -207,7 +207,7 @@ class Scenario:
     _IGNORANCE_NODE_NAME_ = 'ignorance'
     _KNOWLEDGE_NODE_NAME_ = 'knowledge'
 
-    def __init__(self, scenario_relations, text_service, list_of_number_of_relations_at_once=None):
+    def __init__(self, pyequa_instance, scenario_relations, text_service, list_of_number_of_relations_at_once=None):
         """
 
         Inputs:
@@ -255,6 +255,9 @@ class Scenario:
 
 
         """
+
+        #pyequa_instance helps in filesystem, etc.
+        self.pyequa_instance = pyequa_instance
 
         #scenario
         #scenario_relations can be: a set of str or a set of SR (see above):
@@ -754,7 +757,11 @@ class Scenario:
         nx.draw_networkx(G,pos=pos_dic)
         #nx.draw_networkx_edge_labels(G, pos=pos_dic, edge_labels=edge_labels_dict)
 
-        plt.savefig(plot_fn)
+        #from .config import PYEQUA_PROJECT_ROOT
+        from pathlib import Path
+
+
+        plt.savefig(self.pyequa_instance.exercise_folder / Path(plot_fn))
 
 
     def yield_givenvarsset_nodepathlist_from_varset(self, givenvars_set=None):
