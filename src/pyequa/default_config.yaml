@@ -27,7 +27,6 @@ student_feedback: |
 
 # Output destination of the produced exercises
 output_service: moodle_cloze
-output_extension: md #output to a markdown file
 
 
 # In a folder, the standard filename for anexercise template

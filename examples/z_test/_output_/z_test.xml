@@ -3,7 +3,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 001 (zobs, reject, alpha, pvalue, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 001 (alpha, pvalue, zobs, reject, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -12,7 +12,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 001 (data row is 01) de 001 (zobs, reject, alpha, pvalue, lowergreater)</text>
+        <text>Problem 001 (data row is 01) de 001 (alpha, pvalue, zobs, reject, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -38,7 +38,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 002 (zobs, sig, reject, alpha, pvalue)</text>
+        <text>$course$/top/imports/z_test/Random Question 002 (alpha, pvalue, zobs, reject, sig)</text>
     </category>
     <info format="html">
         <text></text>
@@ -47,7 +47,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 002 (data row is 02) de 002 (zobs, sig, reject, alpha, pvalue)</text>
+        <text>Problem 002 (data row is 02) de 002 (alpha, pvalue, zobs, reject, sig)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -73,7 +73,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 003 (zobs, sig, alpha, pvalue, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 003 (alpha, pvalue, zobs, sig, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -82,7 +82,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 003 (data row is 03) de 003 (zobs, sig, alpha, pvalue, lowergreater)</text>
+        <text>Problem 003 (data row is 03) de 003 (alpha, pvalue, zobs, sig, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -108,7 +108,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 004 (zobs, sig, reject, alpha, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 004 (alpha, pvalue, reject, sig, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -117,15 +117,15 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 004 (data row is 04) de 004 (zobs, sig, reject, alpha, lowergreater)</text>
+        <text>Problem 004 (data row is 04) de 004 (alpha, pvalue, reject, sig, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
 <p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
 <p>Considering</p>
 <ul>
-<li>\(z_\text{obs}\) = <strong>0.5244</strong>,</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.3~%0%0.001~%0%0.05~%0%0.01} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
+<li>p-value = <strong>0.3</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
 <li>\(\alpha\) = <strong>0.05</strong></li>
 </ul>
 <p><strong>don't reject</strong> the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
@@ -143,7 +143,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 005 (zobs, sig, reject, pvalue, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 005 (alpha, zobs, reject, sig, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -152,7 +152,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 005 (data row is 01) de 005 (zobs, sig, reject, pvalue, lowergreater)</text>
+        <text>Problem 005 (data row is 01) de 005 (alpha, zobs, reject, sig, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -160,8 +160,8 @@
 <p>Considering</p>
 <ul>
 <li>\(z_\text{obs}\) = <strong>3.0902</strong>,</li>
-<li>p-value = <strong>0.001</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.001~%0%0.05~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.01</strong></li>
 </ul>
 <p><strong>reject</strong> the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
 <p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
@@ -178,7 +178,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 006 (sig, reject, alpha, pvalue, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 006 (pvalue, zobs, reject, sig, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -187,16 +187,16 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 006 (data row is 02) de 006 (sig, reject, alpha, pvalue, lowergreater)</text>
+        <text>Problem 006 (data row is 02) de 006 (pvalue, zobs, reject, sig, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
 <p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
 <p>Considering</p>
 <ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%1.6449:0.001},</li>
+<li>\(z_\text{obs}\) = <strong>1.6449</strong>,</li>
 <li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.01</strong></li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
 </ul>
 <p><strong>don't reject</strong> the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
 <p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
@@ -213,7 +213,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 007 (zobs, reject, alpha, pvalue)</text>
+        <text>$course$/top/imports/z_test/Random Question 007 (alpha, pvalue, zobs, reject)</text>
     </category>
     <info format="html">
         <text></text>
@@ -222,7 +222,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 007 (data row is 03) de 007 (zobs, reject, alpha, pvalue)</text>
+        <text>Problem 007 (data row is 03) de 007 (alpha, pvalue, zobs, reject)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -248,7 +248,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 008 (zobs, alpha, pvalue, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 008 (alpha, pvalue, zobs, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -257,7 +257,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 008 (data row is 04) de 008 (zobs, alpha, pvalue, lowergreater)</text>
+        <text>Problem 008 (data row is 04) de 008 (alpha, pvalue, zobs, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -283,7 +283,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 009 (zobs, sig, alpha, pvalue)</text>
+        <text>$course$/top/imports/z_test/Random Question 009 (alpha, pvalue, zobs, sig)</text>
     </category>
     <info format="html">
         <text></text>
@@ -292,7 +292,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 009 (data row is 01) de 009 (zobs, sig, alpha, pvalue)</text>
+        <text>Problem 009 (data row is 01) de 009 (alpha, pvalue, zobs, sig)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -318,7 +318,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 010 (zobs, reject, alpha, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 010 (alpha, pvalue, reject, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -327,7 +327,567 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 010 (data row is 02) de 010 (zobs, reject, alpha, lowergreater)</text>
+        <text>Problem 010 (data row is 02) de 010 (alpha, pvalue, reject, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%1.6449:0.001},</li>
+<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.01</strong></li>
+</ul>
+<p><strong>don't reject</strong> the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 011 (alpha, zobs, reject, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 011 (data row is 03) de 011 (alpha, zobs, reject, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = <strong>2.3263</strong>,</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.05</strong></li>
+</ul>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 012 (pvalue, zobs, reject, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 012 (data row is 04) de 012 (pvalue, zobs, reject, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = <strong>0.5244</strong>,</li>
+<li>p-value = <strong>0.3</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
+</ul>
+<p><strong>don't reject</strong> the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 013 (alpha, pvalue, reject, sig)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 013 (data row is 01) de 013 (alpha, pvalue, reject, sig)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%3.0902:0.001},</li>
+<li>p-value = <strong>0.001</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.01</strong></li>
+</ul>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 014 (alpha, pvalue, sig, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 014 (data row is 02) de 014 (alpha, pvalue, sig, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%1.6449:0.001},</li>
+<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.01</strong></li>
+</ul>
+<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 015 (alpha, zobs, reject, sig)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 015 (data row is 03) de 015 (alpha, zobs, reject, sig)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = <strong>2.3263</strong>,</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.05</strong></li>
+</ul>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 016 (alpha, zobs, sig, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 016 (data row is 04) de 016 (alpha, zobs, sig, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = <strong>0.5244</strong>,</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.3~%0%0.001~%0%0.05~%0%0.01} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.05</strong></li>
+</ul>
+<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 017 (pvalue, zobs, reject, sig)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 017 (data row is 01) de 017 (pvalue, zobs, reject, sig)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = <strong>3.0902</strong>,</li>
+<li>p-value = <strong>0.001</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
+</ul>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 018 (pvalue, zobs, sig, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 018 (data row is 02) de 018 (pvalue, zobs, sig, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = <strong>1.6449</strong>,</li>
+<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
+</ul>
+<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 019 (alpha, reject, sig, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 019 (data row is 03) de 019 (alpha, reject, sig, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%2.3263:0.001},</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.05</strong></li>
+</ul>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 020 (pvalue, reject, sig, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 020 (data row is 04) de 020 (pvalue, reject, sig, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
+<li>p-value = <strong>0.3</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
+</ul>
+<p><strong>don't reject</strong> the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 021 (zobs, reject, sig, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 021 (data row is 01) de 021 (zobs, reject, sig, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = <strong>3.0902</strong>,</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.001~%0%0.05~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
+</ul>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 022 (alpha, pvalue, zobs)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 022 (data row is 02) de 022 (alpha, pvalue, zobs)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = <strong>1.6449</strong>,</li>
+<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.01</strong></li>
+</ul>
+<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 023 (alpha, pvalue, reject)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 023 (data row is 03) de 023 (alpha, pvalue, reject)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%2.3263:0.001},</li>
+<li>p-value = <strong>0.01</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.05</strong></li>
+</ul>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 024 (alpha, pvalue, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 024 (data row is 04) de 024 (alpha, pvalue, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
+<li>p-value = <strong>0.3</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.05</strong></li>
+</ul>
+<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 025 (alpha, zobs, reject)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 025 (data row is 01) de 025 (alpha, zobs, reject)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = <strong>3.0902</strong>,</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.001~%0%0.05~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.01</strong></li>
+</ul>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 026 (alpha, zobs, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 026 (data row is 02) de 026 (alpha, zobs, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -338,7 +898,7 @@
 <li>p-value = {:MULTICHOICE_S:%100%0.05~%0%0.001~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
 <li>\(\alpha\) = <strong>0.01</strong></li>
 </ul>
-<p><strong>don't reject</strong> the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
+<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
 <p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
@@ -353,7 +913,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 011 (zobs, reject, pvalue, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 027 (pvalue, zobs, reject)</text>
     </category>
     <info format="html">
         <text></text>
@@ -362,7 +922,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 011 (data row is 03) de 011 (zobs, reject, pvalue, lowergreater)</text>
+        <text>Problem 027 (data row is 03) de 027 (pvalue, zobs, reject)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -373,7 +933,7 @@
 <li>p-value = <strong>0.01</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
 <li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
 </ul>
-<p><strong>reject</strong> the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
 <p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
@@ -388,7 +948,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 012 (reject, alpha, pvalue, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 028 (pvalue, zobs, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -397,147 +957,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 012 (data row is 04) de 012 (reject, alpha, pvalue, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
-<li>p-value = <strong>0.3</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.05</strong></li>
-</ul>
-<p><strong>don't reject</strong> the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 013 (zobs, sig, reject, alpha)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 013 (data row is 01) de 013 (zobs, sig, reject, alpha)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>3.0902</strong>,</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.001~%0%0.05~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.01</strong></li>
-</ul>
-<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 014 (zobs, sig, reject, pvalue)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 014 (data row is 02) de 014 (zobs, sig, reject, pvalue)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>1.6449</strong>,</li>
-<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
-</ul>
-<p><strong>don't reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 015 (zobs, sig, alpha, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 015 (data row is 03) de 015 (zobs, sig, alpha, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>2.3263</strong>,</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.05</strong></li>
-</ul>
-<p>{:MULTICHOICE_S:%100%reject~%0%don't reject} the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 016 (zobs, sig, pvalue, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 016 (data row is 04) de 016 (zobs, sig, pvalue, lowergreater)</text>
+        <text>Problem 028 (data row is 04) de 028 (pvalue, zobs, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -549,7 +969,7 @@
 <li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
 </ul>
 <p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -563,7 +983,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 017 (sig, reject, alpha, pvalue)</text>
+        <text>$course$/top/imports/z_test/Random Question 029 (alpha, pvalue, sig)</text>
     </category>
     <info format="html">
         <text></text>
@@ -572,7 +992,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 017 (data row is 01) de 017 (sig, reject, alpha, pvalue)</text>
+        <text>Problem 029 (data row is 01) de 029 (alpha, pvalue, sig)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -581,426 +1001,6 @@
 <ul>
 <li>\(z_\text{obs}\) = {:NUMERICAL:%100%3.0902:0.001},</li>
 <li>p-value = <strong>0.001</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.01</strong></li>
-</ul>
-<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 018 (sig, alpha, pvalue, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 018 (data row is 02) de 018 (sig, alpha, pvalue, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%1.6449:0.001},</li>
-<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.01</strong></li>
-</ul>
-<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 019 (zobs, sig, reject, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 019 (data row is 03) de 019 (zobs, sig, reject, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>2.3263</strong>,</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
-</ul>
-<p><strong>reject</strong> the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 020 (sig, reject, alpha, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 020 (data row is 04) de 020 (sig, reject, alpha, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.3~%0%0.001~%0%0.05~%0%0.01} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.05</strong></li>
-</ul>
-<p><strong>don't reject</strong> the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 021 (sig, reject, pvalue, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 021 (data row is 01) de 021 (sig, reject, pvalue, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%3.0902:0.001},</li>
-<li>p-value = <strong>0.001</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
-</ul>
-<p><strong>reject</strong> the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 022 (zobs, alpha, pvalue)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 022 (data row is 02) de 022 (zobs, alpha, pvalue)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>1.6449</strong>,</li>
-<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.01</strong></li>
-</ul>
-<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 023 (zobs, reject, alpha)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 023 (data row is 03) de 023 (zobs, reject, alpha)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>2.3263</strong>,</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.05</strong></li>
-</ul>
-<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 024 (zobs, reject, pvalue)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 024 (data row is 04) de 024 (zobs, reject, pvalue)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>0.5244</strong>,</li>
-<li>p-value = <strong>0.3</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
-</ul>
-<p><strong>don't reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 025 (zobs, alpha, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 025 (data row is 01) de 025 (zobs, alpha, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>3.0902</strong>,</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.001~%0%0.05~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.01</strong></li>
-</ul>
-<p>{:MULTICHOICE_S:%100%reject~%0%don't reject} the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 026 (zobs, pvalue, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 026 (data row is 02) de 026 (zobs, pvalue, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>1.6449</strong>,</li>
-<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
-</ul>
-<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 027 (reject, alpha, pvalue)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 027 (data row is 03) de 027 (reject, alpha, pvalue)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%2.3263:0.001},</li>
-<li>p-value = <strong>0.01</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.05</strong></li>
-</ul>
-<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 028 (alpha, pvalue, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 028 (data row is 04) de 028 (alpha, pvalue, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
-<li>p-value = <strong>0.3</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.05</strong></li>
-</ul>
-<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 029 (zobs, sig, alpha)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 029 (data row is 01) de 029 (zobs, sig, alpha)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>3.0902</strong>,</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.001~%0%0.05~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
 <li>\(\alpha\) = <strong>0.01</strong></li>
 </ul>
 <p>{:MULTICHOICE_S:%100%reject~%0%don't reject} the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
@@ -1018,7 +1018,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 030 (zobs, sig, pvalue)</text>
+        <text>$course$/top/imports/z_test/Random Question 030 (alpha, zobs, sig)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1027,7 +1027,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 030 (data row is 02) de 030 (zobs, sig, pvalue)</text>
+        <text>Problem 030 (data row is 02) de 030 (alpha, zobs, sig)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -1035,8 +1035,8 @@
 <p>Considering</p>
 <ul>
 <li>\(z_\text{obs}\) = <strong>1.6449</strong>,</li>
-<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.05~%0%0.001~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.01</strong></li>
 </ul>
 <p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
 <p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
@@ -1053,7 +1053,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 031 (zobs, reject, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 031 (alpha, reject, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1062,16 +1062,16 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 031 (data row is 03) de 031 (zobs, reject, lowergreater)</text>
+        <text>Problem 031 (data row is 03) de 031 (alpha, reject, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
 <p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
 <p>Considering</p>
 <ul>
-<li>\(z_\text{obs}\) = <strong>2.3263</strong>,</li>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%2.3263:0.001},</li>
 <li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
+<li>\(\alpha\) = <strong>0.05</strong></li>
 </ul>
 <p><strong>reject</strong> the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
 <p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
@@ -1088,7 +1088,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 032 (sig, alpha, pvalue)</text>
+        <text>$course$/top/imports/z_test/Random Question 032 (pvalue, zobs, sig)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1097,16 +1097,16 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 032 (data row is 04) de 032 (sig, alpha, pvalue)</text>
+        <text>Problem 032 (data row is 04) de 032 (pvalue, zobs, sig)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
 <p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
 <p>Considering</p>
 <ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
+<li>\(z_\text{obs}\) = <strong>0.5244</strong>,</li>
 <li>p-value = <strong>0.3</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.05</strong></li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
 </ul>
 <p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
 <p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
@@ -1123,7 +1123,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 033 (reject, alpha, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 033 (pvalue, reject, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1132,7 +1132,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 033 (data row is 01) de 033 (reject, alpha, lowergreater)</text>
+        <text>Problem 033 (data row is 01) de 033 (pvalue, reject, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -1140,8 +1140,8 @@
 <p>Considering</p>
 <ul>
 <li>\(z_\text{obs}\) = {:NUMERICAL:%100%3.0902:0.001},</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.001~%0%0.05~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.01</strong></li>
+<li>p-value = <strong>0.001</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
 </ul>
 <p><strong>reject</strong> the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
 <p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
@@ -1158,7 +1158,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 034 (reject, pvalue, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 034 (zobs, reject, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1167,15 +1167,15 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 034 (data row is 02) de 034 (reject, pvalue, lowergreater)</text>
+        <text>Problem 034 (data row is 02) de 034 (zobs, reject, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
 <p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
 <p>Considering</p>
 <ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%1.6449:0.001},</li>
-<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(z_\text{obs}\) = <strong>1.6449</strong>,</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.05~%0%0.001~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
 <li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
 </ul>
 <p><strong>don't reject</strong> the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
@@ -1193,7 +1193,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 035 (zobs, sig, reject)</text>
+        <text>$course$/top/imports/z_test/Random Question 035 (alpha, reject, sig)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1202,7 +1202,147 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 035 (data row is 03) de 035 (zobs, sig, reject)</text>
+        <text>Problem 035 (data row is 03) de 035 (alpha, reject, sig)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%2.3263:0.001},</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.05</strong></li>
+</ul>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 036 (alpha, sig, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 036 (data row is 04) de 036 (alpha, sig, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.3~%0%0.001~%0%0.05~%0%0.01} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.05</strong></li>
+</ul>
+<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 037 (pvalue, reject, sig)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 037 (data row is 01) de 037 (pvalue, reject, sig)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%3.0902:0.001},</li>
+<li>p-value = <strong>0.001</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
+</ul>
+<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 038 (pvalue, sig, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 038 (data row is 02) de 038 (pvalue, sig, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%1.6449:0.001},</li>
+<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
+</ul>
+<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 039 (zobs, reject, sig)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 039 (data row is 03) de 039 (zobs, reject, sig)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -1228,7 +1368,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 036 (zobs, sig, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 040 (zobs, sig, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1237,7 +1377,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 036 (data row is 04) de 036 (zobs, sig, lowergreater)</text>
+        <text>Problem 040 (data row is 04) de 040 (zobs, sig, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -1263,7 +1403,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 037 (sig, reject, alpha)</text>
+        <text>$course$/top/imports/z_test/Random Question 041 (reject, sig, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1272,147 +1412,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 037 (data row is 01) de 037 (sig, reject, alpha)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%3.0902:0.001},</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.001~%0%0.05~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.01</strong></li>
-</ul>
-<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 038 (sig, reject, pvalue)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 038 (data row is 02) de 038 (sig, reject, pvalue)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%1.6449:0.001},</li>
-<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
-</ul>
-<p><strong>don't reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 039 (sig, alpha, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 039 (data row is 03) de 039 (sig, alpha, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%2.3263:0.001},</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.05</strong></li>
-</ul>
-<p>{:MULTICHOICE_S:%100%reject~%0%don't reject} the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 040 (sig, pvalue, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 040 (data row is 04) de 040 (sig, pvalue, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
-<li>p-value = <strong>0.3</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
-</ul>
-<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 041 (sig, reject, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 041 (data row is 01) de 041 (sig, reject, lowergreater)</text>
+        <text>Problem 041 (data row is 01) de 041 (reject, sig, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -1438,7 +1438,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 042 (zobs, alpha)</text>
+        <text>$course$/top/imports/z_test/Random Question 042 (alpha, pvalue)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1447,15 +1447,15 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 042 (data row is 02) de 042 (zobs, alpha)</text>
+        <text>Problem 042 (data row is 02) de 042 (alpha, pvalue)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
 <p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
 <p>Considering</p>
 <ul>
-<li>\(z_\text{obs}\) = <strong>1.6449</strong>,</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.05~%0%0.001~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%1.6449:0.001},</li>
+<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
 <li>\(\alpha\) = <strong>0.01</strong></li>
 </ul>
 <p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
@@ -1473,7 +1473,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 043 (alpha, pvalue)</text>
+        <text>$course$/top/imports/z_test/Random Question 043 (alpha, zobs)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1482,15 +1482,15 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 043 (data row is 03) de 043 (alpha, pvalue)</text>
+        <text>Problem 043 (data row is 03) de 043 (alpha, zobs)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
 <p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
 <p>Considering</p>
 <ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%2.3263:0.001},</li>
-<li>p-value = <strong>0.01</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(z_\text{obs}\) = <strong>2.3263</strong>,</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
 <li>\(\alpha\) = <strong>0.05</strong></li>
 </ul>
 <p>{:MULTICHOICE_S:%100%reject~%0%don't reject} the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
@@ -1508,7 +1508,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 044 (zobs, reject)</text>
+        <text>$course$/top/imports/z_test/Random Question 044 (alpha, reject)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1517,7 +1517,147 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 044 (data row is 04) de 044 (zobs, reject)</text>
+        <text>Problem 044 (data row is 04) de 044 (alpha, reject)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.3~%0%0.001~%0%0.05~%0%0.01} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.05</strong></li>
+</ul>
+<p><strong>don't reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 045 (alpha, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 045 (data row is 01) de 045 (alpha, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%3.0902:0.001},</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.001~%0%0.05~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = <strong>0.01</strong></li>
+</ul>
+<p>{:MULTICHOICE_S:%100%reject~%0%don't reject} the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 046 (pvalue, reject)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 046 (data row is 02) de 046 (pvalue, reject)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%1.6449:0.001},</li>
+<li>p-value = <strong>0.05</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
+</ul>
+<p><strong>don't reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 047 (pvalue, lowergreater)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 047 (data row is 03) de 047 (pvalue, lowergreater)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
+<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
+<p>Considering</p>
+<ul>
+<li>\(z_\text{obs}\) = {:NUMERICAL:%100%2.3263:0.001},</li>
+<li>p-value = <strong>0.01</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
+</ul>
+<p>{:MULTICHOICE_S:%100%reject~%0%don't reject} the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
+<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/z_test/Random Question 048 (zobs, reject)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 048 (data row is 04) de 048 (zobs, reject)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -1543,7 +1683,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 045 (zobs, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 049 (zobs, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1552,7 +1692,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 045 (data row is 01) de 045 (zobs, lowergreater)</text>
+        <text>Problem 049 (data row is 01) de 049 (zobs, lowergreater)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -1578,7 +1718,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 046 (reject, alpha)</text>
+        <text>$course$/top/imports/z_test/Random Question 050 (alpha, sig)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1587,7 +1727,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 046 (data row is 02) de 046 (reject, alpha)</text>
+        <text>Problem 050 (data row is 02) de 050 (alpha, sig)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -1597,146 +1737,6 @@
 <li>\(z_\text{obs}\) = {:NUMERICAL:%100%1.6449:0.001},</li>
 <li>p-value = {:MULTICHOICE_S:%100%0.05~%0%0.001~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
 <li>\(\alpha\) = <strong>0.01</strong></li>
-</ul>
-<p><strong>don't reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 047 (reject, pvalue)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 047 (data row is 03) de 047 (reject, pvalue)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%2.3263:0.001},</li>
-<li>p-value = <strong>0.01</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
-</ul>
-<p><strong>reject</strong> the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 048 (alpha, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 048 (data row is 04) de 048 (alpha, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.3~%0%0.001~%0%0.05~%0%0.01} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.05</strong></li>
-</ul>
-<p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value <strong>is greater</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is not significative~%0%is significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 049 (pvalue, lowergreater)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 049 (data row is 01) de 049 (pvalue, lowergreater)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%3.0902:0.001},</li>
-<li>p-value = <strong>0.001</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
-</ul>
-<p>{:MULTICHOICE_S:%100%reject~%0%don't reject} the null hypothesis (H0) because p-value <strong>is lower</strong> than \(\alpha\).</p>
-<p>The expected value (population mean), \(\mu\), {:MULTICHOICE_S:%100%is significative~%0%is not significative} greater than 5.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/z_test.md/Random Question 050 (zobs, sig)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 050 (data row is 02) de 050 (zobs, sig)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
-<p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
-<p>Considering</p>
-<ul>
-<li>\(z_\text{obs}\) = <strong>1.6449</strong>,</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.05~%0%0.001~%0%0.01~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.01~%0%0.05}</li>
 </ul>
 <p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
 <p>The expected value (population mean), \(\mu\), <strong>is not significative</strong> greater than 5.</p>]]></text>
@@ -1753,7 +1753,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 051 (sig, alpha)</text>
+        <text>$course$/top/imports/z_test/Random Question 051 (pvalue, sig)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1762,7 +1762,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 051 (data row is 03) de 051 (sig, alpha)</text>
+        <text>Problem 051 (data row is 03) de 051 (pvalue, sig)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -1770,8 +1770,8 @@
 <p>Considering</p>
 <ul>
 <li>\(z_\text{obs}\) = {:NUMERICAL:%100%2.3263:0.001},</li>
-<li>p-value = {:MULTICHOICE_S:%100%0.01~%0%0.001~%0%0.05~%0%0.3} = \( P(Z \ge  z_\text{obs}) \),</li>
-<li>\(\alpha\) = <strong>0.05</strong></li>
+<li>p-value = <strong>0.01</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
 </ul>
 <p>{:MULTICHOICE_S:%100%reject~%0%don't reject} the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is lower~%0%is greater} than \(\alpha\).</p>
 <p>The expected value (population mean), \(\mu\), <strong>is significative</strong> greater than 5.</p>]]></text>
@@ -1788,7 +1788,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 052 (sig, pvalue)</text>
+        <text>$course$/top/imports/z_test/Random Question 052 (zobs, sig)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1797,15 +1797,15 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 052 (data row is 04) de 052 (sig, pvalue)</text>
+        <text>Problem 052 (data row is 04) de 052 (zobs, sig)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
 <p>H0: \(\mu = 5\) versus  H1: \(\mu &gt; 5\)</p>
 <p>Considering</p>
 <ul>
-<li>\(z_\text{obs}\) = {:NUMERICAL:%100%0.5244:0.001},</li>
-<li>p-value = <strong>0.3</strong> = \( P(Z \ge  z_\text{obs}) \),</li>
+<li>\(z_\text{obs}\) = <strong>0.5244</strong>,</li>
+<li>p-value = {:MULTICHOICE_S:%100%0.3~%0%0.001~%0%0.05~%0%0.01} = \( P(Z \ge  z_\text{obs}) \),</li>
 <li>\(\alpha\) = {:MULTICHOICE_S:%100%0.05~%0%0.01}</li>
 </ul>
 <p>{:MULTICHOICE_S:%100%don't reject~%0%reject} the null hypothesis (H0) because p-value {:MULTICHOICE_S:%100%is greater~%0%is lower} than \(\alpha\).</p>
@@ -1823,7 +1823,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 053 (reject, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 053 (reject, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1858,7 +1858,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 054 (sig, reject)</text>
+        <text>$course$/top/imports/z_test/Random Question 054 (reject, sig)</text>
     </category>
     <info format="html">
         <text></text>
@@ -1867,7 +1867,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 054 (data row is 02) de 054 (sig, reject)</text>
+        <text>Problem 054 (data row is 02) de 054 (reject, sig)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider a right-tailed hypothesis test for the mean \(\mu\) of a Normal population with known variance:</p>
@@ -1893,7 +1893,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/z_test.md/Random Question 055 (sig, lowergreater)</text>
+        <text>$course$/top/imports/z_test/Random Question 055 (sig, lowergreater)</text>
     </category>
     <info format="html">
         <text></text>

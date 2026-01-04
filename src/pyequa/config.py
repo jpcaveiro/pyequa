@@ -1,5 +1,5 @@
 import yaml
-from os import getcwd, chdir
+import os #from os import getcwd, chdir
 from pathlib import Path
 from pyequa import scenario as ws
 from pyequa.servicecloze import ClozeService
@@ -8,58 +8,17 @@ from pandas.api.types import is_numeric_dtype
 #from pandas import Float64Dtype
 #from pandas import Int64Dtype
 
+
+# Old
 # Path to the default configuration file
-DEFAULT_CONFIG_PATH = Path(__file__).parent / "default_config.yaml"
+# DEFAULT_CONFIG_PATH = Path(__file__).parent / "default_config.yaml"
 
-def load_config(config_path=None):
-    """
-    Load configuration from a YAML file.
-    If no custom config path is provided, load the default configuration.
-    """
-    if config_path is None:
-        config_path = DEFAULT_CONFIG_PATH
+PYEQUA_PROJECT_ROOT = os.getenv("PYEQUA_PROJECT_ROOT", "default_if_missing")
+if PYEQUA_PROJECT_ROOT == "default_if_missing":
+    raise EnvironmentError(
+        "Environment variable PYEQUA_PROJECT_ROOT is not set.")
+print(f"PYEQUA_PROJECT_ROOT = {PYEQUA_PROJECT_ROOT}")
 
-    # start empty
-    config = {}
-
-    try:
-        with open(config_path, "r") as file:
-            config = yaml.safe_load(file)
-
-    except FileNotFoundError:
-        print(f"File '{config_path}' does not exist.")
-    except PermissionError:
-        print(f"No permission to access the file '{config_path}'.")
-    except IOError:
-        print(f"File '{config_path}' cannot be opened for other reasons.")
-
-    return config
-
-def merge_configs(default, user):
-    """
-    Merge user configuration with default configuration.
-    """
-    if user is None:
-        return default
-
-    for key, value in user.items():
-        if isinstance(value, dict) and key in default:
-            default[key] = merge_configs(default[key], value)
-        else:
-            default[key] = value
-
-    return default
-
-# def get_config(user_config_path=None):
-#     """
-#     Get the final configuration by merging default and user configurations.
-#     """
-#     default_config = load_config()
-
-#     if user_config_path:
-#         user_config = load_config(user_config_path)
-#         return merge_configs(default_config, user_config)
-#     return default_config
 
 def separate_by_type(input_dict):
     
@@ -110,10 +69,89 @@ def num2str(value):
     return f"{value}"
 
 
+class Config:
+
+    def __init__(self, exercise_relativefolder):
+
+        
+        # Load the default configuration
+        default_config_path = Path(PYEQUA_PROJECT_ROOT) / Path("config.yaml")
+        default_config = self.load_config(default_config_path)
+
+        #old
+        #chdir(exercise_folder)
+        #print(f"Exercise folder: {getcwd()}\n\n")
+
+        user_config_path = Path(PYEQUA_PROJECT_ROOT) / Path(exercise_relativefolder) / Path("config.yaml")
+        print(f"Reading configuration from {user_config_path}.")
+        try:
+            user_config = self.load_config(user_config_path)
+        except:
+            user_config = dict()
+            print(r"User profile `config.yaml` is not given. Using project configuration.")
+
+
+        config = self.merge_configs(default_config, user_config)
+
+        if 'debug' not in config:
+            config['debug'] = False
+
+        self.config = config
+
+
+    def load_config(self, config_path=None):
+        """
+        Load configuration from a YAML file.
+        """
+
+        try:
+            with open(config_path, "r") as file:
+                config = yaml.safe_load(file)
+
+        except FileNotFoundError as ferr:
+            print(f"File '{config_path}' does not exist.")
+            raise ferr
+        except PermissionError as perr:
+            print(f"No permission to access the file '{config_path}'.\n\n")
+            raise perr
+        except IOError as ioerr:
+            print(f"File '{config_path}' cannot be opened for other reasons.\n\n")
+            raise ioerr
+
+        return config
+
+    def merge_configs(self, default, user):
+        """
+        Merge user configuration with default configuration.
+        """
+        if user is None:
+            return default
+
+        for key, value in user.items():
+            if isinstance(value, dict) and key in default:
+                default[key] = self.merge_configs(default[key], value)
+            else:
+                default[key] = value
+
+        return default
+
+    # def get_config(user_config_path=None):
+    #     """
+    #     Get the final configuration by merging default and user configurations.
+    #     """
+    #     default_config = load_config()
+
+    #     if user_config_path:
+    #         user_config = load_config(user_config_path)
+    #         return merge_configs(default_config, user_config)
+    #     return default_config
+
+
+
 class PyEqua:
 
     def __init__(self, 
-                 exercise_folder=None,
+                 exercise_relativefolder=None,
                  scenario_relations=None, 
                  variable_attributes=None, 
                  pandas_data_frame=None):
@@ -122,24 +160,12 @@ class PyEqua:
         - variable_attributes - includes distractors
         - pandas_data_frame
         """
-        
-        # Load 
-        # Load the default configuration
-        default_config = load_config()
 
-        chdir(exercise_folder)
-        print(f"Exercise folder: {getcwd()}\n\n")
-        user_config_path = Path("config.yaml")
+        self.exercise_relativefolder = exercise_relativefolder
+        self.exercise_folder = Path(PYEQUA_PROJECT_ROOT) / Path(exercise_relativefolder)
 
-        print(f"Reading configuration from {user_config_path}.")
-        user_config = load_config(user_config_path)
-        config      = merge_configs(default_config, user_config)
-
-        # A config dict is expected to be working now:
-        self.config = config
-        if 'debug' not in config:
-            self.config['debug'] = False
-
+        # A config dict (Config(exercise_relativefolder) is an object with config attribute)
+        self.config = Config(exercise_relativefolder).config
 
         assert scenario_relations
         self.scenario_relations = scenario_relations
@@ -162,7 +188,8 @@ class PyEqua:
                     csv_separator = self.config['csv_separator']
                     csv_decimal   = self.config['csv_decimal']
 
-                    self.pandas_dataframe = pd.read_csv('data.csv', 
+                    dataframe_pathname_csv = self.exercise_folder / Path('data.csv')
+                    self.pandas_dataframe = pd.read_csv(dataframe_pathname_csv, 
                                      sep=csv_separator, 
                                      decimal=csv_decimal,
                                      header=0,
@@ -171,7 +198,8 @@ class PyEqua:
                                      encoding='utf-8')
 
                 case 'xlsx':
-                    self.pandas_dataframe = pd.read_excel('data.xlsx')
+                    dataframe_pathname_xlsx = self.exercise_folder / Path('data.xlsx')
+                    self.pandas_dataframe = pd.read_excel(dataframe_pathname_xlsx)
 
 
         # Convert, if necessary, dtypes
@@ -206,6 +234,8 @@ class PyEqua:
         if self.config['output_service'] == 'moodle_cloze':
 
                 self.text_service = ClozeService(
+                                exercise_relativefolder = self.exercise_relativefolder,
+                                exercise_folder  = self.exercise_folder,
                                 student_template_filename = self.config['student_template_filename'], #like "exercise_model.md", 
                                 student_feedback = self.config['student_feedback'],
                                 answer_template  = self.config['answer_template'],
@@ -213,11 +243,10 @@ class PyEqua:
                                 variable_attributes = self.variable_attributes,
                                 distractors         = self.distractors,
                                 author           = self.config['author'],
-                                output_extension = self.config['output_extension'],
                                 config           = self.config,
                 )
 
-                self.scenario = ws.Scenario(self.scenario_relations, self.text_service) 
+                self.scenario = ws.Scenario(self, self.scenario_relations, self.text_service) 
 
         else:
 

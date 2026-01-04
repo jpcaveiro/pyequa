@@ -28,18 +28,20 @@ def get_last_folder(path):
 
 class AbstractService:
 
-    def __init__(self, 
+    def __init__(self,
+                 exercise_relativefolder=None,
+                 exercise_folder=None, 
                  pandas_dataframe=None,
                  variable_attributes=None,
                  distractors = None,
                  answer_template=None,
                  gen_method='fixed',
-                 output_extension='txt',
                  config=None
                 ): 
 
 
         self.config = config
+        self.exercise_relativefolder = exercise_relativefolder
 
         assert pandas_dataframe is not None, f"A 'python pandas' data frame must be given."
         self.pandas_dataframe = pandas_dataframe
@@ -59,21 +61,23 @@ class AbstractService:
         self.scenario = None #atribuído quando este TextService é passado para o Scenario
         self.solverslist_answer_text = None #see below
 
-        #TODO: improve this getcwd() to a better strategy
-        self.exercise_folder = os.getcwd()
+        #OLD TODO: improve this getcwd() to a better strategy
+        self.exercise_folder = exercise_folder
         self.basename = get_last_folder(self.exercise_folder)
-        self.output_extension = output_extension
-        self.file_path_student = f"{self.basename}.{self.output_extension}"
 
         #Create "_output_"
-        DEFAULT_OUTPUT_FOLDER = "_output_"
-        if not os.path.exists(DEFAULT_OUTPUT_FOLDER):
-            os.makedirs(DEFAULT_OUTPUT_FOLDER)
-            print(F"Folder '{DEFAULT_OUTPUT_FOLDER}' created.")
+        self.output_folder = Path(self.exercise_folder) / Path("_output_")
+        #DEFAULT_OUTPUT_FOLDER =  Path(self.exercise_folder) / Path("_output_")
+        if not os.path.exists(self.output_folder ):
+            os.makedirs(self.output_folder )
+            print(F"Folder '{self.output_folder }' created.")
 
+        self.allexercises_fullpath = self.output_folder / Path(f"{self.basename}.md")
+
+        # Old
         # TODO: avoid change dir !
-        #Text is stores here.
-        os.chdir(DEFAULT_OUTPUT_FOLDER)
+        #Text is stored here.
+        #os.chdir(DEFAULT_OUTPUT_FOLDER)
 
 
 
@@ -132,6 +136,8 @@ class AbstractService:
 
 
 
+'''
+OLD by JP
 def add_timestamp(filename):
   """
   Adds a timestamp to the filename in format YYYY-MM-DD_HH-MM-SS.
@@ -147,18 +153,33 @@ def add_timestamp(filename):
   extension = filename.split(".")[-1] if "." in filename else ""
   # Combine filename, timestamp, and extension
   return f"{filename[:-4]}_{timestamp}.{extension}"
+'''
 
+def add_timestamp(filename):
+    """
+    Adds a timestamp to the filename in format YYYY-MM-DD_HH-MM-SS.
 
-def rename_old_filename(file_path_student):
+    Args:
+        filename: The original filename (str or Path).
+
+    Returns:
+        The filename with timestamp appended (including extension).
+    By "GPT-5.1-Codex-Max • 0.9x"
+    """
+    timestamp = datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S")
+    p = Path(filename)
+    return str(p.with_name(f"{p.stem}_{timestamp}{p.suffix}"))
+
+def rename_old_filename(allexercises_fullpath):
 
     #TODO: parece existir repetição da construção destes file_path !
 
     try:
         # Rename the file saving previously
-        timed_file_path_student= add_timestamp(file_path_student)
-        os.rename(file_path_student,timed_file_path_student, )
+        timed_path = add_timestamp(allexercises_fullpath)
+        os.rename(allexercises_fullpath, timed_path, )
         #os.remove(file_path)
-        print(f"File '{file_path_student}' is now {timed_file_path_student}.")                
+        print(f"File '{allexercises_fullpath}' is now {timed_path}.")                
     except FileNotFoundError:
         #print(f"Error: File '{file_path}' not found.")
         pass

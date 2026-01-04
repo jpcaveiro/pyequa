@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 import datetime
 import markdown
 from .serviceabstract import AbstractService, rename_old_filename
@@ -88,29 +88,30 @@ CLOZE_template_deterministic = """
 class ClozeService(AbstractService):
 
     def __init__(self, 
-                 student_template_filename=None,
-                 student_feedback=None,
-                 answer_template=None,
-                 pandas_dataframe=None,
-                 variable_attributes=None,
+                 exercise_relativefolder = None,
+                 exercise_folder = None,
+                 student_template_filename = None,
+                 student_feedback = None,
+                 answer_template = None,
+                 pandas_dataframe = None,
+                 variable_attributes = None,
                  distractors = None,
-                 author="(Author)",
-                 output_extension='txt', 
-                 config=None
+                 author = "(Author)",
+                 config = None
                  ): 
 
         # See AbstractService.__init__()
-        super().__init__(pandas_dataframe=pandas_dataframe, 
+        super().__init__(exercise_relativefolder = exercise_relativefolder,
+                         exercise_folder=exercise_folder,
+                         pandas_dataframe=pandas_dataframe, 
                          variable_attributes=variable_attributes, 
                          distractors=distractors, 
                          answer_template=answer_template, 
-                         output_extension=output_extension,
                          config=config)
 
         # Only in ClozeService
         # student_template could be a filename or a string
-        from os import getcwd, chdir
-        student_template_path = os.path.join(r'..', student_template_filename)
+        student_template_path = self.exercise_folder / Path(student_template_filename)
         print(f"pyequa is opening file {student_template_path}.")
         if '.md' in student_template_filename:
             try:
@@ -120,22 +121,23 @@ class ClozeService(AbstractService):
                 print(f"Error: File '{student_template_path}' not found.")
                 raise FileNotFoundError
         else:
-            self.student_template_path = student_template_path
+            #self.student_template_path = student_template_path
+            raise "Exercise model must be only in *.md format."
 
 
         self.student_feedback = student_feedback
 
 
-        # See serviceabstract.py where self.file_path_student is built
-        rename_old_filename(self.file_path_student)
+        # See serviceabstract.py where self.allexercises_fullpath is built
+        rename_old_filename(self.allexercises_fullpath)
 
         # -------------------------------
         # Rmd file header for user to see
         # -------------------------------
-        rmd_header = FILE_HEADER_template.format(title  = self.file_path_student, 
+        rmd_header = FILE_HEADER_template.format(title  = self.exercise_relativefolder, 
                                         author = author,
                                         date   = datetime.datetime.now().strftime(r'%Y-%m-%d_%H-%M-%S'))
-        with open(self.file_path_student, mode="w", encoding="utf-8") as file_object:
+        with open(self.allexercises_fullpath, mode="w", encoding="utf-8") as file_object:
             # Write the text to the file
             file_object.write(rmd_header)
 
@@ -144,8 +146,8 @@ class ClozeService(AbstractService):
         # XML moodle file header
         # ----------------------
         xml_header = '<?xml version="1.0" encoding="UTF-8"?>\n<quiz>\n'
-        with open(self.file_path_student+'.xml', mode="w", encoding="utf-8") as file_object:
-            # Write the text to the file
+        xml_path = self.allexercises_fullpath.with_suffix('.xml')
+        with open(xml_path, mode="w", encoding="utf-8") as file_object:
             file_object.write(xml_header)
 
 
@@ -219,7 +221,7 @@ class ClozeService(AbstractService):
             # ----------------
             # Markdown: write problem or solution on student and solutions file
             # ----------------
-            with open(self.file_path_student, "a", encoding="utf-8") as file_object:
+            with open(self.allexercises_fullpath, "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(student_text)
 
@@ -235,7 +237,7 @@ class ClozeService(AbstractService):
             student_str_html = markdown.markdown(student_str_without_backslash)
 
             moodle_imports_category = self.config['moodle_import_folder']
-            exam_title = self.file_path_student
+            exam_title = self.allexercises_fullpath
             problem_title = f"{self.config['problem_word']} {args_dict['problem_number_str']}"
             xml_clozequestion = student_str_html
             xml_feedbackglobal = self.student_feedback
@@ -248,7 +250,7 @@ class ClozeService(AbstractService):
                 xml_feedbackglobal = xml_feedbackglobal,
             )
 
-            with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
+            with open(self.allexercises_fullpath+'.xml', "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(xml_cloze)
             """
@@ -321,7 +323,7 @@ class ClozeService(AbstractService):
         # ----------------
         # Markdown: write problem or solution on student and solutions file
         # ----------------
-        with open(self.file_path_student, "a", encoding="utf-8") as file_object:
+        with open(self.allexercises_fullpath, "a", encoding="utf-8") as file_object:
             # Write the text to the file
             file_object.write(student_text)
 
@@ -397,7 +399,7 @@ class ClozeService(AbstractService):
             # ----------------
             # Markdown: write problem or solution on student and solutions file
             # ----------------
-            with open(self.file_path_student, "a", encoding="utf-8") as file_object:
+            with open(self.allexercises_fullpath, "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(student_text)
 
@@ -413,7 +415,7 @@ class ClozeService(AbstractService):
             student_str_html = markdown.markdown(student_str_without_backslash)
 
             moodle_imports_category = self.config['moodle_import_folder']
-            exam_title = self.file_path_student
+            exam_title = self.allexercises_fullpath
             question_title = str(givenvars_set)
             variant_title = f"{self.config['variant_word']} {args_dict['variation_number']}"
             xml_clozequestion = student_str_html
@@ -428,7 +430,7 @@ class ClozeService(AbstractService):
                 xml_feedbackglobal = xml_feedbackglobal,
             )
 
-            with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
+            with open(self.allexercises_fullpath+'.xml', "a", encoding="utf-8") as file_object:
                 # Write the text to the file
                 file_object.write(xml_cloze)
             """
@@ -462,7 +464,7 @@ class ClozeService(AbstractService):
         #student_str_html = markdown.markdown(student_str_without_backslash, extensions=[KatexExtension()])
 
         moodle_imports_category = self.config['moodle_import_folder']
-        exam_title = self.file_path_student
+        exam_title = self.exercise_relativefolder 
         question_title = f"{problem_set_number:03d} {str(givenvars_set)}"
         variant_title = f"{self.config[variant_problem_str]} {args_dict[args_dict_number]}"
         xml_clozequestion = student_str_html
@@ -477,8 +479,8 @@ class ClozeService(AbstractService):
             xml_feedbackglobal = xml_feedbackglobal,
         )
 
-        with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
-            # Write the text to the file
+        xml_path = self.allexercises_fullpath.with_suffix('.xml')
+        with open(xml_path, "a", encoding="utf-8") as file_object:
             file_object.write(xml_cloze)
 
             
@@ -489,14 +491,14 @@ class ClozeService(AbstractService):
         # ----------------
         # Write header on student and solutions file
         # ----------------
-        with open(self.file_path_student, "a", encoding="utf-8") as file_object:
+        with open(self.allexercises_fullpath, "a", encoding="utf-8") as file_object:
             # Write the text to the file
             file_object.write(problem_header)
 
 
 
     def close_build(self):
-        with open(self.file_path_student+'.xml', "a", encoding="utf-8") as file_object:
-            # Write the text to the file
+        xml_path = self.allexercises_fullpath.with_suffix('.xml')
+        with open(xml_path, "a", encoding="utf-8") as file_object:
             file_object.write('\n</quiz>\n')
-        
+

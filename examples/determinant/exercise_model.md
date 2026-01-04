@@ -25,6 +25,6 @@ where
     </tbody>
   </table>
 
-So \(det(A)\) = {d} and  \(Ax=b\) is a system {solucaounica}.
+So \(det(A)\) = {d} and  \(Ax=b\) is a system that {uniquesolution}.
 
 

@@ -27,10 +27,9 @@ variable_attributes = {
 }
 
 
-from pathlib import Path
 from pyequa.config import PyEqua
 
-pe = PyEqua(Path(__file__).parent, scenario_relations, variable_attributes)
+pe = PyEqua("determinant", scenario_relations, variable_attributes)
 
 
 #pe.randomquestion_sameblanks(fill_in_blanks_vars = {'a11', 'a12'}, 
