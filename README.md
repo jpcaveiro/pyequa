@@ -2,6 +2,10 @@
 
 Equations on the move.
 
+Previous edition
+
+* [branch 2025](https://github.com/jpcaveiro/pyequa/tree/2025)
+
 ## Project root
 
 Set project root in **linux**
@@ -30,11 +34,11 @@ print(root_path)
 
 ## Debug
 
-**Potencial problems**
+### Potencial problems
 
 * Close ALL vscode windows or projects after running `[Environment]::SetEnvironmentVariable(...)`.
 
-**Use examples**
+### Use examples
 
 To use exercises in folder `examples` inside package files:
 
@@ -44,16 +48,10 @@ To use exercises in folder `examples` inside package files:
 [Environment]::SetEnvironmentVariable("PYEQUA_PROJECT_ROOT", "C:\Users\some_user\Documents\pyequa\examples", "User")
 ```
 
-2. Close all `vstudio` sessions
+1. Close all `vstudio` sessions
 
-3. Open pyequa folder
+2. Open `pyequa` folder
 
-4. Open an example `producer.py` file:
+3. Open an example `producer.py` file:
 
-```
-...\pyequa\examples\determinant\producer.py
-``` 
-
-
-
-
+`\pyequa\examples\determinant\producer.py`
