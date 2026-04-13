@@ -1,4 +1,6 @@
 
+
+
 from pathlib import Path
 exercise_folder = Path(__file__).parent
 print(exercise_folder)
@@ -16,7 +18,7 @@ def round_up_half(number, decimals=1):
 #print(round_up_half(1.35))  # Output: 1.4
 
 
-def make(g, n, sqgrupos, sqerros):
+def make(g=4, n=10, sqgrupos=100.0, sqerros=90.0):
     # Calculating Probability from the F-Distribution in Python
     # https://chat.deepseek.com/a/chat/s/f3e50569-f761-4df7-a3c7-b93fbda8cfc2
     dfgrupos = g-1
@@ -32,7 +34,7 @@ def make(g, n, sqgrupos, sqerros):
     else:
         rejeitarh0 = "não existe diferença significativa entre os valores esperados"
 
-    pprint.pprint(locals())
+    #pprint.pprint(locals())
     return locals()
 
 print(make(4, 6, 1000, 100))
@@ -54,3 +56,10 @@ df.loc[len(df)] = make(4, 4,  200, 120)
 df.to_excel("data.xlsx")
 
 
+from pyequa.dependencies import make_var_declarations, make_precedence_dictionary
+
+print("="*10)
+print(make_var_declarations(make))
+
+print("="*10)
+print(make_precedence_dictionary(make))

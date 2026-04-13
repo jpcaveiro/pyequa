@@ -29,11 +29,11 @@ variable_attributes = {
     'sqtotal': {'type': 'numerical', 'tol': 0.05,  'givenvarlevel': 2},
     'dfgroups': {'type': 'numerical', 'tol': 0,  'givenvarlevel': 1},
     'dferrors': {'type': 'numerical', 'tol': 0,  'givenvarlevel': 1},
-    'dftotal': {'type': 'numerical', 'tol': 0,  'givenvarlevel': 2},
+    'dftotal': {'type': 'numerical', 'tol': 0,  'givenvarlevel': 3},
     'msqgroups': {'type': 'numerical', 'tol': 0.05,  'givenvarlevel': 2},
     'msqerrors': {'type': 'numerical', 'tol': 0.05,  'givenvarlevel': 2},
     'f': {'type': 'numerical', 'tol': 0.005,  'givenvarlevel': 3},
-    'sig': {'type': 'numerical', 'tol': 0.005,  'givenvarlevel': 3},
+    'sig': {'type': 'numerical', 'tol': 0.005,  'givenvarlevel': 4},
     'rejecth0': {'type': 'multichoice', 'givenvarlevel': 3},
 }
 

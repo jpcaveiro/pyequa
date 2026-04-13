@@ -1,6 +1,6 @@
 """
  wisdomgraph: exercises based on environments 
- 2019 @ Joao Pedro Cruz and Minho Group
+ 2019 @ jpcaveiro@github
  SageMath
  Using python standard libs as much as possible
 
@@ -13,7 +13,7 @@ import itertools
 import networkx as nx
 import matplotlib.pyplot as plt
 import datetime
-from sympy import Eq,Symbol,latex,parse_expr
+from sympy import Eq, Symbol, latex, parse_expr
 
 
 #from slugify import slugify
