@@ -10,6 +10,18 @@ import matplotlib.pyplot as plt
 
 
 
+def extract_names_from_target(target):
+    """Recursively extract all variable names from an assignment target."""
+    if isinstance(target, ast.Name):
+        return [target.id]
+    elif isinstance(target, (ast.Tuple, ast.List)):
+        names = []
+        for elt in target.elts:
+            names.extend(extract_names_from_target(elt))
+        return names
+    return []
+
+
 def make_precedence_dictionary(funname):
     """
     Docstring for make_precedence_graph
@@ -41,6 +53,7 @@ def make_precedence_dictionary(funname):
         if isinstance(node, ast.Assign):
             # Get the variable being assigned
             for target in node.targets:
+                # Handle simple name assignment: x = expr
                 if isinstance(target, ast.Name):
                     var_name = target.id
                     
@@ -53,6 +66,31 @@ def make_precedence_dictionary(funname):
                                 used_vars.add(subnode.id)
                     
                     dependencies[var_name] = used_vars
+                
+                # Handle tuple/list unpacking: x1, x2, ... = expr1, expr2, ...
+                elif isinstance(target, (ast.Tuple, ast.List)):
+                    target_names = extract_names_from_target(target)
+                    
+                    # If RHS is also a tuple/list, match element-wise
+                    if isinstance(node.value, (ast.Tuple, ast.List)):
+                        for i, var_name in enumerate(target_names):
+                            used_vars = set()
+                            if i < len(node.value.elts):
+                                value_elem = node.value.elts[i]
+                                for subnode in ast.walk(value_elem):
+                                    if isinstance(subnode, ast.Name) and isinstance(subnode.ctx, ast.Load):
+                                        if subnode.id in params or subnode.id in dependencies:
+                                            used_vars.add(subnode.id)
+                            dependencies[var_name] = used_vars
+                    else:
+                        # RHS is a single expression (e.g., function call)
+                        used_vars = set()
+                        for subnode in ast.walk(node.value):
+                            if isinstance(subnode, ast.Name) and isinstance(subnode.ctx, ast.Load):
+                                if subnode.id in params or subnode.id in dependencies:
+                                    used_vars.add(subnode.id)
+                        for var_name in target_names:
+                            dependencies[var_name] = used_vars
     
     return dependencies
 
