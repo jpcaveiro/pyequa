@@ -387,9 +387,12 @@ class ClozeService(AbstractService):
             variant_str = f"\n\n## {self.config['variant_word']} {args_dict['variation_number']}\n\n"
 
             try:
+                #debug
+                #print(args_dict)
+                #print(self.student_template)
                 student_str = self.student_template.format(**args_dict)
             except KeyError as k:
-                print(f"Missing column '{k}' in 'data.{self.config['dataframe_type']}'.")
+                print(f"Missing column '{k}' in file \'data.{self.config['dataframe_type']}\'.")
                 raise
                 
             feedback_str = f"\n\n\n### feedback\n\n{self.student_feedback}\n\n"

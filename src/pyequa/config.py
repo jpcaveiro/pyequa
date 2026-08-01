@@ -5,6 +5,8 @@ from pyequa import scenario as ws
 from pyequa.servicecloze import ClozeService
 import pandas as pd
 from pandas.api.types import is_numeric_dtype
+from .scenario import float2int
+
 #from pandas import Float64Dtype
 #from pandas import Int64Dtype
 
@@ -21,13 +23,27 @@ print(f"PYEQUA_PROJECT_ROOT = {PYEQUA_PROJECT_ROOT}")
 
 
 def separate_by_type(input_dict):
-    
     """
-        # Multichoice com distratores
-        'disty':       {'type': 'multichoice',            'givenvarlevel': 2, 
-                        'distractors': {'disty_d1': '-33.333', 'disty_d2': '-33.333', 'disty_d3': '-33.333'}},
-        # Distratora pura (não é variável de interesse ao problema)
-        'nembalagens': {'type': 'distractor'},
+    multichoice with distractors
+
+    To declare a "pure distractor" (not a variable of interest to the problem) but a number
+    or information that could cause perturbation for those who are less prepared.
+
+    Case 1 
+    - correct answer is in dataframe %100%
+    - wrong answeres are in 'distractors' dictionary (%-33.333% is the discount)
+
+    ```
+    'disty':       {'type': 'multichoice', 
+                    'givenvarlevel': 2, 
+                    'distractors': {'disty_d1': '-33.333', 'disty_d2': '-33.333', 'disty_d3': '-33.333'} }
+
+    Case 2 
+    - all data is in data frame 
+
+    ```
+    'nembalagens': {'type': 'distractor'},
+    ```
     """
 
     distractors = {}
@@ -40,12 +56,14 @@ def separate_by_type(input_dict):
             distractors[key] = None
             
         elif 'distractors' in var_dict:
+            #author uses 'distractors'
 
             distractors[key] = var_dict['distractors']
             del var_dict['distractors']
             non_distractors[key] = var_dict
 
         elif 'distractor' in var_dict:
+            #author uses 'distractor' with no 's'
 
             distractors[key] = var_dict['distractor']
             del var_dict['distractor']
@@ -59,14 +77,23 @@ def separate_by_type(input_dict):
 
             non_distractors[key] = var_dict
 
+        elif var_dict.get('type') == 'shortanswer':
+
+            non_distractors[key] = var_dict
+
         else:
 
-            raise Exception("variable type must be 'distractor' or 'distractors', 'multichoice' or 'numerical'.")    
+            raise Exception("variable type must be 'distractor' or 'distractors', 'multichoice', 'numerical' or 'shortanswer'.")    
         
     return distractors, non_distractors
 
+
 def num2str(value):
+    #if necessary convert to int
+    value = float2int(value)
     return f"{value}"
+
+
 
 
 class Config:
@@ -179,8 +206,11 @@ class PyEqua:
         # data_frame creation or use
         if pandas_data_frame is None:
 
-            dataframe_type = self.config['dataframe_type']
+            # if pandas_data_frame parameter has not been given
+            # try to read from data.csv or data.xlsx
+            # and this decision in on config.yaml (config object)
 
+            dataframe_type = self.config['dataframe_type']
             
             match dataframe_type:
 
@@ -202,7 +232,9 @@ class PyEqua:
                     self.pandas_dataframe = pd.read_excel(dataframe_pathname_xlsx)
 
 
-        # Convert, if necessary, dtypes
+        # For each variable, check its
+        # self.pandas_dataframe[v_name] dtype
+        # and change it if necessary.
         # Example: df['col2'] = df['col2'].astype(str)
         for v_name in self.variable_attributes.keys():
 
@@ -225,9 +257,17 @@ class PyEqua:
                     new_values = [num2str(v) for v in self.pandas_dataframe[v_name]]
                     self.pandas_dataframe[v_name] = new_values
 
+            elif v_type == "shortanswer":
+
+                if is_numeric_dtype(self.pandas_dataframe[v_name]):
+
+                    # self.pandas_dataframe[v_name].apply(str) não parece funcionar
+                    new_values = [num2str(v) for v in self.pandas_dataframe[v_name]]
+                    self.pandas_dataframe[v_name] = new_values
+
             else:
 
-                raise 
+                raise ValueError(f"pyequa: type of '{var}' is {v_type}: change to 'numerical', 'multichoice' or 'shortanser'.")
 
             print(f"===> variable {v_name} has pandas type {self.pandas_dataframe[v_name].dtype} and variable_type {self.variable_attributes[v_name]['type']}")
 
@@ -427,11 +467,23 @@ class PyEqua:
 
 
 
-    def randomquestion_sameblanks(self, fill_in_blanks_vars, number_of_problems_per_givenvars = 1):
-        # fill_in_blanks_vars is a set of names
+    def randomquestion_sameblanks(self, fill_in_blanks_vars, number_of_problems_per_givenvars = None):
+        """Generate fill-in-the-blank exercises for a selected set of variables.
 
-        print("="*20)
-        print(f"Generate exercises for fill in the blanks: {fill_in_blanks_vars}.")
+        Parameters
+        ----------
+        fill_in_blanks_vars : set[str]
+            Variable names that should be treated as the blanks to be filled in.
+        number_of_problems_per_givenvars : int, optional
+            Number of exercise variants to generate for each combination of given
+            variables. Defaults to the number of rows in the underlying dataframe.
+        """
+
+        if number_of_problems_per_givenvars is None:
+            number_of_problems_per_givenvars = len(self.pandas_dataframe.index)
+
+        #print("="*20)
+        print(f"Generate {number_of_problems_per_givenvars} exercises for fill in the blanks: {fill_in_blanks_vars}.")
 
         # get symbols from symbol names:
         fill_in_blanks_vars_symbols = [s for s in self.scenario.allvars_set if s.name in fill_in_blanks_vars]

@@ -1,5 +1,6 @@
 
 
+# Moodle only allow this percentages for each answer.
 ALLOWED_PERCENTAGES = {
 '100', '90', '80', '75', '70', '66.666', '60', '50', '40', '33.333', '30', '25', '20', '16.666', '14.2857', 
 '12.5', '11.111', '10', '5', '0',
@@ -7,12 +8,13 @@ ALLOWED_PERCENTAGES = {
 '-12.5', '-11.111', '-10', '-5', '-0',
 }
 
+from .scenario import float2int
+
 class Cloze:
 
     def __init__(self, 
                  pandas_dataframe, 
                  pandas_row_series, 
-                 #args_dict, 
                  allvars_set, 
                  givenvars_tuple, 
                  variable_attributes,
@@ -20,7 +22,6 @@ class Cloze:
                  config):
 
         # args_dict is to be modified
-        #self.args_dict = args_dict.copy() # copy()?
         self.args_dict = dict()
 
         # read only
@@ -87,10 +88,9 @@ class Cloze:
 
     def vars_to_fields(self):
         """
+        This routine builds an args_dict relating:
 
-        This routine builds a args_dict relating:
-
-           variable versus how it appear in a Cloze
+           variable and how it appear in a Cloze text
         
         Rules:
 
@@ -99,6 +99,8 @@ class Cloze:
         exercise like :NUMERICAL: or :MULTICHOICE_S: or :SHORTANSWER:
 
         Distractors:
+
+        * to do
 
         """
 
@@ -116,17 +118,28 @@ class Cloze:
         #--------------------------------------------
 
         we_know_this = [] #to make the query of rows_with_same_givenvarsvalues
+
         #Debug
         #print(self.givenvars_set)
+
+        # For each variable that student is going to see:
         for var in self.givenvars_set:
 
-            #get variable value in a row (series) of pandas_dataframe
+            #Get variable value in a row (series) of pandas_dataframe
             value = self.pandas_row_series[var.name]
 
             #Debug
-            #print(type(value))
+            #print(f"arg is {var.name}, it's Python type is {type(value)} and is value is {value}. Cloze field will be {self.variable_attributes[var.name]['type'].lower()}." )
 
-            #Student see the value if var is in givenvars_set:
+
+            # converts "30.0" to "30"
+            #if necessary convert to int
+            value = float2int(value)
+
+            #Debug
+            #print(f"arg is {var.name}, it's Python type is {type(value)} and is value is {value}. Cloze field will be {self.variable_attributes[var.name]['type'].lower()}." )
+
+            #Student see the value if var is in givenvars_set as:
             if self.variable_attributes[var.name]['type'].lower() == 'multichoice' or \
                self.variable_attributes[var.name]['type'].lower() == 'shortanswer':
                 know_this = f"{var} == '''{value}'''"
@@ -135,7 +148,8 @@ class Cloze:
             we_know_this.append(know_this)
 
             #The way student sees the variable value
-            self.args_dict[var.name] = "**" + str(value) + "**"
+            #self.args_dict[var.name] = "**" + str(value) + "**"
+            self.args_dict[var.name] = str(value)
             #self.args_dict[str(var)+'output'] = "" #TODO: remove "var+output"
 
 
@@ -311,7 +325,8 @@ class Cloze:
                 except KeyError as k:
                     raise KeyError(f"Add variable '{dis_var_name}' to the dataframe.")
 
-                self.args_dict[dis_var_name] = "**" + str(value) + "**"
+                #self.args_dict[dis_var_name] = "**" + str(value) + "**"
+                self.args_dict[dis_var_name] = str(value)
 
         #Debug
         #print(self.args_dict)

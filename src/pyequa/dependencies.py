@@ -46,7 +46,9 @@ def make_precedence_dictionary(funname):
     params = {arg.arg for arg in func_def.args.args}
     
     # Dictionary to store dependencies
-    dependencies = {}
+    # start with params related to empty set
+    _MESSAGE_ = 'could not get relations'
+    dependencies = {arg.arg: {_MESSAGE_} for arg in func_def.args.args}
     
     # Visit each assignment in the function
     for node in ast.walk(tree):
@@ -58,7 +60,7 @@ def make_precedence_dictionary(funname):
                     var_name = target.id
                     
                     # Find all variables used in the right-hand side
-                    used_vars = set()
+                    used_vars = {_MESSAGE_} #set()
                     for subnode in ast.walk(node.value):
                         if isinstance(subnode, ast.Name) and isinstance(subnode.ctx, ast.Load):
                             # Only include if it's a parameter or previously defined variable
@@ -74,7 +76,7 @@ def make_precedence_dictionary(funname):
                     # If RHS is also a tuple/list, match element-wise
                     if isinstance(node.value, (ast.Tuple, ast.List)):
                         for i, var_name in enumerate(target_names):
-                            used_vars = set()
+                            used_vars = {_MESSAGE_} #set()
                             if i < len(node.value.elts):
                                 value_elem = node.value.elts[i]
                                 for subnode in ast.walk(value_elem):
@@ -84,7 +86,7 @@ def make_precedence_dictionary(funname):
                             dependencies[var_name] = used_vars
                     else:
                         # RHS is a single expression (e.g., function call)
-                        used_vars = set()
+                        used_vars = {_MESSAGE_} #set()
                         for subnode in ast.walk(node.value):
                             if isinstance(subnode, ast.Name) and isinstance(subnode.ctx, ast.Load):
                                 if subnode.id in params or subnode.id in dependencies:
@@ -190,9 +192,9 @@ def make_graph(dependencies):
 
 
 
-def make_var_declarations(funname):
+def var_declarations(funname):
     """
-    Docstring for make_var_declarations
+    Docstring for var_declarations_str
     
     :param funname: Description
 
@@ -228,21 +230,40 @@ def make_var_declarations(funname):
 
     node_labels = make_graph(precedence_dictionary)
 
-    print(node_labels)
+    #print(node_labels)
 
-    print("variable_attributes = {")
+    var_str = "variable_attributes = {\n"
+                                
     result = funname()
-    var_types = {}
+    var_dict = dict()
     for var_name, var_value in result.items():
-        var_types[var_name] = type(var_value).__name__
-        if 'int' in var_types[var_name]:
-            print(f"    '{var_name}': {{'type': 'numerical', 'tol': 0, 'givenvarlevel': {node_labels[var_name]}}},")
-        elif 'float' in var_types[var_name]:
-            print(f"    '{var_name}': {{'type': 'numerical', 'tol': 0.01, 'givenvarlevel': {node_labels[var_name]}}},")
+        var_dict[var_name] = type(var_value).__name__
+        if 'int' in var_dict[var_name]:
+            var_str += f"    '{var_name}': {{'type': 'numerical', 'tol': 0, 'givenvarlevel': {node_labels[var_name]}}},\n"
+        elif 'float' in var_dict[var_name]:
+            var_str += f"    '{var_name}': {{'type': 'numerical', 'tol': 0.01, 'givenvarlevel': {node_labels[var_name]}}},\n"
         else:
-            print(f"    '{var_name}': {{'type': 'mutichoice', 'givenvarlevel': {node_labels[var_name]}}},")
-    print("}")
+            var_str += f"    '{var_name}': {{'type': 'mutichoice', 'givenvarlevel': {node_labels[var_name]}}},\n"
+    var_str += "}\n"
 
-    return var_types
+    return var_str, var_dict
+
+
+def suggest_declarations(funname):
+
+    var_str, _ = var_declarations(funname) #_ is var_dict
+    print(var_str)
+
+    pred_dict = make_precedence_dictionary(funname)
+    pred_str = "scenario_relations = {\n"
+
+    for k in pred_dict.keys():
+
+        eq_str = f"   'Eq({k}, " + " + ".join(pred_dict[k]) + ")',\n"
+        pred_str += eq_str
+
+    pred_str += "}\n"
+
+    print(pred_str)
 
 

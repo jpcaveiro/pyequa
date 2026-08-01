@@ -10,9 +10,11 @@
 
 
 import itertools
+import numbers
 import networkx as nx
 import matplotlib.pyplot as plt
 import datetime
+import numpy as np
 from sympy import Eq, Symbol, latex, parse_expr
 
 
@@ -91,6 +93,16 @@ def set2orderedstr(someset):
     #return str(sorted([str(s) for s in someset]))
     return str(sorted([s.name for s in someset]))
 
+
+def float2int(value):
+    #if necessary convert to int
+
+    if isinstance(value, (numbers.Number, np.number)) and np.isfinite(value) and float(value).is_integer():
+        return int(value)
+    else:
+        return value
+
+    
 def join_varnames(varlist):
 
     # ncalls  tottime  percall  cumtime  percall filename:lineno(function)
