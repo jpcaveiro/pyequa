@@ -1,11 +1,18 @@
 from pathlib import Path
 import datetime
+import re
 import markdown
 from .serviceabstract import AbstractService, rename_old_filename
 from .clozeroutines import Cloze
 
 
 from .scenario import set2orderedstr
+
+
+def dollar_math_to_moodle(text):
+    r"""Convert $$...$$ to \[...\] and $...$ to \(...\) (unescaped dollars only)."""
+    text = re.sub(r'(?<!\\)\$\$(.+?)(?<!\\)\$\$', lambda m: r'\[' + m.group(1) + r'\]', text, flags=re.DOTALL)
+    return re.sub(r'(?<![\\$])\$(?!\$)(.+?)(?<![\\$])\$(?!\$)', lambda m: r'\(' + m.group(1) + r'\)', text)
 
 
 FILE_HEADER_template = """---
@@ -446,7 +453,8 @@ class ClozeService(AbstractService):
         # ------------
 
         # See https://chat.deepseek.com/a/chat/s/0c4ac66a-c452-490f-9d95-91c22abe1da2
-        student_str_for_pandoc = student_str.replace(r'\~', r'~')
+        student_str_for_pandoc = dollar_math_to_moodle(student_str)
+        student_str_for_pandoc = student_str_for_pandoc.replace(r'\~', r'~')
         student_str_for_pandoc = student_str_for_pandoc.replace('\\\n', '\\\\\\\n')
         student_str_for_pandoc = student_str_for_pandoc.replace(r'\[', r'\\[')
         student_str_for_pandoc = student_str_for_pandoc.replace(r'\]', r'\\]')
