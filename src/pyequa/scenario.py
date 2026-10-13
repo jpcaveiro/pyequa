@@ -23,10 +23,10 @@ from sympy import Eq, Symbol, latex, parse_expr
 
 
 def sortedsymbols(symbols_iterable):
-    r"""
-    Implementação com `key=Symbol._repr_latex_` coloca um \displaystyle
-    antes do latex.
-    Assim usa-se str()
+    """Return SymPy symbols sorted by their string names.
+
+    Sorting by ``str`` avoids SymPy's expression-ordering semantics, which
+    don't represent alphabetical ordering of symbol names.
     """
     return sorted(symbols_iterable,key=Symbol.__str__)
 
@@ -38,7 +38,16 @@ def sortedsymbols(symbols_iterable):
 
 def Combinations(someset, include_empty_set = True):
     """
-    empty = True makes [] part of the answer.
+    Return all combinations of the input values as tuples.
+
+    Args:
+        someset: Iterable of values to combine.
+        include_empty_set: If true, include the empty tuple as the first
+            combination.
+
+    Returns:
+        A list containing combinations from size zero (or one) through the
+        full input size.
     """
 
     list_of_sets = []
@@ -67,8 +76,14 @@ def Combinations(someset, include_empty_set = True):
 
 
 def Combinations_of_givensize(someset, givensize):
-    """
-    empty = True makes [] part of the answer.
+    """Return all fixed-size combinations of the input values.
+
+    Args:
+        someset: Iterable of values to combine.
+        givensize: Number of values in each combination.
+
+    Returns:
+        A list of tuples, each containing ``givensize`` values.
     """
 
     # Version 1
@@ -83,11 +98,10 @@ def Combinations_of_givensize(someset, givensize):
 
 
 def set2orderedstr(someset):
-    """
-    Nota: a < b sendo a e b um sympy.symbol
-    causa erro porque não se está a comparar
-    o nome mas sim o "conteúdo" do symbol enquanto expressões
-    A solução é pedir o str(a).
+    """Return a stable string representation of a collection of symbols.
+
+    Symbol names are sorted before conversion, so the result is independent
+    of the collection's iteration order.
     """
 
     #return str(sorted([str(s) for s in someset]))
@@ -95,7 +109,11 @@ def set2orderedstr(someset):
 
 
 def float2int(value):
-    #if necessary convert to int
+    """Convert a finite integral numeric value to ``int`` when possible.
+
+    Non-numeric values, non-finite numbers and values with a fractional part
+    are returned unchanged.
+    """
 
     if isinstance(value, (numbers.Number, np.number)) and np.isfinite(value) and float(value).is_integer():
         return int(value)
@@ -104,7 +122,7 @@ def float2int(value):
 
     
 def join_varnames(varlist):
-
+    """Join symbol names into a single string in alphabetical order."""
     # ncalls  tottime  percall  cumtime  percall filename:lineno(function)
     # 33538048  165.962    0.000 2439.667    0.000 scenario.py:94(join_varnames)  
     # Version 1
@@ -126,20 +144,24 @@ def join_varnames(varlist):
 
 
 class SympyRelation:
-    """
-    A ideia é associar a uma expressão sympy:
-    * uma forma latex
-    * os símbolos na relação
+    """Pair a SymPy relation with its free symbols and LaTeX representation.
 
-    >> x1 = Symbol('x_1')
-    >> x2 = Symbol('x_2')
-    >> x3 = Symbol('x_3')
-    >> media = Symbol('\\bar{x}')
-    >> SympyRelation( Eq(media, Rational(1,3)*(x1+x2+x3)) )
-
+    ``free_symbols`` and ``latex_str`` can be supplied to override the values
+    inferred from the relation.
     """
     
     def __init__(self,sympyrelation,free_symbols=None,latex_str="", input_is_str=False):
+        """Create a relation wrapper.
+
+        Args:
+            sympyrelation: SymPy relation/expression, or a string when
+                ``input_is_str`` is true.
+            free_symbols: Optional explicit set of symbols used by the
+                relation.
+            latex_str: Optional pre-rendered LaTeX to use for output.
+            input_is_str: Parse ``sympyrelation`` as a SymPy expression when
+                true.
+        """
         
         if input_is_str:
             self.sympyrelation = parse_expr(sympyrelation)
@@ -157,9 +179,11 @@ class SympyRelation:
             self.latex_str = latex(self.sympyrelation)
 
     def __str__(self):
+        """Return the relation's LaTeX representation."""
         return self.latex_str
     
     def __repr__(self):
+        """Return a constructor-like representation of this wrapper."""
         return f"SympyRelation({self.sympyrelation},{self.free_symbols},{self.latex_str})"
 
 SR = SympyRelation        
@@ -167,31 +191,23 @@ SR = SympyRelation
 
 
 class SolverCandidate:
-    """
-    A solver candidate is described by:
-    
-    1. input variables
-    2. a set of expressions(s)
-    3. output variables
+    """Describe a possible transition from known to solvable variables.
 
-    Notation:
-    
-    - a "solver candidate" has an signature: input variables to outputs variables;
-    - it is described also by the relations that can do that
-    - at the moment it is not testing if it really solves the relations in order to the output variables
-    - "candidate" in the sense that this routine proposes a set of solvers
-    - only, later, the "exercise finder" will confirm that it is really possible to solve 
-
-    Input:
-
-    - input_set
-    - output_set
-    - relations_set
-
+    A candidate records its input variables, output variables and supporting
+    relations. It represents a proposed route; it does not itself prove that
+    the relations can be solved for the outputs.
     """
 
 
     def __init__(self,input_set,output_set,relations_set):
+        """Create a solver candidate from variable sets and relations.
+
+        Args:
+            input_set: Variables assumed to be known before applying the
+                candidate.
+            output_set: Variables the candidate may determine.
+            relations_set: Relations supporting this transition.
+        """
 
         #like: 'a+b==2\nc+d==e+g'
         rel_str = '\n'.join( [e.latex_str for e in relations_set] )
@@ -210,62 +226,36 @@ class SolverCandidate:
         }
 
     def relations_latex(self):
+        """Return the candidate's relations joined as LaTeX text."""
         return '\n\n'.join([r.latex_str for r in self.signature['relations_set']])
 
 
 
 class Scenario:
+    """Build and query the variable-knowledge graph for an exercise.
+
+    Relations are converted into solver candidates and graph transitions.
+    Each graph node represents the variables known at that point; a path from
+    ``ignorance`` to ``knowledge`` describes one solution route.
+    """
 
     _IGNORANCE_NODE_NAME_ = 'ignorance'
     _KNOWLEDGE_NODE_NAME_ = 'knowledge'
 
     def __init__(self, pyequa_instance, scenario_relations, text_service, list_of_number_of_relations_at_once=None):
-        """
+        """Create solver candidates and the knowledge graph.
 
-        Inputs:
-
-        - scenario: a dictionary like
-        - r: list; [1], [2], [1,2], etc
-
-        Combines 1 by 1 relation, and/or 2 by 2, etc.
-
-        .. code:: python
-
-            #variables
-
-            a,b,c,d,e,f = var('a,b,c,d,e,f')
-
-            #The Plot 
-
-            eq1 = f == a+b
-            pyt1 = c^2 + d^2 == f^2
-            pyt2 = b^2 + e^2 == c^2
-            pyt3 = a^2 + e^2 == d^2
-            sima1 = c*e==b*d
-            sima2 = a*c==d*e
-            sima3 = a*b==e^2
-            simb1 = c*d==e*f
-            simb2 = d^2==a*f
-            simc1 = c^2==b*f
-
-            # O que fazer com isto?
-            b10   = b==10
-
-
-            scenario_equations = { 
-                eq1: {a,b,f}, 
-                pyt1: {c,d,f},
-                pyt2: {b,e,c},
-                pyt3: {a,e,d},
-                sima1:{c,e,b,d},
-                sima2:{a,c,d,e},
-                sima3:{a,b,e},
-                simb1:{c,d,e,f},
-                simb2:{d,a,f},
-                simc1:{c,b,f},
-            }
-
-
+        Args:
+            pyequa_instance: Parent :class:`PyEqua` instance, used for
+                exercise paths and configuration.
+            scenario_relations: Iterable of :class:`SympyRelation` instances
+                or SymPy expression strings.
+            text_service: Service that supplies variable metadata and
+                generation settings. The scenario is attached to this
+                service.
+            list_of_number_of_relations_at_once: Relation counts to combine
+                when building solver candidates. Defaults to every count from
+                one through the total number of relations.
         """
 
         #pyequa_instance helps in filesystem, etc.
@@ -329,17 +319,11 @@ class Scenario:
 
 
     def input_level(self, var_combination, reverse=False):
-        """
-        example input:
+        """Sum the configured given-variable levels for a combination.
 
-        - var_combination is {var1,var2,var3}
-
-        example output:
-
-        - 
-
-        
-        'probacerto':  {'type': float, 'tol': 0.001, 'givenvarlevel': 1},
+        Variables without an explicit ``givenvarlevel`` contribute one.
+        ``reverse=True`` negates the total, allowing the same sort operation
+        to order combinations from higher to lower levels.
         """
 
         input_level_sum = 0
@@ -365,63 +349,19 @@ class Scenario:
 
     def buildsome_solvercandidates(self, rel_set): 
         """
-        From one relation, or system of relations, produce functions
-        based on combinations of variables.
+        Propose input-to-output transitions supported by a relation set.
 
-        For example, from `2x + 4y = 10` it produces 2 functions with signatures:
+        For each combination of output variables common to all relations,
+        creates a :class:`SolverCandidate` whose inputs are the remaining
+        variables used by the relations. Candidates describe possible
+        transitions; this method does not verify that the relations are
+        algebraically solvable for those outputs.
 
-        - x --> y using `2x + 4y = 10` (input variable is `x` and output variable is `y`)
-        - y --> x using `2x + 4y = 10` (input variable is `y` and output variable is `x`)
+        Args:
+            rel_set: Non-empty iterable of :class:`SympyRelation` objects.
 
-        and likewise with a system of two relations.
-
-        The word "solver" is used because from a set of known variables it produces values for more
-        variables. The word "candidate" is used because not always is possible to "solve" the relations(s)
-        and produce values for output variables. For example:
-
-        - x --> y using `2x + 4y = 10` (easy to find `y` knowing `x`)
-        - y --> x using `x = sqrt(y)` (easy to find `y` but only for a domain in `y`)
-        - (2x + y = 4) and (2x + y = 5) has no solution
-
-        See:
-
-        - "Can you give a linear system example of two linear relations and two variables without solution?")
-        - https://gemini.google.com/app/cdcb3a9da3f7b97a
-
-        
-        A solver candidate is described by:
-        
-        1. input variables
-        2. a list of relations
-        3. output variables
-
-        Notation:
-        
-        - a "solver candidate" has an signature: input variables to outputs variables;
-        - it is described also by the relations that can do that
-        - at the moment it is not testing if it really solves the relations in order to the output variables
-        - "candidate" in the sense that this routine proposes a set of solvers
-        - only, later, the "exercise finder" will confirm that it is really possible to solve 
-        
-        Input:
-        
-        - rellist: a list of relations
-        
-        Output:
-        
-        - list of solver candidates: [ 
-                 {'solvername': solvername,  #an id for graph pourposes
-                  'signature': (set of input variables, set of output variables, list of relations) } ]
-        
-        LINKS:
-        
-        - https://docs.python.org/3/tutorial/datastructures.html#sets
-        
-        
-        TODO:
-        
-        - proteger contra duplicados nas relações
-        
+        Returns:
+            A list of proposed :class:`SolverCandidate` instances.
 
         """
         
@@ -466,29 +406,11 @@ class Scenario:
 
 
     def buildall_solvercandidates(self):
-        """
+        """Populate ``solver_candidates_list`` from relation combinations.
 
-        Inputs:
-
-        - `self.list_of_number_of_relations_at_once`: is a list
-
-        Output:
-
-        - self.solver_candidates_list
-
-        Idea:
-
-        * To find 1 unknown (1 variable), it is needed 1 equation (or relation) with that variable in commom.
-        * To find 2 unknowns (2 variables), it is needed 2 equations (or relations) with those variables in commom.
-        * To find 3 unknowns (3 variables), it is needed 3 equations (or relations) with those variables in commom.
-        * etc
-
-        Numbers in `list_of_number_of_relations_at_once` define the number of 
-        unknowns (or variables) that student must find given something that is already known.
-
-        From scenario, the "self.buildall_solvercandidates()" is called 
-        to form "solver candidates" from combinations of relations.
-
+        For each count in ``list_of_number_of_relations_at_once``, combines
+        that many scenario relations and asks :meth:`buildsome_solvercandidates`
+        for the possible input-to-output transitions.
         """
 
         # The input is part of self:
@@ -510,21 +432,10 @@ class Scenario:
 
 
     def build_wisdomgraph(self):
-        """
-        Build a graph from the list of solvers.
+        """Build ``wisdomgraph`` from the solver candidates.
 
-        It is called wisdomgraph because nodes, in the wisdom grah, 
-        indicate what variables are known until that node.
-
-        References:
-
-        * https://networkx.org/documentation/stable/reference/classes/multidigraph.html
-        * https://networkx.org/documentation/stable/reference/classes/generated/networkx.MultiDiGraph.add_edge.html#networkx.MultiDiGraph.add_edge
-
-        Not used:
-        * http://doc.sagemath.org/html/en/reference/graphs/sage/graphs/digraph.html
-        * https://networkx.org/documentation/stable/reference/classes/digraph.html#networkx.DiGraph
-
+        Nodes represent known-variable sets, and directed edges represent
+        candidates that add one or more variables to the known set.
         """
 
         self.wisdomgraph = nx.MultiDiGraph()
@@ -548,22 +459,10 @@ class Scenario:
 
 
     def node_name(self,varlist):
-        """
-        Graph nodes must have an easy name (a string).
+        """Return the graph label for a set of symbols.
 
-        Input:
-
-        - varlist
-
-        Output:
-
-        - a string
-
-        Example:
-
-        - a,b,c => abc
-
-
+        The empty set and the complete set use the special labels
+        ``ignorance`` and ``knowledge`` respectively.
         """
 
         nname = join_varnames(varlist)   
@@ -584,12 +483,7 @@ class Scenario:
 
 
     def add_nodes(self):
-        """
-        Each node represents a set of "already known variables".
-
-        A node is (nodename, vars=set_of_vars}
-
-        """
+        """Add one graph node for each subset of scenario variables."""
 
         #nodes are now stores in wisdomgraph
         #self.nodes_dict = {} #dictionary: node with labels that are the set of (known) variables
@@ -654,14 +548,11 @@ class Scenario:
 
 
     def remove_edge_from_solver(self,solver_candidate):
-        """
-        See remove_edge_from_solver.
+        """Remove all graph edges created from the supplied solver candidate.
 
-        Referência:
-
-        - https://networkx.org/documentation/stable/reference/classes/multidigraph.html
-
-
+        Args:
+            solver_candidate: Candidate whose solver name identifies the
+                edges to remove.
         """
 
         edges_to_remove = [ (u,v,key) for (u, v, key) in self.wisdomgraph.edges(keys=True) if key==solver_candidate.solvername]
@@ -672,45 +563,11 @@ class Scenario:
 
 
     def draw_wisdom_graph(self,plot_fn=f'output_{datetime.datetime.now().strftime(r"%y%m%d-%H%M")}.pdf', figsize=[10,10]):
-        """
-        based on the number of variables, produce a grid of
-        positions for vertices
+        """Draw the knowledge graph and save it in the exercise folder.
 
-        sagemath:
-
-        http://doc.sagemath.org/html/en/reference/plotting/sage/graphs/graph_plot.html#sage.graphs.graph_plot.GraphPlot.set_vertices
-
-        ```
-        self.wg_plot = self.wisdomgraph.graphplot(
-                vertex_size=50,
-                talk=True,
-                vertex_shape="s",
-                vertex_labels=True,
-                figsize=figsize)
-        return self.wg_plot
-        ```
-
-        TODO: será necessário o user 
-        fazer isto à mao?
-
-        G.set_pos( {eq1: (1,10), 
-                    pyt1: (1,9),
-                    pyt2: (1,8),
-                    pyt3: (1,7),
-                    sima1:(1,6),
-                    sima2: (1,5),
-                    sima3:(1,4),
-                    simb1:(1,3),
-                    simb2:(1,2),
-                    simc1:(1,1),            
-                    a: (5,10),
-                    b: (5,9),
-                    c: (5,7),
-                    d: (5,5),
-                    e: (5,2),
-                    f: (5,1)
-                })
-
+        Args:
+            plot_fn: Output filename, relative to the exercise folder.
+            figsize: Matplotlib figure size as ``(width, height)`` in inches.
         """
 
         varlist = self.allvars_list
@@ -777,14 +634,33 @@ class Scenario:
 
 
     def yield_givenvarsset_nodepathlist_from_varset(self, givenvars_set=None):
+        """Yield a solution path for the supplied set of known variables.
 
+        Args:
+            givenvars_set: Iterable of SymPy symbols treated as already known.
+
+        Yields:
+            Pairs of ``(givenvars_set, node_path_list)`` for reachable paths.
+        """
         list_of_list_of_givenvars_set = [ list(givenvars_set) ]
         return self.yield_givenvarsset_nodepathlist(list_of_list_of_givenvars_set)
 
 
 
     def yield_givenvarsset_nodepathlist_from_number(self, number_of_given_vars=None, reverse=False):
-        # see below yield_givenvarsset_nodepathlist()
+        """Yield paths for every combination of a specified size.
+
+        Combinations are ordered by their summed ``givenvarlevel`` metadata.
+
+        Args:
+            number_of_given_vars: Number of variables in each givens
+                combination.
+            reverse: Reverse each combination's input-level score before
+                sorting, useful for ordering higher-level variables first.
+
+        Yields:
+            Pairs of ``(givenvars_set, node_path_list)`` for reachable paths.
+        """
 
         # Generate all combinations of specified size
         C = Combinations_of_givensize(self.allvars_list, number_of_given_vars)
@@ -811,41 +687,17 @@ class Scenario:
 
     def yield_givenvarsset_nodepathlist(self, list_of_list_of_givenvars_set=None):
         """
-        Builds exercises from a given set of variables.
+        Find a shortest knowledge path for each requested set of givens.
 
-        1. An objet of type TextService is created by an author (inside a *.py file)
-        2. etc
-        3. A Scenario is created with all previous elements
-        4. This method `buildall()` generates combinations and produces one file (samefile=True) or several files (samefile=False).
+        Each supplied set is temporarily connected to the ``ignorance`` node;
+        sets with no route to ``knowledge`` are skipped.
 
-        
-        An exercise is defined by:
-        - givenvars_set : the known variables
-        - nodepath_list : path from "ignorance" to the "knowledge" (or node of known variables?)
+        Args:
+            list_of_list_of_givenvars_set: Iterable of variable collections,
+                one collection for each requested givens set.
 
-                
-        parameters
-        ==========
-
-        - no_of_given_vars : number of known variables (search exercises with this restriction).
-        
-
-        Recall: data is in an excel file inside a TextService object. Each column a variable. Each row an exercise.
-
-
-        ```python
-        mg = nx.MultiGraph()
-        mg.add_edge(1, 2, key="k0")
-        'k0'
-        mg.add_edge(1, 2, key="k1")
-        'k1'
-        mg.add_edge(2, 3, key="k0")
-        'k0'
-        for path in sorted(nx.all_simple_edge_paths(mg, 1, 3)):
-            print(path)
-        [(1, 2, 'k0'), (2, 3, 'k0')]
-        [(1, 2, 'k1'), (2, 3, 'k0')]
-        ```
+        Yields:
+            Pairs of ``(givenvars_set, node_path_list)`` for reachable sets.
 
         """
 
@@ -981,4 +833,3 @@ class Scenario:
 
             #Construção de um exercício
             #solution_steps += ()
-

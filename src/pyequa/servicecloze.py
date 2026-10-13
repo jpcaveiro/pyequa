@@ -86,6 +86,7 @@ CLOZE_template_deterministic = """
 
 
 class ClozeService(AbstractService):
+    """Write generated exercises as Markdown and Moodle Cloze XML."""
 
     def __init__(self, 
                  exercise_relativefolder = None,
@@ -99,6 +100,22 @@ class ClozeService(AbstractService):
                  author = "(Author)",
                  config = None
                  ): 
+        """Prepare output files and load the exercise's Markdown template.
+
+        Args:
+            exercise_relativefolder: Exercise directory relative to the
+                project root; also used as the generated document title.
+            exercise_folder: Absolute path to the exercise directory.
+            student_template_filename: Markdown template filename in the
+                exercise directory.
+            student_feedback: Feedback text included with generated items.
+            answer_template: Format string for teacher solution steps.
+            pandas_dataframe: DataFrame containing exercise data.
+            variable_attributes: Metadata for answer variables.
+            distractors: Distractor definitions.
+            author: Author name placed in the output header.
+            config: Merged exercise configuration.
+        """
 
         # See AbstractService.__init__()
         super().__init__(exercise_relativefolder = exercise_relativefolder,
@@ -153,6 +170,11 @@ class ClozeService(AbstractService):
 
 
     def challenge_deterministic_add(self, problem_set_number, givenvars_set, node_path_list, number_of_problems_per_givenvars):
+        """Append deterministic exercises for one set of given variables.
+
+        Each exercise uses the next dataframe row and shares the supplied
+        givens and solution path.
+        """
 
         # Add problems for this `givenvars_set` (there are no variants)
         # Moodle level is always 1 (no hierarchy)
@@ -260,6 +282,10 @@ class ClozeService(AbstractService):
 
 
     def challenge_with_randomquestions_add(self, problem_set_number, var_no, givenvars_set, node_path_list):
+        """Append one random-question variant in Markdown and Moodle XML.
+
+        The selected dataframe row advances for each call.
+        """
 
 
         # "%" is modulo
@@ -334,6 +360,7 @@ class ClozeService(AbstractService):
 
 
     def randomquestion_sameblanks_add(self, problem_set_number, givenvars_set, node_path_list, number_of_variants_per_givenvars):
+        """Append multiple variants that use the same given-variable set."""
 
         self.add_problem_header(problem_str = f"problem given {givenvars_set}")
 
@@ -441,6 +468,17 @@ class ClozeService(AbstractService):
 
 
     def save_moodle_xml(self, problem_set_number, givenvars_set, args_dict, student_str, variant_problem_str, args_dict_number):
+        """Convert one rendered exercise to Moodle Cloze XML and append it.
+
+        Args:
+            problem_set_number: Number identifying the problem set.
+            givenvars_set: Variables supplied to the student.
+            args_dict: Template values, including the configured variant
+                label and variant number.
+            student_str: Rendered Markdown body for this variant.
+            variant_problem_str: Configuration key naming the variant label.
+            args_dict_number: ``args_dict`` key containing the variant number.
+        """
         # ------------
         # Moodle xml: write problem or solution on student and solutions file
         # ------------
@@ -489,6 +527,7 @@ class ClozeService(AbstractService):
             
 
     def add_problem_header(self, problem_str):
+        """Append a Markdown heading for a generated problem set."""
 
         problem_header = f"\n# Problem {problem_str} - CLOZE\n"
         # ----------------
@@ -501,7 +540,7 @@ class ClozeService(AbstractService):
 
 
     def close_build(self):
+        """Write the closing quiz tag to the generated Moodle XML file."""
         xml_path = self.allexercises_fullpath.with_suffix('.xml')
         with open(xml_path, "a", encoding="utf-8") as file_object:
             file_object.write('\n</quiz>\n')
-

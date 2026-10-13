@@ -24,26 +24,26 @@ print(f"PYEQUA_PROJECT_ROOT = {PYEQUA_PROJECT_ROOT}")
 
 def separate_by_type(input_dict):
     """
-    multichoice with distractors
+    Split variable metadata into distractors and ordinary answer variables.
 
-    To declare a "pure distractor" (not a variable of interest to the problem) but a number
-    or information that could cause perturbation for those who are less prepared.
+    A variable with type ``distractor`` or ``distractors`` is treated as a
+    distractor-only column. For answer variables, ``distractor`` or
+    ``distractors`` metadata may instead map distractor column names to Moodle
+    percentages. Other supported answer types are ``multichoice``,
+    ``numerical`` and ``shortanswer``.
 
-    Case 1 
-    - correct answer is in dataframe %100%
-    - wrong answeres are in 'distractors' dictionary (%-33.333% is the discount)
+    Args:
+        input_dict: Mapping from variable names to their metadata dictionaries.
+            Entries containing a ``distractor``/``distractors`` mapping are
+            updated in place to remove that key.
 
-    ```
-    'disty':       {'type': 'multichoice', 
-                    'givenvarlevel': 2, 
-                    'distractors': {'disty_d1': '-33.333', 'disty_d2': '-33.333', 'disty_d3': '-33.333'} }
+    Returns:
+        A pair ``(distractors, non_distractors)``. The first maps distractor
+        answer variables to their options (or ``None`` for distractor-only
+        columns); the second maps answer variables to their remaining metadata.
 
-    Case 2 
-    - all data is in data frame 
-
-    ```
-    'nembalagens': {'type': 'distractor'},
-    ```
+    Raises:
+        Exception: If a variable has an unsupported or missing type.
     """
 
     distractors = {}
@@ -89,6 +89,10 @@ def separate_by_type(input_dict):
 
 
 def num2str(value):
+    """Format a value as text, removing a zero fractional part when possible.
+
+    For example, ``3.0`` becomes ``"3"`` while ``3.5`` remains ``"3.5"``.
+    """
     #if necessary convert to int
     value = float2int(value)
     return f"{value}"
@@ -97,9 +101,20 @@ def num2str(value):
 
 
 class Config:
+    """Load and combine project-wide and exercise-specific YAML settings.
+
+    The project configuration is read from ``config.yaml`` under
+    ``PYEQUA_PROJECT_ROOT``. An exercise-level ``config.yaml`` overrides its
+    values; if that file cannot be loaded, the project settings are used.
+    """
 
     def __init__(self, exercise_relativefolder):
+        """Create the merged configuration for an exercise folder.
 
+        Args:
+            exercise_relativefolder: Exercise directory relative to
+                ``PYEQUA_PROJECT_ROOT``.
+        """
         
         # Load the default configuration
         default_config_path = Path(PYEQUA_PROJECT_ROOT) / Path("config.yaml")
@@ -127,8 +142,18 @@ class Config:
 
 
     def load_config(self, config_path=None):
-        """
-        Load configuration from a YAML file.
+        """Read a YAML configuration file and return its parsed value.
+
+        Args:
+            config_path: Path to the YAML file.
+
+        Returns:
+            The Python value parsed from the YAML document.
+
+        Raises:
+            FileNotFoundError: If the file does not exist.
+            PermissionError: If the file cannot be accessed.
+            OSError: If another I/O error occurs while reading it.
         """
 
         try:
@@ -148,8 +173,15 @@ class Config:
         return config
 
     def merge_configs(self, default, user):
-        """
-        Merge user configuration with default configuration.
+        """Apply user settings over defaults, recursively for nested mappings.
+
+        Args:
+            default: Mutable mapping of default settings; it is updated in
+                place.
+            user: Mapping of overrides, or ``None`` to leave defaults intact.
+
+        Returns:
+            The updated ``default`` mapping.
         """
         if user is None:
             return default
@@ -176,16 +208,44 @@ class Config:
 
 
 class PyEqua:
+    """Configure and generate equation-based exercises.
+
+    Set ``PYEQUA_PROJECT_ROOT`` and construct an instance with an exercise
+    folder, symbolic relations and metadata for each variable. Configuration
+    and (unless supplied directly) tabular data are loaded from that folder
+    beneath the project root.
+    The configured output service currently must be ``moodle_cloze``.
+
+    Exercise generation is started by calling one of the public generation
+    methods, such as :meth:`exploratory`, :meth:`easy_first`,
+    :meth:`hard_first`, or :meth:`randomquestion_sameblanks`.
+    """
 
     def __init__(self, 
                  exercise_relativefolder=None,
                  scenario_relations=None, 
                  variable_attributes=None, 
                  pandas_data_frame=None):
-        """
-        - scenario_relations
-        - variable_attributes - includes distractors
-        - pandas_data_frame
+        """Initialize an exercise from its relations, metadata and data.
+
+        Args:
+            exercise_relativefolder: Exercise folder relative to
+                ``PYEQUA_PROJECT_ROOT``. Its configuration selects the data
+                format and Markdown template.
+            scenario_relations: Iterable of SymPy relations or relation
+                strings parseable by SymPy.
+            variable_attributes: Mapping from variable names to metadata.
+                Each answer variable must have a supported ``type``; optional
+                fields such as ``tol`` and ``givenvarlevel`` control answer
+                checking and exercise ordering. Distractor columns may also be
+                declared here.
+            pandas_data_frame: Optional pandas DataFrame. If omitted, the
+                configured ``data.csv`` or ``data.xlsx`` file is loaded from
+                the exercise folder.
+
+        Raises:
+            ValueError: If the configured output service is not
+                ``moodle_cloze`` or a variable type is unsupported.
         """
 
         self.exercise_relativefolder = exercise_relativefolder
@@ -296,8 +356,13 @@ class PyEqua:
 
 
     def mk_converters(self):
-        """
-        converters={'col2': str}
+        """Build pandas CSV converters from the variable metadata.
+
+        Multichoice columns are read as strings unless an explicit
+        ``converter`` is supplied for that variable.
+
+        Returns:
+            A mapping of column names to converter callables.
         """
         dict_of_converters_1 = {
             var_name: str for var_name in self.variable_attributes.keys() 
@@ -317,6 +382,16 @@ class PyEqua:
                    max_number_of_problems=None, 
                    max_combinations_givenvars_per_easynesslevel=None, 
                    number_of_problems_per_givenvars=1):
+        """Generate deterministic exercises ordered from easier to harder.
+
+        Args:
+            max_number_of_problems: Optional cap on the number of generated
+                problem sets.
+            max_combinations_givenvars_per_easynesslevel: Optional cap on
+                given-variable combinations considered at each level.
+            number_of_problems_per_givenvars: Number of data-row exercises
+                generated for each given-variable combination.
+        """
         # Learning from the same exercises for everybody
         # Easy ones first.
 
@@ -331,6 +406,16 @@ class PyEqua:
                    max_number_of_problems=None, 
                    max_combinations_givenvars_per_easynesslevel=None, 
                    number_of_problems_per_givenvars=1):
+        """Generate deterministic exercises ordered from harder to easier.
+
+        Args:
+            max_number_of_problems: Optional cap on the number of generated
+                problem sets.
+            max_combinations_givenvars_per_easynesslevel: Optional cap on
+                given-variable combinations considered at each level.
+            number_of_problems_per_givenvars: Number of data-row exercises
+                generated for each given-variable combination.
+        """
         # Learning from the same exercises for everybody
         # hard ones first.
 
@@ -346,6 +431,11 @@ class PyEqua:
                    max_combinations_givenvars_per_easynesslevel=None, 
                    number_of_problems_per_givenvars=1,
                    hard_first = True):
+        """Generate a deterministic set of exercises in the requested order.
+
+        This internal implementation is shared by :meth:`easy_first`,
+        :meth:`hard_first` and :meth:`exploratory`.
+        """
         
         # Learning from the same exercises for everybody
         # Difficult ones first.
@@ -411,6 +501,11 @@ class PyEqua:
 
 
     def exploratory(self):
+        """Generate one deterministic exercise for every reachable givens set.
+
+        Given-variable combinations are ordered from easier to harder and are
+        not capped.
+        """
         self._challenge_deterministic(
                    max_number_of_problems=None, 
                    max_combinations_givenvars_per_easynesslevel=None, 
@@ -418,6 +513,13 @@ class PyEqua:
                    hard_first = False)
 
     def challenge_with_randomquestions(self, max_combinations_givenvars_per_easynesslevel = 0):
+        """Generate Moodle questions whose data rows vary across combinations.
+
+        Args:
+            max_combinations_givenvars_per_easynesslevel: Maximum number of
+                given-variable combinations to include at each level. Zero
+                means that all available combinations are included.
+        """
         # max_combinations_givenvars_per_easynesslevel = 0 means all it can get
 
         # Learning from the same exercises for everybody
@@ -470,13 +572,13 @@ class PyEqua:
     def randomquestion_sameblanks(self, fill_in_blanks_vars, number_of_problems_per_givenvars = None):
         """Generate fill-in-the-blank exercises for a selected set of variables.
 
-        Parameters
-        ----------
-        fill_in_blanks_vars : set[str]
-            Variable names that should be treated as the blanks to be filled in.
-        number_of_problems_per_givenvars : int, optional
-            Number of exercise variants to generate for each combination of given
-            variables. Defaults to the number of rows in the underlying dataframe.
+        Args:
+            fill_in_blanks_vars: Variable names to leave blank in every
+                generated exercise. The other scenario variables are treated
+                as given.
+            number_of_problems_per_givenvars: Number of data-row variants to
+                generate for each reachable solution path. Defaults to the
+                number of rows in the underlying DataFrame.
         """
 
         if number_of_problems_per_givenvars is None:
@@ -513,6 +615,12 @@ class PyEqua:
 
 
     def conclude(self):
+        """Finalize generated files and optionally save the scenario graph.
+
+        The Moodle XML quiz is closed by the configured text service. If
+        ``output_knowledge_graph`` is enabled, the scenario graph is also
+        written to the exercise folder.
+        """
 
         self.text_service.close_build()
 
@@ -520,4 +628,3 @@ class PyEqua:
         # output_knowledge_graph
         if self.config['output_knowledge_graph']:
             self.scenario.draw_wisdom_graph()
-

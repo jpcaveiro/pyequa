@@ -8,15 +8,13 @@ from .scenario import set2orderedstr
 from pathlib import Path
 
 def get_last_folder(path):
-    """
+    """Return the final path component after resolving the given path.
 
-    ```python
-    # Examples
-    print(get_last_folder('/path/to/your/folder'))   # Output: 'folder'
-    print(get_last_folder('/path/to/your/folder/'))  # Output: 'folder'
-    print(get_last_folder('/'))  # Output: '/'
-    ```
+    Args:
+        path: Filesystem path to inspect.
 
+    Returns:
+        The resolved path's last component.
     """
 
     path = Path(path)
@@ -27,6 +25,7 @@ def get_last_folder(path):
 
 
 class AbstractService:
+    """Shared file and answer-formatting support for exercise output services."""
 
     def __init__(self,
                  exercise_relativefolder=None,
@@ -38,7 +37,19 @@ class AbstractService:
                  gen_method='fixed',
                  config=None
                 ): 
+        """Initialize paths and exercise data shared by output services.
 
+        Args:
+            exercise_relativefolder: Exercise directory relative to the
+                project root.
+            exercise_folder: Absolute path to the exercise directory.
+            pandas_dataframe: DataFrame containing exercise values.
+            variable_attributes: Metadata for answer variables.
+            distractors: Distractor definitions.
+            answer_template: Format string used for solution steps.
+            gen_method: Generation strategy label.
+            config: Merged exercise settings.
+        """
 
         self.config = config
         self.exercise_relativefolder = exercise_relativefolder
@@ -82,6 +93,16 @@ class AbstractService:
 
 
     def solverslist_build_answer_text(self,givenvars_set,node_path_list):
+        """Format solution steps for the path through the scenario graph.
+
+        Args:
+            givenvars_set: Variables given to the student.
+            node_path_list: Ordered graph node labels for the solution route.
+
+        Returns:
+            Text produced by formatting each solver step with
+            ``answer_template``.
+        """
 
         #see class Scenario above
         #self.answer_template
@@ -156,22 +177,24 @@ def add_timestamp(filename):
 '''
 
 def add_timestamp(filename):
-    """
-    Adds a timestamp to the filename in format YYYY-MM-DD_HH-MM-SS.
+    """Insert a timestamp into a path's filename before its extension.
 
     Args:
-        filename: The original filename (str or Path).
+        filename: Original filename, as a string or ``Path``.
 
     Returns:
-        The filename with timestamp appended (including extension).
-    By "GPT-5.1-Codex-Max • 0.9x"
+        The timestamped path as a string. The timestamp format is
+        ``YYYY-MM-DD_HH-MM-SS``.
     """
     timestamp = datetime.datetime.now().strftime(r"%Y-%m-%d_%H-%M-%S")
     p = Path(filename)
     return str(p.with_name(f"{p.stem}_{timestamp}{p.suffix}"))
 
 def rename_old_filename(allexercises_fullpath):
+    """Rename an existing output file by appending a timestamp.
 
+    If the original path does not exist, this function leaves it unchanged.
+    """
     #TODO: parece existir repetição da construção destes file_path !
 
     try:

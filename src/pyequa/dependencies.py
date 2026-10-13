@@ -11,7 +11,14 @@ import matplotlib.pyplot as plt
 
 
 def extract_names_from_target(target):
-    """Recursively extract all variable names from an assignment target."""
+    """Collect names from a simple, tuple or list assignment target.
+
+    Args:
+        target: An ``ast.Name``, ``ast.Tuple`` or ``ast.List`` node.
+
+    Returns:
+        Names in source order. Other AST node types produce an empty list.
+    """
     if isinstance(target, ast.Name):
         return [target.id]
     elif isinstance(target, (ast.Tuple, ast.List)):
@@ -24,18 +31,21 @@ def extract_names_from_target(target):
 
 def make_precedence_dictionary(funname):
     """
-    Docstring for make_precedence_graph
-    
-    :param funname: Description
+    Infer variable dependencies by inspecting a function's assignments.
 
-    ```python
-    'pfemeas': {'pmachos100'}, 
-    'EE': {'n', 'pfemeas'}, 
-    'Var': {'n', 'pfemeas'}, 
-    'pexatamente': {'pfemeas', 'n', 'numexatamente'}, 
-    'ppelomenos': {'numpelomenos', 'n', 'pfemeas'}, 
-    'phiper': {'BigN', 'n', 'pfemeas'}
-    ```
+    Function parameters and names assigned in the function become dictionary
+    keys. Each value is the set of recognized parameters or earlier
+    assignments used by that assignment. This is a static approximation based
+    on the function's source code, not runtime dependency tracing.
+
+    Args:
+        funname: Function object whose source should be analyzed. Its source
+            must be available to :func:`inspect.getsource`.
+
+    Returns:
+        A mapping from variable names to sets of dependency names. Parameters
+        and assignments with no recognized dependencies include the sentinel
+        string ``"could not get relations"``.
     """
     # Get the source code of the function
     source = inspect.getsource(funname)
@@ -98,6 +108,13 @@ def make_precedence_dictionary(funname):
 
 
 def draw_graph(G_visual, node_labels, dependencies):
+    """Draw a dependency graph and save it as ``variable_dependencies.png``.
+
+    Args:
+        G_visual: NetworkX graph to populate and draw.
+        node_labels: Mapping of node names to display labels.
+        dependencies: Mapping from each variable to its dependency names.
+    """
 
     #G = make_graph(make_precedence_graph(calculate))
 
@@ -127,16 +144,19 @@ def draw_graph(G_visual, node_labels, dependencies):
 
 def make_graph(dependencies):
     """
-    Create a directed graph from variable dependencies.
-    
-    :param dependencies: Dictionary mapping variables to their dependencies
-                        Example: {'pfemeas': {'pmachos100'}, 'EE': {'n', 'pfemeas'}}
-    :return: NetworkX DiGraph where edges point from dependencies to dependents
-             Nodes are labeled: 1 for source nodes (no inputs), 
-             other nodes labeled with shortest path from source nodes
-    
-    Example:
-        If 'EE': {'n', 'pfemeas'}, creates edges: n -> EE and pfemeas -> EE
+    Create and draw a directed graph from a dependency mapping.
+
+    Each edge points from an input/dependency to the variable that uses it.
+    Source nodes receive level 1; reachable dependent nodes receive a level
+    based on their shortest path from a source. The graph is also saved by
+    :func:`draw_graph` as ``variable_dependencies.png`` in the current
+    working directory.
+
+    Args:
+        dependencies: Mapping from each variable to a set of dependencies.
+
+    Returns:
+        A mapping from node names to their calculated display levels.
     """
     G = nx.DiGraph()
     
@@ -194,36 +214,20 @@ def make_graph(dependencies):
 
 def var_declarations(funname):
     """
-    Docstring for var_declarations_str
-    
-    :param funname: Description
+    Call a zero-argument function and propose pyequa variable metadata.
 
-    Example:
-    ```python    
-    variable_attributes = {
-        'BigN': {'type': 'numerical', 'tol': 0,  'givenvarlevel': 1},
-        'pmachos100': {'type': 'numerical', 'tol': 0,  'givenvarlevel': 1},
-        'n': {'type': 'numerical', 'tol': 0,  'givenvarlevel': 1},
-        'pfemeas': {'type': 'numerical', 'tol': 0.001,  'givenvarlevel': 2},
-        'EE': {'type': 'numerical', 'tol': 0.001,  'givenvarlevel': 2},
-        'Var': {'type': 'numerical', 'tol': 0.001,  'givenvarlevel': 2},
-        'numexatamente': {'type': 'numerical', 'tol': 0,  'givenvarlevel': 1},
-        'pexatamente': {'type': 'numerical', 'tol': 0.001,  'givenvarlevel': 2},
-        'numpelomenos': {'type': 'numerical', 'tol': 0,  'givenvarlevel': 1},
-        'ppelomenos': {'type': 'numerical', 'tol': 0.001,  'givenvarlevel': 2},
-        'phiper': {'type': 'numerical', 'tol': 0.001,  'givenvarlevel': 2},
-    }
-        'BigN': {'type': 'numerical', 'tol': 0, 'givenvarlevel': 1}
-        'pmachos100': {'type': 'numerical', 'tol': 0, 'givenvarlevel': 1}
-        'n': {'type': 'numerical', 'tol': 0, 'givenvarlevel': 1}
-        'numexatamente': {'type': 'numerical', 'tol': 0, 'givenvarlevel': 1}
-        'numpelomenos': {'type': 'numerical', 'tol': 0, 'givenvarlevel': 1}
-        'pfemeas': {'type': 'numerical', 'tol': 0.01, 'givenvarlevel': 1}
-        'EE': {'type': 'numerical', 'tol': 0.01, 'givenvarlevel': 1}'Var': {'type': 'numerical', 'tol': 0.01, 'givenvarlevel': 1}
-        'pexatamente': {'type': 'numerical', 'tol': 0.01, 'givenvarlevel': 1}
-        'ppelomenos': {'type': 'numerical', 'tol': 0.01, 'givenvarlevel': 1}
-        'phiper': {'type': 'numerical', 'tol': 0.01, 'givenvarlevel': 1}
-    ```
+    The function's returned mapping supplies the variable names and example
+    values; inferred dependency levels are used for ``givenvarlevel``. A
+    dependency graph image is saved as a side effect.
+
+    Args:
+        funname: Zero-argument function returning a mapping of variable names
+            to representative values.
+
+    Returns:
+        A pair ``(declarations, value_types)``. ``declarations`` is Python
+        source text for a ``variable_attributes`` mapping, and ``value_types``
+        maps each variable name to the runtime type name of its example value.
     """
 
     precedence_dictionary = make_precedence_dictionary(funname)
@@ -250,6 +254,12 @@ def var_declarations(funname):
 
 
 def suggest_declarations(funname):
+    """Print suggested variable metadata and relation declarations.
+
+    Args:
+        funname: Zero-argument function returning representative variable
+            values. Its source is inspected to infer dependencies.
+    """
 
     var_str, _ = var_declarations(funname) #_ is var_dict
     print(var_str)
@@ -265,5 +275,4 @@ def suggest_declarations(funname):
     pred_str += "}\n"
 
     print(pred_str)
-
 

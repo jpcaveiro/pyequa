@@ -11,6 +11,7 @@ ALLOWED_PERCENTAGES = {
 from .scenario import float2int
 
 class Cloze:
+    """Build Moodle Cloze answer fields from one exercise data row."""
 
     def __init__(self, 
                  pandas_dataframe, 
@@ -20,6 +21,20 @@ class Cloze:
                  variable_attributes,
                  distractors,
                  config):
+        """Store the data and metadata needed to build Cloze fields.
+
+        Args:
+            pandas_dataframe: All exercise rows, used to find valid answers
+                for a given set of known values.
+            pandas_row_series: The selected row supplying values for this
+                exercise variant.
+            allvars_set: All SymPy variables in the scenario.
+            givenvars_tuple: Variables whose values are shown to the student.
+            variable_attributes: Per-variable answer and tolerance metadata.
+            distractors: Distractor definitions returned by
+                ``separate_by_type``.
+            config: Merged exercise configuration.
+        """
 
         # args_dict is to be modified
         self.args_dict = dict()
@@ -36,10 +51,14 @@ class Cloze:
 
     def get_distractors_in_columns(self, var):        
         """
-        distractors = {
-        'disty': {'disty_d1': '-33.333', 'disty_d2': '-33.333', 'disty_d3': '-33.333'},
-        'nembalagens': None,
-        }
+        Return the configured Moodle options for a variable's distractor columns.
+
+        Args:
+            var: SymPy variable whose distractors should be retrieved.
+
+        Returns:
+            A list of Moodle percentage-option strings, or ``None`` when no
+            distractor columns are configured for ``var``.
         """
 
         options_list = None
@@ -60,6 +79,11 @@ class Cloze:
 
 
     def var_is_stringtype(self, var):  
+        """Return whether the variable should use string-style answer options.
+
+        Explicit ``multichoice`` and ``shortanswer`` metadata takes precedence;
+        otherwise the pandas column dtype is used.
+        """
         #var is an object  
 
         if self.variable_attributes and var.name in self.variable_attributes:
@@ -74,6 +98,7 @@ class Cloze:
         return var_is_stringtype
 
     def get_tolerance(self, var):
+        """Return the variable's configured tolerance or the global default."""
         if self.variable_attributes and var.name in self.variable_attributes:
             # if author gives a dictionary of attributes
             # get type from author specification
@@ -88,19 +113,21 @@ class Cloze:
 
     def vars_to_fields(self):
         """
-        This routine builds an args_dict relating:
+        Build the template fields for known values and requested answers.
 
-           variable and how it appear in a Cloze text
-        
-        Rules:
+        Known variables are replaced with their selected row's value.
+        Unknown variables become Moodle numerical, multichoice or short-answer
+        fields populated from rows that agree on all known-variable values.
+        Configured distractor columns are also included as template fields.
 
-        1. If a var is in givenvars_set then write it on student exercise text like **10** or **converges**.
-        2. If a var is not in givenvars_set (it is a requested var for fill-in-blanks) then write on student 
-        exercise like :NUMERICAL: or :MULTICHOICE_S: or :SHORTANSWER:
+        Returns:
+            Mapping from variable names to values or Moodle Cloze field
+            strings.
 
-        Distractors:
-
-        * to do
+        Raises:
+            ValueError: If no data rows match the selected known values.
+            KeyError: If a pure distractor variable has no matching dataframe
+                column.
 
         """
 
@@ -142,7 +169,7 @@ class Cloze:
             #Student see the value if var is in givenvars_set as:
             if self.variable_attributes[var.name]['type'].lower() == 'multichoice' or \
                self.variable_attributes[var.name]['type'].lower() == 'shortanswer':
-                know_this = f"{var} == '''{value}'''"
+                know_this = f"{var} == r'''{value}'''"
             else:
                 know_this = f"{var} == {value}" 
             we_know_this.append(know_this)
@@ -160,7 +187,7 @@ class Cloze:
         # Make query
         query_str = " and ".join(we_know_this)
         #Debug
-        #print(query_str)
+        #print(repr(query_str))
 
         # The following method is to make a pandas query string to
         # select all rows with same given vars values:  
@@ -332,4 +359,3 @@ class Cloze:
         #print(self.args_dict)
 
         return self.args_dict
-
