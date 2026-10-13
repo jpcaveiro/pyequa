@@ -499,7 +499,7 @@ class PyEqua:
             print(f"==> exercies given {problem_pair[0]}")
 
             givenvars_tuple  = problem_pair[0]
-            node_path_list = problem_pair[1]
+            node_path_list   = problem_pair[1]
 
             #General steps for the solution
             self.solverslist_answer_text = self.text_service.solverslist_build_answer_text(givenvars_tuple,node_path_list)
