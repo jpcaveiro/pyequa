@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 001 (data row is 01) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^2-12\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0~%100%4.0} (more than one solution; choose one)  é obtida a primeira iteração \(x_1\)=3.5, sendo a segunda iteração \(x_2\)=3.464286.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.000184.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 002 (data row is 02) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^2-12\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.5:0.0001} é obtida a primeira iteração \(x_1\)=3.464286, sendo a segunda iteração \(x_2\)=3.464102.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 4.89e-09.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 003 (data row is 03) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^2-12\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0~%100%4.0} (more than one solution; choose one)  é obtida a primeira iteração \(x_1\)=3.5, sendo a segunda iteração \(x_2\)=3.464286.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.000184.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 004 (data row is 04) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^3-40\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0:0.0001} é obtida a primeira iteração \(x_1\)=3.481481, sendo a segunda iteração \(x_2\)=3.421033.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.00108.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 005 (data row is 05) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^3-40\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.5:0.0001} é obtida a primeira iteração \(x_1\)=3.421769, sendo a segunda iteração \(x_2\)=3.419953.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 9.64e-07.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 006 (data row is 06) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^3-40\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%4.0:0.0001} é obtida a primeira iteração \(x_1\)=3.5, sendo a segunda iteração \(x_2\)=3.421769.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.00182.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 007 (data row is 07) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=e^x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0:0.0001} é obtida a primeira iteração \(x_1\)=3.493612, sendo a segunda iteração \(x_2\)=3.405339.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.00414.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 008 (data row is 08) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=e^x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.5:0.0001} é obtida a primeira iteração \(x_1\)=3.405922, sendo a segunda iteração \(x_2\)=3.401209.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 1.11e-05.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 009 (data row is 09) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=e^x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%4.0:0.0001} é obtida a primeira iteração \(x_1\)=3.549469, sendo a segunda iteração \(x_2\)=3.411666.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.0105.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 010 (data row is 10) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=\ln x-1.2\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0:0.0001} é obtida a primeira iteração \(x_1\)=3.304163, sendo a segunda iteração \(x_2\)=3.320079.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 3.84e-05.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 011 (data row is 11) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=\ln x-1.2\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.5:0.0001} é obtida a primeira iteração \(x_1\)=3.31533, sendo a segunda iteração \(x_2\)=3.320113.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 3.45e-06.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 012 (data row is 12) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=\ln x-1.2\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%4.0:0.0001} é obtida a primeira iteração \(x_1\)=3.254823, sendo a segunda iteração \(x_2\)=3.319471.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.000646.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 013 (data row is 13) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=\sin x\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0:0.0001} é obtida a primeira iteração \(x_1\)=3.142547, sendo a segunda iteração \(x_2\)=3.141593.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 2.89e-10.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 014 (data row is 14) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=\sin x\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.5:0.0001} é obtida a primeira iteração \(x_1\)=3.125414, sendo a segunda iteração \(x_2\)=3.141594.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 1.41e-06.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 015 (data row is 15) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=\sin x\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%4.0:0.0001} é obtida a primeira iteração \(x_1\)=2.842179, sendo a segunda iteração \(x_2\)=3.150873.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.00928.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 016 (data row is 16) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=2^x-10\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0:0.0001} é obtida a primeira iteração \(x_1\)=3.360674, sendo a segunda iteração \(x_2\)=3.322444.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.000516.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 017 (data row is 17) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=2^x-10\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.5:0.0001} é obtida a primeira iteração \(x_1\)=3.332479, sendo a segunda iteração \(x_2\)=3.321967.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 3.85e-05.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 018 (data row is 18) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=2^x-10\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%4.0:0.0001} é obtida a primeira iteração \(x_1\)=3.458989, sendo a segunda iteração \(x_2\)=3.328237.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.00631.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 019 (data row is 19) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^2-x-7\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0:0.0001} é obtida a primeira iteração \(x_1\)=3.2, sendo a segunda iteração \(x_2\)=3.192593.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 1.02e-05.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 020 (data row is 20) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^2-x-7\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.5:0.0001} é obtida a primeira iteração \(x_1\)=3.208333, sendo a segunda iteração \(x_2\)=3.192628.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 4.58e-05.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 021 (data row is 21) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^2-x-7\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%4.0:0.0001} é obtida a primeira iteração \(x_1\)=3.285714, sendo a segunda iteração \(x_2\)=3.194139.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.00156.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 022 (data row is 22) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=\frac{1}{x}-0.3\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0:0.0001} é obtida a primeira iteração \(x_1\)=3.3, sendo a segunda iteração \(x_2\)=3.333.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.000333.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 023 (data row is 23) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=\frac{1}{x}-0.3\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.5:0.0001} é obtida a primeira iteração \(x_1\)=3.325, sendo a segunda iteração \(x_2\)=3.333313.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 2.08e-05.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 024 (data row is 24) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=\frac{1}{x}-0.3\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%4.0:0.0001} é obtida a primeira iteração \(x_1\)=3.2, sendo a segunda iteração \(x_2\)=3.328.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.00533.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 025 (data row is 25) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x\ln x-4\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0:0.0001} é obtida a primeira iteração \(x_1\)=3.335538, sendo a segunda iteração \(x_2\)=3.327327.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 4.59e-06.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 026 (data row is 26) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x\ln x-4\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.5:0.0001} é obtida a primeira iteração \(x_1\)=3.329245, sendo a segunda iteração \(x_2\)=3.327323.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 2.52e-07.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 027 (data row is 27) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x\ln x-4\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%4.0:0.0001} é obtida a primeira iteração \(x_1\)=3.352478, sendo a segunda iteração \(x_2\)=3.327365.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 4.28e-05.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 028 (data row is 28) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^3-2x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.0:0.0001} é obtida a primeira iteração \(x_1\)=3.36, sendo a segunda iteração \(x_2\)=3.321936.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.000468.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 029 (data row is 29) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^3-2x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%3.5:0.0001} é obtida a primeira iteração \(x_1\)=3.330935, sendo a segunda iteração \(x_2\)=3.321497.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 2.86e-05.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Variant 030 (data row is 30) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>A função \(f(x)=x^3-2x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
+<p>Ao aplicar o método de Newton-Raphson por forma a encontrar \(\alpha\) partindo do ponto incial \(x_0\)={:NUMERICAL:%100%4.0:0.0001} é obtida a primeira iteração \(x_1\)=3.434783, sendo a segunda iteração \(x_2\)=3.325387.</p>
+<p>O erro absoluto \(|x_2-\alpha| \approx\) 0.00392.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+</quiz>
