@@ -1,8 +1,10 @@
-import yaml
+﻿import yaml
+import warnings
 import os #from os import getcwd, chdir
 from pathlib import Path
 from pyequa import scenario as ws
 from pyequa.servicecloze import ClozeService
+from pyequa import clozecloud
 import pandas as pd
 from pandas.api.types import is_numeric_dtype
 from .scenario import float2int
@@ -20,6 +22,21 @@ if PYEQUA_PROJECT_ROOT == "default_if_missing":
     raise EnvironmentError(
         "Environment variable PYEQUA_PROJECT_ROOT is not set.")
 print(f"PYEQUA_PROJECT_ROOT = {PYEQUA_PROJECT_ROOT}")
+
+DEFAULT_CONFIG_PATH = Path(__file__).parent / "default_config.yaml"
+
+
+def find_project_root(start):
+    """Return the nearest folder (``start`` or a parent) holding ``project.yaml``.
+
+    Falls back to ``PYEQUA_PROJECT_ROOT`` when none is found.
+    """
+    start = Path(start).resolve()
+    for folder in (start, *start.parents):
+        if (folder / "project.yaml").is_file():
+            return folder
+    return Path(PYEQUA_PROJECT_ROOT).resolve()
+
 
 
 def separate_by_type(input_dict):
@@ -111,35 +128,50 @@ class Config:
     def __init__(self, exercise_relativefolder):
         """Create the merged configuration for an exercise folder.
 
+        Layers, closest wins: pyequa defaults, ``project.yaml`` at the
+        project root, ``exercise.yaml`` in the exercise folder. A legacy
+        ``config.yaml`` is used (with a ``DeprecationWarning``) at a level
+        where the new file is absent.
+
         Args:
             exercise_relativefolder: Exercise directory relative to
                 ``PYEQUA_PROJECT_ROOT``.
         """
-        
-        # Load the default configuration
-        default_config_path = Path(PYEQUA_PROJECT_ROOT) / Path("config.yaml")
-        default_config = self.load_config(default_config_path)
 
-        #old
-        #chdir(exercise_folder)
-        #print(f"Exercise folder: {getcwd()}\n\n")
+        exercise_folder = Path(PYEQUA_PROJECT_ROOT) / Path(exercise_relativefolder)
+        self.project_root = find_project_root(exercise_folder)
 
-        user_config_path = Path(PYEQUA_PROJECT_ROOT) / Path(exercise_relativefolder) / Path("config.yaml")
-        print(f"Reading configuration from {user_config_path}.")
-        try:
-            user_config = self.load_config(user_config_path)
-        except:
-            user_config = dict()
-            print(r"User profile `config.yaml` is not given. Using project configuration.")
-
-
-        config = self.merge_configs(default_config, user_config)
+        config = self._read_optional(DEFAULT_CONFIG_PATH) or {}
+        config = self.merge_configs(config, self._read_level(self.project_root, "project.yaml"))
+        config = self.merge_configs(config, self._read_level(exercise_folder, "exercise.yaml"))
 
         if 'debug' not in config:
             config['debug'] = False
 
         self.config = config
 
+    def _read_optional(self, path):
+        """Return the YAML mapping at ``path`` or None if it does not exist."""
+        path = Path(path)
+        if not path.is_file():
+            return None
+        return self.load_config(path)
+
+    def _read_level(self, folder, new_name):
+        """Read ``new_name`` in ``folder``, falling back to deprecated ``config.yaml``."""
+        new_path = Path(folder) / new_name
+        data = self._read_optional(new_path)
+        if data is not None:
+            print(f"Reading configuration from {new_path}.")
+            return data
+        old_path = Path(folder) / "config.yaml"
+        data = self._read_optional(old_path)
+        if data is not None:
+            warnings.warn(
+                f"'{old_path}' is deprecated; rename it to '{new_name}'.",
+                DeprecationWarning, stacklevel=3)
+            return data
+        return {}
 
     def load_config(self, config_path=None):
         """Read a YAML configuration file and return its parsed value.
@@ -628,3 +660,16 @@ class PyEqua:
         # output_knowledge_graph
         if self.config['output_knowledge_graph']:
             self.scenario.draw_wisdom_graph()
+
+    def push(self):
+        """Upload the generated Moodle XML to clozecloud.
+
+        Call explicitly (``pe.push()``) after reviewing the exercises. Needs
+        a ``clozecloud`` section in ``project.yaml``. Failures only warn.
+
+        Returns:
+            True if the file was pushed, otherwise False.
+        """
+        xml_path = self.text_service.allexercises_fullpath.with_suffix('.xml')
+        return clozecloud.push(xml_path, self.config, self.exercise_folder,
+                               find_project_root(self.exercise_folder))
