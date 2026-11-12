@@ -39,8 +39,9 @@ my_dataframe <- data.frame(
   enaoemaior = enaoemaior
 )
 
-# Save the dataframe to an Excel file
-write.xlsx(my_dataframe, file = "dados.xlsx")
+# Save the dataframe to a CSV file in the same directory as this script
+output_path <- file.path(dirname(rstudioapi::getSourceEditorContext()$path), "data.csv")
+write.csv(my_dataframe, file = output_path, sep = ";")
 
 
 

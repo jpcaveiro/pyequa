@@ -1,18 +1,18 @@
 ---
 title: "anova_table"
-author: "author"
-date: "2025-12-30_23-44-59"
+author: "Pedro Cruz"
+date: "2026-11-12_22-36-35"
 output:
   html_document: default
 ---
 
-# Problem problem given [msqgroups, dftotal, sqerrors, f, sqgroups, dfgroups, n, g, msqerrors, dferrors] - CLOZE
+# Problem problem given [msqerrors, dferrors, dftotal, sqerrors, msqgroups, dfgroups, f, g, n, sqgroups] - CLOZE
 
 
 ## Variant 001 (data row is 01)
 
 
-In a study examining the effective duration of insulating fluids under a 35KV load, **4** types of fluids were analyzed, and **4** measurements (in hours) were recorded for each. Subsequently, ANOVA was conducted to evaluate potential mean differences among the fluid types.
+In a study examining the effective duration of insulating fluids under a 35KV load, 4 types of fluids were analyzed, and 4 measurements (in hours) were recorded for each. Subsequently, ANOVA was conducted to evaluate potential mean differences among the fluid types.
 
 
 **ANOVA** of "duration of insulating fluids under a 35KV load":
@@ -37,24 +37,24 @@ In a study examining the effective duration of insulating fluids under a 35KV lo
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**4**</td>
-        <td>**3**</td>
-        <td>**1.333**</td>
-        <td>**1.0**</td>
+        <td>4</td>
+        <td>3</td>
+        <td>1.333</td>
+        <td>1</td>
         <td>{:NUMERICAL:%100%0.426:0.005}</td>
       </tr>
       <tr>
         <td>Within Groups</td>
-        <td>**16**</td>
-        <td>**12**</td>
-        <td>**1.333**</td>
+        <td>16</td>
+        <td>12</td>
+        <td>1.333</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
         <td>{:NUMERICAL:%100%20:0.05}</td>
-        <td>**15**</td>
+        <td>15</td>
         <td></td>
         <td></td>
         <td></td>
@@ -64,7 +64,7 @@ In a study examining the effective duration of insulating fluids under a 35KV lo
 
 Complete this ANOVA table.
 
-Conclusion with  \(\alpha=0.05\): {:MULTICHOICE_S:%100%there is no significant difference between the expected values.\~%0%there is at least one expected value that is significantly different.}
+Conclusion with  \(\alpha=0.05\): {:MULTICHOICE_S:%100%não existe diferença significativa entre os valores esperados\~%0%existe pelo menos um valor esperado significativamente diferente}
 
 
 

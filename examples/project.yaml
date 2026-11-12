@@ -33,11 +33,11 @@ output_service: moodle_cloze
 student_template_filename: exercise_model.md
 
 # CSV as a standard format
-dataframe_type: xlsx  #csv or xlsx
+dataframe_type: csv  #csv or xlsx
 csv_separator: "," 
 csv_decimal: "." 
 
-author: author
+author: Pedro Cruz
 
 
 several_solutions: " (more than one solution; choose one) "

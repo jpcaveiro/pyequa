@@ -21,7 +21,7 @@ Set project root in **windows**
 Command to do once:
 
 ```powershell
-[Environment]::SetEnvironmentVariable("PYEQUA_PROJECT_ROOT", "C:\Users\some_user\Documents\my_pyequa_project", "User")
+[Environment]::SetEnvironmentVariable("PYEQUA_PROJECT_ROOT", "C:\Users\user\Documents\GitHub\pyequa\examples", "User")
 ```
 
 Check in **Python**:

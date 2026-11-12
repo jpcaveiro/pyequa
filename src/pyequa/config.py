@@ -361,7 +361,14 @@ class PyEqua:
 
                 raise ValueError(f"pyequa: type of '{var}' is {v_type}: change to 'numerical', 'multichoice' or 'shortanser'.")
 
-            print(f"===> variable {v_name} has pandas type {self.pandas_dataframe[v_name].dtype} and variable_type {self.variable_attributes[v_name]['type']}")
+            try:
+                print(f"===> variable {v_name} has pandas type {self.pandas_dataframe[v_name].dtype} and variable_type {self.variable_attributes[v_name]['type']}")
+            except KeyError as e:
+                print("="*10,"\n")
+                print(f"KeyError: {e}")
+                print(f"Available dataframe columns: {list(self.pandas_dataframe.columns)}")
+                print("="*10,"\n")
+                raise
 
         if self.config['output_service'] == 'moodle_cloze':
 

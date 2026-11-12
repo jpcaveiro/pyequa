@@ -42,5 +42,5 @@ df.loc[len(df)] = make(1, 3, 2, 6)
 print(df)
 
 
-df.to_excel("data.xlsx")
+df.to_csv(Path(__file__).parent / "data.csv", sep=";")
 

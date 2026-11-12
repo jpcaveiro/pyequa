@@ -1,0 +1,6 @@
+﻿g;n;sqgroups;sqerrors;dfgroups;dferrors;sqtotal;dftotal;msqgroups;msqerrors;f;sig;rejecth0
+4;4;4;16;3;12;20;15;1.333;1.333;1;0.426;não existe diferença significativa entre os valores esperados
+4;6;1000;100;3;20;1100;23;333.333;5;66.667;0;existe pelo menos um valor esperado significativamente diferente
+4;5;500;480;3;16;980;19;166.667;30;5.556;0.008;existe pelo menos um valor esperado significativamente diferente
+5;5;180;4250;4;20;4430;24;45;212.5;0.212;0.929;não existe diferença significativa entre os valores esperados
+4;4;200;120;3;12;320;15;66.667;10;6.667;0.007;existe pelo menos um valor esperado significativamente diferente

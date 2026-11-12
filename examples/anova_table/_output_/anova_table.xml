@@ -3,7 +3,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/anova_table/Random Question 001 [msqgroups, dftotal, sqerrors, f, sqgroups, dfgroups, n, g, msqerrors, dferrors]</text>
+        <text>$course$/top/imports/anova_table/Random Question 001 [msqerrors, dferrors, dftotal, sqerrors, msqgroups, dfgroups, f, g, n, sqgroups]</text>
     </category>
     <info format="html">
         <text></text>
@@ -12,10 +12,10 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 001 (data row is 01) de 001 [msqgroups, dftotal, sqerrors, f, sqgroups, dfgroups, n, g, msqerrors, dferrors]</text>
+        <text>Variant 001 (data row is 01) de 001 [msqerrors, dferrors, dftotal, sqerrors, msqgroups, dfgroups, f, g, n, sqgroups]</text>
     </name>
     <questiontext format="html">
-        <text><![CDATA[<p>In a study examining the effective duration of insulating fluids under a 35KV load, <strong>4</strong> types of fluids were analyzed, and <strong>4</strong> measurements (in hours) were recorded for each. Subsequently, ANOVA was conducted to evaluate potential mean differences among the fluid types.</p>
+        <text><![CDATA[<p>In a study examining the effective duration of insulating fluids under a 35KV load, 4 types of fluids were analyzed, and 4 measurements (in hours) were recorded for each. Subsequently, ANOVA was conducted to evaluate potential mean differences among the fluid types.</p>
 <p><strong>ANOVA</strong> of "duration of insulating fluids under a 35KV load":</p>
 <table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
     <colgroup>
@@ -37,24 +37,24 @@
       </tr>
       <tr>
         <td>Between Groups</td>
-        <td>**4**</td>
-        <td>**3**</td>
-        <td>**1.333**</td>
-        <td>**1.0**</td>
+        <td>4</td>
+        <td>3</td>
+        <td>1.333</td>
+        <td>1</td>
         <td>{:NUMERICAL:%100%0.426:0.005}</td>
       </tr>
       <tr>
         <td>Within Groups</td>
-        <td>**16**</td>
-        <td>**12**</td>
-        <td>**1.333**</td>
+        <td>16</td>
+        <td>12</td>
+        <td>1.333</td>
         <td></td>
         <td></td>
       </tr>
       <tr>
         <td>Total</td>
         <td>{:NUMERICAL:%100%20:0.05}</td>
-        <td>**15**</td>
+        <td>15</td>
         <td></td>
         <td></td>
         <td></td>
@@ -63,7 +63,7 @@
   </table>
 
 <p>Complete this ANOVA table.</p>
-<p>Conclusion with  \(\alpha=0.05\): {:MULTICHOICE_S:%100%there is no significant difference between the expected values.~%0%there is at least one expected value that is significantly different.}</p>]]></text>
+<p>Conclusion with  \(\alpha=0.05\): {:MULTICHOICE_S:%100%não existe diferença significativa entre os valores esperados~%0%existe pelo menos um valor esperado significativamente diferente}</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[

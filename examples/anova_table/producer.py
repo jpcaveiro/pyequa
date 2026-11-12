@@ -47,7 +47,7 @@ pe = PyEqua("anova_table", scenario_relations, variable_attributes)
 
 # To make "moodle random questions" for evaluation 
 #   (all questions with equal difficult but different values)
-pe.randomquestion_sameblanks(fill_in_blanks_vars = {'sqtotal', 'msqgrupos', 'sig', 'rejecth0'}, 
+pe.randomquestion_sameblanks(fill_in_blanks_vars = {'sqtotal', 'msqgroups', 'sig', 'rejecth0'}, 
                              number_of_problems_per_givenvars=1)
 
 

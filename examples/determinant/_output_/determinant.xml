@@ -3,7 +3,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/determinant/Random Question 001 (a12, a21, d, a22, a11)</text>
+        <text>$course$/top/imports/determinant/Random Question 001 (a22, uniquesolution, a11, a21, a12)</text>
     </category>
     <info format="html">
         <text></text>
@@ -12,7 +12,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 001 (data row is 01) de 001 (a12, a21, d, a22, a11)</text>
+        <text>Problem 001 (data row is 01) de 001 (a22, uniquesolution, a11, a21, a12)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider </p>
@@ -29,17 +29,17 @@ a_{21} & a_{22} \\
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = **4**</td>
-        <td>\(a_{12}\) = **4**</td>
+        <td>\(a_{11}\) = 4</td>
+        <td>\(a_{12}\) = 4</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = **4**</td>
-        <td>\(a_{22}\) = **4**</td>
+        <td>\(a_{21}\) = 4</td>
+        <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
   </table>
 
-<p>So \(det(A)\) = <strong>0</strong> and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions~%0%has a unique solution}.</p>]]></text>
+<p>So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that has zero or infinite solutions.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -53,7 +53,7 @@ a_{21} & a_{22} \\
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/determinant/Random Question 002 (a12, a21, a22, a11, uniquesolution)</text>
+        <text>$course$/top/imports/determinant/Random Question 002 (a22, d, a11, a21, a12)</text>
     </category>
     <info format="html">
         <text></text>
@@ -62,7 +62,7 @@ a_{21} & a_{22} \\
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 002 (data row is 02) de 002 (a12, a21, a22, a11, uniquesolution)</text>
+        <text>Problem 002 (data row is 02) de 002 (a22, d, a11, a21, a12)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider </p>
@@ -79,17 +79,17 @@ a_{21} & a_{22} \\
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = **4**</td>
-        <td>\(a_{12}\) = **4**</td>
+        <td>\(a_{11}\) = 4</td>
+        <td>\(a_{12}\) = 4</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = **2**</td>
-        <td>\(a_{22}\) = **2**</td>
+        <td>\(a_{21}\) = 2</td>
+        <td>\(a_{22}\) = 2</td>
       </tr>
     </tbody>
   </table>
 
-<p>So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that <strong>has zero or infinite solutions</strong>.</p>]]></text>
+<p>So \(det(A)\) = 0 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions~%0%has a unique solution}.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -103,7 +103,7 @@ a_{21} & a_{22} \\
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/determinant/Random Question 003 (a12, a21, d, a22, uniquesolution)</text>
+        <text>$course$/top/imports/determinant/Random Question 003 (a22, uniquesolution, d, a11, a21)</text>
     </category>
     <info format="html">
         <text></text>
@@ -112,7 +112,7 @@ a_{21} & a_{22} \\
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 003 (data row is 03) de 003 (a12, a21, d, a22, uniquesolution)</text>
+        <text>Problem 003 (data row is 03) de 003 (a22, uniquesolution, d, a11, a21)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider </p>
@@ -129,17 +129,17 @@ a_{21} & a_{22} \\
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = {:NUMERICAL:%100%4:0.05}</td>
-        <td>\(a_{12}\) = **6**</td>
+        <td>\(a_{11}\) = 4</td>
+        <td>\(a_{12}\) = {:NUMERICAL:%100%6:0.05}</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = **6**</td>
-        <td>\(a_{22}\) = **4**</td>
+        <td>\(a_{21}\) = 6</td>
+        <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
   </table>
 
-<p>So \(det(A)\) = <strong>-20</strong> and  \(Ax=b\) is a system that <strong>has a unique solution</strong>.</p>]]></text>
+<p>So \(det(A)\) = -20 and  \(Ax=b\) is a system that has a unique solution.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -153,7 +153,7 @@ a_{21} & a_{22} \\
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/determinant/Random Question 004 (a12, a21, d, a11, uniquesolution)</text>
+        <text>$course$/top/imports/determinant/Random Question 004 (a22, uniquesolution, d, a11, a12)</text>
     </category>
     <info format="html">
         <text></text>
@@ -162,7 +162,7 @@ a_{21} & a_{22} \\
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 004 (data row is 04) de 004 (a12, a21, d, a11, uniquesolution)</text>
+        <text>Problem 004 (data row is 04) de 004 (a22, uniquesolution, d, a11, a12)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider </p>
@@ -179,17 +179,117 @@ a_{21} & a_{22} \\
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = **1**</td>
-        <td>\(a_{12}\) = **0**</td>
+        <td>\(a_{11}\) = 1</td>
+        <td>\(a_{12}\) = 0</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = **3**</td>
+        <td>\(a_{21}\) = {:NUMERICAL:%100%3:0.05}</td>
+        <td>\(a_{22}\) = 4</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>So \(det(A)\) = 4 and  \(Ax=b\) is a system that has a unique solution.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/determinant/Random Question 005 (a22, uniquesolution, d, a21, a12)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 005 (data row is 05) de 005 (a22, uniquesolution, d, a21, a12)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider </p>
+<p>\[A=\left[\begin{matrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{matrix}\right]
+\]</p>
+<p>where</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 50%">
+      <col style="width: 50%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td>\(a_{11}\) = {:NUMERICAL:%100%1:0.05}</td>
+        <td>\(a_{12}\) = 3</td>
+      </tr>
+      <tr>
+        <td>\(a_{21}\) = 2</td>
+        <td>\(a_{22}\) = 6</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>So \(det(A)\) = 0 and  \(Ax=b\) is a system that has zero or infinite solutions.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/determinant/Random Question 006 (uniquesolution, d, a11, a21, a12)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 006 (data row is 01) de 006 (uniquesolution, d, a11, a21, a12)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider </p>
+<p>\[A=\left[\begin{matrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{matrix}\right]
+\]</p>
+<p>where</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 50%">
+      <col style="width: 50%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td>\(a_{11}\) = 4</td>
+        <td>\(a_{12}\) = 4</td>
+      </tr>
+      <tr>
+        <td>\(a_{21}\) = 4</td>
         <td>\(a_{22}\) = {:NUMERICAL:%100%4:0.05}</td>
       </tr>
     </tbody>
   </table>
 
-<p>So \(det(A)\) = <strong>4</strong> and  \(Ax=b\) is a system that <strong>has a unique solution</strong>.</p>]]></text>
+<p>So \(det(A)\) = 0 and  \(Ax=b\) is a system that has zero or infinite solutions.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -203,7 +303,7 @@ a_{21} & a_{22} \\
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/determinant/Random Question 005 (a12, d, a22, a11, uniquesolution)</text>
+        <text>$course$/top/imports/determinant/Random Question 007 (a22, a11, a21, a12)</text>
     </category>
     <info format="html">
         <text></text>
@@ -212,7 +312,7 @@ a_{21} & a_{22} \\
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 005 (data row is 05) de 005 (a12, d, a22, a11, uniquesolution)</text>
+        <text>Problem 007 (data row is 02) de 007 (a22, a11, a21, a12)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider </p>
@@ -229,112 +329,12 @@ a_{21} & a_{22} \\
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = **1**</td>
-        <td>\(a_{12}\) = **3**</td>
+        <td>\(a_{11}\) = 4</td>
+        <td>\(a_{12}\) = 4</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = {:NUMERICAL:%100%2:0.05}</td>
-        <td>\(a_{22}\) = **6**</td>
-      </tr>
-    </tbody>
-  </table>
-
-<p>So \(det(A)\) = <strong>0</strong> and  \(Ax=b\) is a system that <strong>has zero or infinite solutions</strong>.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/determinant/Random Question 006 (a21, d, a22, a11, uniquesolution)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 006 (data row is 01) de 006 (a21, d, a22, a11, uniquesolution)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider </p>
-<p>\[A=\left[\begin{matrix}
-a_{11} & a_{12} \\
-a_{21} & a_{22} \\
-\end{matrix}\right]
-\]</p>
-<p>where</p>
-<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
-    <colgroup>
-      <col style="width: 50%">
-      <col style="width: 50%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td>\(a_{11}\) = **4**</td>
-        <td>\(a_{12}\) = {:NUMERICAL:%100%4:0.05}</td>
-      </tr>
-      <tr>
-        <td>\(a_{21}\) = **4**</td>
-        <td>\(a_{22}\) = **4**</td>
-      </tr>
-    </tbody>
-  </table>
-
-<p>So \(det(A)\) = <strong>0</strong> and  \(Ax=b\) is a system that <strong>has zero or infinite solutions</strong>.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/determinant/Random Question 007 (a12, a21, a22, a11)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 007 (data row is 02) de 007 (a12, a21, a22, a11)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider </p>
-<p>\[A=\left[\begin{matrix}
-a_{11} & a_{12} \\
-a_{21} & a_{22} \\
-\end{matrix}\right]
-\]</p>
-<p>where</p>
-<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
-    <colgroup>
-      <col style="width: 50%">
-      <col style="width: 50%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td>\(a_{11}\) = **4**</td>
-        <td>\(a_{12}\) = **4**</td>
-      </tr>
-      <tr>
-        <td>\(a_{21}\) = **2**</td>
-        <td>\(a_{22}\) = **2**</td>
+        <td>\(a_{21}\) = 2</td>
+        <td>\(a_{22}\) = 2</td>
       </tr>
     </tbody>
   </table>
@@ -353,7 +353,7 @@ a_{21} & a_{22} \\
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/determinant/Random Question 008 (a12, a21, d, a22)</text>
+        <text>$course$/top/imports/determinant/Random Question 008 (a22, uniquesolution, a11, a21)</text>
     </category>
     <info format="html">
         <text></text>
@@ -362,7 +362,7 @@ a_{21} & a_{22} \\
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 008 (data row is 03) de 008 (a12, a21, d, a22)</text>
+        <text>Problem 008 (data row is 03) de 008 (a22, uniquesolution, a11, a21)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider </p>
@@ -379,17 +379,17 @@ a_{21} & a_{22} \\
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = {:NUMERICAL:%100%4:0.05}</td>
-        <td>\(a_{12}\) = **6**</td>
+        <td>\(a_{11}\) = 4</td>
+        <td>\(a_{12}\) = {:NUMERICAL:%100%6:0.05}</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = **6**</td>
-        <td>\(a_{22}\) = **4**</td>
+        <td>\(a_{21}\) = 6</td>
+        <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
   </table>
 
-<p>So \(det(A)\) = <strong>-20</strong> and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has a unique solution~%0%has zero or infinite solutions}.</p>]]></text>
+<p>So \(det(A)\) = {:NUMERICAL:%100%-20:0.05} and  \(Ax=b\) is a system that has a unique solution.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -403,7 +403,7 @@ a_{21} & a_{22} \\
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/determinant/Random Question 009 (a12, a21, d, a11)</text>
+        <text>$course$/top/imports/determinant/Random Question 009 (a22, uniquesolution, a11, a12)</text>
     </category>
     <info format="html">
         <text></text>
@@ -412,7 +412,7 @@ a_{21} & a_{22} \\
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 009 (data row is 04) de 009 (a12, a21, d, a11)</text>
+        <text>Problem 009 (data row is 04) de 009 (a22, uniquesolution, a11, a12)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider </p>
@@ -429,17 +429,17 @@ a_{21} & a_{22} \\
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = **1**</td>
-        <td>\(a_{12}\) = **0**</td>
+        <td>\(a_{11}\) = 1</td>
+        <td>\(a_{12}\) = 0</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = **3**</td>
-        <td>\(a_{22}\) = {:NUMERICAL:%100%4:0.05}</td>
+        <td>\(a_{21}\) = {:NUMERICAL:%100%3:0.05}</td>
+        <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
   </table>
 
-<p>So \(det(A)\) = <strong>4</strong> and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has a unique solution~%0%has zero or infinite solutions}.</p>]]></text>
+<p>So \(det(A)\) = {:NUMERICAL:%100%4:0.05} and  \(Ax=b\) is a system that has a unique solution.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -453,7 +453,7 @@ a_{21} & a_{22} \\
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/determinant/Random Question 010 (a12, a21, a22, uniquesolution)</text>
+        <text>$course$/top/imports/determinant/Random Question 010 (a22, uniquesolution, a21, a12)</text>
     </category>
     <info format="html">
         <text></text>
@@ -462,7 +462,7 @@ a_{21} & a_{22} \\
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 010 (data row is 05) de 010 (a12, a21, a22, uniquesolution)</text>
+        <text>Problem 010 (data row is 05) de 010 (a22, uniquesolution, a21, a12)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider </p>
@@ -480,16 +480,16 @@ a_{21} & a_{22} \\
     <tbody>
       <tr>
         <td>\(a_{11}\) = {:NUMERICAL:%100%1:0.05}</td>
-        <td>\(a_{12}\) = **3**</td>
+        <td>\(a_{12}\) = 3</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = **2**</td>
-        <td>\(a_{22}\) = **6**</td>
+        <td>\(a_{21}\) = 2</td>
+        <td>\(a_{22}\) = 6</td>
       </tr>
     </tbody>
   </table>
 
-<p>So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that <strong>has zero or infinite solutions</strong>.</p>]]></text>
+<p>So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that has zero or infinite solutions.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -503,7 +503,7 @@ a_{21} & a_{22} \\
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/determinant/Random Question 011 (a12, a21, a11, uniquesolution)</text>
+        <text>$course$/top/imports/determinant/Random Question 011 (a22, d, a11, a21)</text>
     </category>
     <info format="html">
         <text></text>
@@ -512,7 +512,7 @@ a_{21} & a_{22} \\
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 011 (data row is 01) de 011 (a12, a21, a11, uniquesolution)</text>
+        <text>Problem 011 (data row is 01) de 011 (a22, d, a11, a21)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider </p>
@@ -529,17 +529,167 @@ a_{21} & a_{22} \\
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = **4**</td>
-        <td>\(a_{12}\) = **4**</td>
+        <td>\(a_{11}\) = 4</td>
+        <td>\(a_{12}\) = {:NUMERICAL:%100%4:0.05}</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = **4**</td>
+        <td>\(a_{21}\) = 4</td>
+        <td>\(a_{22}\) = 4</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>So \(det(A)\) = 0 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions~%0%has a unique solution}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/determinant/Random Question 012 (a22, d, a11, a12)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 012 (data row is 02) de 012 (a22, d, a11, a12)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider </p>
+<p>\[A=\left[\begin{matrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{matrix}\right]
+\]</p>
+<p>where</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 50%">
+      <col style="width: 50%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td>\(a_{11}\) = 4</td>
+        <td>\(a_{12}\) = 4</td>
+      </tr>
+      <tr>
+        <td>\(a_{21}\) = {:NUMERICAL:%100%2:0.05}</td>
+        <td>\(a_{22}\) = 2</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>So \(det(A)\) = 0 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions~%0%has a unique solution}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/determinant/Random Question 013 (a22, d, a21, a12)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 013 (data row is 03) de 013 (a22, d, a21, a12)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider </p>
+<p>\[A=\left[\begin{matrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{matrix}\right]
+\]</p>
+<p>where</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 50%">
+      <col style="width: 50%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td>\(a_{11}\) = {:NUMERICAL:%100%4:0.05}</td>
+        <td>\(a_{12}\) = 6</td>
+      </tr>
+      <tr>
+        <td>\(a_{21}\) = 6</td>
+        <td>\(a_{22}\) = 4</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p>So \(det(A)\) = -20 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has a unique solution~%0%has zero or infinite solutions}.</p>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+        <text><![CDATA[
+(No feedback is available. Please consult your class teacher(s).)
+]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+</question>
+
+<question type="category">
+    <category>
+        <text>$course$/top/imports/determinant/Random Question 014 (uniquesolution, a11, a21, a12)</text>
+    </category>
+    <info format="html">
+        <text></text>
+    </info>
+    <idnumber></idnumber>
+</question>
+<question type="cloze">
+    <name>
+        <text>Problem 014 (data row is 04) de 014 (uniquesolution, a11, a21, a12)</text>
+    </name>
+    <questiontext format="html">
+        <text><![CDATA[<p>Consider </p>
+<p>\[A=\left[\begin{matrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22} \\
+\end{matrix}\right]
+\]</p>
+<p>where</p>
+<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
+    <colgroup>
+      <col style="width: 50%">
+      <col style="width: 50%;">
+    </colgroup>
+    <tbody>
+      <tr>
+        <td>\(a_{11}\) = 1</td>
+        <td>\(a_{12}\) = 0</td>
+      </tr>
+      <tr>
+        <td>\(a_{21}\) = 3</td>
         <td>\(a_{22}\) = {:NUMERICAL:%100%4:0.05}</td>
       </tr>
     </tbody>
   </table>
 
-<p>So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that <strong>has zero or infinite solutions</strong>.</p>]]></text>
+<p>So \(det(A)\) = {:NUMERICAL:%100%4:0.05} and  \(Ax=b\) is a system that has a unique solution.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
@@ -553,7 +703,7 @@ a_{21} & a_{22} \\
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/determinant/Random Question 012 (a12, d, a22, a11)</text>
+        <text>$course$/top/imports/determinant/Random Question 015 (d, a11, a21, a12)</text>
     </category>
     <info format="html">
         <text></text>
@@ -562,7 +712,7 @@ a_{21} & a_{22} \\
 </question>
 <question type="cloze">
     <name>
-        <text>Problem 012 (data row is 02) de 012 (a12, d, a22, a11)</text>
+        <text>Problem 015 (data row is 05) de 015 (d, a11, a21, a12)</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>Consider </p>
@@ -579,167 +729,17 @@ a_{21} & a_{22} \\
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = **4**</td>
-        <td>\(a_{12}\) = **4**</td>
+        <td>\(a_{11}\) = 1</td>
+        <td>\(a_{12}\) = 3</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = {:NUMERICAL:%100%2:0.05}</td>
-        <td>\(a_{22}\) = **2**</td>
+        <td>\(a_{21}\) = 2</td>
+        <td>\(a_{22}\) = {:NUMERICAL:%100%6:0.05}</td>
       </tr>
     </tbody>
   </table>
 
-<p>So \(det(A)\) = <strong>0</strong> and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions~%0%has a unique solution}.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/determinant/Random Question 013 (a12, a22, a11, uniquesolution)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 013 (data row is 03) de 013 (a12, a22, a11, uniquesolution)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider </p>
-<p>\[A=\left[\begin{matrix}
-a_{11} & a_{12} \\
-a_{21} & a_{22} \\
-\end{matrix}\right]
-\]</p>
-<p>where</p>
-<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
-    <colgroup>
-      <col style="width: 50%">
-      <col style="width: 50%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td>\(a_{11}\) = **4**</td>
-        <td>\(a_{12}\) = **6**</td>
-      </tr>
-      <tr>
-        <td>\(a_{21}\) = {:NUMERICAL:%100%6:0.05}</td>
-        <td>\(a_{22}\) = **4**</td>
-      </tr>
-    </tbody>
-  </table>
-
-<p>So \(det(A)\) = {:NUMERICAL:%100%-20:0.05} and  \(Ax=b\) is a system that <strong>has a unique solution</strong>.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/determinant/Random Question 014 (a21, d, a22, a11)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 014 (data row is 04) de 014 (a21, d, a22, a11)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider </p>
-<p>\[A=\left[\begin{matrix}
-a_{11} & a_{12} \\
-a_{21} & a_{22} \\
-\end{matrix}\right]
-\]</p>
-<p>where</p>
-<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
-    <colgroup>
-      <col style="width: 50%">
-      <col style="width: 50%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td>\(a_{11}\) = **1**</td>
-        <td>\(a_{12}\) = {:NUMERICAL:%100%0:0.05}</td>
-      </tr>
-      <tr>
-        <td>\(a_{21}\) = **3**</td>
-        <td>\(a_{22}\) = **4**</td>
-      </tr>
-    </tbody>
-  </table>
-
-<p>So \(det(A)\) = <strong>4</strong> and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has a unique solution~%0%has zero or infinite solutions}.</p>]]></text>
-    </questiontext>
-    <generalfeedback format="html">
-        <text><![CDATA[
-(No feedback is available. Please consult your class teacher(s).)
-]]></text>
-    </generalfeedback>
-    <penalty>0.3333333</penalty>
-    <hidden>0</hidden>
-    <idnumber></idnumber>
-</question>
-
-<question type="category">
-    <category>
-        <text>$course$/top/imports/determinant/Random Question 015 (a21, a22, a11, uniquesolution)</text>
-    </category>
-    <info format="html">
-        <text></text>
-    </info>
-    <idnumber></idnumber>
-</question>
-<question type="cloze">
-    <name>
-        <text>Problem 015 (data row is 05) de 015 (a21, a22, a11, uniquesolution)</text>
-    </name>
-    <questiontext format="html">
-        <text><![CDATA[<p>Consider </p>
-<p>\[A=\left[\begin{matrix}
-a_{11} & a_{12} \\
-a_{21} & a_{22} \\
-\end{matrix}\right]
-\]</p>
-<p>where</p>
-<table style="border-collapse: collapse; width: 100%; display: inline-table; border: 10" border="5" >
-    <colgroup>
-      <col style="width: 50%">
-      <col style="width: 50%;">
-    </colgroup>
-    <tbody>
-      <tr>
-        <td>\(a_{11}\) = **1**</td>
-        <td>\(a_{12}\) = {:NUMERICAL:%100%3:0.05}</td>
-      </tr>
-      <tr>
-        <td>\(a_{21}\) = **2**</td>
-        <td>\(a_{22}\) = **6**</td>
-      </tr>
-    </tbody>
-  </table>
-
-<p>So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that <strong>has zero or infinite solutions</strong>.</p>]]></text>
+<p>So \(det(A)\) = 0 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions~%0%has a unique solution}.</p>]]></text>
     </questiontext>
     <generalfeedback format="html">
         <text><![CDATA[
