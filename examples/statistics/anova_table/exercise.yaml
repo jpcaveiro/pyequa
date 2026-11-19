@@ -3,3 +3,4 @@
 dataframe_type: csv  #csv or xlsx
 csv_separator: ";" 
 csv_decimal: "." 
+shortdescription: "Tabela de ANOVA"

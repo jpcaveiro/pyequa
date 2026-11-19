@@ -3,3 +3,7 @@
 dataframe_type: csv  #csv or xlsx
 csv_separator: ";" 
 csv_decimal: "." 
+
+author: Pedro Cruz
+
+shortdescription: "Determiant 2x2 matrix"
