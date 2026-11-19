@@ -37,8 +37,6 @@ variable_attributes = {
     'rejecth0': {'type': 'multichoice', 'givenvarlevel': 3},
 }
 
-
-from pathlib import Path
 from pyequa.config import PyEqua
 
 pe = PyEqua("statistics/anova_table", scenario_relations, variable_attributes)
