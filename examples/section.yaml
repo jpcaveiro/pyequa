@@ -58,3 +58,4 @@ output_knowledge_graph: false
 # developer messages
 debug: false
 
+shortdescription: "Examples"
