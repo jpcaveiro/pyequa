@@ -1,12 +1,12 @@
 ---
 title: "newton-raphson"
-author: "author"
-date: "2026-10-13_17-42-24"
+author: "Pedro Cruz"
+date: "2026-11-12_22-52-07"
 output:
   html_document: default
 ---
 
-# Problem problem given [ALPHA, ERRABS, B, A, FUN, X1, X2] - CLOZE
+# Problem problem given [ALPHA, FUN, ERRABS, B, A, X1, X2] - CLOZE
 
 
 ## Variant 001 (data row is 01)

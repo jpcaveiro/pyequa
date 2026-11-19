@@ -1,7 +1,7 @@
 ---
 title: "mean_variance"
-author: "author"
-date: "2025-12-30_23-59-03"
+author: "Pedro Cruz"
+date: "2026-11-12_22-50-46"
 output:
   html_document: default
 ---
@@ -11,14 +11,14 @@ output:
 
 Consider the following sample,
 
-* \(x_1\)=**1.0**
-* \(x_2\)=**2.0**
-* \(x_3\)=**3.0**
+* \(x_1\)=1
+* \(x_2\)=2
+* \(x_3\)=3
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **2.0**
-* \(s_c^2\) = **1.0**
+* \(\bar x\) = 2
+* \(s_c^2\) = 1
 * variation coefficient = {:NUMERICAL:%100%0.5:0.05}
 
 
@@ -38,15 +38,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**2.0**
-* \(x_2\)=**2.0**
-* \(x_3\)=**4.0**
+* \(x_1\)=2
+* \(x_2\)=2
+* \(x_3\)=4
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **2.667**
+* \(\bar x\) = 2.667
 * \(s_c^2\) = {:NUMERICAL:%100%1.333:0.05}
-* variation coefficient = **0.433**
+* variation coefficient = 0.433
 
 
 
@@ -65,15 +65,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**3.0**
-* \(x_2\)=**2.0**
-* \(x_3\)=**5.0**
+* \(x_1\)=3
+* \(x_2\)=2
+* \(x_3\)=5
  
 and based on this sample, the following statistics are calculated:
 
 * \(\bar x\) = {:NUMERICAL:%100%3.333:0.05}
-* \(s_c^2\) = **2.333**
-* variation coefficient = **0.458**
+* \(s_c^2\) = 2.333
+* variation coefficient = 0.458
 
 
 
@@ -92,15 +92,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**4.0**
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)=**6.0**
+* \(x_1\)=4
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)=6
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.0**
-* \(s_c^2\) = **4.0**
-* variation coefficient = **0.5**
+* \(\bar x\) = 4
+* \(s_c^2\) = 4
+* variation coefficient = 0.5
 
 
 
@@ -119,15 +119,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**5.0**
-* \(x_2\)=**2.0**
-* \(x_3\)={:NUMERICAL:%100%7:0.05}
+* \(x_1\)=5
+* \(x_2\)=2
+* \(x_3\)={:NUMERICAL:%100%7.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.667**
-* \(s_c^2\) = **6.333**
-* variation coefficient = **0.539**
+* \(\bar x\) = 4.667
+* \(s_c^2\) = 6.333
+* variation coefficient = 0.539
 
 
 
@@ -146,15 +146,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%1:0.05}
-* \(x_2\)=**2.0**
-* \(x_3\)=**3.0**
+* \(x_1\)={:NUMERICAL:%100%1.0:0.05}
+* \(x_2\)=2
+* \(x_3\)=3
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **2.0**
-* \(s_c^2\) = **1.0**
-* variation coefficient = **0.5**
+* \(\bar x\) = 2
+* \(s_c^2\) = 1
+* variation coefficient = 0.5
 
 
 
@@ -173,13 +173,13 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**2.0**
-* \(x_2\)=**2.0**
-* \(x_3\)=**4.0**
+* \(x_1\)=2
+* \(x_2\)=2
+* \(x_3\)=4
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **2.667**
+* \(\bar x\) = 2.667
 * \(s_c^2\) = {:NUMERICAL:%100%1.333:0.05}
 * variation coefficient = {:NUMERICAL:%100%0.433:0.05}
 
@@ -200,14 +200,14 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**3.0**
-* \(x_2\)=**2.0**
-* \(x_3\)=**5.0**
+* \(x_1\)=3
+* \(x_2\)=2
+* \(x_3\)=5
  
 and based on this sample, the following statistics are calculated:
 
 * \(\bar x\) = {:NUMERICAL:%100%3.333:0.05}
-* \(s_c^2\) = **2.333**
+* \(s_c^2\) = 2.333
 * variation coefficient = {:NUMERICAL:%100%0.458:0.05}
 
 
@@ -227,14 +227,14 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**4.0**
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)=**6.0**
+* \(x_1\)=4
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)=6
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.0**
-* \(s_c^2\) = **4.0**
+* \(\bar x\) = 4
+* \(s_c^2\) = 4
 * variation coefficient = {:NUMERICAL:%100%0.5:0.05}
 
 
@@ -254,14 +254,14 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**5.0**
-* \(x_2\)=**2.0**
-* \(x_3\)={:NUMERICAL:%100%7:0.05}
+* \(x_1\)=5
+* \(x_2\)=2
+* \(x_3\)={:NUMERICAL:%100%7.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.667**
-* \(s_c^2\) = **6.333**
+* \(\bar x\) = 4.667
+* \(s_c^2\) = 6.333
 * variation coefficient = {:NUMERICAL:%100%0.539:0.05}
 
 
@@ -281,15 +281,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**1.0**
-* \(x_2\)=**2.0**
-* \(x_3\)=**3.0**
+* \(x_1\)={:NUMERICAL:%100%1.0:0.05}
+* \(x_2\)=2
+* \(x_3\)=3
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = {:NUMERICAL:%100%2.0:0.05}
-* \(s_c^2\) = {:NUMERICAL:%100%1.0:0.05}
-* variation coefficient = **0.5**
+* \(\bar x\) = 2
+* \(s_c^2\) = 1
+* variation coefficient = {:NUMERICAL:%100%0.5:0.05}
 
 
 
@@ -308,15 +308,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%2:0.05}
-* \(x_2\)=**2.0**
-* \(x_3\)=**4.0**
+* \(x_1\)=2
+* \(x_2\)=2
+* \(x_3\)=4
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **2.667**
-* \(s_c^2\) = **1.333**
-* variation coefficient = {:NUMERICAL:%100%0.433:0.05}
+* \(\bar x\) = {:NUMERICAL:%100%2.667:0.05}
+* \(s_c^2\) = {:NUMERICAL:%100%1.333:0.05}
+* variation coefficient = 0.433
 
 
 
@@ -335,15 +335,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**3.0**
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)=**5.0**
+* \(x_1\)=3
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)=5
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **3.333**
+* \(\bar x\) = 3.333
 * \(s_c^2\) = {:NUMERICAL:%100%2.333:0.05}
-* variation coefficient = **0.458**
+* variation coefficient = 0.458
 
 
 
@@ -362,15 +362,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**4.0**
-* \(x_2\)=**2.0**
-* \(x_3\)={:NUMERICAL:%100%6:0.05}
+* \(x_1\)=4
+* \(x_2\)=2
+* \(x_3\)={:NUMERICAL:%100%6.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.0**
+* \(\bar x\) = 4
 * \(s_c^2\) = {:NUMERICAL:%100%4.0:0.05}
-* variation coefficient = **0.5**
+* variation coefficient = 0.5
 
 
 
@@ -389,15 +389,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**5.0**
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)=**7.0**
+* \(x_1\)={:NUMERICAL:%100%5.0:0.05}
+* \(x_2\)=2
+* \(x_3\)=7
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = {:NUMERICAL:%100%4.667:0.05}
-* \(s_c^2\) = **6.333**
-* variation coefficient = **0.539**
+* \(\bar x\) = 4.667
+* \(s_c^2\) = {:NUMERICAL:%100%6.333:0.05}
+* variation coefficient = 0.539
 
 
 
@@ -416,15 +416,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**1.0**
-* \(x_2\)=**2.0**
-* \(x_3\)={:NUMERICAL:%100%3:0.05}
+* \(x_1\)=1
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)=3
  
 and based on this sample, the following statistics are calculated:
 
 * \(\bar x\) = {:NUMERICAL:%100%2.0:0.05}
-* \(s_c^2\) = **1.0**
-* variation coefficient = **0.5**
+* \(s_c^2\) = 1
+* variation coefficient = 0.5
 
 
 
@@ -443,15 +443,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%2:0.05}
-* \(x_2\)=**2.0**
-* \(x_3\)=**4.0**
+* \(x_1\)=2
+* \(x_2\)=2
+* \(x_3\)={:NUMERICAL:%100%4.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **2.667**
-* \(s_c^2\) = {:NUMERICAL:%100%1.333:0.05}
-* variation coefficient = **0.433**
+* \(\bar x\) = {:NUMERICAL:%100%2.667:0.05}
+* \(s_c^2\) = 1.333
+* variation coefficient = 0.433
 
 
 
@@ -470,15 +470,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%3:0.05}
-* \(x_2\)=**2.0**
-* \(x_3\)=**5.0**
+* \(x_1\)={:NUMERICAL:%100%3.0:0.05}
+* \(x_2\)=2
+* \(x_3\)=5
  
 and based on this sample, the following statistics are calculated:
 
 * \(\bar x\) = {:NUMERICAL:%100%3.333:0.05}
-* \(s_c^2\) = **2.333**
-* variation coefficient = **0.458**
+* \(s_c^2\) = 2.333
+* variation coefficient = 0.458
 
 
 
@@ -497,15 +497,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**4.0**
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)={:NUMERICAL:%100%6:0.05}
+* \(x_1\)=4
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)={:NUMERICAL:%100%6.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.0**
-* \(s_c^2\) = **4.0**
-* variation coefficient = **0.5**
+* \(\bar x\) = 4
+* \(s_c^2\) = 4
+* variation coefficient = 0.5
 
 
 
@@ -524,15 +524,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%5:0.05}
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)=**7.0**
+* \(x_1\)={:NUMERICAL:%100%5.0:0.05}
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)=7
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.667**
-* \(s_c^2\) = **6.333**
-* variation coefficient = **0.539**
+* \(\bar x\) = 4.667
+* \(s_c^2\) = 6.333
+* variation coefficient = 0.539
 
 
 
@@ -551,15 +551,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%1:0.05}
-* \(x_2\)=**2.0**
-* \(x_3\)={:NUMERICAL:%100%3:0.05}
+* \(x_1\)={:NUMERICAL:%100%1.0:0.05}
+* \(x_2\)=2
+* \(x_3\)={:NUMERICAL:%100%3.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **2.0**
-* \(s_c^2\) = **1.0**
-* variation coefficient = **0.5**
+* \(\bar x\) = 2
+* \(s_c^2\) = 1
+* variation coefficient = 0.5
 
 
 
@@ -578,9 +578,9 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**2.0**
-* \(x_2\)=**2.0**
-* \(x_3\)=**4.0**
+* \(x_1\)=2
+* \(x_2\)=2
+* \(x_3\)=4
  
 and based on this sample, the following statistics are calculated:
 
@@ -605,13 +605,13 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**3.0**
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)=**5.0**
+* \(x_1\)=3
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)=5
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **3.333**
+* \(\bar x\) = 3.333
 * \(s_c^2\) = {:NUMERICAL:%100%2.333:0.05}
 * variation coefficient = {:NUMERICAL:%100%0.458:0.05}
 
@@ -632,13 +632,13 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**4.0**
-* \(x_2\)=**2.0**
-* \(x_3\)={:NUMERICAL:%100%6:0.05}
+* \(x_1\)=4
+* \(x_2\)=2
+* \(x_3\)={:NUMERICAL:%100%6.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.0**
+* \(\bar x\) = 4
 * \(s_c^2\) = {:NUMERICAL:%100%4.0:0.05}
 * variation coefficient = {:NUMERICAL:%100%0.5:0.05}
 
@@ -659,14 +659,14 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**5.0**
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)=**7.0**
+* \(x_1\)={:NUMERICAL:%100%5.0:0.05}
+* \(x_2\)=2
+* \(x_3\)=7
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = {:NUMERICAL:%100%4.667:0.05}
-* \(s_c^2\) = **6.333**
+* \(\bar x\) = 4.667
+* \(s_c^2\) = {:NUMERICAL:%100%6.333:0.05}
 * variation coefficient = {:NUMERICAL:%100%0.539:0.05}
 
 
@@ -686,14 +686,14 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**1.0**
-* \(x_2\)=**2.0**
-* \(x_3\)={:NUMERICAL:%100%3:0.05}
+* \(x_1\)=1
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)=3
  
 and based on this sample, the following statistics are calculated:
 
 * \(\bar x\) = {:NUMERICAL:%100%2.0:0.05}
-* \(s_c^2\) = **1.0**
+* \(s_c^2\) = 1
 * variation coefficient = {:NUMERICAL:%100%0.5:0.05}
 
 
@@ -713,14 +713,14 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%2:0.05}
-* \(x_2\)=**2.0**
-* \(x_3\)=**4.0**
+* \(x_1\)=2
+* \(x_2\)=2
+* \(x_3\)={:NUMERICAL:%100%4.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **2.667**
-* \(s_c^2\) = {:NUMERICAL:%100%1.333:0.05}
+* \(\bar x\) = {:NUMERICAL:%100%2.667:0.05}
+* \(s_c^2\) = 1.333
 * variation coefficient = {:NUMERICAL:%100%0.433:0.05}
 
 
@@ -740,14 +740,14 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%3:0.05}
-* \(x_2\)=**2.0**
-* \(x_3\)=**5.0**
+* \(x_1\)={:NUMERICAL:%100%3.0:0.05}
+* \(x_2\)=2
+* \(x_3\)=5
  
 and based on this sample, the following statistics are calculated:
 
 * \(\bar x\) = {:NUMERICAL:%100%3.333:0.05}
-* \(s_c^2\) = **2.333**
+* \(s_c^2\) = 2.333
 * variation coefficient = {:NUMERICAL:%100%0.458:0.05}
 
 
@@ -767,14 +767,14 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**4.0**
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)={:NUMERICAL:%100%6:0.05}
+* \(x_1\)=4
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)={:NUMERICAL:%100%6.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.0**
-* \(s_c^2\) = **4.0**
+* \(\bar x\) = 4
+* \(s_c^2\) = 4
 * variation coefficient = {:NUMERICAL:%100%0.5:0.05}
 
 
@@ -794,14 +794,14 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%5:0.05}
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)=**7.0**
+* \(x_1\)={:NUMERICAL:%100%5.0:0.05}
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)=7
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.667**
-* \(s_c^2\) = **6.333**
+* \(\bar x\) = 4.667
+* \(s_c^2\) = 6.333
 * variation coefficient = {:NUMERICAL:%100%0.539:0.05}
 
 
@@ -821,14 +821,14 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%1:0.05}
-* \(x_2\)=**2.0**
-* \(x_3\)={:NUMERICAL:%100%3:0.05}
+* \(x_1\)={:NUMERICAL:%100%1.0:0.05}
+* \(x_2\)=2
+* \(x_3\)={:NUMERICAL:%100%3.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **2.0**
-* \(s_c^2\) = **1.0**
+* \(\bar x\) = 2
+* \(s_c^2\) = 1
 * variation coefficient = {:NUMERICAL:%100%0.5:0.05}
 
 
@@ -848,15 +848,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**2.0**
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)={:NUMERICAL:%100%4:0.05}
+* \(x_1\)=2
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)={:NUMERICAL:%100%4.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **2.667**
+* \(\bar x\) = 2.667
 * \(s_c^2\) = {:NUMERICAL:%100%1.333:0.05}
-* variation coefficient = **0.433**
+* variation coefficient = 0.433
 
 
 
@@ -875,15 +875,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)=**3.0**
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)={:NUMERICAL:%100%5:0.05}
+* \(x_1\)={:NUMERICAL:%100%3.0:0.05}
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)=5
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = {:NUMERICAL:%100%3.333:0.05}
-* \(s_c^2\) = **2.333**
-* variation coefficient = **0.458**
+* \(\bar x\) = 3.333
+* \(s_c^2\) = {:NUMERICAL:%100%2.333:0.05}
+* variation coefficient = 0.458
 
 
 
@@ -902,15 +902,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%4:0.05}
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)=**6.0**
+* \(x_1\)={:NUMERICAL:%100%4.0:0.05}
+* \(x_2\)=2
+* \(x_3\)={:NUMERICAL:%100%6.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.0**
+* \(\bar x\) = 4
 * \(s_c^2\) = {:NUMERICAL:%100%4.0:0.05}
-* variation coefficient = **0.5**
+* variation coefficient = 0.5
 
 
 
@@ -929,15 +929,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%5:0.05}
-* \(x_2\)=**2.0**
-* \(x_3\)={:NUMERICAL:%100%7:0.05}
+* \(x_1\)=5
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)={:NUMERICAL:%100%7.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
-* \(\bar x\) = **4.667**
-* \(s_c^2\) = {:NUMERICAL:%100%6.333:0.05}
-* variation coefficient = **0.539**
+* \(\bar x\) = {:NUMERICAL:%100%4.667:0.05}
+* \(s_c^2\) = 6.333
+* variation coefficient = 0.539
 
 
 
@@ -956,15 +956,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%1:0.05}
-* \(x_2\)={:NUMERICAL:%100%2:0.05}
-* \(x_3\)=**3.0**
+* \(x_1\)={:NUMERICAL:%100%1.0:0.05}
+* \(x_2\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_3\)=3
  
 and based on this sample, the following statistics are calculated:
 
 * \(\bar x\) = {:NUMERICAL:%100%2.0:0.05}
-* \(s_c^2\) = **1.0**
-* variation coefficient = **0.5**
+* \(s_c^2\) = 1
+* variation coefficient = 0.5
 
 
 
@@ -983,15 +983,15 @@ and based on this sample, the following statistics are calculated:
 
 Consider the following sample,
 
-* \(x_1\)={:NUMERICAL:%100%2:0.05}
-* \(x_2\)=**2.0**
-* \(x_3\)={:NUMERICAL:%100%4:0.05}
+* \(x_1\)={:NUMERICAL:%100%2.0:0.05}
+* \(x_2\)=2
+* \(x_3\)={:NUMERICAL:%100%4.0:0.05}
  
 and based on this sample, the following statistics are calculated:
 
 * \(\bar x\) = {:NUMERICAL:%100%2.667:0.05}
-* \(s_c^2\) = **1.333**
-* variation coefficient = **0.433**
+* \(s_c^2\) = 1.333
+* variation coefficient = 0.433
 
 
 

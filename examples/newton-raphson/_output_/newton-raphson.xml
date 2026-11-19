@@ -3,7 +3,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -12,7 +12,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 001 (data row is 01) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 001 (data row is 01) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^2-12\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -31,7 +31,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -40,7 +40,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 002 (data row is 02) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 002 (data row is 02) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^2-12\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -59,7 +59,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -68,7 +68,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 003 (data row is 03) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 003 (data row is 03) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^2-12\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -87,7 +87,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -96,7 +96,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 004 (data row is 04) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 004 (data row is 04) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^3-40\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -115,7 +115,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -124,7 +124,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 005 (data row is 05) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 005 (data row is 05) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^3-40\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -143,7 +143,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -152,7 +152,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 006 (data row is 06) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 006 (data row is 06) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^3-40\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -171,7 +171,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -180,7 +180,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 007 (data row is 07) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 007 (data row is 07) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=e^x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -199,7 +199,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -208,7 +208,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 008 (data row is 08) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 008 (data row is 08) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=e^x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -227,7 +227,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -236,7 +236,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 009 (data row is 09) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 009 (data row is 09) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=e^x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -255,7 +255,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -264,7 +264,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 010 (data row is 10) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 010 (data row is 10) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=\ln x-1.2\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -283,7 +283,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -292,7 +292,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 011 (data row is 11) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 011 (data row is 11) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=\ln x-1.2\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -311,7 +311,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -320,7 +320,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 012 (data row is 12) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 012 (data row is 12) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=\ln x-1.2\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -339,7 +339,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -348,7 +348,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 013 (data row is 13) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 013 (data row is 13) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=\sin x\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -367,7 +367,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -376,7 +376,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 014 (data row is 14) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 014 (data row is 14) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=\sin x\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -395,7 +395,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -404,7 +404,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 015 (data row is 15) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 015 (data row is 15) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=\sin x\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -423,7 +423,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -432,7 +432,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 016 (data row is 16) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 016 (data row is 16) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=2^x-10\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -451,7 +451,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -460,7 +460,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 017 (data row is 17) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 017 (data row is 17) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=2^x-10\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -479,7 +479,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -488,7 +488,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 018 (data row is 18) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 018 (data row is 18) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=2^x-10\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -507,7 +507,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -516,7 +516,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 019 (data row is 19) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 019 (data row is 19) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^2-x-7\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -535,7 +535,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -544,7 +544,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 020 (data row is 20) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 020 (data row is 20) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^2-x-7\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -563,7 +563,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -572,7 +572,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 021 (data row is 21) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 021 (data row is 21) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^2-x-7\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -591,7 +591,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -600,7 +600,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 022 (data row is 22) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 022 (data row is 22) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=\frac{1}{x}-0.3\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -619,7 +619,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -628,7 +628,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 023 (data row is 23) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 023 (data row is 23) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=\frac{1}{x}-0.3\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -647,7 +647,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -656,7 +656,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 024 (data row is 24) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 024 (data row is 24) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=\frac{1}{x}-0.3\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -675,7 +675,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -684,7 +684,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 025 (data row is 25) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 025 (data row is 25) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x\ln x-4\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -703,7 +703,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -712,7 +712,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 026 (data row is 26) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 026 (data row is 26) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x\ln x-4\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -731,7 +731,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -740,7 +740,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 027 (data row is 27) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 027 (data row is 27) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x\ln x-4\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -759,7 +759,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -768,7 +768,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 028 (data row is 28) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 028 (data row is 28) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^3-2x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -787,7 +787,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -796,7 +796,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 029 (data row is 29) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 029 (data row is 29) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^3-2x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>
@@ -815,7 +815,7 @@
 
 <question type="category">
     <category>
-        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>$course$/top/imports/newton-raphson/Random Question 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </category>
     <info format="html">
         <text></text>
@@ -824,7 +824,7 @@
 </question>
 <question type="cloze">
     <name>
-        <text>Variant 030 (data row is 30) de 001 [ALPHA, ERRABS, B, A, FUN, X1, X2]</text>
+        <text>Variant 030 (data row is 30) de 001 [ALPHA, FUN, ERRABS, B, A, X1, X2]</text>
     </name>
     <questiontext format="html">
         <text><![CDATA[<p>A função \(f(x)=x^3-2x-30\) tem um único zero \(\alpha\) em [3, 4]. (Responda às questões com 4 casas decimais.)</p>

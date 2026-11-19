@@ -50,6 +50,17 @@ variant_word: Variant
 problem_word: Problem
 
 
+# Layering: these defaults < project.yaml (project root) < exercise.yaml (exercise folder).
+# Any key may be set in either file. Old config.yaml files still work (deprecated).
+#
+# clozecloud (project.yaml only; never commit the token itself):
+# clozecloud:
+#   url: https://clozecloud.example.org
+#   user_tag: your_tag
+#   token_env: CLOZECLOUD_TOKEN   # env var holding the API token
+# Then call pe.push() after reviewing the exercises.
+
+
 # Debug section
 
 # output a knowledge graph

@@ -1,6 +1,0 @@
-
-# CSV as a standard format
-dataframe_type: xlsx  #csv or xlsx
-csv_separator: "," 
-csv_decimal: "." 
-

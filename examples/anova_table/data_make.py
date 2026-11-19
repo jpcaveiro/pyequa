@@ -53,7 +53,7 @@ df.loc[len(df)] = make(4, 4,  200, 120)
 #print(df)
 
 
-df.to_excel("data.xlsx")
+df.to_csv(Path(__file__).parent / "data.csv", sep=";")
 
 
 from pyequa.dependencies import make_var_declarations, make_precedence_dictionary
