@@ -21,7 +21,7 @@ scenario_relations = {
    'Eq(ERRABS, ALPHA+X2)',
 }
 
-pe = PyEqua(Path('newton-raphson'), scenario_relations, variable_attributes)
+pe = PyEqua(Path('numerics/newton-raphson'), scenario_relations, variable_attributes)
 
 
 

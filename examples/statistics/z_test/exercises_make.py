@@ -23,7 +23,7 @@ variable_attributes = {
 
 from pyequa.config import PyEqua
 
-pe = PyEqua("z_test", scenary_relations, variable_attributes)
+pe = PyEqua("statistics/z_test", scenary_relations, variable_attributes)
 
 
 

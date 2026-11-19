@@ -29,7 +29,7 @@ variable_attributes = {
 
 from pyequa.config import PyEqua
 
-pe = PyEqua("determinant", scenario_relations, variable_attributes)
+pe = PyEqua("numerics/determinant", scenario_relations, variable_attributes)
 
 
 #pe.randomquestion_sameblanks(fill_in_blanks_vars = {'a11', 'a12'}, 

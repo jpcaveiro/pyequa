@@ -1,7 +1,7 @@
 ---
-title: "determinant"
+title: "numerics/determinant"
 author: "Pedro Cruz"
-date: "2026-11-12_22-43-56"
+date: "2026-11-19_17-24-10"
 output:
   html_document: default
 ---
@@ -36,7 +36,7 @@ where
     </tbody>
   </table>
 
-So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that has zero or infinite solutions.
+So \(det(A)\) = 0 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions\~%0%has a unique solution}.
 
 
 
@@ -79,7 +79,7 @@ where
     </tbody>
   </table>
 
-So \(det(A)\) = 0 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions\~%0%has a unique solution}.
+So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that has zero or infinite solutions.
 
 
 
@@ -113,10 +113,10 @@ where
     <tbody>
       <tr>
         <td>\(a_{11}\) = 4</td>
-        <td>\(a_{12}\) = {:NUMERICAL:%100%6:0.05}</td>
+        <td>\(a_{12}\) = 6</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = 6</td>
+        <td>\(a_{21}\) = {:NUMERICAL:%100%6:0.05}</td>
         <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
@@ -156,10 +156,10 @@ where
     <tbody>
       <tr>
         <td>\(a_{11}\) = 1</td>
-        <td>\(a_{12}\) = 0</td>
+        <td>\(a_{12}\) = {:NUMERICAL:%100%0:0.05}</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = {:NUMERICAL:%100%3:0.05}</td>
+        <td>\(a_{21}\) = 3</td>
         <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
@@ -198,12 +198,12 @@ where
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = {:NUMERICAL:%100%1:0.05}</td>
+        <td>\(a_{11}\) = 1</td>
         <td>\(a_{12}\) = 3</td>
       </tr>
       <tr>
         <td>\(a_{21}\) = 2</td>
-        <td>\(a_{22}\) = 6</td>
+        <td>\(a_{22}\) = {:NUMERICAL:%100%6:0.05}</td>
       </tr>
     </tbody>
   </table>
@@ -241,12 +241,12 @@ where
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = 4</td>
+        <td>\(a_{11}\) = {:NUMERICAL:%100%4:0.05}</td>
         <td>\(a_{12}\) = 4</td>
       </tr>
       <tr>
         <td>\(a_{21}\) = 4</td>
-        <td>\(a_{22}\) = {:NUMERICAL:%100%4:0.05}</td>
+        <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
   </table>
@@ -267,7 +267,7 @@ So \(det(A)\) = 0 and  \(Ax=b\) is a system that has zero or infinite solutions.
 
 # Problem 007 (data row is 02)
 
-Consider
+Consider 
 
 \[A=\left[\begin{matrix}
 a_{11} & a_{12} \\
@@ -328,16 +328,16 @@ where
     <tbody>
       <tr>
         <td>\(a_{11}\) = 4</td>
-        <td>\(a_{12}\) = {:NUMERICAL:%100%6:0.05}</td>
+        <td>\(a_{12}\) = 6</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = 6</td>
+        <td>\(a_{21}\) = {:NUMERICAL:%100%6:0.05}</td>
         <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
   </table>
 
-So \(det(A)\) = {:NUMERICAL:%100%-20:0.05} and  \(Ax=b\) is a system that has a unique solution.
+So \(det(A)\) = -20 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has a unique solution\~%0%has zero or infinite solutions}.
 
 
 
@@ -371,16 +371,16 @@ where
     <tbody>
       <tr>
         <td>\(a_{11}\) = 1</td>
-        <td>\(a_{12}\) = 0</td>
+        <td>\(a_{12}\) = {:NUMERICAL:%100%0:0.05}</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = {:NUMERICAL:%100%3:0.05}</td>
+        <td>\(a_{21}\) = 3</td>
         <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
   </table>
 
-So \(det(A)\) = {:NUMERICAL:%100%4:0.05} and  \(Ax=b\) is a system that has a unique solution.
+So \(det(A)\) = 4 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has a unique solution\~%0%has zero or infinite solutions}.
 
 
 
@@ -413,17 +413,17 @@ where
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = {:NUMERICAL:%100%1:0.05}</td>
+        <td>\(a_{11}\) = 1</td>
         <td>\(a_{12}\) = 3</td>
       </tr>
       <tr>
         <td>\(a_{21}\) = 2</td>
-        <td>\(a_{22}\) = 6</td>
+        <td>\(a_{22}\) = {:NUMERICAL:%100%6:0.05}</td>
       </tr>
     </tbody>
   </table>
 
-So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that has zero or infinite solutions.
+So \(det(A)\) = 0 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions\~%0%has a unique solution}.
 
 
 
@@ -457,16 +457,16 @@ where
     <tbody>
       <tr>
         <td>\(a_{11}\) = 4</td>
-        <td>\(a_{12}\) = {:NUMERICAL:%100%4:0.05}</td>
+        <td>\(a_{12}\) = 4</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = 4</td>
+        <td>\(a_{21}\) = {:NUMERICAL:%100%4:0.05}</td>
         <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
   </table>
 
-So \(det(A)\) = 0 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions\~%0%has a unique solution}.
+So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that has zero or infinite solutions.
 
 
 
@@ -500,16 +500,16 @@ where
     <tbody>
       <tr>
         <td>\(a_{11}\) = 4</td>
-        <td>\(a_{12}\) = 4</td>
+        <td>\(a_{12}\) = {:NUMERICAL:%100%4:0.05}</td>
       </tr>
       <tr>
-        <td>\(a_{21}\) = {:NUMERICAL:%100%2:0.05}</td>
+        <td>\(a_{21}\) = 2</td>
         <td>\(a_{22}\) = 2</td>
       </tr>
     </tbody>
   </table>
 
-So \(det(A)\) = 0 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions\~%0%has a unique solution}.
+So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that has zero or infinite solutions.
 
 
 
@@ -542,17 +542,17 @@ where
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = {:NUMERICAL:%100%4:0.05}</td>
+        <td>\(a_{11}\) = 4</td>
         <td>\(a_{12}\) = 6</td>
       </tr>
       <tr>
         <td>\(a_{21}\) = 6</td>
-        <td>\(a_{22}\) = 4</td>
+        <td>\(a_{22}\) = {:NUMERICAL:%100%4:0.05}</td>
       </tr>
     </tbody>
   </table>
 
-So \(det(A)\) = -20 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has a unique solution\~%0%has zero or infinite solutions}.
+So \(det(A)\) = {:NUMERICAL:%100%-20:0.05} and  \(Ax=b\) is a system that has a unique solution.
 
 
 
@@ -585,17 +585,17 @@ where
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = 1</td>
+        <td>\(a_{11}\) = {:NUMERICAL:%100%1:0.05}</td>
         <td>\(a_{12}\) = 0</td>
       </tr>
       <tr>
         <td>\(a_{21}\) = 3</td>
-        <td>\(a_{22}\) = {:NUMERICAL:%100%4:0.05}</td>
+        <td>\(a_{22}\) = 4</td>
       </tr>
     </tbody>
   </table>
 
-So \(det(A)\) = {:NUMERICAL:%100%4:0.05} and  \(Ax=b\) is a system that has a unique solution.
+So \(det(A)\) = 4 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has a unique solution\~%0%has zero or infinite solutions}.
 
 
 
@@ -628,17 +628,17 @@ where
     </colgroup>
     <tbody>
       <tr>
-        <td>\(a_{11}\) = 1</td>
+        <td>\(a_{11}\) = {:NUMERICAL:%100%1:0.05}</td>
         <td>\(a_{12}\) = 3</td>
       </tr>
       <tr>
         <td>\(a_{21}\) = 2</td>
-        <td>\(a_{22}\) = {:NUMERICAL:%100%6:0.05}</td>
+        <td>\(a_{22}\) = 6</td>
       </tr>
     </tbody>
   </table>
 
-So \(det(A)\) = 0 and  \(Ax=b\) is a system that {:MULTICHOICE_S:%100%has zero or infinite solutions\~%0%has a unique solution}.
+So \(det(A)\) = {:NUMERICAL:%100%0:0.05} and  \(Ax=b\) is a system that has zero or infinite solutions.
 
 
 

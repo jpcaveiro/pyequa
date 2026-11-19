@@ -1,12 +1,12 @@
 ---
-title: "anova_table"
-author: "Pedro Cruz"
-date: "2026-11-12_22-36-35"
+title: "statistics/anova_table"
+author: "author"
+date: "2026-11-19_17-25-15"
 output:
   html_document: default
 ---
 
-# Problem problem given [msqerrors, dferrors, dftotal, sqerrors, msqgroups, dfgroups, f, g, n, sqgroups] - CLOZE
+# Problem problem given [f, sqgroups, msqerrors, dfgroups, sqerrors, dferrors, g, dftotal, n] - CLOZE
 
 
 ## Variant 001 (data row is 01)
@@ -39,7 +39,7 @@ In a study examining the effective duration of insulating fluids under a 35KV lo
         <td>Between Groups</td>
         <td>4</td>
         <td>3</td>
-        <td>1.333</td>
+        <td>{:NUMERICAL:%100%1.333:0.05}</td>
         <td>1</td>
         <td>{:NUMERICAL:%100%0.426:0.005}</td>
       </tr>

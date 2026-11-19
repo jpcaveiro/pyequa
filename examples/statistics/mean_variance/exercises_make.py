@@ -26,7 +26,7 @@ variable_attributes = {
 
 from pyequa.config import PyEqua
 
-pe = PyEqua("mean_variance", scenario_relations, variable_attributes)
+pe = PyEqua("statistics/mean_variance", scenario_relations, variable_attributes)
 
 #pe.scenario.draw_wisdom_graph()
 
