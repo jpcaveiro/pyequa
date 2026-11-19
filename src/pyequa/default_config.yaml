@@ -50,10 +50,10 @@ variant_word: Variant
 problem_word: Problem
 
 
-# Layering: these defaults < project.yaml (project root) < exercise.yaml (exercise folder).
+# Layering: these defaults < section.yaml (project root) < exercise.yaml (exercise folder).
 # Any key may be set in either file. Old config.yaml files still work (deprecated).
 #
-# clozecloud (project.yaml only; never commit the token itself):
+# clozecloud (section.yaml only; never commit the token itself):
 # clozecloud:
 #   url: https://clozecloud.example.org
 #   user_tag: your_tag

@@ -27,15 +27,16 @@ DEFAULT_CONFIG_PATH = Path(__file__).parent / "default_config.yaml"
 
 
 def find_project_root(start):
-    """Return the nearest folder (``start`` or a parent) holding ``project.yaml``.
+    """Return the topmost folder (``start`` or a parent) holding ``section.yaml``.
 
     Falls back to ``PYEQUA_PROJECT_ROOT`` when none is found.
     """
     start = Path(start).resolve()
+    found = None
     for folder in (start, *start.parents):
-        if (folder / "project.yaml").is_file():
-            return folder
-    return Path(PYEQUA_PROJECT_ROOT).resolve()
+        if (folder / "section.yaml").is_file():
+            found = folder
+    return found if found is not None else Path(PYEQUA_PROJECT_ROOT).resolve()
 
 
 
@@ -128,10 +129,11 @@ class Config:
     def __init__(self, exercise_relativefolder):
         """Create the merged configuration for an exercise folder.
 
-        Layers, closest wins: pyequa defaults, ``project.yaml`` at the
-        project root, ``exercise.yaml`` in the exercise folder. A legacy
-        ``config.yaml`` is used (with a ``DeprecationWarning``) at a level
-        where the new file is absent.
+        Layers, closest wins: pyequa defaults, every ``section.yaml`` from
+        the root folder down to the exercise folder, then ``exercise.yaml``
+        in the exercise folder. Any of them may define ``shortdescription``.
+        A legacy ``config.yaml`` is used (with a ``DeprecationWarning``) at a
+        level where the new file is absent.
 
         Args:
             exercise_relativefolder: Exercise directory relative to
@@ -142,7 +144,20 @@ class Config:
         self.project_root = find_project_root(exercise_folder)
 
         config = self._read_optional(DEFAULT_CONFIG_PATH) or {}
-        config = self.merge_configs(config, self._read_level(self.project_root, "project.yaml"))
+        exercise_resolved = exercise_folder.resolve()
+        try:
+            chain = exercise_resolved.relative_to(self.project_root).parts
+        except ValueError:
+            chain = ()
+        section_folders = [self.project_root]
+        for part in chain:
+            section_folders.append(section_folders[-1] / part)
+        for folder in section_folders:
+            if folder == exercise_resolved:
+                continue
+            config = self.merge_configs(config, self._read_level(folder, "section.yaml"))
+        if (exercise_folder / "section.yaml").is_file():
+            config = self.merge_configs(config, self._read_level(exercise_folder, "section.yaml"))
         config = self.merge_configs(config, self._read_level(exercise_folder, "exercise.yaml"))
 
         if 'debug' not in config:
@@ -672,7 +687,7 @@ class PyEqua:
         """Upload the generated Moodle XML to clozecloud.
 
         Call explicitly (``pe.push()``) after reviewing the exercises. Needs
-        a ``clozecloud`` section in ``project.yaml``. Failures only warn.
+        a ``clozecloud`` section in ``section.yaml``. Failures only warn.
 
         Returns:
             True if the file was pushed, otherwise False.
@@ -680,3 +695,45 @@ class PyEqua:
         xml_path = self.text_service.allexercises_fullpath.with_suffix('.xml')
         return clozecloud.push(xml_path, self.config, self.exercise_folder,
                                find_project_root(self.exercise_folder))
+
+    @staticmethod
+    def make_clozecloud_zip(relpath):
+        """Zip all ``*.xml`` files under ``relpath`` for ClozeCloud's data folder.
+
+        The archive keeps the folder structure of ``relpath`` (without any
+        ``_output_`` folder, so ``a/_output_/a.xml`` is stored as ``a/a.xml``) and also holds
+        an ``index.yaml`` mapping each folder (``.`` is ``relpath`` itself,
+        POSIX separators) to the ``shortdescription`` of its ``section.yaml``
+        or ``exercise.yaml`` (the exercise one wins when both define it).
+
+        Args:
+            relpath: Folder relative to ``PYEQUA_PROJECT_ROOT``.
+
+        Returns:
+            Path of ``<relpath folder name>.zip``, written inside ``relpath``.
+        """
+        import zipfile
+
+        base = (Path(PYEQUA_PROJECT_ROOT) / relpath).resolve()
+        if not base.is_dir():
+            raise FileNotFoundError(f"Folder '{base}' does not exist.")
+        zip_path = base / f"{base.name}.zip"
+
+        index = {}
+        for folder in sorted([base, *(p for p in base.rglob("*") if p.is_dir())]):
+            description = None
+            for name in ("section.yaml", "exercise.yaml"):
+                file = folder / name
+                if file.is_file():
+                    data = yaml.safe_load(file.read_text(encoding="utf-8")) or {}
+                    description = data.get("shortdescription", description)
+            if description is not None:
+                index[folder.relative_to(base).as_posix()] = description
+
+        with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
+            for xml in sorted(base.rglob("*.xml")):
+                parts = [p for p in xml.relative_to(base).parts if p != "_output_"]
+                zf.write(xml, "/".join(parts))
+            zf.writestr("index.yaml",
+                        yaml.safe_dump(index, allow_unicode=True, sort_keys=False))
+        return zip_path

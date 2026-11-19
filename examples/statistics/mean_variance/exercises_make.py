@@ -71,5 +71,5 @@ pe.exploratory() # is the same as
 #profiler.print_stats(sort='time')  # Sort by time spent
 
 
-# After reviewing the exercises, upload them to clozecloud (needs project.yaml settings):
+# After reviewing the exercises, upload them to clozecloud (needs section.yaml settings):
 # pe.push()

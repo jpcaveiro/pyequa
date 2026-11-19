@@ -1,6 +1,6 @@
 """Push generated Moodle XML to a clozecloud server.
 
-Settings live under the ``clozecloud`` key of ``project.yaml``::
+Settings live under the ``clozecloud`` key of ``section.yaml``::
 
     clozecloud:
       url: https://clozecloud.example.org
@@ -36,7 +36,7 @@ def push(xml_path, config, exercise_folder, project_root, timeout=30):
         token_env = settings.get('token_env')
         if not (url and tag and token_env):
             warnings.warn("clozecloud: 'url', 'user_tag' and 'token_env' must be set in "
-                          "project.yaml; nothing pushed.")
+                          "section.yaml; nothing pushed.")
             return False
         token = os.getenv(token_env)
         if not token:

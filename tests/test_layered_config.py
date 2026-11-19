@@ -17,12 +17,24 @@ def project(tmp_path, monkeypatch):
 
 
 def test_layers_closest_wins(project):
-    (project / "project.yaml").write_text("author: proj\nglobal_tolerance: 0.5\n")
+    (project / "section.yaml").write_text("author: proj\nglobal_tolerance: 0.5\n")
     (project / "ex" / "exercise.yaml").write_text("global_tolerance: 0.1\n")
     c = cfg.Config("ex").config
     assert c["author"] == "proj"
     assert c["global_tolerance"] == 0.1
     assert c["problem_word"] == "Problem"  # pyequa default
+
+
+def test_nested_sections_and_shortdescription(project):
+    (project / "ex" / "sub").mkdir()
+    (project / "section.yaml").write_text("author: top\nshortdescription: Top\n")
+    (project / "ex" / "section.yaml").write_text("shortdescription: Mid\n")
+    (project / "ex" / "sub" / "exercise.yaml").write_text("shortdescription: Leaf\n")
+    assert cfg.find_project_root(project / "ex" / "sub") == project.resolve()
+    c = cfg.Config("ex/sub").config
+    assert c["author"] == "top"
+    assert c["shortdescription"] == "Leaf"
+    assert cfg.Config("ex").config["shortdescription"] == "Mid"
 
 
 def test_legacy_config_warns(project):
@@ -33,8 +45,21 @@ def test_legacy_config_warns(project):
 
 
 def test_find_project_root_walks_up(project):
-    (project / "project.yaml").write_text("{}\n")
+    (project / "section.yaml").write_text("{}\n")
     assert cfg.find_project_root(project / "ex") == project.resolve()
+
+
+def test_make_clozecloud_zip(project):
+    import zipfile, yaml
+    (project / "section.yaml").write_text("shortdescription: Top\n")
+    (project / "ex" / "exercise.yaml").write_text("shortdescription: Ex\n")
+    (project / "ex" / "_output_").mkdir()
+    (project / "ex" / "_output_" / "a.xml").write_text("<quiz/>")
+    (project / "ex" / "a.md").write_text("x")
+    z = cfg.PyEqua.make_clozecloud_zip(".")
+    with zipfile.ZipFile(z) as zf:
+        assert sorted(zf.namelist()) == ["ex/a.xml", "index.yaml"]
+        assert yaml.safe_load(zf.read("index.yaml")) == {".": "Top", "ex": "Ex"}
 
 
 def test_push_failure_only_warns(project, monkeypatch):
