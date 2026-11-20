@@ -51,15 +51,24 @@ def test_find_project_root_walks_up(project):
 
 def test_make_clozecloud_zip(project):
     import zipfile, yaml
-    (project / "section.yaml").write_text("shortdescription: Top\n")
-    (project / "ex" / "exercise.yaml").write_text("shortdescription: Ex\n")
-    (project / "ex" / "_output_").mkdir()
-    (project / "ex" / "_output_" / "a.xml").write_text("<quiz/>")
-    (project / "ex" / "a.md").write_text("x")
-    z = cfg.PyEqua.make_clozecloud_zip(".")
+    (project / "sec" / "ex" / "_output_").mkdir(parents=True)
+    (project / "sec" / "section.yaml").write_text("shortdescription: Sec\n")
+    (project / "sec" / "ex" / "exercise.yaml").write_text("shortdescription: Ex\n")
+    (project / "sec" / "ex" / "_output_" / "a.xml").write_text("<quiz/>")
+    (project / "sec" / "ex" / "a.md").write_text("x")
+    z = cfg.PyEqua.make_clozecloud_zip("sec")
     with zipfile.ZipFile(z) as zf:
-        assert sorted(zf.namelist()) == ["ex/a.xml", "index.yaml"]
-        assert yaml.safe_load(zf.read("index.yaml")) == {".": "Top", "ex": "Ex"}
+        assert sorted(zf.namelist()) == ["index.yaml", "sec/a.xml"]
+        assert yaml.safe_load(zf.read("index.yaml")) == {"sec": "Sec", "sec/a.xml": "Ex"}
+    (project / "section.yaml").write_text("shortdescription: Top\n")
+    (project / "sec" / "sub").mkdir()
+    (project / "top").mkdir()
+    (project / "top" / "section.yaml").write_text("shortdescription: Mid\n")
+    (project / "top" / "sec").mkdir()
+    (project / "top" / "sec" / "section.yaml").write_text("shortdescription: Inner\n")
+    z = cfg.PyEqua.make_clozecloud_zip("top/sec")
+    with zipfile.ZipFile(z) as zf:
+        assert yaml.safe_load(zf.read("index.yaml")) == {"top": "Mid", "top/sec": "Inner"}
 
 
 def test_push_failure_only_warns(project, monkeypatch):

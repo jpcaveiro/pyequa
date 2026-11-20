@@ -700,11 +700,18 @@ class PyEqua:
     def make_clozecloud_zip(relpath):
         """Zip all ``*.xml`` files under ``relpath`` for ClozeCloud's data folder.
 
-        The archive keeps the folder structure of ``relpath`` (without any
-        ``_output_`` folder, so ``a/_output_/a.xml`` is stored as ``a/a.xml``) and also holds
-        an ``index.yaml`` mapping each folder (``.`` is ``relpath`` itself,
-        POSIX separators) to the ``shortdescription`` of its ``section.yaml``
-        or ``exercise.yaml`` (the exercise one wins when both define it).
+        Paths in the archive are relative to ``PYEQUA_PROJECT_ROOT`` (so
+        ``"examples/statistics"`` is stored under ``examples/statistics/``)
+        without any ``_output_`` folder (``a/_output_/a.xml`` becomes
+        ``a/a.xml``), and exercise folders (with ``exercise.yaml``) are
+        flattened into their parent (``sec/ex/_output_/ex.xml`` becomes
+        ``sec/ex.xml``). ``index.yaml`` maps paths to ``shortdescription``:
+        every folder from the project root's child down to ``relpath``
+        (``"examples/statistics"`` gives ``examples`` and
+        ``examples/statistics``), every sub-section folder with a
+        ``section.yaml``, and, for each exercise folder (``exercise.yaml``),
+        one entry per xml file keyed ``<parent folder>/<file>.xml``, e.g.
+        ``examples/numerics/determinant.xml``.
 
         Args:
             relpath: Folder relative to ``PYEQUA_PROJECT_ROOT``.
@@ -714,26 +721,59 @@ class PyEqua:
         """
         import zipfile
 
-        base = (Path(PYEQUA_PROJECT_ROOT) / relpath).resolve()
+        root = Path(PYEQUA_PROJECT_ROOT).resolve()
+        base = (root / relpath).resolve()
         if not base.is_dir():
             raise FileNotFoundError(f"Folder '{base}' does not exist.")
         zip_path = base / f"{base.name}.zip"
 
-        index = {}
-        for folder in sorted([base, *(p for p in base.rglob("*") if p.is_dir())]):
+        def rel(path):
+            return path.relative_to(root).as_posix()
+
+        def is_exercise(folder):
+            return (folder / "exercise.yaml").is_file() or (folder / "_output_").is_dir()
+
+        def clean(path):
+            parts = [p for p in path.relative_to(root).parts if p != "_output_"]
+            for folder in path.parents:
+                if folder == root or base not in (folder, *folder.parents):
+                    break
+                if is_exercise(folder):
+                    # exercise folders are flattened: sec/ex/ex.xml -> sec/ex.xml
+                    parts = [*folder.parent.relative_to(root).parts, path.name]
+                    break
+            return "/".join(parts)
+
+        def description_of(folder, names):
             description = None
-            for name in ("section.yaml", "exercise.yaml"):
+            for name in names:
                 file = folder / name
                 if file.is_file():
                     data = yaml.safe_load(file.read_text(encoding="utf-8")) or {}
                     description = data.get("shortdescription", description)
-            if description is not None:
-                index[folder.relative_to(base).as_posix()] = description
+            return description
+
+        index = {}
+        # ancestors of relpath (below the root) and relpath itself
+        folders = [p for p in (base, *base.parents) if p != root and root in p.parents][::-1]
+        if base == root:
+            folders = [base]
+        folders += sorted(p for p in base.rglob("*") if p.is_dir() and "_output_" not in p.parts)
+        for folder in folders:
+            if is_exercise(folder):
+                description = description_of(folder, ("section.yaml", "exercise.yaml"))
+                if description is None:
+                    continue
+                for xml in sorted(folder.rglob("*.xml")):
+                    index[f"{rel(folder.parent)}/{xml.name}".removeprefix("./")] = description
+            else:
+                description = description_of(folder, ("section.yaml",))
+                if description is not None:
+                    index[rel(folder)] = description
 
         with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zf:
             for xml in sorted(base.rglob("*.xml")):
-                parts = [p for p in xml.relative_to(base).parts if p != "_output_"]
-                zf.write(xml, "/".join(parts))
+                zf.write(xml, clean(xml))
             zf.writestr("index.yaml",
                         yaml.safe_dump(index, allow_unicode=True, sort_keys=False))
         return zip_path
